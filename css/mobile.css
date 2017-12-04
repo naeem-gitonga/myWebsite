@@ -78,7 +78,7 @@
     }  
 
     img{
-        max-width: 100%;
+        /* max-width: 100%; */
     }
 
     label{
@@ -92,8 +92,8 @@
     }
 
     img.project-image {
-        width:75%;
-        height:auto;
+        /* width:75%; */
+        /* height:auto; */
     }
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
     #caption {
