@@ -1,4 +1,3 @@
-
 const reduxStackItem = 
   `<div class="project-stack-item">
     <svg class='redux logo' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -12,7 +11,7 @@ const reduxStackItem =
   </div>`
 
 const nodeStackItem =
-  `<div class="project-stack-item"> 
+  `<div class="project-stack-item node-logo"> 
     <img class="node logo" src="./pix/nodelogo.png">
     <p class='name text'>Node.js</p>
   </div>`
@@ -81,8 +80,8 @@ const projectArr = [
 			
             <section class="project">
 				<div class='image-container'>
-					<a href="#"><img class="project-image" src="./pix/npmSC.png"
-						alt="npm screenshot"></a>
+					 <img class="project-image" src="./pix/npmSC.png"
+						alt="npm screenshot"> 
 						<div class='overlay'>
 						<h2 class='title text'>Arithmetik</h2>
 								<p class="project-description text">
@@ -179,8 +178,8 @@ let showProjects = () => {
 		`<section class="project">
 		
 			<div class='image-container'>
-				<a href=${project.projectLink}><img class="project-image" src=${project.projectImg}
-				alt='app screenshot ${index}'></a>
+				 <img class="project-image" src=${project.projectImg}
+				alt='app screenshot ${index}'> 
 				<div class='overlay'>
 					<h2 class='title text'>${project.title}</h2>
 					<p class="project-description text">
@@ -247,15 +246,8 @@ document.getElementById("main-div").addEventListener("click", function(e) {
     if(e.target && e.target.matches('#vectored')){
         this.removeChild(vectored)
         this.insertAdjacentHTML('afterbegin', standardPic)
-	}
+	  }
 	
-	// if(e.target && e.target.matches('#contact')){
-	// 	console.log('fire')
-    //     this.removeChild('#standard');
-    //     this.insertAdjacentHTML('afterbegin', aboutMe)
-	// }
-	//THE ABOVE FEW LINES ARE BROKE NEEDS FIXING
-
 });
 
 

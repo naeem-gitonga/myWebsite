@@ -34,16 +34,10 @@ footer {
     text-align: center;
 }
 .project-image {
-    /* display:block;  */
     height:350px;
     position: relative;
     top: -25px;
 
-}
-.border-bottom {
-    /* width:75%;
-    margin: 0 auto;
-    border-bottom:1px solid black; */
 }
 
 .work-and-stuff{
@@ -53,7 +47,6 @@ footer {
 }
 
 .project {
-    /* margin-bottom:100px; */
     display: inline-block;
     margin: 6px;
     
@@ -109,8 +102,6 @@ p.name {
 }
 .all-container{
     top:-650px;
-    /* display:table-cell; */
-    /* vertical-align:middle; */
     position:relative;
     width:50%;
     margin:0 auto;
@@ -211,10 +202,7 @@ p.name {
         margin:8px;
     }
 
-    img{
-        /* max-width: 100%; */
-    }
-     li{
+    li{
         display: inline;
         list-style: none;
         text-decoration:none;
@@ -225,7 +213,6 @@ p.name {
         text-align:center;
         margin-bottom:0;
     }
-
    
     .about{
         color:black;
@@ -233,7 +220,6 @@ p.name {
         margin-left:auto;
         margin-top:20px;
         line-height:1.4;
-        /* font-size:16px; */
         overflow:auto;
         word-wrap: break-word;
     }
@@ -273,22 +259,9 @@ p.name {
     .form-style-4{
     width: 100%;
     height:420px;
-    /* font-size: 16px; */
     padding: 30px 30px 15px 30px;
     margin:auto;
     margin-bottom:50px;
-}
-
-.form-style-4 input[type=submit],
-.form-style-4 input[type=button],
-.form-style-4 input[type=text],
-.form-style-4 input[type=email],
-.form-style-4 textarea,
-.form-style-4 label
-{
-    /* font-family: 'Rubik', sans-serif;
-    font-size: 16px; */
-
 }
 
 .form-style-4 label {
@@ -413,7 +386,6 @@ label{
     top: 15px;
     right: 35px;
     color: #f1f1f1;
-    /* font-size: 40px; */
     font-weight: bold;
     transition: 0.3s;
 }
@@ -491,13 +463,6 @@ label{
      height: 350px;
      overflow: hidden;
 }
-
-@media (max-width:720px) {
-    .image-container {
-        /* width:100% */
-    }
-}
-
 
 .overlay {
     position: absolute;

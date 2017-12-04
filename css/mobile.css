@@ -1,5 +1,4 @@
 @media(max-width: 720px){
-    
 
    *{ 
          box-sizing: border-box;
@@ -41,9 +40,6 @@
 
     div{
         text-align:center;
-        /* height:50px; */
-        
-      
     }
 
     li a{
@@ -69,17 +65,12 @@
     }
 
     li{
-        /*color:#D5D382;*/
         display: inline;
         list-style: none;
         text-decoration:none;
         text-align: center;
         
     }  
-
-    img{
-        /* max-width: 100%; */
-    }
 
     label{
         margin-top:10px;
@@ -91,10 +82,6 @@
         margin-top:10px;
     }
 
-    img.project-image {
-        /* width:75%; */
-        /* height:auto; */
-    }
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
     #caption {
         margin: auto;
@@ -126,174 +113,160 @@
 
    
 
-    svg{
+svg{
     height:auto;
     width:30px;
     margin-top:15px;
-    }
+}
 
-    .main-nav{
-        position:block;
-        height:auto;
-    }
+.main-nav{
+    position:block;
+    height:auto;
+}
 
-    .work-and-stuff{
+.work-and-stuff{
     display:block;
     padding:0;
-    }
+}
 
-    .node-logo{
-        height:auto;
-        width:21px;
-    }
-    .modal{
-        display:none
-    }
+.node-logo{
+    height:auto;
+    width:21px;
+}
 
-    .first-ul{
-        padding-top:0px;
-        margin-top:0;
-        margin-top: 15px;
-    }
+.modal{
+    display:none
+}
 
-    .about{
-        margin:30px;
-    }
+.first-ul{
+    padding-top:0px;
+    margin-top:0;
+    margin-top: 15px;
+}
 
-    .project-description{
-        margin:30px;
-    }
+.about{
+     margin:30px;
+}
 
-   
+.project-description{
+    margin:30px;
+}
 
-    .headshot{
-        margin-top:10px;
-        width:auto;
-        height:200px;
-        margin-bottom:10px;
-        border-radius:50%
-    
+.headshot{
+    margin-top:10px;
+    width:auto;
+    height:200px;
+    margin-bottom:10px;
+    border-radius:50%
+}
 
-    }
+.headshot:hover{
+    cursor:pointer;
+}
 
-    .headshot:hover{
-        cursor:pointer;
-    }
+.project-links{
+    padding-top:2px;
+}
 
-    .project-links{
-        padding-top:2px;
-    }
+.this-video{
+    color:#1E162A;
+}
 
-    .this-video{
-        color:#1E162A;
-    }
+.work{
+    text-align:center;
+}
 
-    .work{
-        text-align:center;
-    }
+.contact-form{
+    padding:10px;
+}
 
-    .contact-form{
-        padding:10px;
-    }
-
-    .form-style-4{
-    /*width: 450px;*/
+.form-style-4{
     font-size: 16px;
-    /*background: #A093B2;*/
     padding: 30px 30px 15px 30px;
-    /*border: 5px solid #1E162A;*/
     margin:auto;
     margin-bottom:50px;
-    }
+}
 
-    .form-style-4 input[type=submit],
-    .form-style-4 input[type=button],
-    .form-style-4 input[type=text],
-    .form-style-4 input[type=email],
-    .form-style-4 textarea,
-    .form-style-4 label {
-        font-family: 'Rubik', sans-serif;
-        font-size: 16px;
-        /*color: #1E162A;*/
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button],
+.form-style-4 input[type=text],
+.form-style-4 input[type=email],
+.form-style-4 textarea,
+.form-style-4 label {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
 
-    }
-    .form-style-4 label {
-        display:block;
-        margin-bottom: 10px;
-    }
+}
+    
+.form-style-4 label {
+    display:block;
+    margin-bottom: 10px;
+}
 
-    .form-style-4 label span {
-        display: inline-block;
-        float: left;
-        width: 150px;
-    }
-    .form-style-4 input[type=text],
-    .form-style-4 input[type=email] {
-        background: transparent;
-        border: none;
-        border-bottom: 1px dashed #1E162A;
-        width: 275px;
-        outline: none;
-        padding: 0px 0px 0px 0px;
-        font-style: italic;
-    }
-    .form-style-4 textarea {
-        margin-top:10px;
-        font-style: italic;
-        padding: 0px 0px 0px 0px;
-        background: transparent;
-        outline: none;
-        border: none;
-        border-bottom: 1px dashed #1E162A;
-        width: 275px;
-        overflow: auto;
-        resize:none;
-        height:50px;
-        text-align:center;
-    }
+.form-style-4 label span {
+    display: inline-block;
+    float: left;
+    width: 150px;
+}
 
+.form-style-4 input[type=text],
+.form-style-4 input[type=email] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed #1E162A;
+    width: 275px;
+    outline: none;
+       padding: 0px 0px 0px 0px;
+    font-style: italic;
+}
+.form-style-4 textarea {
+    margin-top:10px;
+    font-style: italic;
+    padding: 0px 0px 0px 0px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px dashed #1E162A;
+    width: 275px;
+    overflow: auto;
+    resize:none;
+    height:50px;
+    text-align:center;
+}
 
-    .form-style-4 textarea:focus, 
-    .form-style-4 input[type=text]:focus,
-    .form-style-4 input[type=email]:focus,
-    .form-style-4 input[type=email] :focus  {
-        /*border-bottom: 1px dashed #D9FFA9;*/
-    }
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button] {
+    background: #1E162A;
+    border: none;
+    padding: 8px 10px 8px 10px;
+    border-radius: 5px;
+}
+    
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button] {
+    margin-top:15px;
+    background: white;
+    box-shadow: 0 2.5px 2.5px 2.5px #1E162A;
+    transition: all 0.2s ease-in-out;
+    margin: 15px auto 0 auto;
+    display:block
+}
 
-    .form-style-4 input[type=submit],
-    .form-style-4 input[type=button] {
-        background: #1E162A;
-        border: none;
-        padding: 8px 10px 8px 10px;
-        border-radius: 5px;
-    }
-    .form-style-4 input[type=submit],
-    .form-style-4 input[type=button] {
-        margin-top:15px;
-        background: white;
-        box-shadow: 0 2.5px 2.5px 2.5px #1E162A;
-        transition: all 0.2s ease-in-out;
-        margin: 15px auto 0 auto;
-        display:block
-
-    }
-
-    .close:hover,
-    .close:focus {
-        color: #bbb;
-        text-decoration: none;
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
         cursor: pointer;
-    }
+}
 
 
-    .react-logo{
-        height:auto;
-        width: 32px; 
-    }
+.react-logo{
+    height:auto;
+    width: 32px; 
+}
 
-    .node-logo{
-        height:auto;
-        width:23px;
-    }
+.node-logo{
+    height:auto;
+    width:23px;
 }
 
