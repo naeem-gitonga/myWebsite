@@ -499,4 +499,10 @@ label{
 
 .project-description {
     font-size:15px;
+    color:gold;
+    margin-bottom:10px;
+}
+
+.node-logo {
+    margin-top:5px;
 }
