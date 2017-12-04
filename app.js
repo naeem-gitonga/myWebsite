@@ -62,7 +62,7 @@ const projectArr = [
     	},{
 			title:"What's my Horoscope?",
 			projectImg: './pix/myHoroscope.png',
-			projectDes: 'MVP for app that allows users to learn the topic of their choosing.',
+			projectDes: 'MVP for app gives simple horoscope/motivational quote.',
 			projectStack:	`${projectStack}`,
 			projectLink: 'https://findmyhoroscope.herokuapp.com',
 			gitHubLink: 'https://github.com/PROB8/find-my-horoscope'
