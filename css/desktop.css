@@ -7,7 +7,9 @@
     text-align:center;
 }
 
-
+ul {
+    margin-top:-15px;
+}
 .doc{
     height:100%
 }
@@ -94,6 +96,7 @@ footer {
     margin: auto;
     position: relative;
     display: inline-block;
+    margin-bottom:10px;
 }
 p.name {
     font-size: 15px;
@@ -174,7 +177,7 @@ p.name {
     ul {
         padding-left:0;
         margin-bottom:10px;
-        margin-top:0
+        margin-top:-15px;
     }
 
     
@@ -484,7 +487,8 @@ label{
 }
 
 .text {
-    color:#f1f1f1;
+    color:gold;
+    letter-spacing: 1px;
 }
 
 .text-wrapper {

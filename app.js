@@ -11,7 +11,7 @@ const reduxStackItem =
   </div>`
 
 const nodeStackItem =
-  `<div class="project-stack-item node-logo"> 
+  `<div class="project-stack-item"> 
     <img class="node logo" src="./pix/nodelogo.png">
     <p class='name text'>Node.js</p>
   </div>`
@@ -45,7 +45,7 @@ const projectStack =
 
 const projectArr = [
 		{
-			title:"Texture Masters by Gabrielle Zalina",
+			title:"Gabrielle Zalina presents Texture Masters",
 			projectImg: './pix/gzalina.png',
 			projectDes: 'Custom single-page website.',
 			projectStack:	`${nodeStackItem}${reduxStackItem}${reactStackItem}`,
@@ -56,7 +56,7 @@ const projectArr = [
 			projectImg: './pix/loginPage.png',
 			projectDes: 'MVP for app that allows users to learn the topic of their choosing.',
 			projectStack:	`${projectStack}`,
-			projectLink: 'https://gabriellezalina.herokuapp.com',
+			projectLink: 'https://sheltered-lowlands-31144.herokuapp.com',
 			gitHubLink: 'https://github.com/PROB8/learningo'
     	},{
 			title:"What's my Horoscope?",
