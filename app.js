@@ -119,13 +119,14 @@ const projectArr = [
                 <form style="text-align:center;" class="form-style-4" action="https://formspree.io/blackb8r@gmail.com"
                     method="POST">
                     <label for="contact-form-name">Your Name</label>
-                    <input style="text-align:center;" type="text" name="name" id="contact-form-name" placeholder="Grace Hopper">
+                    <input style="text-align:center;" type="text" name="name" id="contact-form-name" placeholder="Grace Hopper" required>
                     <label for="contact-form-email">Your Email Address</label>
-                    <input style="text-align:center;" type="email" name="_replyto" id="contact-form-email" placeholder="grace@example.com">
+                    <input style="text-align:center;" type="email" name="_replyto" id="contact-form-email" placeholder="grace@example.com" required>
                     <label for="contact-form-message">Message</label>
-                    <textarea name="message" id="contact-form-message"></textarea>
+					<textarea name="message" id="contact-form-message" required></textarea>
                     <input  type="submit" value="Send message">
-                </form> 
+				</form> 
+				
             </div>    
         </section>`;
         
