@@ -166,15 +166,17 @@ const aboutMe =
 			`;
 			
 const donate = `
-	<div id='donate' style="font-size:16px;margin:0 auto;width:300px" class="blockchain-btn"
-	data-address="1M1zacMt7ewtcKhibhLsVBEwG99KYMuLZN"
-	data-shared="false">
-	  	<h1>Donate Bitcoin</h1>
-	  	<p>1M1zacMt7ewtcKhibhLsVBEwG99KYMuLZN</p>
-		<div class="blockchain stage-begin">
-			<img src="./pix/1M1zacMt7ewtcKhibhLsVBEwG99KYMuLZN.png"/>
+	<section class="donate-section animated" id="donate">
+		<div class="donate-container" data-address="1M1zacMt7ewtcKhibhLsVBEwG99KYMuLZN">
+			<h1 class='donate'>Donate Me Bitcoin</h1>
+			<p class='about-donate'>I love the idea of peer to peer exchange.
+			Below is the address to my Bitcoin Wallet. Give freely!
+			<div class="btcQRCode">
+				<img class='qRCode'src="./pix/1M1zacMt7ewtcKhibhLsVBEwG99KYMuLZN.png"/>
+			</div>
+			<p class='about-donate'>1M1zacMt7ewtcKhibhLsVBEwG99KYMuLZN</p>
 		</div>
-	</div>
+	</section>
 `
 
 const vectoredPic = `

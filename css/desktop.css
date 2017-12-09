@@ -65,7 +65,7 @@ footer {
     line-height: 1.2em;
     margin-bottom: 20px;
 }
-.my-work {
+.my-work, .donate{
     font-family: 'Open Sans', sans-serif;
     font-size:1.6em;
     margin:0 auto;
@@ -510,4 +510,35 @@ label{
 
 .node-logo {
     margin-top:5px;
+}
+
+.donate-container {
+    padding:15px;
+}
+
+.qRCode {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    padding: 20px;
+}
+
+.donate-section {
+    max-width: 560px;
+    margin: auto;
+    position:relative;
+}
+
+.about-donate {
+    font-size:1.09em;
+}
+
+.donate {
+    font-size: 2.3em;
+}
+
+@media only screen and (max-width: 720px){
+    .donate-section {
+        top:-115px
+    }
 }
