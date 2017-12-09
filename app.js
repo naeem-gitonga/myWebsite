@@ -147,7 +147,8 @@ const aboutMe =
             where I teach the Javascript MERN stack. I am also the owner of GIT Solutions, Inc. where I build 
             web and mobile apps. I build websites too for 
             those not in the know. Example: this one is built using Javascript and the jQuery library.
-            Outside of coding, I do more art. Yeah that's right--programming a computer and building websites is an art.
+            Outside of coding, I do more art. Yeah that's right--programming a computer, building apps and
+            websites is an art.
         </p>
         <p class="about">
           Here you will see some samples of my work. If you click on the screencaptures
@@ -162,7 +163,19 @@ const aboutMe =
           click on the <span class='link'>contactMe</span> link above and drop me
           a line or two. I will be sure to follow up. Enjoy and thanks for dropping in!
         </p>
-            `;
+			`;
+			
+const donate = `
+	<div id='donate' style="font-size:16px;margin:0 auto;width:300px" class="blockchain-btn"
+	data-address="1M1zacMt7ewtcKhibhLsVBEwG99KYMuLZN"
+	data-shared="false">
+	  	<h1>Donate Bitcoin</h1>
+	  	<p>1M1zacMt7ewtcKhibhLsVBEwG99KYMuLZN</p>
+		<div class="blockchain stage-begin">
+			<img src="./pix/1M1zacMt7ewtcKhibhLsVBEwG99KYMuLZN.png"/>
+		</div>
+	</div>
+`
 
 const vectoredPic = `
                 <img id='vectored' class='headshot animated flip' src='./pix/vectored.me.png'>
@@ -224,6 +237,11 @@ $(document).ready(function(){
     $('html').addClass('doc')
   })
 
+  $('#donate-link').click(() => {
+	  $('.work-and-stuff').empty().append(donate)
+	  $('html').addClass('doc')
+  })
+  
 });
 //THE CODE BELOW IS EVENT DELEGATION, NECESSARY SOMETIME FOR DYNAMICALLY CHANGING 
 //THE CONTENTS OF DOM ELEMENTS

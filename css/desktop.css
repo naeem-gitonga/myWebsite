@@ -300,8 +300,8 @@ p.name {
     border-bottom: 1px dashed #1E162A;
     width: 275px;
     overflow: auto;
-    resize:none;
-    height:50px;
+    resize:both;
+    /* height:50px; */
 }
 
 .form-style-4 input[type=submit],
