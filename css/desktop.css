@@ -15,7 +15,6 @@ ul {
 }
 
 h1 {
-    
     font-weight: 700;
     letter-spacing: -1px;
     font-family: 'Open Sans', sans-serif; 
@@ -115,13 +114,10 @@ p.name {
     .all-container {
         top:-400px
     }
-
- 
 }
 
 .first-ul-link, .my-name, .my-title, .icon{
     color:white;
-  
 }
 
 .title {
@@ -162,7 +158,6 @@ p.name {
     text-align:center;
 }
 
-
 .project-stack{
     padding:0;
     margin-bottom:13px;
@@ -180,13 +175,10 @@ p.name {
         margin-bottom:10px;
         margin-top:-15px;
     }
-
     
     .main-nav{
         margin:auto;
         width:auto;
-        
-       
     }
 
     .work-and-stuff{
@@ -302,7 +294,6 @@ p.name {
     width: 275px;
     overflow: auto;
     resize:both;
-    /* height:50px; */
 }
 
 .form-style-4 input[type=submit],

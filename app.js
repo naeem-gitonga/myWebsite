@@ -1,3 +1,8 @@
+console.log(`YO What's up!? Hey if you're reading this you should hire me to 
+build your next website, web or mobile app. I am one kick ass engineer! So 
+don't just snoop around in the console; get the best return on your 
+investment with me. You can reach me at 404.670.0059. Leave a message 
+or text if I don't answer. --Naeem`)
 const reduxStackItem = 
   `<div class="project-stack-item">
     <svg class='redux logo' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -21,7 +26,6 @@ const reactStackItem =
 		<img class="react logo" src="./pix/react.png">
 		<p class='name text'>React.js</p >
 	</div>`
-
 
 const expressStackItem = 
 	`<div class="project-stack-item"> 
@@ -73,46 +77,42 @@ const projectArr = [
 			projectLink: 'https://vast-hamlet-89391.herokuapp.com',
 			gitHubLink: 'https://github.com/PROB8/naeem-polling'
 		}
-	  ]
-  const myWork = 
+]
+
+const myWork = 
     `<section class="work animated" id="work" style="display:'none'">
 			<h1 class="my-work">myWork</h1>
 			
             <section class="project">
 				<div class='image-container'>
-					 <img class="project-image" src="./pix/npmSC.png"
+					<img class="project-image" src="./pix/npmSC.png"
 						alt="npm screenshot"> 
-						<div class='overlay'>
+					<div class='overlay'>
 						<h2 class='title text'>Arithmetik</h2>
-								<p class="project-description text">
-										NPM package for front and back-end.
-								</p>
-								<div class="project-stack">
-									${jsStackItem}	
-								</div>
-								<div class="project-links">
-									<ul>
-										<li class="project-link project-link-live">
-											<a class='pro-link text' href="https://www.npmjs.com/package/arithmetik">npm Page</a>
-										</li>
-										<li class="project-link project-link-github">
-											<a class='pro-link text' href="https://github.com/PROB8/npm-gitonga">Source code</a>
-										</li>
-									</ul>
-										
-								</div>
+							<p class="project-description text">
+									NPM package for front and back-end.
+							</p>
+						<div class="project-stack">
+								${jsStackItem}	
 						</div>
+						<div class="project-links">
+							<ul>
+								<li class="project-link project-link-live">
+									<a class='pro-link text' href="https://www.npmjs.com/package/arithmetik">npm Page</a>
+								</li>
+								<li class="project-link project-link-github">
+									<a class='pro-link text' href="https://github.com/PROB8/npm-gitonga">Source code</a>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</div>
-                
-				
-                
             </section>
            
     </section>
    `;
 
-
-   const contactMe = `
+const contactMe = `
         <section class="contact  animated" id="contact">
             <div class="contact-form"> 
                 <h2 class='contact-me'>contactMe</h2>   
@@ -130,8 +130,6 @@ const projectArr = [
             </div>    
         </section>`;
         
-
-
 const aboutMe =
             `
             <img id="standard" class="headshot" src="./pix/standardPic.jpeg"
@@ -216,7 +214,6 @@ let showProjects = () => {
 					</div>
 				</div>
 			</div>
-			
 			<div class='border-bottom'><div>
 		</section>`
 	$('.work').append(work)
@@ -246,6 +243,7 @@ $(document).ready(function(){
   })
   
 });
+
 //THE CODE BELOW IS EVENT DELEGATION, NECESSARY SOMETIME FOR DYNAMICALLY CHANGING 
 //THE CONTENTS OF DOM ELEMENTS
 document.getElementById("main-div").addEventListener("click", function(e) {

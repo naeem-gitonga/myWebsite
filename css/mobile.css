@@ -1,8 +1,8 @@
 @media(max-width: 720px){
 
    *{ 
-         box-sizing: border-box;
-         font-family: 'Rubik', sans-serif;
+        box-sizing: border-box;
+        font-family: 'Rubik', sans-serif;
     }
 
     body{
@@ -44,7 +44,6 @@
 
     li a{
         margin:8px;
-
     }
 
     a{
@@ -69,7 +68,6 @@
         list-style: none;
         text-decoration:none;
         text-align: center;
-        
     }  
 
     label{
@@ -111,8 +109,6 @@
     }
 } 
 
-   
-
 svg{
     height:auto;
     width:30px;
@@ -145,7 +141,7 @@ svg{
 }
 
 .about{
-     margin:30px;
+    margin:30px;
 }
 
 .project-description{
@@ -230,7 +226,6 @@ svg{
     width: 275px;
     overflow: auto;
     resize:both;
-    /* height:50px; */
     text-align:center;
 }
 
