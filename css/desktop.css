@@ -218,6 +218,7 @@ p.name {
         line-height:1.4;
         overflow:auto;
         word-wrap: break-word;
+        max-width:600px;
     }
     
     .first-ul{
