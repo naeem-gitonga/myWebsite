@@ -136,32 +136,33 @@ const aboutMe =
             alt="JNG" href='#'>
         <h2 class='about-me'>aboutMe</h2>
         <p class="about" >  
-        Peace, I'm Jaha Naeem Gitonga, most call me Naeem. I'm a software engineer/full-stack
-         web developer. I began my web dev career in September 2016, after three years of 
-         owning and operating a transportation company. Then, I decided one day that I was passionate 
-         about technology and I haven't looked back. 
-        </p>
-        <p class="about">Currently, I am part of the instructional staff of <a
-            href='https://codingbootcamp.pe.gatech.edu/' target='_blank'>Georgia Tech's</a> full-time coding boot camp, 
-            where I teach the Javascript MERN stack. I am also the owner of GIT Solutions, Inc. where I build 
-            web and mobile apps. I build websites too for 
-            those not in the know. Example: this one is built using Javascript and the jQuery library.
-            Outside of coding, I do more art. Yeah that's right--programming a computer, building apps and
-            websites is an art.
-        </p>
-        <p class="about">
-          Here you will see some samples of my work. If you click on the screencaptures
-          or <span class='link'>Live Demo</span> links you'll be able to play around with some stuff.
-          <span class='aviso'>Notice:</span> Those apps are demos and are hosted on Heroku which offers developers 
-          some <em>free</em> tools to show their work. And as we all know, everything free
-          comes with a price. So if it seems like it's taking a little long to load up, 
-          remember that the server is starting and getting its ducks in a row so that you 
-          can experience the app.
-        </p>
-        <p class="about">Please, if you would like to work with me or just to stopped by look around,
-          click on the <span class='link'>contactMe</span> link above and drop me
-          a line or two. I will be sure to follow up. Enjoy and thanks for dropping in!
-        </p>
+                        Peace, I'm Jaha Naeem Gitonga, most call me Naeem. I'm a software engineer/full-stack
+                         web developer. Currently, I am part of the instructional staff of <a
+                        href='https://codingbootcamp.pe.gatech.edu/' target='_blank'>Georgia Tech's</a> full-time coding boot camp, 
+                        where I teach the Javascript MERN stack, SQL and a few other cool technologies. I am also the foundr
+                         of GIT Solutions, Inc. where I build web and mobile apps, and websites for hire. Example: this one is built 
+                        using Javascript and the jQuery library.
+                        Outside of coding, I do more art. Yeah that's right--programming a computer, building apps and
+                        websites is an art. 
+                    </p>
+                    <p class="about"> 
+                        Another cool thing I am working on is learning how to use Blockchain technology. 
+                        Since I am super familiar with Javascript the Ethereum Blockchain and Solidity are 
+                        extremely interesting to me.
+                    </p>
+                    <p class="about">
+                        Here you will see some samples of my work. If you click on the screencaptures
+                        or <span class='link'>Live Demo</span> links you'll be able to play around with some stuff.
+                        <span class='aviso'>Notice:</span> Those apps are demos and are hosted on Heroku which offers developers 
+                        some <em>free</em> tools to show their work. And as we all know, everything free
+                        comes with a price. So if it seems like it's taking a little long to load up, 
+                        remember that the server is starting and getting its ducks in a row so that you 
+                        can experience the app.
+                    </p>
+                    <p class="about">Please, if you would like to work with me or just to stopped by look around,
+                        click on the <span class='link'>contactMe</span> link above and drop me
+                        a line or two. I will be sure to follow up. Enjoy and thanks for dropping in!
+                    </p>
 			`;
 			
 const donate = `
