@@ -72,7 +72,7 @@ const projectArr = [
 		},{
 			title:"Polls 'R' Us",
 			projectImg: './pix/pollsRUs.png',
-			projectDes: 'An app that allows you to collect the world\'s opinion.',
+			projectDes: 'MVP for an app that allows you to collect the world\'s opinion.',
 			projectStack:	`${projectStack}`,
 			projectLink: 'https://vast-hamlet-89391.herokuapp.com',
 			gitHubLink: 'https://github.com/PROB8/naeem-polling'
@@ -82,7 +82,7 @@ const projectArr = [
 const myWork = 
     `<section class="work animated" id="work" style="display:'none'">
 			<h1 class="my-work">myWork</h1>
-			
+			<div class='append-toME'>
             <section class="project">
 				<div class='image-container'>
 					<img class="project-image" src="./pix/npmSC.png"
@@ -108,7 +108,7 @@ const myWork =
 					</div>
 				</div>
             </section>
-           
+			</div>
     </section>
    `;
 
@@ -217,7 +217,7 @@ let showProjects = () => {
 			</div>
 			<div class='border-bottom'><div>
 		</section>`
-	$('.work').append(work)
+	$('.append-toME').prepend(work)
 	})
 }
 
