@@ -151,17 +151,17 @@ const aboutMe =
                         extremely interesting to me.
                     </p>
                     <p class="about">
-                        Here you will see some samples of my work. If you click on the screencaptures
-                        or <span class='link'>Live Demo</span> links you'll be able to play around with some stuff.
-                        <span class='aviso'>Notice:</span> Those apps are demos and are hosted on Heroku which offers developers 
-                        some <em>free</em> tools to show their work. And as we all know, everything free
-                        comes with a price. So if it seems like it's taking a little long to load up, 
-                        remember that the server is starting and getting its ducks in a row so that you 
+                        Here you will see some samples of my work. If you hover over the screencaptures
+                         you'll see info about the app. Click on <span class='link'>Live Demo</span> and you'll be able 
+                         to play around with some stuff.
+                        <span class='aviso'>Notice:</span> Some of those apps are demos and are hosted on Heroku which offers developers 
+                        some <em>free</em> tools to show their work. So if it seems like it's taking a little long to load up, 
+                        bear in mind that the server is starting and getting its ducks in a row so that you 
                         can experience the app.
                     </p>
                     <p class="about">Please, if you would like to work with me or just to stopped by look around,
                         click on the <span class='link'>contactMe</span> link above and drop me
-                        a line or two. I will be sure to follow up. Enjoy and thanks for dropping in!
+                        a line or two. I will be sure to follow up. Enjoy and thanks for dropping by!
                     </p>
 			`;
 			
