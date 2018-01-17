@@ -48,6 +48,14 @@ const projectStack =
 `${mongoStackItem}${expressStackItem}${reduxStackItem}${reactStackItem}${nodeStackItem}`
 
 const projectArr = [
+  {
+    title:"Connex",
+    projectImg: './pix/connex.png',
+    projectDes: 'Web app and on-going project for Transportation Industry.',
+    projectStack:	`${projectStack}`,
+    projectLink: 'http://www.connexapp.com',
+    gitHubLink: 'javascript:void(0)'
+  },
 		{
 			title:"Gabrielle Zalina presents Texture Masters",
 			projectImg: './pix/gzalina.png',
