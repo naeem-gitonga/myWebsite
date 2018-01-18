@@ -51,7 +51,7 @@ const projectArr = [
   {
     title:"Connex",
     projectImg: './pix/connex.png',
-    projectDes: 'Web app and on-going project for Transportation Industry.',
+    projectDes: 'Web app in Beta mode for Transportation Industry (BOLs).',
     projectStack:	`${projectStack}`,
     projectLink: 'http://www.connexapp.com',
     gitHubLink: 'javascript:void(0)'
