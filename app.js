@@ -2,6 +2,9 @@ console.log(`Hey if you're reading this you should hire me to
 build your next website, web or mobile app. I am one kick ass engineer! So 
 instead of snooping around in the console, call me! You can reach me at 404.670.0059. Leave a message 
 or text if I don't answer. --Naeem`);
+
+const footer = `GTNG ${moment().format('YYYY')}`;
+
 const reduxStackItem = `
     <div class="project-stack-item">
         <svg class='redux logo' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -125,6 +128,15 @@ const projectArr = [
     projectStack: `${mongoStackItem}${expressStackItem}${angular}${nodeStackItem}${docker}`,
     projectLink: 'https://traxion.io',
     gitHubLink: 'javascript:void(0)'
+  },
+  {
+    title: 'GTNG',
+    projectImg: './pix/gtng.png',
+    projectDes:
+      'Custom website.',
+    projectStack: `${reactStackItem}${nodeStackItem}${expressStackItem}`,
+    projectLink: 'http://www.gtng.tech',
+    gitHubLink: 'javascript:void(0)'
   }
 ];
 
@@ -185,11 +197,10 @@ const aboutMe = `
         <h2 class='about-me'>aboutMe</h2>
         <p class="about" >  
                         Peace, I'm Jaha Naeem Gitonga, most call me Naeem. I'm a software engineer/full-stack
-                         web developer. Currently, I am part of the instructional staff of <a
-                        href='https://codingbootcamp.pe.gatech.edu/' target='_blank'>Georgia Tech's</a> full-time coding boot camp, 
-                        where I teach the Javascript MERN stack, SQL and a few other cool technologies. I am also the foundr
-                         of GIT Solutions, Inc. where I build web and mobile apps, and websites for hire. Example: this one is built 
-                        using Javascript and the jQuery library.
+                        web developer. I am the founder
+                        of <a href='http://www.gtng.tech' class='link'>GTNG™</a> where I build web and mobile apps, and websites per contract. Example: this one is built 
+                        using Javascript and the jQuery library. I mentor students in full-time coding boot camps across the nation, 
+                        where I teach the Javascript MERN stack, MySQL and a few other cool technologies. 
                         Outside of coding, I do more art. Yeah that's right--programming a computer, building apps and
                         websites is an art. 
                     </p>
@@ -273,6 +284,7 @@ let showProjects = () => {
 };
 
 $(document).ready(function() {
+  $('.footer').append(footer)
   $('#aboutMe-link').click(() => {
     $('.work-and-stuff')
       .empty()
