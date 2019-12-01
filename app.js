@@ -112,15 +112,6 @@ const projectArr = [
     gitHubLink: 'javascript:void(0)'
   },
   {
-    title: 'Weather!',
-    projectImg: './pix/screen-capture-weather.png',
-    projectDes:
-      'Coding challenge, weather app. It automatically get yours by your ip address or search for it.',
-    projectStack: `${expressStackItem}${reduxStackItem}${reactStackItem}${nodeStackItem}`,
-    projectLink: 'https://weather-d3mo.herokuapp.com',
-    gitHubLink: 'https://github.com/PROB8/weather-d3mo'
-  },
-  {
     title: 'Traxion',
     projectImg: './pix/traxion.png',
     projectDes:
