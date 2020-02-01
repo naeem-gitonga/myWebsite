@@ -1,5 +1,5 @@
 console.log(`Hey if you're reading this you should hire me to 
-build your next website, web or mobile app. I am one kick ass engineer! So 
+build your next website, web or mobile app. I am an awesome engineer! So 
 instead of snooping around in the console, call me! You can reach me at 404.670.0059. Leave a message 
 or text if I don't answer. --Naeem`);
 
@@ -65,6 +65,20 @@ const docker = `
 		<p class='name text'>Docker</p>
     </div>
 `;
+
+const golangStackItem = `
+    <div class="project-stack-item">
+		<img class="react logo" src="./pix/go-logo.png">
+		<p class='name text'>Go</p>
+    </div>
+`;
+
+const awsLambdaStackItem = `
+    <div class="project-stack-item">
+		<img class="react logo" src="./pix/aws-sam.png">
+		<p class='name text'>AWS SAM</p>
+    </div>
+`;
 const projectStack = `${mongoStackItem}${expressStackItem}${reduxStackItem}${reactStackItem}${nodeStackItem}`;
 
 const projectArr = [
@@ -91,7 +105,7 @@ const projectArr = [
     projectDes:
       'MVP for app that allows users to learn the topic of their choosing.',
     projectStack: `${projectStack}`,
-    projectLink: 'https://sheltered-lowlands-31144.herokuapp.com',
+    projectLink: 'https://learningo.herokuapp.com',
     gitHubLink: 'https://github.com/PROB8/learningo'
   },
   {
@@ -115,7 +129,7 @@ const projectArr = [
     title: 'Traxion',
     projectImg: './pix/traxion.png',
     projectDes:
-      'EOS compatible software for business building. myRole: Accountability-Chart',
+      'My code helped this app acheive over 1000% growth, in paying customers, in less than two years.',
     projectStack: `${mongoStackItem}${expressStackItem}${angular}${nodeStackItem}${docker}`,
     projectLink: 'https://traxion.io',
     gitHubLink: 'javascript:void(0)'
@@ -127,6 +141,15 @@ const projectArr = [
       'Custom website.',
     projectStack: `${reactStackItem}${nodeStackItem}${expressStackItem}`,
     projectLink: 'http://www.gtng.tech',
+    gitHubLink: 'javascript:void(0)'
+  },
+  {
+    title: 'American Airlines Horror',
+    projectImg: './pix/aahs.png',
+    projectDes:
+      'Custom web app. Go and vent your frustrations today.',
+    projectStack: `${reactStackItem}${golangStackItem}${awsLambdaStackItem}${mongoStackItem}`,
+    projectLink: 'http://www.americanairlineshorroor.com',
     gitHubLink: 'javascript:void(0)'
   }
 ];
