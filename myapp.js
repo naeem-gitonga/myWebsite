@@ -18,62 +18,62 @@ const reduxStackItem = `
 
 const nodeStackItem = `
     <div class="project-stack-item"> 
-        <img class="node logo" src="https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/nodelogo.png">
+        <img class="node logo" src="https://d2j3yisnywcb30.cloudfront.net/pix/nodelogo.png">
         <p class='name text'>Node.js</p>
     </div>
 `;
 
 const reactStackItem = `
     <div class="project-stack-item">
-		<img class="react logo" src="https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/react.png">
+		<img class="react logo" src="https://d2j3yisnywcb30.cloudfront.net/pix/react.png">
 		<p class='name text'>React.js</p >
     </div>
 `;
 
 const expressStackItem = `
     <div class="project-stack-item"> 
-		<img class="express logo" src="https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/expressjslogo.png">
+		<img class="express logo" src="https://d2j3yisnywcb30.cloudfront.net/pix/expressjslogo.png">
 		<p class='name text'>Express.js</p>
     </div>
 `;
 
 const mongoStackItem = `
     <div class="project-stack-item"> 
-		<img class="mongo logo" src="https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/Mongo2.png" alt='MongoDB Logo'>
+		<img class="mongo logo" src="https://d2j3yisnywcb30.cloudfront.net/pix/Mongo2.png" alt='MongoDB Logo'>
 		<p class='name text'>MongoDB</p>
     </div>
 `;
 
 const jsStackItem = `
     <div class="project-stack">
-		<img class="react logo" src="https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/javascript.png">
+		<img class="react logo" src="https://d2j3yisnywcb30.cloudfront.net/pix/javascript.png">
 		<p class='name text'>Javascript</p>
     </div>
 `;
 
 const angular = `
     <div class="project-stack-item">
-		<img class="react logo" src="https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/angular.png"> 
+		<img class="react logo" src="https://d2j3yisnywcb30.cloudfront.net/pix/angular.png"> 
 		<p class='name text'>AngularJS</p>
     </div>
 `;
 const docker = `
     <div class="project-stack-item">
-		<img class="react logo" src="https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/docker.png">
+		<img class="react logo" src="https://d2j3yisnywcb30.cloudfront.net/pix/docker.png">
 		<p class='name text'>Docker</p>
     </div>
 `;
 
 const golangStackItem = `
     <div class="project-stack-item">
-		<img class="react logo" src="https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/go-logo.png">
+		<img class="react logo" src="https://d2j3yisnywcb30.cloudfront.net/pix/go-logo.png">
 		<p class='name text'>Go</p>
     </div>
 `;
 
 const awsLambdaStackItem = `
     <div class="project-stack-item">
-		<img class="react logo" src="https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/aws-sam.png">
+		<img class="react logo" src="https://d2j3yisnywcb30.cloudfront.net/pix/aws-sam.png">
 		<p class='name text'>AWS SAM</p>
     </div>
 `;
@@ -82,7 +82,7 @@ const projectStack = `${mongoStackItem}${expressStackItem}${reduxStackItem}${rea
 const projectArr = [
   {
     title: "Polls 'R' Us",
-    projectImg: "https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/pollsRUs.png",
+    projectImg: "https://d2j3yisnywcb30.cloudfront.net/pix/pollsRUs.png",
     projectDes:
       "MVP for an app that allows you to collect the world's opinion.",
     projectStack: `${projectStack}`,
@@ -91,7 +91,7 @@ const projectArr = [
   },
   {
     title: "What's my Horoscope?",
-    projectImg: "https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/myHoroscope.png",
+    projectImg: "https://d2j3yisnywcb30.cloudfront.net/pix/myHoroscope.png",
     projectDes: "MVP for app gives simple horoscope/motivational quote.",
     projectStack: `${projectStack}`,
     projectLink: "https://findmyhoroscope.herokuapp.com",
@@ -99,7 +99,7 @@ const projectArr = [
   },
   {
     title: "Learningo!",
-    projectImg: "https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/loginPage.png",
+    projectImg: "https://d2j3yisnywcb30.cloudfront.net/pix/loginPage.png",
     projectDes:
       "MVP for app that allows users to learn the topic of their choosing.",
     projectStack: `${projectStack}`,
@@ -108,7 +108,7 @@ const projectArr = [
   },
   {
     title: "Gabrielle Zalina presents Texture Masters",
-    projectImg: "https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/gzalina.png",
+    projectImg: "https://d2j3yisnywcb30.cloudfront.net/pix/gzalina.png",
     projectDes: "Custom single-page website.",
     projectStack: `${nodeStackItem}${reduxStackItem}${reactStackItem}`,
     projectLink: "https://gabriellezalina.herokuapp.com",
@@ -116,7 +116,7 @@ const projectArr = [
   },
   {
     title: "Connex",
-    projectImg: "https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/connex.png",
+    projectImg: "https://d2j3yisnywcb30.cloudfront.net/pix/connex.png",
     projectDes:
       "Software product in Beta mode for Transportation Industry (BOLs).",
     projectStack: `${projectStack}`,
@@ -125,7 +125,7 @@ const projectArr = [
   },
   {
     title: "Traxion",
-    projectImg: "https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/traxion.png",
+    projectImg: "https://d2j3yisnywcb30.cloudfront.net/pix/traxion.png",
     projectDes:
       "My code helped this app acheive over 1000% growth, in paying customers, in less than two years.",
     projectStack: `${mongoStackItem}${expressStackItem}${angular}${nodeStackItem}${docker}`,
@@ -134,7 +134,7 @@ const projectArr = [
   },
   {
     title: "GTNG",
-    projectImg: "https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/gtng.png",
+    projectImg: "https://d2j3yisnywcb30.cloudfront.net/pix/gtng.png",
     projectDes: "Custom website.",
     projectStack: `${reactStackItem}${nodeStackItem}${expressStackItem}`,
     projectLink: "http://www.gtng.tech",
@@ -142,7 +142,7 @@ const projectArr = [
   },
   {
     title: "American Airlines Horror",
-    projectImg: "https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/aahs.png",
+    projectImg: "https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png",
     projectDes: "Custom web app. Go and vent your frustrations today.",
     projectStack: `${reactStackItem}${golangStackItem}${awsLambdaStackItem}${mongoStackItem}`,
     projectLink: "http://www.americanairlineshorroor.com",
@@ -156,7 +156,7 @@ const myWork = `<section class="work animated" id="work" style="display:'none'">
 			<div class='append-toME'>
             <section class="project">
 				<div class='image-container'>
-					<img class="project-image" src="https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/npmSC.png"
+					<img class="project-image" src="https://d2j3yisnywcb30.cloudfront.net/pix/npmSC.png"
 						alt="npm screenshot"> 
 					<div class='overlay'>
 						<h2 class='title text'>Arithmetik</h2>
@@ -202,7 +202,7 @@ const contactMe = `
 `;
 
 const aboutMe = `
-            <img id="standard" class="headshot" src="https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/standardPic.jpeg"
+            <img id="standard" class="headshot" src="https://d2j3yisnywcb30.cloudfront.net/pix/standardPic.jpeg"
             alt="JNG" href='#'>
         <h2 class='about-me'>aboutMe</h2>
         <p class="about" >  
@@ -241,7 +241,7 @@ const donate = `
 			<p class='about-donate'>I love the idea of peer to peer exchange.
 			Below is the address to my Bitcoin Wallet. Give freely!
 			<div class="btcQRCode">
-				<img class='qRCode'src="https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/1M1zacMt7ewtcKhibhLsVBEwG99KYMuLZN.png"/>
+				<img class='qRCode'src="https://d2j3yisnywcb30.cloudfront.net/pix/1M1zacMt7ewtcKhibhLsVBEwG99KYMuLZN.png"/>
 			</div>
 			<p class='about-donate'>1M1zacMt7ewtcKhibhLsVBEwG99KYMuLZN</p>
 		</div>
@@ -249,11 +249,11 @@ const donate = `
 `;
 
 const vectoredPic = `
-                <img id='vectored' class='headshot animated flip' src='https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/vectored.me.png'>
+                <img id='vectored' class='headshot animated flip' src='https://d2j3yisnywcb30.cloudfront.net/pix/vectored.me.png'>
 `;
 
 const standardPic = `
-                <img id='standard' class='headshot animated flip' src='https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/standardPic.jpeg'>
+                <img id='standard' class='headshot animated flip' src='https://d2j3yisnywcb30.cloudfront.net/pix/standardPic.jpeg'>
 `;
 
 let showProjects = () => {
