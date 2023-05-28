@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 export default function useParticles(): void {
   useEffect(() => {
-    particlesJS('particles-js', {
+    window && particlesJS('particles-js', {
       particles: {
         number: {
           value: 80,
