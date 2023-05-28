@@ -34,7 +34,6 @@ defer        /> */}
         {children}
 
         <script src="https://use.fontawesome.com/804fb94b8b.js" async />
-
       </body>
     </html>
   );

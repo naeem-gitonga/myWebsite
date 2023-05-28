@@ -11,7 +11,6 @@ import MyWork from '@/components/MyWork/MyWork';
 import Script from 'next/script';
 
 export default function Home() {
-  
   useParticles();
   useInfoLog();
   const [whichSection, setWhichSection] = useState('');

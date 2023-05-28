@@ -5,7 +5,7 @@ export default function useParticles(): void {
 
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://d2j3yisnywcb30.cloudfront.net/particles.js";
+    script.src = 'https://d2j3yisnywcb30.cloudfront.net/particles.js';
     script.async = true;
 
     script.onload = () => {
@@ -18,7 +18,6 @@ export default function useParticles(): void {
     return () => {
       document.body.removeChild(script);
     };
-
   }, []);
 
   useEffect(() => {
