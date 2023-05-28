@@ -2,7 +2,7 @@
 # My Portfolio  
 This is my portfolio's repository ladies and gentlemen. I have been building some interesting apps. I hope recognize my passion for coding!
 
-I built this using Javascript and a little JQuery.
+First built in 2017. Recently ported over to be a Next.js React app.
 
 Seriously, thanks for dropping by!
 

@@ -17,10 +17,6 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
-        {/* <script
-          type="text/javascript"
-          src="https://d2j3yisnywcb30.cloudfront.net/particles.js"
-defer        /> */}
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"

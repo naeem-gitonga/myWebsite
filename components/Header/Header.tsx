@@ -12,25 +12,17 @@ export default function Header(props: HeaderProps): JSX.Element {
             <h1 className={styles.myName}>Jaha Naeem Gitonga</h1>
             <h5 className={styles.myTitle}>Tech Lead</h5>
             <ul className={styles.firstUl}>
-              <li
-                id="aboutMe-link"
-                onClick={() => setWhichSection('aboutMe')}
-                className={styles['main-nav-link']}
-              >
+              <li id="aboutMe-link" onClick={() => setWhichSection('aboutMe')}>
                 <a className={styles.firstUlLink} href="#aboutMe">
                   aboutMe
                 </a>
               </li>
-              <li
-                id="work-link"
-                onClick={() => setWhichSection('myWork')}
-                className={styles['main-nav-link']}
-              >
+              <li id="work-link" onClick={() => setWhichSection('myWork')}>
                 <a href="#myWork" className={styles.firstUlLink}>
                   myWork
                 </a>
               </li>
-              <li id="contact-link" className={styles['main-nav-link']}>
+              <li id="contact-link">
                 <a href="/articles" className={styles.firstUlLink}>
                   articles
                 </a>
@@ -63,8 +55,12 @@ export default function Header(props: HeaderProps): JSX.Element {
                   aria-hidden="true"
                 ></i>
               </a>
-              <a id="donate-link" href="#donate" rel="noreferrer">
-                {' '}
+              <a
+                id="donate-link"
+                href="#donate"
+                rel="noreferrer"
+                onClick={() => setWhichSection('donate')}
+              >
                 <i
                   className={`fa fa-btc fa-3x ${styles.icon}`}
                   aria-hidden="true"

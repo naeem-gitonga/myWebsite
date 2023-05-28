@@ -9,6 +9,7 @@ import useParticles from '@/hooks/useParticles';
 import useInfoLog from '@/hooks/useInfoLog';
 import MyWork from '@/components/MyWork/MyWork';
 import Script from 'next/script';
+import Donate from '@/components/Donate/Donate';
 
 export default function Home() {
   useParticles();
@@ -22,6 +23,8 @@ export default function Home() {
         return <ContactForm />;
       case 'myWork':
         return <MyWork />;
+      case 'donate':
+        return <Donate />;
       default:
         return <div />;
     }

@@ -42,7 +42,7 @@ export default function Project(props: ProjectProps): JSX.Element {
               </a>
             </li>
             {project.gitHubLink && (
-              <li className="project-link project-link-github">
+              <li>
                 <a
                   className={`${proLink} ${text}`}
                   href={project.gitHubLink}
