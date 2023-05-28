@@ -7,14 +7,12 @@
   margin-bottom: 0;
 }
 
-@media (min-width: 720px) {
-  .myWorkWrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: auto;
-    padding: 10px;
-    width: 80%;
-  }
+.myWorkWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: auto;
+  padding: 10px;
+  width: 80%;
 }

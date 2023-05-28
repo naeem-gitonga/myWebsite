@@ -1,3 +1,6 @@
+.padding10 {
+  padding: 10px;
+}
 .imageWrapper {
   position: relative;
   width: 350px;
@@ -21,7 +24,6 @@
   opacity: 0;
   transition: 0.5s ease;
   background-color: rgba(0, 0, 0, 0.9);
-  padding: 10px;
 }
 
 .projectImage {
@@ -53,12 +55,16 @@
   flex-wrap: wrap;
   padding: 0;
   margin-bottom: 13px;
-  text-align: center;
+  justify-content: space-evenly;
+  max-width: 300px;
+  margin: auto;
 }
 
 .projectLinks {
   margin-bottom: 50px;
+  padding: 10px;
 }
+
 .projectLinks ul {
   list-style-type: none;
 }
@@ -88,36 +94,123 @@
 }
 
 .react {
-  height: auto;
-  width: 32px;
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/react.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
 }
 
 .node {
-  height: auto;
-  width: 21px;
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/nodejs.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
 }
 
 .serverless {
-  width: 28px;
-  height: auto;
+  width: 40px;
+  height: 50px;
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/serverless-logo.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
 }
 
 .logo {
-  margin: auto;
-  text-align: center;
+  height: 40px;
+  width: 40px;
+  margin: 5px;
 }
 
 .mongo {
-  width: 40px;
-  height: auto;
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/mongodb.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
 }
 
 .express {
-  width: 50px;
-  height: auto;
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/expressjslogo.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
 }
 
 .redux {
-  width: 30px;
-  height: auto;
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/redux.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.javascript {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/javascript.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.angular {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/angular.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.docker {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/docker-logo.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.go {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/go-logo.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.awssam {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/aws-sam.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.kubernetes {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/kubernetes.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.cdk {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/cdk.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.terraform {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/terraform.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.lambda {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/lambda.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.typescript {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/typescript.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.nextjs {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/nextjs.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.postgres {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/postgres.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}
+
+.dynamodb {
+  background-image: url('https://d2j3yisnywcb30.cloudfront.net/pix/dynamodb.png');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
 }

@@ -6,3 +6,16 @@ body.body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.textAlign {
+  text-align: center;
+}
+
+.construction {
+  height: 300px;
+  width: 300px;
+  margin: auto;
+  background-image: url('https://user-images.githubusercontent.com/26694930/37315354-9c79c4a4-262f-11e8-9da2-9a7cadb0a02e.gif');
+  background-size: cover; /* This will scale your image to cover the div */
+  background-position: center;
+}

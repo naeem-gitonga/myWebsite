@@ -7,6 +7,7 @@ type ProjectProps = { project: ProjectObj; key: string };
 export default function Project(props: ProjectProps): JSX.Element {
   const { project, key } = props;
   const {
+    padding10,
     imageWrapper,
     overlay,
     projectDescription,
@@ -25,22 +26,28 @@ export default function Project(props: ProjectProps): JSX.Element {
         alt={`app screenshot ${project.projectStack}`}
       />
       <div className={overlay}>
-        <h2 className={`${title} ${text}`}>{project.title}</h2>
-        <p className={`${projectDescription} ${text}`}>{project.projectDes}</p>
+        <div className={padding10}>
+          <h2 className={`${title} ${text}`}>{project.title}</h2>
+          <p className={`${projectDescription} ${text}`}>
+            {project.projectDes}
+          </p>
+        </div>
         <div className={projectStack}>
           {projectStackMap[project.projectStack]}
         </div>
         <div className={projectLinks}>
           <ul className={sharedStyles.zeroPadding}>
-            <li>
-              <a
-                className={`${proLink} ${text}`}
-                href={project.projectLink}
-                target="_blank"
-              >
-                Live demo
-              </a>
-            </li>
+            {project.projectLink && (
+              <li>
+                <a
+                  className={`${proLink} ${text}`}
+                  href={project.projectLink}
+                  target="_blank"
+                >
+                  Live site
+                </a>
+              </li>
+            )}
             {project.gitHubLink && (
               <li>
                 <a

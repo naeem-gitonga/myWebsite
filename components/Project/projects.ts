@@ -27,7 +27,8 @@ export const projects: Project[] = [
   {
     title: 'Pluralsight**',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/pluralsight.png',
-    projectDes: 'Enterprise Learning application',
+    projectDes:
+      "Enterprise Learning application, I've led teams, and initiatives on migrations and new features.",
     projectStack: 'pluralsight',
     projectLink: 'https://www.pluralsight.com',
   },
@@ -65,8 +66,7 @@ export const projects: Project[] = [
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png',
     projectDes: 'Custom web app. Go and vent your frustrations today.',
     projectStack: 'aah',
-    projectLink: 'http://www.americanairlineshorroor.com',
-    gitHubLink: 'javascript:void(0)',
+    gitHubLink: 'https://github.com/JNaeemGitonga/first-golang-app',
   },
 
   {
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/gzalina.png',
     projectDes: 'Custom single-page website.',
     projectStack: 'gab',
-    gitHubLink: 'javascript:void(0)',
+    gitHubLink: 'https://github.com/JNaeemGitonga/zalina-test',
   },
   {
     title: 'Connex*',
@@ -83,7 +83,7 @@ export const projects: Project[] = [
       'Software product in Beta mode for Transportation Industry (BOLs).',
     projectStack: 'connex',
     projectLink: 'http://www.connexapp.com',
-    gitHubLink: 'javascript:void(0)',
+    gitHubLink: 'https://bitbucket.org/naeemgitonga/connex-back/src/master/',
   },
   {
     title: 'Ninety.io**',
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     projectDes: 'Custom website.',
     projectStack: 'gtng',
     projectLink: 'http://www.gtng.tech',
-    gitHubLink: 'javascript:void(0)',
+    gitHubLink: 'https://github.com/JNaeemGitonga/gtng',
   },
   {
     title: 'Arithmetik*',
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     projectDes: 'Enterprise Learning application',
     projectStack: 'arithmetik',
     projectLink: 'https://www.npmjs.com/package/arithmetik',
-    gitHubLink: 'javascript:void(0)',
+    gitHubLink: 'https://github.com/JNaeemGitonga/arithmetik',
   },
   {
     title: 'Learningo!*',
@@ -130,6 +130,6 @@ export const projects: Project[] = [
     projectDes:
       "MVP for an app that allows you to collect the world's opinion.",
     projectStack: 'polls',
-    gitHubLink: 'https://github.com/PROB8/naeem-polling',
+    gitHubLink: 'https://github.com/JNaeemGitonga/naeem-polling',
   },
 ];
