@@ -1,6 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 import Header from '@/components/Header/Header';
 import AboutMe from '@/components/AboutMe/AboutMe';
@@ -12,8 +11,7 @@ import MyWork from '@/components/MyWork/MyWork';
 import Script from 'next/script';
 
 export default function Home() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  
   useParticles();
   useInfoLog();
   const [whichSection, setWhichSection] = useState('');
