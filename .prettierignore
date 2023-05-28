@@ -1,0 +1,7 @@
+.next/
+README.md
+next.config.js
+.prettierrc
+.eslintrc.json
+*.json
+*.d.ts

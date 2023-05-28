@@ -1,0 +1,74 @@
+.firstUlLink,
+.myName,
+.myTitle,
+.icon {
+  color: white;
+}
+
+.wrapper {
+  position: absolute;
+  margin: 0 auto;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.myName {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 2.6em;
+  line-height: 1.2em;
+  margin-bottom: 20px;
+}
+
+.myTitle {
+  font-size: 1.3em;
+  margin: 20px 0;
+}
+
+.firstUlLink {
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.firstUl {
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 720px) {
+  .firstUl li {
+    display: inline;
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-height: 370px) {
+  .all-container {
+    top: -400px;
+  }
+}
+
+@media (min-width: 720px) {
+  .main-nav {
+    margin: auto;
+    width: auto;
+  }
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .main-nav {
+    margin: 2rem auto;
+  }
+}

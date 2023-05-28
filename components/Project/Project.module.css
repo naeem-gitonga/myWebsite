@@ -1,0 +1,48 @@
+.imageWrapper {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+}
+
+.imageWrapper:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 93%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 10px;
+}
+
+.projectImage {
+  height: 350px;
+  position: relative;
+  top: -25px;
+}
+
+.title {
+  font-size: 1.5em;
+  margin-top: 0;
+  position: relative;
+  top: 20px;
+}
+
+.text {
+  color: gold;
+  letter-spacing: 1px;
+}
+
+.projectDescription {
+  font-size: 15px;
+  color: gold;
+  margin-bottom: 10px;
+}

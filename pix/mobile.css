@@ -1,267 +1,270 @@
-@media(max-width: 720px){
+@media (max-width: 720px) {
+  * {
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+  }
 
-   *{ 
-        box-sizing: border-box;
-        font-family: 'Rubik', sans-serif;
+  body {
+    padding: 2px;
+    margin: 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  header {
+    text-align: center;
+    padding: 10px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-top: 18px;
+  }
+
+  h3 {
+    margin-top: 15px;
+    font-size: 20px;
+  }
+
+  ul {
+    padding-left: 0;
+  }
+
+  div {
+    text-align: center;
+  }
+
+  li a {
+    margin: 8px;
+  }
+
+  a {
+    color: #1e162a;
+  }
+
+  nav {
+    height: 40px;
+    width: 100%;
+  }
+
+  title {
+    display: none;
+  }
+
+  nav ul {
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  label {
+    margin-top: 10px;
+  }
+
+  svg {
+    height: auto;
+    width: 25px;
+    margin-top: 10px;
+  }
+
+  /* Caption of Modal Image (Image Text) - Same Width as the Image */
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+
+  @-webkit-keyframes zoom {
+    from {
+      -webkit-transform: scale(0);
     }
-
-    body{
-        padding:2px;
-        margin:0;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+    to {
+      -webkit-transform: scale(1);
     }
+  }
 
-    header{
-        text-align:center;
-        padding:10px;
+  @keyframes zoom {
+    from {
+      transform: scale(0);
     }
-
-
-    h1{
-        text-align:center;
-        margin-bottom:0;
+    to {
+      transform: scale(1);
     }
-
-    h2{
-        margin-top:18px;
-    }
-
-    h3{
-        margin-top:15px;
-        font-size:20px
-    }
- 
-    ul{
-        padding-left:0;
-    }
-
-    div{
-        text-align:center;
-    }
-
-    li a{
-        margin:8px;
-    }
-
-    a{
-        color: #1E162A;
-    }
-
-    nav{
-        height:40px;
-        width:100%;
-    }
-
-    title{
-        display:none;
-    }
-   
-    nav ul{
-        padding:0;
-    }
-
-    li{
-        display: inline;
-        list-style: none;
-        text-decoration:none;
-        text-align: center;
-    }  
-
-    label{
-        margin-top:10px;
-    }
-
-    svg{
-        height:auto;
-        width:25px;
-        margin-top:10px;
-    }
-
-/* Caption of Modal Image (Image Text) - Same Width as the Image */
-    #caption {
-        margin: auto;
-        display: block;
-        width: 80%;
-        max-width: 700px;
-        text-align: center;
-        color: #ccc;
-        padding: 10px 0;
-        height: 150px;
-    }
-
-@-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)} 
-    to {-webkit-transform:scale(1)}
-}
-
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
+  }
 }
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-    .modal-content {
-        width: 100%;
-    }
-} 
-
-svg{
-    height:auto;
-    width:30px;
-    margin-top:15px;
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
 }
 
-.main-nav{
-    position:block;
-    height:auto;
+svg {
+  height: auto;
+  width: 30px;
+  margin-top: 15px;
 }
 
-.work-and-stuff{
-    display:block;
-    padding:0;
+.main-nav {
+  position: block;
+  height: auto;
 }
 
-.node-logo{
-    height:auto;
-    width:21px;
+.work-and-stuff {
+  display: block;
+  padding: 0;
 }
 
-.modal{
-    display:none
+.node-logo {
+  height: auto;
+  width: 21px;
 }
 
-.first-ul{
-    padding-top:0px;
-    margin-top:0;
-    margin-top: 15px;
+.modal {
+  display: none;
 }
 
-.about{
-    margin:30px;
+.first-ul {
+  padding-top: 0px;
+  margin-top: 0;
+  margin-top: 15px;
 }
 
-.project-description{
-    margin:30px;
+.about {
+  margin: 30px;
 }
 
-.headshot{
-    margin-top:10px;
-    width:auto;
-    height:200px;
-    margin-bottom:10px;
-    border-radius:50%
+.project-description {
+  margin: 30px;
 }
 
-.headshot:hover{
-    cursor:pointer;
+.headshot {
+  margin-top: 10px;
+  width: auto;
+  height: 200px;
+  margin-bottom: 10px;
+  border-radius: 50%;
 }
 
-.project-links{
-    padding-top:2px;
+.headshot:hover {
+  cursor: pointer;
 }
 
-.this-video{
-    color:#1E162A;
+.project-links {
+  padding-top: 2px;
 }
 
-.work{
-    text-align:center;
+.this-video {
+  color: #1e162a;
 }
 
-.contact-form{
-    padding:10px;
+.work {
+  text-align: center;
 }
 
-.form-style-4{
-    font-size: 16px;
-    padding: 30px 30px 15px 30px;
-    margin:auto;
-    margin-bottom:50px;
+.contact-form {
+  padding: 10px;
 }
 
-.form-style-4 input[type=submit],
-.form-style-4 input[type=button],
-.form-style-4 input[type=text],
-.form-style-4 input[type=email],
+.form-style-4 {
+  font-size: 16px;
+  padding: 30px 30px 15px 30px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.form-style-4 input[type='submit'],
+.form-style-4 input[type='button'],
+.form-style-4 input[type='text'],
+.form-style-4 input[type='email'],
 .form-style-4 textarea,
 .form-style-4 label {
-    font-family: 'Rubik', sans-serif;
-    font-size: 16px;
-
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
 }
-    
+
 .form-style-4 label {
-    display:block;
-    margin-bottom: 10px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .form-style-4 label span {
-    display: inline-block;
-    float: left;
-    width: 150px;
+  display: inline-block;
+  float: left;
+  width: 150px;
 }
 
-.form-style-4 input[type=text],
-.form-style-4 input[type=email] {
-    background: transparent;
-    border: none;
-    border-bottom: 1px dashed #1E162A;
-    width: 275px;
-    outline: none;
-       padding: 0px 0px 0px 0px;
-    font-style: italic;
+.form-style-4 input[type='text'],
+.form-style-4 input[type='email'] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed #1e162a;
+  width: 275px;
+  outline: none;
+  padding: 0px 0px 0px 0px;
+  font-style: italic;
 }
 .form-style-4 textarea {
-    margin-top:10px;
-    font-style: italic;
-    padding: 0px 0px 0px 0px;
-    background: transparent;
-    outline: none;
-    border: none;
-    border-bottom: 1px dashed #1E162A;
-    width: 275px;
-    overflow: auto;
-    resize:both;
-    text-align:center;
+  margin-top: 10px;
+  font-style: italic;
+  padding: 0px 0px 0px 0px;
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px dashed #1e162a;
+  width: 275px;
+  overflow: auto;
+  resize: both;
+  text-align: center;
 }
 
-.form-style-4 input[type=submit],
-.form-style-4 input[type=button] {
-    background: #1E162A;
-    border: none;
-    padding: 8px 10px 8px 10px;
-    border-radius: 5px;
+.form-style-4 input[type='submit'],
+.form-style-4 input[type='button'] {
+  background: #1e162a;
+  border: none;
+  padding: 8px 10px 8px 10px;
+  border-radius: 5px;
 }
-    
-.form-style-4 input[type=submit],
-.form-style-4 input[type=button] {
-    margin-top:15px;
-    background: white;
-    box-shadow: 0 2.5px 2.5px 2.5px #1E162A;
-    transition: all 0.2s ease-in-out;
-    margin: 15px auto 0 auto;
-    display:block
+
+.form-style-4 input[type='submit'],
+.form-style-4 input[type='button'] {
+  margin-top: 15px;
+  background: white;
+  box-shadow: 0 2.5px 2.5px 2.5px #1e162a;
+  transition: all 0.2s ease-in-out;
+  margin: 15px auto 0 auto;
+  display: block;
 }
 
 .close:hover,
 .close:focus {
-    color: #bbb;
-    text-decoration: none;
-        cursor: pointer;
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-
-.react-logo{
-    height:auto;
-    width: 32px; 
+.react-logo {
+  height: auto;
+  width: 32px;
 }
 
-.node-logo{
-    height:auto;
-    width:23px;
+.node-logo {
+  height: auto;
+  width: 23px;
 }
-

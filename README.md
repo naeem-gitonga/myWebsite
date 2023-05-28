@@ -4,6 +4,11 @@ This is my portfolio's repository ladies and gentlemen. I have been building som
 
 I built this using Javascript and a little JQuery.
 
- Seriously, thanks for dropping by!
+Seriously, thanks for dropping by!
 
- [My Portfolio Webpage](https://www.jahanaeemgitonga.com/)
+[My Portfolio Webpage](https://www.jahanaeemgitonga.com/)
+
+
+## Images/Static Files
+
+The images for this repo are stored in an AWS S3 bucket. They and other static files are viewable via a AWS CloudFront distribution.

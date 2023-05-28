@@ -1,12 +1,35 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-#file
-particles.min.js
-mobile2.css
-mobile3.css
-mobile4.css
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
+# testing
+/coverage
 
-# directories
-old_stuff/
-demo/
-vscode/
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

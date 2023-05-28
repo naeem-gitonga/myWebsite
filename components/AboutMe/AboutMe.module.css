@@ -1,0 +1,34 @@
+.headshot {
+  width: auto;
+  height: 200px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.headshot:hover {
+  cursor: pointer;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.aboutMe {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.6em;
+  margin: 0 auto;
+  width: 72%;
+  border-bottom: 1px solid black;
+  margin-bottom: 52px;
+}
+
+.about {
+  color: black;
+  margin: auto;
+  margin-top: 20px;
+  line-height: 1.4;
+  overflow: auto;
+  word-wrap: break-word;
+  max-width: 600px;
+}

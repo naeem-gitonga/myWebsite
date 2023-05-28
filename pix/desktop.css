@@ -153,6 +153,11 @@ p.name {
   width: 21px;
 }
 
+.serverless {
+  width: 28px;
+  height: auto;
+}
+
 .logo {
   margin: auto;
   text-align: center;
