@@ -14,9 +14,9 @@ export default function AboutMe(): JSX.Element {
       </div>
       <h2 className={aboutMe}>aboutMe</h2>
       <p className={about}>
-        Peace, I'm Jaha Naeem Gitonga, but you can call me Naeem. I am the tech
-        lead. I've been delivering software for the last six years. I am the
-        founder of{' '}
+        Peace, I&apos;m Jaha Naeem Gitonga, but you can call me Naeem. I am the
+        tech lead. I&apos;ve been delivering software for the last six years. I
+        am the founder of{' '}
         <a href="http://www.gtng.tech" className="link">
           GTNG
         </a>
@@ -30,7 +30,7 @@ export default function AboutMe(): JSX.Element {
           GTNG Foundation
         </a>
         , where focus is the JavaScript MERN stack, AWS and a few other
-        technologies. Outside of coding, I do more art. Yeah that's
+        technologies. Outside of coding, I do more art. Yeah that&apos;s
         right--programming a computer, building apps and websites is an art!
       </p>
       <p className={about}>
@@ -53,14 +53,14 @@ export default function AboutMe(): JSX.Element {
       </p>
       <p className={about}>
         Here you will see some samples of my work. If you hover over the
-        screencaptures you'll see info about the app. Click on{' '}
-        <span className="link">Live Demo</span> and you'll be able to play
+        screencaptures you&apos;ll see info about the app. Click on{' '}
+        <span className="link">Live Demo</span> and you&apos;ll be able to play
         around with some stuff.
         <span className="aviso">Notice:</span> Some of those apps are demos and
         are hosted on Heroku which offers developers some <em>free</em> tools to
-        show their work. So if it seems like it's taking a little long to load
-        up, bear in mind that the server is starting and getting its ducks in a
-        row so that you can experience the app.
+        show their work. So if it seems like it&apos;s taking a little long to
+        load up, bear in mind that the server is starting and getting its ducks
+        in a row so that you can experience the app.
       </p>
       <p className={about}>
         Please, if you would like to work with me or just to stopped by look

@@ -16,8 +16,7 @@ export default function Home() {
   const searchParams = useSearchParams();
   useParticles();
   useInfoLog();
-  console.log({ pathname, searchParams: searchParams?.toString() });
-  const [whichSection, setWhichSection] = useState('aboutMe');
+  const [whichSection, setWhichSection] = useState('');
   const Section = (): JSX.Element | null => {
     switch (whichSection) {
       case 'aboutMe':
@@ -27,17 +26,26 @@ export default function Home() {
       case 'myWork':
         return <MyWork />;
       default:
-        return null;
+        return <div />;
     }
   };
 
   return (
     <div className={styles.root}>
-      {/* <Script src="https://use.fontawesome.com/804fb94b8b.js"></Script>
-        <Script
-          type="text/javascript"
-          src="https://d2j3yisnywcb30.cloudfront.net/particles.js"
-        ></Script> */}
+      {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=UA-112911264-1"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+  
+            gtag('config', 'UA-112911264-1');
+          `}
+      </Script>
       <div id="particles-js" className={styles.particles} />
       <Header setWhichSection={setWhichSection} />
       <Section />

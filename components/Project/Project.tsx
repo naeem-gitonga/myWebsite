@@ -1,7 +1,7 @@
 import { projectStackMap } from './StackItems';
 import { Project as ProjectObj } from './projects';
 import styles from './Project.module.css';
-
+import sharedStyles from '../SharedCss/SharedCss.module.css';
 type ProjectProps = { project: ProjectObj; key: string };
 
 export default function Project(props: ProjectProps): JSX.Element {
@@ -10,9 +10,12 @@ export default function Project(props: ProjectProps): JSX.Element {
     imageWrapper,
     overlay,
     projectDescription,
+    proLink,
     projectImage,
+    projectLinks,
     text,
     title,
+    projectStack,
   } = styles;
   return (
     <div className={imageWrapper} key={key}>
@@ -24,29 +27,31 @@ export default function Project(props: ProjectProps): JSX.Element {
       <div className={overlay}>
         <h2 className={`${title} ${text}`}>{project.title}</h2>
         <p className={`${projectDescription} ${text}`}>{project.projectDes}</p>
-        <div className="project-stack">
+        <div className={projectStack}>
           {projectStackMap[project.projectStack]}
         </div>
-        <div className="project-links">
-          <ul>
-            <li className="project-link project-link-live">
+        <div className={projectLinks}>
+          <ul className={sharedStyles.zeroPadding}>
+            <li>
               <a
-                className="pro-link text"
+                className={`${proLink} ${text}`}
                 href={project.projectLink}
                 target="_blank"
               >
                 Live demo
               </a>
             </li>
-            <li className="project-link project-link-github">
-              <a
-                className="pro-link text"
-                href={project.gitHubLink}
-                target="_blank"
-              >
-                Source code
-              </a>
-            </li>
+            {project.gitHubLink && (
+              <li className="project-link project-link-github">
+                <a
+                  className={`${proLink} ${text}`}
+                  href={project.gitHubLink}
+                  target="_blank"
+                >
+                  Source code
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>

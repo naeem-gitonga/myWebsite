@@ -3,6 +3,10 @@
   margin-bottom: 50px;
 }
 
+.zeroMarginBottom {
+  margin-bottom: 0;
+}
+
 @media (min-width: 720px) {
   .myWorkWrapper {
     display: flex;
@@ -12,6 +16,5 @@
     margin: auto;
     padding: 10px;
     width: 80%;
-    margin-bottom: 150px;
   }
 }

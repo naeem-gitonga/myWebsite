@@ -19,83 +19,61 @@ export type Project = {
   title: string;
   projectDes: string;
   projectStack: ProjectName;
-  projectLink: string;
-  gitHubLink: string;
+  projectLink?: string;
+  gitHubLink?: string;
 };
 
 export const projects: Project[] = [
   {
     title: 'Pluralsight**',
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/pluralsight.png',
     projectDes: 'Enterprise Learning application',
-    projectStack: 'pluralsight' as ProjectName,
+    projectStack: 'pluralsight',
     projectLink: 'https://www.pluralsight.com',
-    gitHubLink: 'javascript:void(0)',
   },
   {
     title: 'AcloudGuru**',
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png',
-    projectDes: 'Enterprise Learning application',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/acloudguru.png',
+    projectDes: 'Learning application',
     projectStack: 'acloudguru',
     projectLink: 'https://www.pluralsight.com',
-    gitHubLink: 'javascript:void(0)',
   },
   {
     title: 'Vestiaire Collective**',
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png',
-    projectDes: 'Enterprise Learning application',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/vc.png',
+    projectDes:
+      'Peer to peer Fashion e-commerce, web application. I led efforts to rebuild the listing flow.',
     projectStack: 'vc',
     projectLink: 'https://www.vestiairecollective.com',
-    gitHubLink: 'javascript:void(0)',
   },
   {
-    title: 'Honeywell Connected Enterprise**',
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png',
-    projectDes: 'Enterprise Learning application',
+    title: 'Honeywell Forge, HCE**',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/hce.png',
+    projectDes: 'Enterprise aviation monitoring and tracking',
     projectStack: 'honeywell',
-    projectLink: 'https://www.pluralsight.com',
-    gitHubLink: 'javascript:void(0)',
+    projectLink: 'https://www.honeywellforge.ai/us/en/industries/aerospace',
   },
   {
     title: 'Cricket Wireless**',
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png',
-    projectDes: 'Enterprise Learning application',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/cricket.png',
+    projectDes: 'Telecommunications e-commerce web application',
     projectStack: 'cricket',
-    projectLink: 'https://www.pluralsight.com',
+    projectLink: 'https://www.cricketwireless.com.com',
+  },
+  {
+    title: 'American Airlines Horror*',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png',
+    projectDes: 'Custom web app. Go and vent your frustrations today.',
+    projectStack: 'aah',
+    projectLink: 'http://www.americanairlineshorroor.com',
     gitHubLink: 'javascript:void(0)',
   },
-  {
-    title: "Polls 'R' Us*",
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/pollsRUs.png',
-    projectDes:
-      "MVP for an app that allows you to collect the world's opinion.",
-    projectStack: 'polls',
-    projectLink: 'https://vast-hamlet-89391.herokuapp.com',
-    gitHubLink: 'https://github.com/PROB8/naeem-polling',
-  },
-  {
-    title: "What's my Horoscope?*",
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/myHoroscope.png',
-    projectDes: 'MVP for app gives simple horoscope/motivational quote.',
-    projectStack: 'horoscope',
-    projectLink: 'https://findmyhoroscope.herokuapp.com',
-    gitHubLink: 'https://github.com/PROB8/find-my-horoscope',
-  },
-  {
-    title: 'Learningo!*',
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/loginPage.png',
-    projectDes:
-      'MVP for app that allows users to learn the topic of their choosing.',
-    projectStack: 'learningo',
-    projectLink: 'https://learningo.herokuapp.com',
-    gitHubLink: 'https://github.com/PROB8/learningo',
-  },
+
   {
     title: 'Gabrielle Zalina*',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/gzalina.png',
     projectDes: 'Custom single-page website.',
     projectStack: 'gab',
-    projectLink: 'https://gabriellezalina.herokuapp.com',
     gitHubLink: 'javascript:void(0)',
   },
   {
@@ -113,8 +91,7 @@ export const projects: Project[] = [
     projectDes:
       'My code helped this app acheive over 1000% growth, in paying customers, in less than two years.',
     projectStack: 'ninety',
-    projectLink: 'https://traxion.io',
-    gitHubLink: 'javascript:void(0)',
+    projectLink: 'https://ninety.io',
   },
   {
     title: 'GTNG*',
@@ -125,19 +102,34 @@ export const projects: Project[] = [
     gitHubLink: 'javascript:void(0)',
   },
   {
-    title: 'American Airlines Horror*',
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png',
-    projectDes: 'Custom web app. Go and vent your frustrations today.',
-    projectStack: 'aah',
-    projectLink: 'http://www.americanairlineshorroor.com',
+    title: 'Arithmetik*',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/arithmetik.png',
+    projectDes: 'Enterprise Learning application',
+    projectStack: 'arithmetik',
+    projectLink: 'https://www.npmjs.com/package/arithmetik',
     gitHubLink: 'javascript:void(0)',
   },
   {
-    title: 'Arithmetik*',
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png',
-    projectDes: 'Enterprise Learning application',
-    projectStack: 'arithmetik',
-    projectLink: 'https://www.pluralsight.com',
-    gitHubLink: 'javascript:void(0)',
+    title: 'Learningo!*',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/loginPage.png',
+    projectDes:
+      'MVP for app that allows users to learn the topic of their choosing.',
+    projectStack: 'learningo',
+    gitHubLink: 'https://github.com/PROB8/learningo',
+  },
+  {
+    title: "What's my Horoscope?*",
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/myHoroscope.png',
+    projectDes: 'MVP for app gives simple horoscope/motivational quote.',
+    projectStack: 'horoscope',
+    gitHubLink: 'https://github.com/PROB8/find-my-horoscope',
+  },
+  {
+    title: "Polls 'R' Us*",
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/pollsRUs.png',
+    projectDes:
+      "MVP for an app that allows you to collect the world's opinion.",
+    projectStack: 'polls',
+    gitHubLink: 'https://github.com/PROB8/naeem-polling',
   },
 ];

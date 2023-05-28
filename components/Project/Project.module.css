@@ -3,6 +3,7 @@
   width: 350px;
   height: 350px;
   overflow: hidden;
+  margin: 10px;
 }
 
 .imageWrapper:hover .overlay {
@@ -24,9 +25,12 @@
 }
 
 .projectImage {
-  height: 350px;
   position: relative;
   top: -25px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* this will make the image cover the entire area of the div */
+  object-position: center;
 }
 
 .title {
@@ -36,13 +40,84 @@
   top: 20px;
 }
 
+.projectDescription {
+  font-size: 15px;
+  color: gold;
+  margin-bottom: 10px;
+  max-width: 320px;
+}
+
+.projectStack {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 13px;
+  text-align: center;
+}
+
+.projectLinks {
+  margin-bottom: 50px;
+}
+.projectLinks ul {
+  list-style-type: none;
+}
+
+.proLink {
+  font-size: 1.3em;
+  color: #f1f1f1;
+}
+
 .text {
   color: gold;
   letter-spacing: 1px;
 }
 
-.projectDescription {
-  font-size: 15px;
-  color: gold;
+.projectStackItem {
+  margin: auto;
+  position: relative;
+  display: inline-block;
   margin-bottom: 10px;
+  max-width: 90px;
+}
+
+.name {
+  font-size: 15px;
+  display: block;
+  margin: 0 10px;
+}
+
+.react {
+  height: auto;
+  width: 32px;
+}
+
+.node {
+  height: auto;
+  width: 21px;
+}
+
+.serverless {
+  width: 28px;
+  height: auto;
+}
+
+.logo {
+  margin: auto;
+  text-align: center;
+}
+
+.mongo {
+  width: 40px;
+  height: auto;
+}
+
+.express {
+  width: 50px;
+  height: auto;
+}
+
+.redux {
+  width: 30px;
+  height: auto;
 }

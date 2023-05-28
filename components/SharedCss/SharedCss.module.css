@@ -2,6 +2,14 @@
   height: 100vh;
 }
 
+.zeroPadding {
+  padding: 0;
+}
+
+.zeroMarginBottom {
+  margin-bottom: 0;
+}
+
 .sectionHeader {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.6em;

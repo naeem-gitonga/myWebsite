@@ -1,10 +1,23 @@
 import { ProjectName } from './projects';
+import styles from './Project.module.css';
 
+const {
+  express,
+  redux,
+  logo,
+  mongo,
+  name,
+  node,
+  react,
+  text,
+  serverless,
+  projectStackItem,
+} = styles;
 export function ReduxStackItem(): JSX.Element {
   return (
-    <div className="project-stack-item">
+    <div className={projectStackItem}>
       <svg
-        className="redux logo"
+        className={`${redux} ${logo}`}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"
       >
@@ -14,68 +27,68 @@ export function ReduxStackItem(): JSX.Element {
           <path d="M32.4 67.1c.1 3 2.6 5.4 5.6 5.4h.2c3.1-.1 5.5-2.7 5.4-5.8-.1-3-2.6-5.4-5.6-5.4h-.2c-.2 0-.5 0-.7.1-4.1-6.8-5.8-14.2-5.2-22.2.4-6 2.4-11.2 5.9-15.5 2.9-3.7 8.5-5.5 12.3-5.6 10.6-.2 15.1 13 15.4 18.3 1.3.3 3.5 1 5 1.5-1.2-16.2-11.2-24.6-20.8-24.6-9 0-17.3 6.5-20.6 16.1-4.6 12.8-1.6 25.1 4 34.8-.5.7-.8 1.8-.7 2.9z" />
         </g>
       </svg>
-      <p className="name text">Redux</p>
+      <p className={`${name} ${text}`}>Redux</p>
     </div>
   );
 }
 
 export function ServerlessStackItem(): JSX.Element {
   return (
-    <div className="project-stack-item">
+    <div className={projectStackItem}>
       <img
-        className="serverless logo"
+        className={`${serverless} ${logo}`}
         src="https://d2j3yisnywcb30.cloudfront.net/pix/serverless-logo.png"
       />
-      <p className="name text">Serverless</p>
+      <p className={`${name} ${text}`}>Serverless</p>
     </div>
   );
 }
 
 export function NodeStackItem(): JSX.Element {
   return (
-    <div className="project-stack-item">
+    <div className={projectStackItem}>
       <img
-        className="node logo"
+        className={`${node} ${logo}`}
         src="https://d2j3yisnywcb30.cloudfront.net/pix/nodelogo.png"
       />
-      <p className="name text">Node.js</p>
+      <p className={`${name} ${text}`}>Node.js</p>
     </div>
   );
 }
 
 export function ReactStackItem(): JSX.Element {
   return (
-    <div className="project-stack-item">
+    <div className={projectStackItem}>
       <img
-        className="react logo"
+        className={`${react} ${logo}`}
         src="https://d2j3yisnywcb30.cloudfront.net/pix/react.png"
       />
-      <p className="name text">React.js</p>
+      <p className={`${name} ${text}`}>React.js</p>
     </div>
   );
 }
 
 export function ExpressStackItem(): JSX.Element {
   return (
-    <div className="project-stack-item">
+    <div className={projectStackItem}>
       <img
-        className="express logo"
+        className={`${express} ${logo}`}
         src="https://d2j3yisnywcb30.cloudfront.net/pix/expressjslogo.png"
       />
-      <p className="name text">Express.js</p>
+      <p className={`${name} ${text}`}>Express.js</p>
     </div>
   );
 }
 
 export function MongoStackItem(): JSX.Element {
   return (
-    <div className="project-stack-item">
+    <div className={projectStackItem}>
       <img
-        className="mongo logo"
+        className={`${mongo} ${logo}`}
         src="https://d2j3yisnywcb30.cloudfront.net/pix/Mongo2.png"
         alt="MongoDB Logo"
       />
-      <p className="name text">MongoDB</p>
+      <p className={`${name} ${text}`}>MongoDB</p>
     </div>
   );
 }
@@ -84,58 +97,58 @@ export function JsStackItem(): JSX.Element {
   return (
     <div className="project-stack">
       <img
-        className="react logo"
+        className={`${react} ${logo}`}
         src="https://d2j3yisnywcb30.cloudfront.net/pix/javascript.png"
       />
-      <p className="name text">Javascript</p>
+      <p className={`${name} ${text}`}>Javascript</p>
     </div>
   );
 }
 
 export function Angular(): JSX.Element {
   return (
-    <div className="project-stack-item">
+    <div className={projectStackItem}>
       <img
-        className="react logo"
+        className={`${react} ${logo}`}
         src="https://d2j3yisnywcb30.cloudfront.net/pix/angular.png"
       />
-      <p className="name text">AngularJS</p>
+      <p className={`${name} ${text}`}>AngularJS</p>
     </div>
   );
 }
 
 export function Docker(): JSX.Element {
   return (
-    <div className="project-stack-item">
+    <div className={projectStackItem}>
       <img
-        className="react logo"
+        className={`${react} ${logo}`}
         src="https://d2j3yisnywcb30.cloudfront.net/pix/docker.png"
       />
-      <p className="name text">Docker</p>
+      <p className={`${name} ${text}`}>Docker</p>
     </div>
   );
 }
 
 export function GolangStackItem(): JSX.Element {
   return (
-    <div className="project-stack-item">
+    <div className={projectStackItem}>
       <img
-        className="react logo"
+        className={`${react} ${logo}`}
         src="https://d2j3yisnywcb30.cloudfront.net/pix/go-logo.png"
       />
-      <p className="name text">Go</p>
+      <p className={`${name} ${text}`}>Go</p>
     </div>
   );
 }
 
 export function AwsLambdaStackItem(): JSX.Element {
   return (
-    <div className="project-stack-item">
+    <div className={projectStackItem}>
       <img
-        className="react logo"
+        className={`${react} ${logo}`}
         src="https://d2j3yisnywcb30.cloudfront.net/pix/aws-sam.png"
       />
-      <p className="name text">AWS SAM</p>
+      <p className={`${name} ${text}`}>AWS SAM</p>
     </div>
   );
 }

@@ -5,11 +5,13 @@ import Project from '../Project/Project';
 
 export default function MyWork(): JSX.Element {
   const { sectionHeader } = sharedStyles;
-  const { disclaimer, myWorkWrapper } = styles;
+  const { disclaimer, myWorkWrapper, zeroMarginBottom } = styles;
   return (
     <section id="myWork" className={`project`}>
       <h2 className={sectionHeader}>myWork</h2>
-      <p className={disclaimer}>* by the name means that I built it myself</p>
+      <p className={`${disclaimer} ${zeroMarginBottom}`}>
+        * by the name means that I built it myself
+      </p>
       <p className={styles.disclaimer}>
         ** by the name means that I worked on it with a team
       </p>

@@ -1,9 +1,5 @@
 import './globals.css';
 
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata = {
   title: 'Jaha Naeem Gitonga',
   description:
@@ -30,20 +26,6 @@ export default function RootLayout({
           rel="shortcut icon"
           href="https://d2j3yisnywcb30.cloudfront.net/pix/favicon.ico"
         />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-112911264-1"
-        ></script>
-        <script type="text/javascript">
-          {/* window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            //@ts-ignore
-            dataLayer.push(arguments)
-          }
-          gtag('js', new Date());
-          
-        gtag('config', 'UA-112911264-1'); */}
-        </script>
       </head>
       <body className={`body`}>
         {children}
