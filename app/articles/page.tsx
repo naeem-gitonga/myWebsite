@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer/Footer';
 import '../globals.css';
 
 export default function Blog(): JSX.Element {
@@ -7,6 +8,7 @@ export default function Blog(): JSX.Element {
         Coming Soon! My plans are to host my own articles here first.
       </p>
       <div className="construction" />
+      <Footer />
     </div>
   );
 }

@@ -10,6 +10,7 @@ import useInfoLog from '@/hooks/useInfoLog';
 import MyWork from '@/components/MyWork/MyWork';
 import Script from 'next/script';
 import Donate from '@/components/Donate/Donate';
+import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 
 export default function Home() {
   useParticles();
@@ -50,6 +51,7 @@ export default function Home() {
       <Header setWhichSection={setWhichSection} />
       <Section />
       <Footer />
+      <ReturnArrow />
     </div>
   );
 }
