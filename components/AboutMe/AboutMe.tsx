@@ -15,11 +15,12 @@ export default function AboutMe(): JSX.Element {
       <h2 className={aboutMe}>aboutMe</h2>
       <p className={about}>
         Peace, I&apos;m Jaha Naeem Gitonga, but you can call me Naeem. I am a
-        technical leader. I&apos;ve worked with teams to deliver software for the last six years,
-        being responsible for guiding and overseeing the technical aspects of a project, 
-        ensuring the team&apos;s adherence to best practices, and making key technical decisions. 
-        I build enterprise web applications. I teach software engineering,
-        DevOps, and mentor students in coding a boot camp with{' '}
+        technical leader. I&apos;ve worked with teams to deliver software for
+        the last six years, being responsible for guiding and overseeing the
+        technical aspects of a project, ensuring the team&apos;s adherence to
+        best practices, and making key technical decisions. I build enterprise
+        web applications. I teach software engineering, DevOps, and mentor
+        students in coding a boot camp with{' '}
         <a
           href="https://www.gtngfoundation.org"
           target="_blank"
@@ -32,8 +33,8 @@ export default function AboutMe(): JSX.Element {
         right--programming a computer, building apps and websites is an art!
       </p>
       <p className={about}>
-        I enjoy designing applications, employing new technologies to create event driven systems. 
-        I am an author. I have written a book{' '}
+        I enjoy designing applications, employing new technologies to create
+        event driven systems. I am an author. I have written a book{' '}
         <a
           className="link"
           href="https://www.amazon.com/Program-Your-Life-Naeem-Gitonga/dp/1733442405/ref=sr_1_1?keywords=program+your+life+jaha+naeem+gitonga&qid=1580526523&sr=8-1"
@@ -56,9 +57,9 @@ export default function AboutMe(): JSX.Element {
       </p>
       <p className={about}>
         Please, if you would like to work with me or just to stopped by look
-        around, click on the envelope icon above
-        and drop me a line or two. Or, reach out to me on LinkedIn I will be sure 
-        to follow up. Enjoy and thanks for dropping by!
+        around, click on the envelope icon above and drop me a line or two. Or,
+        reach out to me on LinkedIn I will be sure to follow up. Enjoy and
+        thanks for dropping by!
       </p>
     </div>
   );

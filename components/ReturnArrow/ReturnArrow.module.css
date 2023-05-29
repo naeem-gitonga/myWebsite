@@ -1,0 +1,37 @@
+.arrowBox {
+  position: fixed;
+  z-index: 40;
+  right: 20px;
+  bottom: 50px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 2px solid #363333;
+  text-align: center;
+}
+
+.arrowBox:hover {
+  background-color: #363333;
+  border: 2px solid white;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.arrowBox:hover .fas {
+  color: white;
+  transition: 0.5s;
+}
+
+.fas {
+  position: relative;
+  top: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+div > .upArrowLink {
+  position: relative;
+  top: 1px;
+  text-decoration: none;
+  vertical-align: middle;
+}
