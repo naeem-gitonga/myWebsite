@@ -1,6 +1,7 @@
 .tooltipContainer {
   position: relative;
   display: inline-block;
+
 }
 
 .tooltipText {
@@ -11,7 +12,7 @@
   border-radius: 6px;
   padding: 5px;
   position: absolute;
-  z-index: 1;
+  z-index: 10000000000;
   bottom: 125%;
   left: 50%;
   margin-left: -60px;

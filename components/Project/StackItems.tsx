@@ -142,7 +142,7 @@ export function Terraform(): JSX.Element {
 
 export function AWSLambda(): JSX.Element {
   return (
-    <Tooltip text="lambda">
+    <Tooltip text="Lambda">
       <div className={`${lambda} ${projectStackItem} ${logo}`} />
     </Tooltip>
   );
@@ -166,7 +166,7 @@ export function NextJs(): JSX.Element {
 
 export function PostgreSQL(): JSX.Element {
   return (
-    <Tooltip text="postgres">
+    <Tooltip text="Postgres">
       <div className={`${postgres} ${projectStackItem} ${logo}`} />
     </Tooltip>
   );
@@ -174,7 +174,7 @@ export function PostgreSQL(): JSX.Element {
 
 export function DynamoDB(): JSX.Element {
   return (
-    <Tooltip text="dynamodb">
+    <Tooltip text="DynamoDB">
       <div className={`${dynamodb} ${projectStackItem} ${logo}`} />
     </Tooltip>
   );
@@ -264,6 +264,7 @@ export const projectStackMap: ProjectMapType = {
     <ReactStackItem key="react" />,
     <NodeStackItem key="node" />,
     <Docker key="docker" />,
+    <JsStackItem key="javascript" />
   ],
   arithmetik: [<JsStackItem key="javascript" />],
 };

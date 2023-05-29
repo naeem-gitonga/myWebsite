@@ -35,7 +35,7 @@ export const projects: Project[] = [
   {
     title: 'AcloudGuru**',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/acloudguru.png',
-    projectDes: 'Learning application',
+    projectDes: 'Learning application, here I honed my skills with Serverless event driven architecture.',
     projectStack: 'acloudguru',
     projectLink: 'https://www.pluralsight.com',
   },
@@ -43,21 +43,21 @@ export const projects: Project[] = [
     title: 'Vestiaire Collective**',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/vc.png',
     projectDes:
-      'Peer to peer Fashion e-commerce, web application. I led efforts to rebuild the listing flow.',
+      'Peer to peer fashion e-commerce, web application. I led efforts to rebuild the listing flow. I was principally writing React',
     projectStack: 'vc',
     projectLink: 'https://www.vestiairecollective.com',
   },
   {
     title: 'Honeywell Forge, HCE**',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/hce.png',
-    projectDes: 'Enterprise aviation monitoring and tracking',
+    projectDes: 'Enterprise aviation monitoring and tracking used to monitor aircraft and aircraft fleets.',
     projectStack: 'honeywell',
     projectLink: 'https://www.honeywellforge.ai/us/en/industries/aerospace',
   },
   {
     title: 'Cricket Wireless**',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/cricket.png',
-    projectDes: 'Telecommunications e-commerce web application',
+    projectDes: 'Telecommunications e-commerce web application. I worked on the shopping cart team, mostly writing vanilla JavaScript.',
     projectStack: 'cricket',
     projectLink: 'https://www.cricketwireless.com.com',
   },
