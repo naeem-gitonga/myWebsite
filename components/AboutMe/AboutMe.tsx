@@ -17,7 +17,7 @@ export default function AboutMe(): JSX.Element {
         Peace, I&apos;m Jaha Naeem Gitonga, but you can call me Naeem. I am a
         technical leader. I&apos;ve worked with teams to deliver software for the last six years,
         being responsible for guiding and overseeing the technical aspects of a project, 
-        ensuring the team's adherence to best practices, and making key technical decisions. 
+        ensuring the team&apos;s adherence to best practices, and making key technical decisions. 
         I build enterprise web applications. I teach software engineering,
         DevOps, and mentor students in coding a boot camp with{' '}
         <a
