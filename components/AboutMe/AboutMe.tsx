@@ -56,7 +56,7 @@ export default function AboutMe(): JSX.Element {
         around with some stuff.
       </p>
       <p className={about}>
-        Please, if you would like to work with me or just to stopped by look
+        Please, if you would like to work with me or just stopped by look
         around, click on the envelope icon above and drop me a line or two. Or,
         reach out to me on LinkedIn I will be sure to follow up. Enjoy and
         thanks for dropping by!
