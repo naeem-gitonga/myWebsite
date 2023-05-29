@@ -51,24 +51,25 @@
     text-decoration: none;
     text-align: center;
   }
-}
 
-@media only screen and (max-height: 370px) {
-  .all-container {
-    top: -400px;
-  }
-}
-
-@media (min-width: 720px) {
   .main-nav {
     margin: auto;
     width: auto;
   }
 }
 
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px) {
-  .main-nav {
-    margin: 2rem auto;
+@media only screen and (max-width: 720px) {
+  .firstUl,
+  .links {
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 300px;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  .firstUl li,
+  .links a {
+    margin: 10px;
   }
 }

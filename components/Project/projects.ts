@@ -35,7 +35,8 @@ export const projects: Project[] = [
   {
     title: 'AcloudGuru**',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/acloudguru.png',
-    projectDes: 'Learning application, here I honed my skills with Serverless event driven architecture.',
+    projectDes:
+      'Learning application, here I honed my skills with Serverless event driven architecture.',
     projectStack: 'acloudguru',
     projectLink: 'https://www.pluralsight.com',
   },
@@ -50,14 +51,16 @@ export const projects: Project[] = [
   {
     title: 'Honeywell Forge, HCE**',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/hce.png',
-    projectDes: 'Enterprise aviation monitoring and tracking used to monitor aircraft and aircraft fleets.',
+    projectDes:
+      'Enterprise aviation monitoring and tracking used to monitor aircraft and aircraft fleets.',
     projectStack: 'honeywell',
     projectLink: 'https://www.honeywellforge.ai/us/en/industries/aerospace',
   },
   {
     title: 'Cricket Wireless**',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/cricket.png',
-    projectDes: 'Telecommunications e-commerce web application. I worked on the shopping cart team, mostly writing vanilla JavaScript.',
+    projectDes:
+      'Telecommunications e-commerce web application. I worked on the shopping cart team, mostly writing vanilla JavaScript.',
     projectStack: 'cricket',
     projectLink: 'https://www.cricketwireless.com.com',
   },

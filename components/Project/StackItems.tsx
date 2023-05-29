@@ -264,7 +264,7 @@ export const projectStackMap: ProjectMapType = {
     <ReactStackItem key="react" />,
     <NodeStackItem key="node" />,
     <Docker key="docker" />,
-    <JsStackItem key="javascript" />
+    <JsStackItem key="javascript" />,
   ],
   arithmetik: [<JsStackItem key="javascript" />],
 };
