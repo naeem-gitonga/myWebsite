@@ -12,8 +12,9 @@
   padding: 5px;
   position: absolute;
   z-index: 10000000000;
-  bottom: 125%;
+  bottom: 100%;
   left: 50%;
-  margin-left: -60px;
-  width: 120px;
+  margin-left: -40px;
+  width: 70px;
+  font-size: 12px;
 }

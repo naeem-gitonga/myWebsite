@@ -158,7 +158,7 @@ export function TypeScript(): JSX.Element {
 
 export function NextJs(): JSX.Element {
   return (
-    <Tooltip text="nextjs">
+    <Tooltip text="Next.js">
       <div className={`${nextjs} ${projectStackItem} ${logo}`} />
     </Tooltip>
   );
