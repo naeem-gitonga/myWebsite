@@ -33,16 +33,17 @@
   position: relative;
 }
 
-.lengthInMinutes, .publishedDate {
-    margin: 0;
+.lengthInMinutes,
+.publishedDate {
+  margin: 0;
 }
 
 .lengthInMinutes {
-    margin-right: 154px;
+  margin-right: 154px;
 }
 
 .infoWrapper {
-    display: flex;
-    position: absolute;
-    bottom: 15px;
+  display: flex;
+  position: absolute;
+  bottom: 15px;
 }
