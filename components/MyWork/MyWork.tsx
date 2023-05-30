@@ -10,10 +10,10 @@ export default function MyWork(): JSX.Element {
     <section id="myWork" className={`project`}>
       <h2 className={sectionHeader}>myWork</h2>
       <p className={`${disclaimer} ${zeroMarginBottom}`}>
-        * by the name means that I built it myself
+        * I built it myself
       </p>
       <p className={styles.disclaimer}>
-        ** by the name means that I worked on it with a team
+        ** I worked on it with a team
       </p>
       <div className={myWorkWrapper}>
         {projects.map((p: ProjectObj) => (
