@@ -11,6 +11,7 @@ import MyWork from '@/components/MyWork/MyWork';
 import Script from 'next/script';
 import Donate from '@/components/Donate/Donate';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
+import ArticleTileView from '@/components/ArticleTileView/ArticleTileView';
 
 export default function Home() {
   useParticles();
@@ -26,6 +27,8 @@ export default function Home() {
         return <MyWork />;
       case 'donate':
         return <Donate />;
+      case 'articles':
+        return <ArticleTileView />
       default:
         return <div />;
     }
