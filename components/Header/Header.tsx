@@ -24,7 +24,7 @@ export default function Header(props: HeaderProps): JSX.Element {
               </li>
               <li id="articles-link"  onClick={() => setWhichSection('articles')}>
                 <a href="#articles" className={styles.firstUlLink}>
-                  articles
+                  myArticles
                 </a>
               </li>
             </ul>

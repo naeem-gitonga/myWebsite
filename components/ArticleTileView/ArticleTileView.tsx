@@ -9,7 +9,7 @@ export default function ArticleTileView(): JSX.Element {
   const { sectionHeader } = sharedStyles;
   return (
     <div id="articles" className={viewWrapper}>
-      <h2 className={sectionHeader}>articles</h2>
+      <h2 className={sectionHeader}>myArticles</h2>
       {articles.map((a: any) => {
         return <ArticleTile article={a} key={a.title} />;
       })}
