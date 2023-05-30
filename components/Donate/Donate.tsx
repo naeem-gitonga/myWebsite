@@ -17,7 +17,7 @@ export default function Donate(): JSX.Element {
       >
         <h1 className={donate}>Donate Me Bitcoin</h1>
         <p className={aboutDonate}>
-          Everyone has some sort of digital tin cup... here&apos;s mine.
+          Everyone has some sort of digital tin cup... here&apos;s mine. So if you find value in anything here, put something in the pot.
         </p>
         <div className={btcQRCode}>
           <img

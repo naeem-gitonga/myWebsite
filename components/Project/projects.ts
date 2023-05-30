@@ -12,7 +12,8 @@ export type ProjectName =
   | 'vc'
   | 'acloudguru'
   | 'cricket'
-  | 'arithmetik';
+  | 'arithmetik'
+  | 'jngwebsite';
 
 export type Project = {
   projectImg: string;
@@ -24,6 +25,14 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: 'JahaNaeemGitonga.com*',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/jng-website.png',
+    projectDes:
+      'I just ported this website over to React. Originally it was written in 2018, using vanilla JS, some jQuery, and HTML. I decided to bring it into the now and add some new features.',
+    projectStack: 'jngwebsite',
+    gitHubLink: 'https://github.com/JNaeemGitonga/myWebsite',
+  },
   {
     title: 'Pluralsight**',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/pluralsight.png',
