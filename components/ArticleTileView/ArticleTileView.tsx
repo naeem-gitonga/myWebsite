@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import ArticleTile from '../ArticleTile/ArticleTile';
 import styles from './ArticleTileView.module.css';
 import sharedStyles from '../SharedCss/SharedCss.module.css';

@@ -267,5 +267,9 @@ export const projectStackMap: ProjectMapType = {
     <JsStackItem key="javascript" />,
   ],
   arithmetik: [<JsStackItem key="javascript" />],
-  jngwebsite: [<NextJs key="nextjs" />, <TypeScript key="typescript" />,<ReactStackItem key="react" />,]
+  jngwebsite: [
+    <NextJs key="nextjs" />,
+    <TypeScript key="typescript" />,
+    <ReactStackItem key="react" />,
+  ],
 };

@@ -42,7 +42,7 @@
 .message {
   margin-top: 10px;
   font-style: italic;
-  padding: 0p;
+  padding: 0;
   background: transparent;
   outline: none;
   border: none;
@@ -50,16 +50,21 @@
   width: 275px;
   overflow: auto;
   resize: both;
+  resize: both; /* Enables resizing for modern browsers */
+  -webkit-resize: both; 
 }
 
 .submit {
   border: none;
-  padding: 8px 10px 8px 10px;
+  padding: 8px 10px;
   border-radius: 5px;
-  background: white;
-  box-shadow: 0 2.5px 2.5px 2.5px #1e162a;
+  -webkit-appearance: none;
+  background-color: white;
+  -webkit-box-shadow: 0 2.5px 2.5px 2.5px rgba(30, 22, 42, 0.5);
+  box-shadow: 0 2.5px 2.5px 2.5px rgba(30, 22, 42, 0.5) !important;
   transition: all 0.2s ease-in-out;
   margin: 15px auto 0 auto;
+  color: black;
 }
 
 .submit:hover {
