@@ -2,8 +2,8 @@ import ArticleTile from '../ArticleTile/ArticleTile';
 import styles from './ArticleTileView.module.css';
 import sharedStyles from '../SharedCss/SharedCss.module.css';
 
-export default function Blog(): JSX.Element {
-  const { viewWrapper, articlesWrapper } = styles;
+export default function ArticleTileView(): JSX.Element {
+  const { viewWrapper } = styles;
   const { sectionHeader } = sharedStyles;
   return (
     <div className={viewWrapper}>
