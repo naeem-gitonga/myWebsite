@@ -1,19 +1,13 @@
 import Footer from '@/components/Footer/Footer';
 import '../globals.css';
+import ArticleTile from '@/components/ArticleTile/ArticleTile';
+import ArticleTileView from '@/components/ArticleTileView/ArticleTileView';
 
 export default function Blog(): JSX.Element {
   return (
-    <div>
-      <p className="textAlign">
-        Coming Soon! My plans are to host my own articles here first versus
-        where they currently are,{' '}
-        <a href="https://naeemgtng.medium.com/" target="_blank">
-          Medium
-        </a>
-        .
-      </p>
-      <div className="construction" />
+    <>
+      <ArticleTileView />
       <Footer />
-    </div>
+    </>
   );
 }
