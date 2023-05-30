@@ -32,7 +32,6 @@ export default function ArticleTile(props: ArticleTileProps): JSX.Element {
   } = props;
   const handleClick = (e: any) => {
     window.open(articleUrl, '_blank');
-    console.log('you are clicking the tile');
   };
   return (
     <div onClick={handleClick} className={tileWrapper}>

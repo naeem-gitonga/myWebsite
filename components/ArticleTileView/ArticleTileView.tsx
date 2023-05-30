@@ -1,6 +1,8 @@
+'use client'
 import ArticleTile from '../ArticleTile/ArticleTile';
 import styles from './ArticleTileView.module.css';
 import sharedStyles from '../SharedCss/SharedCss.module.css';
+import ReturnArrow from '../ReturnArrow/ReturnArrow';
 
 export default function ArticleTileView(): JSX.Element {
   const { viewWrapper } = styles;
@@ -11,6 +13,7 @@ export default function ArticleTileView(): JSX.Element {
       {articles.map((a: any) => {
         return <ArticleTile article={a} key={a.title} />;
       })}
+      <ReturnArrow />
     </div>
   );
 }
