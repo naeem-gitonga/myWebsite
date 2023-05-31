@@ -2,6 +2,7 @@ import { projectStackMap } from './StackItems';
 import { Project as ProjectObj } from './projects';
 import styles from './Project.module.css';
 import sharedStyles from '../SharedCss/SharedCss.module.css';
+
 type ProjectProps = { project: ProjectObj; key: string };
 
 export default function Project(props: ProjectProps): JSX.Element {

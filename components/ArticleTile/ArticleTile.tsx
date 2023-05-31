@@ -1,6 +1,6 @@
-'use client';
-import { MouseEventHandler } from 'react';
-import styles from './ArticleTile.module.css';
+import getHref from '@/utils/getHref';
+import styles from './ArticleTile.module.scss';
+import Link from 'next/link';
 
 type ArticleTileProps = {
   article: {
@@ -35,14 +35,11 @@ export default function ArticleTile(props: ArticleTileProps): JSX.Element {
       type,
     },
   } = props;
-  const handleClick = (_e: MouseEventHandler<HTMLDivElement> | undefined) => {
-    window.open(articleUrl, '_blank');
-  };
+
+  const href = getHref(articleUrl);
+
   return (
-    <div
-      onClick={handleClick as unknown as MouseEventHandler}
-      className={tileWrapper}
-    >
+    <Link href={href} className={tileWrapper} target="_blank">
       <div
         className={imageContainer}
         style={{ backgroundImage: `url(${imageUrl})` }}
@@ -58,6 +55,6 @@ export default function ArticleTile(props: ArticleTileProps): JSX.Element {
           <p className={publishedDate}>{pd}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

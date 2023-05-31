@@ -1,0 +1,35 @@
+'use client';
+import React, { useEffect } from 'react';
+import LoadingDots from '../../components/LoadingDots/LoadingDots';
+import { useSearchParams } from 'next/navigation';
+
+import styles from './InterstitialPage.module.scss';
+
+export default function InterstitialPage(): JSX.Element {
+  const searchParams = useSearchParams();
+  const url = searchParams?.get('url');
+  const siteName = searchParams?.get('where');
+  useEffect(() => {
+    if (!url) {
+      console.error('No redirectUrl param found');
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      window.location.href = url;
+      window.history.replaceState(null, '', null);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className={styles.page}>
+      <div className={styles.container}>
+        <LoadingDots outerClassName={styles.loaderWrapper} />
+
+        <h1 className={styles.header}>Now taking you to {siteName}...</h1>
+      </div>
+    </div>
+  );
+}

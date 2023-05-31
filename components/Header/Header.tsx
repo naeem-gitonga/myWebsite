@@ -1,4 +1,5 @@
 import styles from './Header.module.css';
+import Link from 'next/link';
 type HeaderProps = {
   setWhichSection: any;
 };
@@ -13,33 +14,33 @@ export default function Header(props: HeaderProps): JSX.Element {
             <h5 className={styles.myTitle}>Tech Lead</h5>
             <ul className={styles.firstUl}>
               <li id="aboutMe-link" onClick={() => setWhichSection('aboutMe')}>
-                <a className={styles.firstUlLink} href="#aboutMe">
+                <Link className={styles.firstUlLink} href="#aboutMe">
                   aboutMe
-                </a>
+                </Link>
               </li>
               <li id="work-link" onClick={() => setWhichSection('myWork')}>
-                <a href="#myWork" className={styles.firstUlLink}>
+                <Link href="#myWork" className={styles.firstUlLink}>
                   myWork
-                </a>
+                </Link>
               </li>
               <li
                 id="articles-link"
                 onClick={() => setWhichSection('articles')}
               >
-                <a href="#articles" className={styles.firstUlLink}>
+                <Link href="#articles" className={styles.firstUlLink}>
                   myArticles
-                </a>
+                </Link>
               </li>
             </ul>
             <div className={styles.links}>
-              <a href="#contact" onClick={() => setWhichSection('contact')}>
+              <Link href="#contact" onClick={() => setWhichSection('contact')}>
                 <i
                   className={`fa fa-envelope fa-3x ${styles.icon}`}
                   aria-hidden="true"
                 ></i>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/ngitonga/"
+              </Link>
+              <Link
+                href="/interstitial?url=https://www.linkedin.com/in/ngitonga/&where=LinkedIn"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -47,9 +48,9 @@ export default function Header(props: HeaderProps): JSX.Element {
                   className={`fa fa-linkedin-square fa-3x ${styles.icon}`}
                   aria-hidden="true"
                 ></i>
-              </a>
-              <a
-                href="https://www.github.com/JNaeemGitonga"
+              </Link>
+              <Link
+                href="/interstitial?url=https://www.github.com/JNaeemGitonga&where=Github"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -57,8 +58,8 @@ export default function Header(props: HeaderProps): JSX.Element {
                   className={`fa fa-github fa-3x ${styles.icon}`}
                   aria-hidden="true"
                 ></i>
-              </a>
-              <a
+              </Link>
+              <Link
                 id="donate-link"
                 href="#donate"
                 rel="noreferrer"
@@ -68,7 +69,7 @@ export default function Header(props: HeaderProps): JSX.Element {
                   className={`fa fa-btc fa-3x ${styles.icon}`}
                   aria-hidden="true"
                 ></i>
-              </a>
+              </Link>
             </div>
           </div>
         </header>

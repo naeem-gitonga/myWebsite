@@ -31,7 +31,8 @@ export const projects: Project[] = [
     projectDes:
       'I just ported this website over to React. Originally it was written in 2018, using vanilla JS, some jQuery, and HTML. I decided to bring it into the now and add some new features.',
     projectStack: 'jngwebsite',
-    gitHubLink: 'https://github.com/JNaeemGitonga/myWebsite',
+    gitHubLink:
+      '/interstitial?url=https://github.com/JNaeemGitonga/myWebsite&where=Github',
   },
   {
     title: 'Pluralsight**',
@@ -39,7 +40,8 @@ export const projects: Project[] = [
     projectDes:
       "Enterprise Learning application, I've led teams, and initiatives on migrations and new features.",
     projectStack: 'pluralsight',
-    projectLink: 'https://www.pluralsight.com',
+    projectLink:
+      '/interstitial?url=https://www.pluralsight.com&where=Pluralsight',
   },
   {
     title: 'AcloudGuru**',
@@ -47,7 +49,8 @@ export const projects: Project[] = [
     projectDes:
       'Learning application, here I honed my skills with Serverless event driven architecture.',
     projectStack: 'acloudguru',
-    projectLink: 'https://www.pluralsight.com',
+    projectLink:
+      '/interstitial?url=https://www.acloudguru.com&where=Pluralsight',
   },
   {
     title: 'Vestiaire Collective**',
@@ -55,7 +58,8 @@ export const projects: Project[] = [
     projectDes:
       'Peer to peer fashion e-commerce, web application. I led efforts to rebuild the listing flow. I was principally writing React',
     projectStack: 'vc',
-    projectLink: 'https://www.vestiairecollective.com',
+    projectLink:
+      '/interstitial?url=https://www.vestiairecollective.com&where=Vestiaire Collective',
   },
   {
     title: 'Honeywell Forge, HCE**',
@@ -63,7 +67,8 @@ export const projects: Project[] = [
     projectDes:
       'Enterprise aviation monitoring and tracking used to monitor aircraft and aircraft fleets.',
     projectStack: 'honeywell',
-    projectLink: 'https://www.honeywellforge.ai/us/en/industries/aerospace',
+    projectLink:
+      '/interstitial?url=https://www.honeywellforge.ai/us/en/industries/aerospace&where=Honeywell HCE',
   },
   {
     title: 'Cricket Wireless**',
@@ -71,14 +76,16 @@ export const projects: Project[] = [
     projectDes:
       'Telecommunications e-commerce web application. I worked on the shopping cart team, mostly writing vanilla JavaScript.',
     projectStack: 'cricket',
-    projectLink: 'https://www.cricketwireless.com.com',
+    projectLink:
+      '/interstitial?url=https://www.cricketwireless.com&where=Cricket Wireless',
   },
   {
     title: 'American Airlines Horror*',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png',
     projectDes: 'Custom web app. Go and vent your frustrations today.',
     projectStack: 'aah',
-    gitHubLink: 'https://github.com/JNaeemGitonga/first-golang-app',
+    gitHubLink:
+      '/interstitial?url=https://github.com/JNaeemGitonga/first-golang-app&where=Github',
   },
 
   {
@@ -86,7 +93,8 @@ export const projects: Project[] = [
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/gzalina.png',
     projectDes: 'Custom single-page website.',
     projectStack: 'gab',
-    gitHubLink: 'https://github.com/JNaeemGitonga/zalina-test',
+    gitHubLink:
+      '/interstitial?url=https://github.com/JNaeemGitonga/zalina-test&where=Github',
   },
   {
     title: 'Connex*',
@@ -95,7 +103,8 @@ export const projects: Project[] = [
       'Software product in Beta mode for Transportation Industry (BOLs).',
     projectStack: 'connex',
     projectLink: 'http://www.connexapp.com',
-    gitHubLink: 'https://bitbucket.org/naeemgitonga/connex-back/src/master/',
+    gitHubLink:
+      '/interstitial?url=https://bitbucket.org/naeemgitonga/connex-back/src/master/&where=Bitbucket',
   },
   {
     title: 'Ninety.io**',
@@ -103,7 +112,7 @@ export const projects: Project[] = [
     projectDes:
       'My code helped this app acheive over 1000% growth, in paying customers, in less than two years.',
     projectStack: 'ninety',
-    projectLink: 'https://ninety.io',
+    projectLink: '/interstitial?url=https://ninety.io&where=Ninety.io',
   },
   {
     title: 'GTNG*',
@@ -111,15 +120,18 @@ export const projects: Project[] = [
     projectDes: 'Custom website.',
     projectStack: 'gtng',
     projectLink: 'http://www.gtng.tech',
-    gitHubLink: 'https://github.com/JNaeemGitonga/gtng',
+    gitHubLink:
+      '/interstitial?url=https://github.com/JNaeemGitonga/gtng&where=Github',
   },
   {
     title: 'Arithmetik*',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/arithmetik.png',
     projectDes: 'Enterprise Learning application',
     projectStack: 'arithmetik',
-    projectLink: 'https://www.npmjs.com/package/arithmetik',
-    gitHubLink: 'https://github.com/JNaeemGitonga/arithmetik',
+    projectLink:
+      '/interstitial?url=https://www.npmjs.com/package/arithmetik&where=NPM',
+    gitHubLink:
+      '/interstitial?url=https://github.com/JNaeemGitonga/arithmetik&where=Github',
   },
   {
     title: 'Learningo!*',
@@ -127,14 +139,16 @@ export const projects: Project[] = [
     projectDes:
       'MVP for app that allows users to learn the topic of their choosing.',
     projectStack: 'learningo',
-    gitHubLink: 'https://github.com/PROB8/learningo',
+    gitHubLink:
+      '/interstitial?url=https://github.com/PROB8/learningo&where=Github',
   },
   {
     title: "What's my Horoscope?*",
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/myHoroscope.png',
     projectDes: 'MVP for app gives simple horoscope/motivational quote.',
     projectStack: 'horoscope',
-    gitHubLink: 'https://github.com/PROB8/find-my-horoscope',
+    gitHubLink:
+      '/interstitial?url=https://github.com/PROB8/find-my-horoscope&where=Github',
   },
   {
     title: "Polls 'R' Us*",
@@ -142,6 +156,7 @@ export const projects: Project[] = [
     projectDes:
       "MVP for an app that allows you to collect the world's opinion.",
     projectStack: 'polls',
-    gitHubLink: 'https://github.com/JNaeemGitonga/naeem-polling',
+    gitHubLink:
+      '/interstitial?url=https://github.com/JNaeemGitonga/naeem-polling&where=Github',
   },
 ];
