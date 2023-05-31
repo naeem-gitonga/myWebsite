@@ -10,6 +10,17 @@ export default function ArticleTileView(): JSX.Element {
   return (
     <div id="articles" className={viewWrapper}>
       <h2 className={sectionHeader}>myArticles</h2>
+      <ArticleTile
+        article={{
+          title: 'Program Your Life: Lessons of a Software Engineer',
+          imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/pyl-cover.jpg',
+          lengthInMinutes: 0,
+          publishedDate: 'Jan 1, 2019',
+          articleUrl: 'https://www.amazon.com/Program-Your-Life-Naeem-Gitonga/dp/1733442405/ref=sr_1_1?keywords=program+your+life+jaha+naeem+gitonga&qid=1580526523&sr=8-1',
+          isBook: true,
+          type: 'My book'
+        }}
+      />
       {articles.map((a: any) => {
         return <ArticleTile article={a} key={a.title} />;
       })}

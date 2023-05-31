@@ -28,7 +28,7 @@ export default function Home() {
       case 'donate':
         return <Donate />;
       case 'articles':
-        return <ArticleTileView />
+        return <ArticleTileView />;
       default:
         return <div />;
     }

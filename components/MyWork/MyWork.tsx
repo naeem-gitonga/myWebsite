@@ -9,12 +9,8 @@ export default function MyWork(): JSX.Element {
   return (
     <section id="myWork" className={`project`}>
       <h2 className={sectionHeader}>myWork</h2>
-      <p className={`${disclaimer} ${zeroMarginBottom}`}>
-        * I built it myself
-      </p>
-      <p className={styles.disclaimer}>
-        ** I worked on it with a team
-      </p>
+      <p className={`${disclaimer} ${zeroMarginBottom}`}>* I built it myself</p>
+      <p className={styles.disclaimer}>** I worked on it with a team</p>
       <div className={myWorkWrapper}>
         {projects.map((p: ProjectObj) => (
           <Project project={p} key={p.projectStack} />

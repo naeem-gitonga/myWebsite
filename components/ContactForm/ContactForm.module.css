@@ -51,7 +51,7 @@
   overflow: auto;
   resize: both;
   resize: both; /* Enables resizing for modern browsers */
-  -webkit-resize: both; 
+  -webkit-resize: both;
 }
 
 .submit {

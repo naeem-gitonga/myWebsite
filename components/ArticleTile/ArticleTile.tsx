@@ -1,4 +1,5 @@
 'use client';
+import { MouseEventHandler } from 'react';
 import styles from './ArticleTile.module.css';
 
 type ArticleTileProps = {
@@ -8,6 +9,8 @@ type ArticleTileProps = {
     lengthInMinutes: number;
     publishedDate: string;
     articleUrl: string;
+    isBook?: boolean;
+    type?: string;
   };
 };
 
@@ -28,13 +31,18 @@ export default function ArticleTile(props: ArticleTileProps): JSX.Element {
       articleUrl,
       lengthInMinutes: lim,
       publishedDate: pd,
+      isBook,
+      type,
     },
   } = props;
-  const handleClick = (e: any) => {
+  const handleClick = (_e: MouseEventHandler<HTMLDivElement> | undefined) => {
     window.open(articleUrl, '_blank');
   };
   return (
-    <div onClick={handleClick} className={tileWrapper}>
+    <div
+      onClick={handleClick as unknown as MouseEventHandler}
+      className={tileWrapper}
+    >
       <div
         className={imageContainer}
         style={{ backgroundImage: `url(${imageUrl})` }}
@@ -42,7 +50,11 @@ export default function ArticleTile(props: ArticleTileProps): JSX.Element {
       <div className={titleBox}>
         <h2 className={title}>{t}</h2>
         <div className={infoWrapper}>
-          <p className={lengthInMinutes}>{lim} min read</p>
+          {!isBook ? (
+            <p className={lengthInMinutes}>{lim} min read</p>
+          ) : (
+            <p className={lengthInMinutes}>{type}</p>
+          )}
           <p className={publishedDate}>{pd}</p>
         </div>
       </div>
