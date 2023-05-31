@@ -36,10 +36,9 @@ export default function ArticleTile(props: ArticleTileProps): JSX.Element {
     },
   } = props;
 
-  const href = getHref(articleUrl);
 
   return (
-    <Link href={href} className={tileWrapper} target="_blank">
+    <Link href={articleUrl} className={tileWrapper} target="_blank">
       <div
         className={imageContainer}
         style={{ backgroundImage: `url(${imageUrl})` }}
