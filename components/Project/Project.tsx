@@ -2,6 +2,7 @@ import { projectStackMap } from './StackItems';
 import { Project as ProjectObj } from './projects';
 import styles from './Project.module.css';
 import sharedStyles from '../SharedCss/SharedCss.module.css';
+import Link from 'next/link';
 
 type ProjectProps = { project: ProjectObj; key: string };
 
@@ -20,7 +21,7 @@ export default function Project(props: ProjectProps): JSX.Element {
     projectStack,
   } = styles;
   return (
-    <div className={imageWrapper} key={key}>
+    <div className={imageWrapper}>
       <img
         className={projectImage}
         src={project.projectImg}
@@ -40,24 +41,24 @@ export default function Project(props: ProjectProps): JSX.Element {
           <ul className={sharedStyles.zeroPadding}>
             {project.projectLink && (
               <li>
-                <a
+                <Link
                   className={`${proLink} ${text}`}
                   href={project.projectLink}
                   target="_blank"
                 >
                   Live site
-                </a>
+                </Link>
               </li>
             )}
             {project.gitHubLink && (
               <li>
-                <a
+                <Link
                   className={`${proLink} ${text}`}
                   href={project.gitHubLink}
                   target="_blank"
                 >
                   Source code
-                </a>
+                </Link>
               </li>
             )}
           </ul>

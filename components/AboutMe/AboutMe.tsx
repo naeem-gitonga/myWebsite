@@ -1,4 +1,5 @@
 import styles from './AboutMe.module.css';
+import Link from 'next/link';
 
 export default function AboutMe(): JSX.Element {
   const { aboutMe, headshot, about, textCenter, myWorkWrapper } = styles;
@@ -21,13 +22,13 @@ export default function AboutMe(): JSX.Element {
         best practices, and making key technical decisions. I build enterprise
         web applications. I teach software engineering, DevOps, and mentor
         students in coding a boot camp with{' '}
-        <a
-          href="https://www.gtngfoundation.org"
+        <Link
+          href="/interstitial?url=https://www.gtngfoundation.org&where=GTNG Foundation"
           target="_blank"
           rel="noreferrer"
         >
           GTNG Foundation
-        </a>
+        </Link>
         , where focus is the JavaScript MERN stack, AWS and a few other
         technologies. Outside of coding, I do more art. Yeah that&apos;s
         right--programming a computer, building apps and websites is an art!
@@ -35,18 +36,18 @@ export default function AboutMe(): JSX.Element {
       <p className={about}>
         I enjoy designing applications, employing new technologies to create
         event driven systems. I am an author. I have written a book{' '}
-        <a
+        <Link
           className="link"
-          href="https://www.amazon.com/Program-Your-Life-Naeem-Gitonga/dp/1733442405/ref=sr_1_1?keywords=program+your+life+jaha+naeem+gitonga&qid=1580526523&sr=8-1"
+          href="/interstitial?url=https://www.amazon.com/Program-Your-Life-Naeem-Gitonga/dp/1733442405/ref=sr_1_1?keywords=program+your+life+jaha+naeem+gitonga&qid=1580526523&sr=8-1&where=Amazon"
           target="_blank"
           rel="noreferrer"
         >
           Program Your Life
-        </a>
+        </Link>
         , and I write tech articles on{' '}
-        <a className="link" href="https://naeemgtng.medium.com/">
+        <Link className="link" href="/interstitial?url=https://naeemgtng.medium.com/&where=Medium">
           Medium
-        </a>{' '}
+        </Link>{' '}
         exploring various technologies that I know or am learning.
       </p>
       <p className={about}>
