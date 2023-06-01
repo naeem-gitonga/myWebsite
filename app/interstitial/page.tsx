@@ -21,7 +21,7 @@ export default function InterstitialPage(): JSX.Element {
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [url]);
 
   return (
     <div className={styles.page}>

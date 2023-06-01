@@ -1,8 +1,16 @@
 .viewWrapper {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1200px;
   margin: auto;
   justify-content: center;
   margin-bottom: 30px;
+  
+  .innerWrapper {
+    justify-content: flex-end;
+    max-width: 1110px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1110px;
+    margin: auto;
+  }
 }
