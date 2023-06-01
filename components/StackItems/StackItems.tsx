@@ -67,7 +67,7 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="Redux" className={redux} key="redux" />,
     <StackItem text="React" className={react} key="react" />,
     <StackItem text="Node" className={node} key="node" />,
-    <StackItem text="Lambda" className={lambda} key="lambda" />
+    <StackItem text="Lambda" className={lambda} key="lambda" />,
   ],
   ninety: [
     <StackItem text="MongoDB" className={mongo} key="mongo" />,
@@ -76,7 +76,7 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="Node" className={node} key="node" />,
     <StackItem text="Docker" className={docker} key="docker" />,
     <StackItem text="TypeScript" className={typescript} key="typescript" />,
-    <StackItem text="Lambda" className={lambda} key="lambda" />
+    <StackItem text="Lambda" className={lambda} key="lambda" />,
   ],
   gtng: [
     <StackItem text="React" className={react} key="react" />,
@@ -87,7 +87,7 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="Go" className={go} key="go" />,
     <StackItem text="AWS Sam" className={awssam} key="awssam" />,
     <StackItem text="MongoDB" className={mongo} key="mongo" />,
-    <StackItem text="Lambda" className={lambda} key="lambda" />
+    <StackItem text="Lambda" className={lambda} key="lambda" />,
   ],
   pluralsight: [
     <StackItem text="Kubernetes" className={kubernetes} key="kubernetes" />,
@@ -99,7 +99,7 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="Docker" className={docker} key="docker" />,
     <StackItem text="Postgres" className={postgres} key="postgres" />,
     <StackItem text="Serverless" className={serverless} key="serverless" />,
-    <StackItem text="Lambda" className={lambda} key="lambda" />
+    <StackItem text="Lambda" className={lambda} key="lambda" />,
   ],
   honeywell: [
     <StackItem text="React" className={react} key="react" />,
@@ -114,7 +114,7 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="Kubernetes" className={kubernetes} key="kubernetes" />,
     <StackItem text="Docker" className={docker} key="docker" />,
     <StackItem text="TypeScript" className={typescript} key="typescript" />,
-    <StackItem text="Lambda" className={lambda} key="lambda" />
+    <StackItem text="Lambda" className={lambda} key="lambda" />,
   ],
   acloudguru: [
     <StackItem text="TypeScript" className={typescript} key="typescript" />,
@@ -134,7 +134,9 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="Docker" className={docker} key="docker" />,
     <StackItem text="Javascript" className={javascript} key="javascript" />,
   ],
-  arithmetik: [<StackItem text="Javascript" className={javascript} key="javascript" />],
+  arithmetik: [
+    <StackItem text="Javascript" className={javascript} key="javascript" />,
+  ],
   jngwebsite: [
     <StackItem text="NextJs" className={nextjs} key="nextjs" />,
     <StackItem text="TypeScript" className={typescript} key="typescript" />,
