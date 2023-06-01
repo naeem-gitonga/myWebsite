@@ -1,10 +1,10 @@
-import styles from './AboutMe.module.css';
+import styles from './AboutMe.module.scss';
 import Link from 'next/link';
 
 export default function AboutMe(): JSX.Element {
   const { aboutMe, headshot, about, textCenter, myWorkWrapper } = styles;
   return (
-    <div id="aboutMe" className={styles['work-and-stuff']}>
+    <div id="aboutMe" className={myWorkWrapper}>
       <div className={textCenter}>
         <img
           id="standard"
