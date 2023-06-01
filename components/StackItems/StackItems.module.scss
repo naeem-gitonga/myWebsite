@@ -1,0 +1,99 @@
+$cloudfront-url: 'https://d2j3yisnywcb30.cloudfront.net/pix/';
+
+.projectStackItem {
+  margin: auto;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+  max-width: 90px;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+}
+
+@mixin background($image) {
+  background: {
+    image: url('#{$cloudfront-url}#{$image}.png');
+    size: cover;
+    position: center;
+  }
+}
+
+.typescript {
+  @include background('typescript');
+}
+
+.nextjs {
+  @include background('nextjs');
+}
+
+.postgres {
+  @include background('postgres');
+}
+
+.dynamodb {
+  @include background('dynamodb');
+}
+
+.mongo {
+  @include background('mongodb');
+}
+
+.react {
+  @include background('react');
+}
+
+.node {
+  @include background('nodejs');
+}
+
+.serverless {
+  @include background('serverless-logo');
+}
+
+.express {
+  @include background('expressjslogo');
+}
+
+.redux {
+  @include background('redux');
+}
+
+.javascript {
+  @include background('javascript');
+}
+
+.angular {
+  @include background('angular');
+}
+
+.docker {
+  @include background('docker-logo');
+}
+
+.go {
+  @include background('go-logo');
+}
+
+.awssam {
+  @include background('aws-sam');
+}
+
+.kubernetes {
+  @include background('kubernetes');
+}
+
+.cdk {
+  @include background('cdk');
+}
+
+.terraform {
+  @include background('terraform');
+}
+
+.lambda {
+  @include background('lambda');
+}

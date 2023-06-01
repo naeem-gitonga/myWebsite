@@ -1,0 +1,86 @@
+.padding10 {
+  padding: 10px;
+}
+.imageWrapper {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.imageWrapper:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 93%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.projectImage {
+  position: relative;
+  top: -25px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* this will make the image cover the entire area of the div */
+  object-position: center;
+}
+
+.title {
+  font-size: 1.5em;
+  margin-top: 0;
+  position: relative;
+  top: 20px;
+}
+
+.projectDescription {
+  font-size: 15px;
+  color: gold;
+  margin-bottom: 10px;
+  max-width: 320px;
+}
+
+.projectStack {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 13px;
+  justify-content: space-evenly;
+  max-width: 300px;
+  margin: auto;
+}
+
+.projectLinks {
+  margin-bottom: 50px;
+  padding: 10px;
+}
+
+.projectLinks ul {
+  list-style-type: none;
+}
+
+.proLink {
+  font-size: 1.3em;
+  color: #f1f1f1;
+}
+
+.text {
+  color: gold;
+  letter-spacing: 1px;
+}
+
+.name {
+  font-size: 15px;
+  display: block;
+  margin: 0 10px;
+}

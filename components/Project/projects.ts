@@ -102,7 +102,7 @@ export const projects: Project[] = [
     projectDes:
       'Software product in Beta mode for Transportation Industry (BOLs).',
     projectStack: 'connex',
-    projectLink: '/interstitial?url=http://www.connexapp.com&where=Connex',
+    projectLink: '/interstitial?url=https://www.connexapp.com&where=Connex',
     gitHubLink:
       '/interstitial?url=https://bitbucket.org/naeemgitonga/connex-back/src/master/&where=Bitbucket',
   },

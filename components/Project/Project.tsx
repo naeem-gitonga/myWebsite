@@ -1,10 +1,10 @@
-import { projectStackMap } from './StackItems';
+import { projectStackMap } from '../StackItems/StackItems';
 import { Project as ProjectObj } from './projects';
-import styles from './Project.module.css';
+import styles from './Project.module.scss';
 import sharedStyles from '../SharedCss/SharedCss.module.css';
 import Link from 'next/link';
 
-type ProjectProps = { project: ProjectObj; };
+type ProjectProps = { project: ProjectObj };
 
 export default function Project(props: ProjectProps): JSX.Element {
   const { project } = props;
