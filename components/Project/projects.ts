@@ -102,7 +102,7 @@ export const projects: Project[] = [
     projectDes:
       'Software product in Beta mode for Transportation Industry (BOLs).',
     projectStack: 'connex',
-    projectLink: 'http://www.connexapp.com',
+    projectLink: '/interstitial?url=http://www.connexapp.com&where=Connex',
     gitHubLink:
       '/interstitial?url=https://bitbucket.org/naeemgitonga/connex-back/src/master/&where=Bitbucket',
   },
@@ -119,7 +119,7 @@ export const projects: Project[] = [
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/gtng.png',
     projectDes: 'Custom website.',
     projectStack: 'gtng',
-    projectLink: 'http://www.gtng.tech',
+    projectLink: '/interstitial?url=http://www.gtng.tech&where=GTNG, Inc.',
     gitHubLink:
       '/interstitial?url=https://github.com/JNaeemGitonga/gtng&where=Github',
   },
