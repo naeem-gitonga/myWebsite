@@ -45,7 +45,10 @@ export default function AboutMe(): JSX.Element {
           Program Your Life
         </Link>
         , and I write tech articles on{' '}
-        <Link className="link" href="/interstitial?url=https://naeemgtng.medium.com/&where=Medium">
+        <Link
+          className="link"
+          href="/interstitial?url=https://naeemgtng.medium.com/&where=Medium"
+        >
           Medium
         </Link>{' '}
         exploring various technologies that I know or am learning.

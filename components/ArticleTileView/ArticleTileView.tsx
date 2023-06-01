@@ -36,7 +36,8 @@ const articles = [
     imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/aws-iam.jpeg',
     lengthInMinutes: 6,
     publishedDate: 'May 28, 2023',
-    articleUrl: '/interstitial?url=https://medium.com/p/bfc198770bb5&where=Medium',
+    articleUrl:
+      '/interstitial?url=https://medium.com/p/bfc198770bb5&where=Medium',
   },
   {
     title: "Are JavaScript's default parameters slowing me down?",

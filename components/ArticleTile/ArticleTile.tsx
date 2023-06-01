@@ -1,4 +1,3 @@
-import getHref from '@/utils/getHref';
 import styles from './ArticleTile.module.scss';
 import Link from 'next/link';
 
@@ -35,7 +34,6 @@ export default function ArticleTile(props: ArticleTileProps): JSX.Element {
       type,
     },
   } = props;
-
 
   return (
     <Link href={articleUrl} className={tileWrapper} target="_blank">
