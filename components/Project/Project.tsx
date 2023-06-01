@@ -4,10 +4,10 @@ import styles from './Project.module.css';
 import sharedStyles from '../SharedCss/SharedCss.module.css';
 import Link from 'next/link';
 
-type ProjectProps = { project: ProjectObj; key: string };
+type ProjectProps = { project: ProjectObj; };
 
 export default function Project(props: ProjectProps): JSX.Element {
-  const { project, key } = props;
+  const { project } = props;
   const {
     padding10,
     imageWrapper,

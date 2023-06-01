@@ -16,7 +16,6 @@ export default function MyWork(): JSX.Element {
           <Project project={p} key={p.projectStack} />
         ))}
       </div>
-      <div className="border-bottom"></div>
     </section>
   );
 }

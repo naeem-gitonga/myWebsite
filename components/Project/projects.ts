@@ -50,7 +50,7 @@ export const projects: Project[] = [
       'Learning application, here I honed my skills with Serverless event driven architecture.',
     projectStack: 'acloudguru',
     projectLink:
-      '/interstitial?url=https://www.acloudguru.com&where=Pluralsight',
+      '/interstitial?url=https://www.acloudguru.com&where=A Cloud Guru',
   },
   {
     title: 'Vestiaire Collective**',
