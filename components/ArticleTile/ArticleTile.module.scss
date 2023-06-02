@@ -15,6 +15,7 @@
 
 .title {
   font-size: 16px;
+  min-height: 35px;
 }
 
 .imageContainer {
@@ -34,17 +35,19 @@
   position: relative;
 }
 
+.infoWrapper {
+  margin-bottom: 0px;
+}
+
 .lengthInMinutes,
 .publishedDate {
   margin: 0;
 }
 
 .lengthInMinutes {
-  margin-right: 154px;
+  float: left;
+}
+.publishedDate {
+  float: right;
 }
 
-.infoWrapper {
-  display: flex;
-  position: absolute;
-  bottom: 15px;
-}
