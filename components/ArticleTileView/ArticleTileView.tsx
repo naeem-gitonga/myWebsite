@@ -26,7 +26,6 @@ export default function ArticleTileView(): JSX.Element {
         {articles.map((a: any) => {
           return <ArticleTile article={a} key={a.title} />;
         })}
-
       </div>
       <ReturnArrow />
     </div>
