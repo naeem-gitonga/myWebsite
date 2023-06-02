@@ -1,5 +1,5 @@
 import styles from './ContactForm.module.css';
-import sharedStyles from '../SharedCss/SharedCss.module.css';
+import sharedStyles from '../SharedCss/SharedCss.module.scss';
 
 export default function ContactForm(): JSX.Element {
   const {

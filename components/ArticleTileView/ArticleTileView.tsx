@@ -1,16 +1,16 @@
 'use client';
 import ArticleTile from '../ArticleTile/ArticleTile';
 import styles from './ArticleTileView.module.scss';
-import sharedStyles from '../SharedCss/SharedCss.module.css';
+import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import ReturnArrow from '../ReturnArrow/ReturnArrow';
 
 export default function ArticleTileView(): JSX.Element {
-  const { viewWrapper, innerWrapper } = styles;
+  const { viewWrapper } = styles;
   const { sectionHeader } = sharedStyles;
   return (
-    <div id="articles" className={viewWrapper}>
+    <div id="articles">
       <h2 className={sectionHeader}>myArticles</h2>
-      <div className={innerWrapper}>
+      <div className={viewWrapper}>
         <ArticleTile
           article={{
             title: 'Program Your Life: Lessons of a Software Engineer',

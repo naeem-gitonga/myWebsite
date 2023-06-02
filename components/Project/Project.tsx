@@ -1,7 +1,7 @@
 import { projectStackMap } from '../StackItems/StackItems';
 import { Project as ProjectObj } from './projects';
 import styles from './Project.module.scss';
-import sharedStyles from '../SharedCss/SharedCss.module.css';
+import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import Link from 'next/link';
 
 type ProjectProps = { project: ProjectObj };

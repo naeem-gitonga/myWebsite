@@ -1,19 +1,9 @@
 .viewWrapper {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   margin: auto;
-  justify-content: center;
-  margin-bottom: 30px;
-  
-  .innerWrapper {
-    justify-content: flex-end;
-    max-width: 1110px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    @media only screen and (max-width: 1110px) {
-      justify-content: center;
-    }
-  }
-
+  padding: 10px;
+  width: 80%;
 }
