@@ -34,6 +34,14 @@ export default function ArticleTileView(): JSX.Element {
 
 const articles = [
   {
+    title: 'Do I really need a CKA certification?',
+    imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/cka.jpg',
+    lengthInMinutes: 4,
+    publishedDate: 'Jun 5, 2023',
+    articleUrl:
+      '/interstitial?url=https://medium.com/@naeemgtng/do-i-really-need-a-cka-certification-60f626bebf0e&where=Medium',
+  },
+  {
     title: 'AWS IAM — Quick Dive/Quick Guide',
     imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/aws-iam.jpeg',
     lengthInMinutes: 6,

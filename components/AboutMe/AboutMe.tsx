@@ -29,7 +29,7 @@ export default function AboutMe(): JSX.Element {
         >
           GTNG Foundation
         </Link>
-        , where focus is the JavaScript MERN stack, AWS and a few other
+        , where the focus is the JavaScript MERN stack, AWS and a few other
         technologies. Outside of coding, I do more art. Yeah that&apos;s
         right--programming a computer, building apps and websites is an art!
       </p>
