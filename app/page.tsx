@@ -5,7 +5,6 @@ import Header from '@/components/Header/Header';
 import AboutMe from '@/components/AboutMe/AboutMe';
 import Footer from '@/components/Footer/Footer';
 import ContactForm from '@/components/ContactForm/ContactForm';
-import useParticles from '@/hooks/useParticles';
 import useInfoLog from '@/hooks/useInfoLog';
 import MyWork from '@/components/MyWork/MyWork';
 import Script from 'next/script';
@@ -14,7 +13,6 @@ import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import ArticleTileView from '@/components/ArticleTileView/ArticleTileView';
 
 export default function Home() {
-  useParticles();
   useInfoLog();
   const [whichSection, setWhichSection] = useState('');
   const Section = (): JSX.Element | null => {
@@ -50,7 +48,6 @@ export default function Home() {
             gtag('config', 'UA-112911264-1');
           `}
       </Script>
-      <div id="particles-js" className={styles.particles} />
       <Header setWhichSection={setWhichSection} />
       <Section />
       <Footer />
