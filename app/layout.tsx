@@ -26,7 +26,7 @@ export default function RootLayout({
           rel="shortcut icon"
           href="https://d2j3yisnywcb30.cloudfront.net/pix/favicon.ico"
         />
-        <Script type="text/javascript">
+        <Script id="particles-script" type="text/javascript">
           {`
               /* -----------------------------------------------
               /* Author : Vincent Garreau  - vincentgarreau.com
