@@ -48,6 +48,7 @@ export default function Home() {
             gtag('config', 'UA-112911264-1');
           `}
       </Script>
+      <div id="particles-js" className="particles" />
       <Header setWhichSection={setWhichSection} />
       <Section />
       <Footer />

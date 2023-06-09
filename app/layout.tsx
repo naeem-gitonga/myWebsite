@@ -19,14 +19,18 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
-        />
-        <link
           rel="shortcut icon"
           href="https://d2j3yisnywcb30.cloudfront.net/pix/favicon.ico"
         />
-        <Script id="particles-script" type="text/javascript">
+      </head>
+      <body className={`body`}>
+        {children}
+
+        <Script
+          id="font-awesome"
+          src="https://use.fontawesome.com/804fb94b8b.js"
+        />
+        <Script id="particles-scriptceb" type="text/javascript">
           {`
               /* -----------------------------------------------
               /* Author : Vincent Garreau  - vincentgarreau.com
@@ -1692,13 +1696,6 @@ export default function RootLayout({
               });
           `}
         </Script>
-      </head>
-      <body className={`body`}>
-      <div id="particles-js" className="particles" />
-        {children}
-
-        <script src="https://use.fontawesome.com/804fb94b8b.js" async />
-
       </body>
     </html>
   );

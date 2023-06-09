@@ -5,6 +5,10 @@ type HeaderProps = {
 };
 export default function Header(props: HeaderProps): JSX.Element {
   const { setWhichSection } = props;
+  const hideParticles = () => {
+    const particles = document.getElementById('particles-js');
+particles?.classList.add('hide');
+  }
   return (
     <div id="header">
       <div className={styles.wrapper}>
@@ -40,6 +44,7 @@ export default function Header(props: HeaderProps): JSX.Element {
                 ></i>
               </Link>
               <Link
+                onClick={hideParticles}
                 href="/interstitial?url=https://www.linkedin.com/in/ngitonga/&where=LinkedIn"
                 target="_blank"
                 rel="noreferrer"
