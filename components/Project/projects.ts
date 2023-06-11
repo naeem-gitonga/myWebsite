@@ -27,7 +27,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'Rapid Back-End',
+    title: 'Rapid Back-End*',
     projectImg:
       'https://d2j3yisnywcb30.cloudfront.net/pix/rapidbackendproj.png',
     projectDes:
