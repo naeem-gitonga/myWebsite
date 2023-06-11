@@ -34,6 +34,14 @@ export default function ArticleTileView(): JSX.Element {
 
 const articles = [
   {
+    title: 'Exploring Functions as Microservices: A Powerful Approach...',
+    imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/see-the-light.jpg',
+    lengthInMinutes: 3,
+    publishedDate: 'Jun 11, 2023',
+    articleUrl:
+      '/interstitial?url=https://medium.com/@naeemgtng/exploring-functions-as-microservices-a-powerful-approach-for-cloud-based-applications-d7fdfe4c9e1e&where=Medium',
+  },
+  {
     title: 'Do I really need a CKA certification?',
     imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/cka.jpg',
     lengthInMinutes: 4,

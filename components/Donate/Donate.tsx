@@ -22,6 +22,7 @@ export default function Donate(): JSX.Element {
         </p>
         <div className={btcQRCode}>
           <img
+            alt="QR code for my Bitcoin wallet"
             className={qRCode}
             src="https://d2j3yisnywcb30.cloudfront.net/pix/sharable-wallet-addr.png"
           />
