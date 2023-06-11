@@ -26,7 +26,7 @@ const {
   projectStackItem,
   jest,
   apigateway,
-  jwt
+  jwt,
 } = styles;
 
 type StackItemProps = {

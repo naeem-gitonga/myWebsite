@@ -10,7 +10,6 @@ export default function InterstitialPage(): JSX.Element {
   const url = searchParams?.get('url');
   const siteName = searchParams?.get('where');
   useEffect(() => {
-
     if (!url) {
       console.error('No redirectUrl param found');
       return;

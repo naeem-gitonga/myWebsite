@@ -7,8 +7,8 @@ export default function Header(props: HeaderProps): JSX.Element {
   const { setWhichSection } = props;
   const hideParticles = () => {
     const particles = document.getElementById('particles-js');
-particles?.classList.add('hide');
-  }
+    particles?.classList.add('hide');
+  };
   return (
     <div id="header">
       <div className={styles.wrapper}>
