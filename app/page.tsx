@@ -36,7 +36,7 @@ export default function Home() {
     <div className={styles.root}>
       {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=UA-112911264-1"
+        src="https://www.googletagmanager.com/gtag/js?id=G-00FHGBS0KW"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -45,7 +45,7 @@ export default function Home() {
             function gtag(){window.dataLayer.push(arguments);}
             gtag('js', new Date());
   
-            gtag('config', 'UA-112911264-1');
+            gtag('config', 'G-00FHGBS0KW');
           `}
       </Script>
       <div id="particles-js" className="particles" />
