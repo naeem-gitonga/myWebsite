@@ -24,6 +24,9 @@ const {
   nextjs,
   serverless,
   projectStackItem,
+  jest,
+  apigateway,
+  jwt
 } = styles;
 
 type StackItemProps = {
@@ -53,6 +56,16 @@ const defaultStack = [
 ];
 
 export const projectStackMap: ProjectMapType = {
+  rapidbackend: [
+    <StackItem text="MongoDB" className={mongo} key="mongo" />,
+    <StackItem text="Serverless" className={serverless} key="serverless" />,
+    <StackItem text="JWT" className={jwt} key="jwt" />,
+    <StackItem text="Lambda" className={lambda} key="lambda" />,
+    <StackItem text="TypeScript" className={typescript} key="typescript" />,
+    <StackItem text="CDK" className={cdk} key="cdk" />,
+    <StackItem text="Jest" className={jest} key="jest" />,
+    <StackItem text="API Gateway" className={apigateway} key="apigateway" />,
+  ],
   polls: defaultStack,
   horoscope: defaultStack,
   learningo: defaultStack,

@@ -97,3 +97,15 @@ $cloudfront-url: 'https://d2j3yisnywcb30.cloudfront.net/pix/';
 .lambda {
   @include background('lambda');
 }
+
+.apigateway {
+  @include background('apigateway');
+}
+
+.jwt {
+  @include background('jwt');
+}
+
+.jest {
+  @include background('jest');
+}
