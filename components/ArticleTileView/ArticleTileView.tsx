@@ -20,7 +20,19 @@ export default function ArticleTileView(): JSX.Element {
             articleUrl:
               '/interstitial?url=https://www.amazon.com/Program-Your-Life-Naeem-Gitonga/dp/1733442405/ref=sr_1_1?keywords=program+your+life+jaha+naeem+gitonga&qid=1580526523&sr=8-1&where=Amazon',
             isBook: true,
-            type: 'My book',
+            type: 'Book',
+          }}
+        />
+        <ArticleTile
+          article={{
+            title: 'Rapid Back-End',
+            imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/rapidbackend-cover.png',
+            lengthInMinutes: 0,
+            publishedDate: 'Aug 1, 2023',
+            articleUrl:
+              '/interstitial?url=https://rapidbackend.co/&where=Rapid Back-End',
+            isBook: true,
+            type: 'eBook',
           }}
         />
         {articles.map((a: any) => {
