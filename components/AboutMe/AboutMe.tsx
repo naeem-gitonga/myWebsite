@@ -46,7 +46,7 @@ export default function AboutMe(): JSX.Element {
         </Link>,{' '}
         <Link
           className="link"
-          href="/interstitial?url=https://rapidbackend.co?where=Amazon"
+          href="/interstitial?url=https://rapidbackend.co&where=Rapid Back-End"
           target="_blank"
           rel="noreferrer"
         >
