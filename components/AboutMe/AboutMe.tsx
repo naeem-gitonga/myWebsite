@@ -35,7 +35,7 @@ export default function AboutMe(): JSX.Element {
       </p>
       <p className={about}>
         I enjoy designing applications, employing new technologies to create
-        event driven systems. I am an author. I have written a book{' '}
+        event driven systems. I am an author. I have written two books:{' '}
         <Link
           className="link"
           href="/interstitial?url=https://www.amazon.com/Program-Your-Life-Naeem-Gitonga/dp/1733442405/ref=sr_1_1?keywords=program+your+life+jaha+naeem+gitonga&qid=1580526523&sr=8-1&where=Amazon"
@@ -43,8 +43,16 @@ export default function AboutMe(): JSX.Element {
           rel="noreferrer"
         >
           Program Your Life
+        </Link>,{' '}
+        <Link
+          className="link"
+          href="/interstitial?url=https://rapidbackend.co?where=Amazon"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Rapid Back-End
         </Link>
-        , and I write tech articles on{' '}
+        .{' '}I write tech articles on{' '}
         <Link
           className="link"
           href="/interstitial?url=https://naeemgtng.medium.com/&where=Medium"
