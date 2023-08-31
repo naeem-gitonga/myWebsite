@@ -1,13 +1,18 @@
 .myWorkWrapper {
   margin-bottom: 30px;
+  padding-top: 25px;
 }
 
 .headshot {
-  width: auto;
+  width: 200px;
   height: 200px;
   margin-bottom: 10px;
   border-radius: 50%;
-  margin-top: 20px;
+  background-image: url('./NaeemGitonga.jpg');
+  background-position: center top 443px;
+  border-radius: 50%;
+  background-size: 171% auto;
+  margin: auto;
 }
 
 .headshot:hover {
