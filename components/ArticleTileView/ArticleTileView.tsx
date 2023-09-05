@@ -14,7 +14,7 @@ export default function ArticleTileView(): JSX.Element {
         <ArticleTile
           article={{
             title: 'Program Your Life: Lessons of a Software Engineer',
-            imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/pyl-cover.jpg',
+            imageUrl: 'pylcover',
             lengthInMinutes: 0,
             publishedDate: 'Jan 1, 2019',
             articleUrl:
@@ -26,7 +26,7 @@ export default function ArticleTileView(): JSX.Element {
         <ArticleTile
           article={{
             title: 'Rapid Back-End',
-            imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/rapidbackend-cover.png',
+            imageUrl: 'rapidbackend',
             lengthInMinutes: 0,
             publishedDate: 'Aug 1, 2023',
             articleUrl:
@@ -47,7 +47,7 @@ export default function ArticleTileView(): JSX.Element {
 const articles = [
   {
     title: 'Exploring Functions as Microservices: A Powerful Approach...',
-    imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/see-the-light.jpg',
+    imageUrl: 'exprapidbackend',
     lengthInMinutes: 3,
     publishedDate: 'Jun 11, 2023',
     articleUrl:
@@ -55,7 +55,7 @@ const articles = [
   },
   {
     title: 'Do I really need a CKA certification?',
-    imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/cka.jpg',
+    imageUrl: 'expcka',
     lengthInMinutes: 4,
     publishedDate: 'Jun 5, 2023',
     articleUrl:
@@ -63,7 +63,7 @@ const articles = [
   },
   {
     title: 'AWS IAM — Quick Dive/Quick Guide',
-    imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/aws-iam.jpeg',
+    imageUrl: 'awsiam',
     lengthInMinutes: 6,
     publishedDate: 'May 28, 2023',
     articleUrl:
@@ -71,7 +71,7 @@ const articles = [
   },
   {
     title: "Are JavaScript's default parameters slowing me down?",
-    imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/dont-panic.jpg',
+    imageUrl: 'dontpanic',
     lengthInMinutes: 3,
     publishedDate: 'Nov 27, 2020',
     articleUrl:
@@ -79,7 +79,7 @@ const articles = [
   },
   {
     title: "JavaScript's New Sexy",
-    imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/js-new.png',
+    imageUrl: 'jsnew',
     lengthInMinutes: 5,
     publishedDate: 'Aug 30, 2020',
     articleUrl:
@@ -87,8 +87,7 @@ const articles = [
   },
   {
     title: 'Explain Servers to a 5 Year Old',
-    imageUrl:
-      'https://d2j3yisnywcb30.cloudfront.net/pix/kids-eating-spaghetti.jpg',
+    imageUrl: 'explservers',
     lengthInMinutes: 3,
     publishedDate: 'Jul 25, 2020',
     articleUrl:
@@ -96,8 +95,7 @@ const articles = [
   },
   {
     title: 'Deploy GoLambda With MongoDB and AWS SAM (Part 3)',
-    imageUrl:
-      'https://d2j3yisnywcb30.cloudfront.net/pix/SAM-Golang-MongoDB.png',
+    imageUrl: 'samgolambda',
     lengthInMinutes: 11,
     publishedDate: 'Dec 29, 2019',
     articleUrl:
@@ -105,7 +103,7 @@ const articles = [
   },
   {
     title: 'XML, read, send, write: Javascript front to Express/Node.js back',
-    imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/computer-genius.jpg',
+    imageUrl: 'xml',
     lengthInMinutes: 4,
     publishedDate: 'Sep 2, 2019',
     articleUrl:
@@ -113,7 +111,7 @@ const articles = [
   },
   {
     title: 'Micro Services Part II: AWS EC2 Linux AMIs',
-    imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/ec2-linux.jpg',
+    imageUrl: 'mspt2',
     lengthInMinutes: 4,
     publishedDate: 'Mar 16, 2019',
     articleUrl:
@@ -121,7 +119,7 @@ const articles = [
   },
   {
     title: 'Micro Services Part I: Node, Docker, and Docker Compose',
-    imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/docker-node.png',
+    imageUrl: 'mspt1',
     lengthInMinutes: 5,
     publishedDate: 'Mar 9, 2019',
     articleUrl:
@@ -129,7 +127,7 @@ const articles = [
   },
   {
     title: 'React Context-Api and Lazy-loading',
-    imageUrl: 'https://d2j3yisnywcb30.cloudfront.net/pix/react-context.png',
+    imageUrl: 'reactcontext',
     lengthInMinutes: 6,
     publishedDate: 'Dec 26, 2018',
     articleUrl:

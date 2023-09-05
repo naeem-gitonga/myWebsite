@@ -1,8 +1,14 @@
-import styles from './Header.module.css';
 import Link from 'next/link';
+import Envelope from '../Icons/Envelope';
+import LinkedIn from '../Icons/LinkedIn';
+import Github from '../Icons/Github';
+import Bitcoin from '../Icons/Bitcoin';
+import styles from './Header.module.css';
+
 type HeaderProps = {
   setWhichSection: any;
 };
+
 export default function Header(props: HeaderProps): JSX.Element {
   const { setWhichSection } = props;
   const hideParticles = () => {
@@ -38,10 +44,11 @@ export default function Header(props: HeaderProps): JSX.Element {
             </ul>
             <div className={styles.links}>
               <Link href="#contact" onClick={() => setWhichSection('contact')}>
-                <i
+                <Envelope />
+                {/* <i
                   className={`fa fa-envelope fa-3x ${styles.icon}`}
                   aria-hidden="true"
-                ></i>
+                ></i> */}
               </Link>
               <Link
                 onClick={hideParticles}
@@ -49,20 +56,22 @@ export default function Header(props: HeaderProps): JSX.Element {
                 target="_blank"
                 rel="noreferrer"
               >
-                <i
+                <LinkedIn />
+                {/* <i
                   className={`fa fa-linkedin-square fa-3x ${styles.icon}`}
                   aria-hidden="true"
-                ></i>
+                ></i> */}
               </Link>
               <Link
                 href="/interstitial?url=https://www.github.com/JNaeemGitonga&where=Github"
                 target="_blank"
                 rel="noreferrer"
               >
-                <i
+                <Github />
+                {/* <i
                   className={`fa fa-github fa-3x ${styles.icon}`}
                   aria-hidden="true"
-                ></i>
+                ></i> */}
               </Link>
               <Link
                 id="donate-link"
@@ -70,10 +79,11 @@ export default function Header(props: HeaderProps): JSX.Element {
                 rel="noreferrer"
                 onClick={() => setWhichSection('donate')}
               >
-                <i
+                <Bitcoin />
+                {/* <i
                   className={`fa fa-btc fa-3x ${styles.icon}`}
                   aria-hidden="true"
-                ></i>
+                ></i> */}
               </Link>
             </div>
           </div>

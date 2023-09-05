@@ -1,4 +1,5 @@
-import styles from './Donate.module.css';
+import styles from './Donate.module.scss';
+import srcImage from '../pictures/sharable-wallet-addr.png';
 
 export default function Donate(): JSX.Element {
   const {
@@ -24,7 +25,7 @@ export default function Donate(): JSX.Element {
           <img
             alt="QR code for my Bitcoin wallet"
             className={qRCode}
-            src="https://d2j3yisnywcb30.cloudfront.net/pix/sharable-wallet-addr.png"
+            src={srcImage.src}
           />
         </div>
         <p className={aboutDonate}>1AQvJVdD2KjNbyT3GuvW84GVMJySoaubQH</p>

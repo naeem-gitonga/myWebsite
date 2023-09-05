@@ -37,10 +37,7 @@ export default function ArticleTile(props: ArticleTileProps): JSX.Element {
 
   return (
     <Link href={articleUrl} className={tileWrapper} target="_blank">
-      <div
-        className={imageContainer}
-        style={{ backgroundImage: `url(${imageUrl})` }}
-      />
+      <div className={`${imageContainer} ${styles[imageUrl]}`} />
       <div className={titleBox}>
         <h2 className={title}>{t}</h2>
         <div className={infoWrapper}>

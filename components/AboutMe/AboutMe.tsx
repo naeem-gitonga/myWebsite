@@ -6,10 +6,7 @@ export default function AboutMe(): JSX.Element {
   return (
     <div id="aboutMe" className={myWorkWrapper}>
       <div className={textCenter}>
-        <div
-          id="standard"
-          className={headshot}
-        />
+        <div id="standard" className={headshot} />
       </div>
       <h2 className={aboutMe}>aboutMe</h2>
       <p className={about}>
@@ -41,7 +38,8 @@ export default function AboutMe(): JSX.Element {
           rel="noreferrer"
         >
           Program Your Life
-        </Link>,{' '}
+        </Link>
+        ,{' '}
         <Link
           className="link"
           href="/interstitial?url=https://rapidbackend.co&where=Rapid Back-End"
@@ -50,7 +48,7 @@ export default function AboutMe(): JSX.Element {
         >
           Rapid Back-End
         </Link>
-        .{' '}I write tech articles on{' '}
+        . I write tech articles on{' '}
         <Link
           className="link"
           href="/interstitial?url=https://naeemgtng.medium.com/&where=Medium"

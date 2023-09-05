@@ -1,4 +1,5 @@
 $cloudfront-url: 'https://d2j3yisnywcb30.cloudfront.net/pix/';
+$pictures-url: '../pictures/';
 
 .projectStackItem {
   margin: auto;
@@ -16,7 +17,7 @@ $cloudfront-url: 'https://d2j3yisnywcb30.cloudfront.net/pix/';
 
 @mixin background($image) {
   background: {
-    image: url('#{$cloudfront-url}#{$image}.png');
+    image: url('#{$pictures-url}#{$image}.png');
     size: cover;
     position: center;
   }
