@@ -1,4 +1,4 @@
-export default function LinkedIn() {
+export default function LinkedIn(): JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

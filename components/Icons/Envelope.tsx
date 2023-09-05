@@ -1,4 +1,4 @@
-export default function Envelop() {
+export default function Envelop(): JSX.Element {
   return (
     <svg
       fill="#ffffff"

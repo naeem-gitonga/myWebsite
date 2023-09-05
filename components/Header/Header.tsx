@@ -51,7 +51,6 @@ export default function Header(props: HeaderProps): JSX.Element {
                 ></i> */}
               </Link>
               <Link
-                onClick={hideParticles}
                 href="/interstitial?url=https://www.linkedin.com/in/ngitonga/&where=LinkedIn"
                 target="_blank"
                 rel="noreferrer"
