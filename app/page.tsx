@@ -16,7 +16,6 @@ export default function Home() {
   useInfoLog();
   const [whichSection, setWhichSection] = useState('');
   const Section = (): JSX.Element | null => {
-    console.log("CLICKING")
     switch (whichSection) {
       case 'aboutMe':
         return <AboutMe />;
