@@ -45,10 +45,6 @@ export default function Header(props: HeaderProps): JSX.Element {
             <div className={styles.links}>
               <Link href="#contact" onClick={() => setWhichSection('contact')}>
                 <Envelope />
-                {/* <i
-                  className={`fa fa-envelope fa-3x ${styles.icon}`}
-                  aria-hidden="true"
-                ></i> */}
               </Link>
               <Link
                 href="/interstitial?url=https://www.linkedin.com/in/ngitonga/&where=LinkedIn"
@@ -56,10 +52,6 @@ export default function Header(props: HeaderProps): JSX.Element {
                 rel="noreferrer"
               >
                 <LinkedIn />
-                {/* <i
-                  className={`fa fa-linkedin-square fa-3x ${styles.icon}`}
-                  aria-hidden="true"
-                ></i> */}
               </Link>
               <Link
                 href="/interstitial?url=https://www.github.com/JNaeemGitonga&where=Github"
@@ -67,10 +59,6 @@ export default function Header(props: HeaderProps): JSX.Element {
                 rel="noreferrer"
               >
                 <Github />
-                {/* <i
-                  className={`fa fa-github fa-3x ${styles.icon}`}
-                  aria-hidden="true"
-                ></i> */}
               </Link>
               <Link
                 id="donate-link"
@@ -79,10 +67,6 @@ export default function Header(props: HeaderProps): JSX.Element {
                 onClick={() => setWhichSection('donate')}
               >
                 <Bitcoin />
-                {/* <i
-                  className={`fa fa-btc fa-3x ${styles.icon}`}
-                  aria-hidden="true"
-                ></i> */}
               </Link>
             </div>
           </div>

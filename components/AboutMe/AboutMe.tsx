@@ -10,9 +10,10 @@ export default function AboutMe(): JSX.Element {
       </div>
       <h2 className={aboutMe}>aboutMe</h2>
       <p className={about}>
-        Peace, I&apos;m Jaha Naeem Gitonga, but you can call me Naeem. I am a
-        technical leader. I&apos;ve worked with teams to deliver software for
-        the last six years, being responsible for guiding and overseeing the
+        Peace, I&apos;m Jaha Naeem Gitonga, but you can call me Naeem. I am from
+        Clinton, NC &lpar;born and raised&rpar;. Do not ask me if I need a work sponsorhip  
+        to work in the USA. I am a technical leader. I&apos;ve worked with teams to 
+        deliver software for the last six years, being responsible for guiding and overseeing the
         technical aspects of projects, ensuring the team&apos;s adherence to
         best practices, and making key technical decisions. I build enterprise
         web applications. I teach software engineering, DevOps, and mentor
