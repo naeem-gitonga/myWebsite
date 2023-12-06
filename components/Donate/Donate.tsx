@@ -14,7 +14,7 @@ export default function Donate(): JSX.Element {
     <section className={`${donateSection} animated`} id="donate">
       <div
         className={donateContainer}
-        data-address="1AQvJVdD2KjNbyT3GuvW84GVMJySoaubQH"
+        data-address="3Kiyco8xZwva3WYd6SdP6HpDDerjmEkYqY"
       >
         <h1 className={donate}>Donate Me Bitcoin</h1>
         <p className={aboutDonate}>
