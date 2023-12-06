@@ -28,7 +28,7 @@ export default function Donate(): JSX.Element {
             src={srcImage.src}
           />
         </div>
-        <p className={aboutDonate}>1AQvJVdD2KjNbyT3GuvW84GVMJySoaubQH</p>
+        <p className={aboutDonate}>1JyK59AjgcYtv3h8vyGK4L6evwFqZhkDe7</p>
       </div>
     </section>
   );
