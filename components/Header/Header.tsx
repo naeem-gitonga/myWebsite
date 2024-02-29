@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import Envelope from '../Icons/Envelope';
-import LinkedIn from '../Icons/LinkedIn';
-import Github from '../Icons/Github';
-import Bitcoin from '../Icons/Bitcoin';
+import Envelope from 'components/Icons/Envelope';
+import LinkedIn from 'components/Icons/LinkedIn';
+import Github from 'components/Icons/Github';
+import Bitcoin from 'components/Icons/Bitcoin';
 import styles from './Header.module.css';
 
 type HeaderProps = {
@@ -11,6 +11,8 @@ type HeaderProps = {
 
 export default function Header(props: HeaderProps): JSX.Element {
   const { setWhichSection } = props;
+  const showShop = process.env.NEXT_PUBLIC_SHOW_SHOP == 'true';
+  console.log('SEE SHOW SHOP ', showShop, typeof showShop);
   const hideParticles = () => {
     const particles = document.getElementById('particles-js');
     particles?.classList.add('hide');
@@ -41,6 +43,13 @@ export default function Header(props: HeaderProps): JSX.Element {
                   myArticles
                 </Link>
               </li>
+              {showShop && (
+                <li id="shop-link">
+                  <Link href="/shop" className={styles.firstUlLink}>
+                    shop
+                  </Link>
+                </li>
+              )}
             </ul>
             <div className={styles.links}>
               <Link href="#contact" onClick={() => setWhichSection('contact')}>
