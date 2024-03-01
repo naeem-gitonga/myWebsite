@@ -24,10 +24,8 @@ export default class BackendService extends Construct {
     super(scope, id);
 
     const functions: { [s: string]: Function } = {};
-
-    const functionNames = [
-      `JngPaypal${process.env.NODE_ENV === 'production' ? '' : '-staging'}`,
-    ];
+    const isProd = process.env.NODE_ENV === 'production';
+    const functionNames = [`JngPaypal${isProd ? '' : '-staging'}`];
 
     const rapidbackendBucket = Bucket.fromBucketName(
       this,
@@ -72,7 +70,12 @@ export default class BackendService extends Construct {
     functionNames.forEach((name: string) => {
       const nameLowerCased = name.toLowerCase();
       const nameWithoutStage = nameLowerCased.split('-')[0];
-      console.log({ nameLowerCased, name, nameWithoutStage });
+      console.log({
+        nameLowerCased,
+        name,
+        nameWithoutStage,
+        NODE_ENV: process.env.NODE_ENV,
+      });
       const lambda = new Function(this, name, {
         functionName: nameLowerCased,
         runtime: Runtime.NODEJS_18_X,
@@ -112,19 +115,24 @@ export default class BackendService extends Construct {
     });
 
     // const deployStage = process.env.DEPLOY_STAGE; //? I May bring this back to conditionally set the condition to use my IP Address
+    let referrers = [
+      'https://www.staging.jahanaeemgitonga.com/*',
+      'https://www.staging.jahanaeemgitonga.com/',
+      'https://staging.jahanaeemgitonga.com/*',
+      'https://staging.jahanaeemgitonga.com/',
+    ];
 
+    if (isProd) {
+      referrers = [
+        'https://www.jahanaeemgitonga.com/*',
+        'https://www.jahanaeemgitonga.com/',
+        'https://jahanaeemgitonga.com/',
+        'https://jahanaeemgitonga.com/*',
+      ];
+    }
     let conditions: any = {
       StringEquals: {
-        'aws:Referer': [
-          'https://www.jahanaeemgitonga.com/*',
-          'https://www.jahanaeemgitonga.com/',
-          'https://www.staging.jahanaeemgitonga.com/*',
-          'https://www.staging.jahanaeemgitonga.com/',
-          'https://jahanaeemgitonga.com/',
-          'https://jahanaeemgitonga.com/*',
-          'https://staging.jahanaeemgitonga.com/*',
-          'https://staging.jahanaeemgitonga.com/',
-        ],
+        'aws:Referer': referrers,
       },
       // IpAddress: {
       //   'aws:SourceIp': [process.env.IP_ADDRESS], // * add your ip address here. make sure that you have the correct ip address or you will see something like this {"Message":"User: anonymous is not authorized to perform: execute-api:Invoke on resource: arn:aws:execute-api:us-east-1:********6173:1crdeqdfq4/prod/GET/api/lambdaa"}
@@ -144,22 +152,17 @@ export default class BackendService extends Construct {
     });
 
     // * create log group for backend api gateway logs
+    const removalPolicy = isProd ? RemovalPolicy.RETAIN : RemovalPolicy.DESTROY;
     const prdLogGroup = new LogGroup(this, 'jng-backend-log-group', {
-      removalPolicy:
-        process.env.NODE_ENV === 'production'
-          ? RemovalPolicy.RETAIN
-          : RemovalPolicy.DESTROY,
-      logGroupName: `jng-backend-log-group${process.env.NODE_ENV === 'production' ? '' : '-staging'}`,
+      removalPolicy,
+      logGroupName: `jng-backend-log-group${isProd ? '' : '-staging'}`,
     });
 
     const api = new LambdaRestApi(
       this,
-      `jng-backend-api-gateway${process.env.NODE_ENV === 'production' ? '' : '-staging'}`,
+      `jng-backend-api-gateway${isProd ? '' : '-staging'}`,
       {
-        handler:
-          functions[
-            `jngpaypal${process.env.NODE_ENV === 'production' ? '' : '-staging'}`
-          ],
+        handler: functions[`jngpaypal${isProd ? '' : '-staging'}`],
         proxy: false,
         deployOptions: {
           stageName: '',
