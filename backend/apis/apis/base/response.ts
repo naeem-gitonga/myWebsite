@@ -10,17 +10,19 @@ export default function response(
   headers: APIGatewayProxyStructuredResultV2['headers'] = {},
   multiValueHeaders = {}
 ): Promise<APIGatewayProxyResult> {
-  const headerOjb = {
+  const headerObj = {
     ...(statusCode >= 200 && statusCode < 300
       ? {
           'Access-Control-Allow-Origin': process.env.ORIGIN,
           'Access-Control-Allow-Headers': '*',
           'Access-Control-Allow-Methods': 'POST,OPTIONS',
           'Access-Control-Allow-Credentials': 'true',
+          'Content-Type': 'application/json'
         }
       : {}),
     ...headers,
   };
+  console.log({headerObj})
   const bodyObj = err
     ? {
         error: {
@@ -32,7 +34,7 @@ export default function response(
     : body;
   return Promise.resolve({
     body: JSON.stringify(bodyObj),
-    headers: headerOjb,
+    headers: headerObj,
     isBase64Encoded: false,
     statusCode,
     multiValueHeaders,
