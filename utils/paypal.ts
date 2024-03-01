@@ -67,6 +67,7 @@ export default async function loadPaypal(
         if (dotsContainer) {
           dotsContainer.style.visibility = 'visible';
         }
+        
       });
     },
     onError: function (err: Record<string, unknown>) {
@@ -140,7 +141,8 @@ export function callInternalFulfillmentApi(props: InternalFulfillmentApiProps) {
     }),
   })
     .then((res: any) => {
-      if (res.ok) {
+      const response = res.json()
+      if (response.ok) {
         clearCart();
         router.push(`/thanks?referenceId=${orderData.id}`);
         return;
