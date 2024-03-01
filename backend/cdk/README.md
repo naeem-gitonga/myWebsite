@@ -6,25 +6,24 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 ## Useful commands
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
-
-
+- `npm run build` compile typescript to js
+- `npm run watch` watch for changes and compile
+- `npm run test` perform the jest unit tests
+- `cdk deploy` deploy this stack to your default AWS account/region
+- `cdk diff` compare deployed stack with current state
+- `cdk synth` emits the synthesized CloudFormation template
 
 ### LESSONS
 
-####Sun Aug 13, 2023 
+####Sun Aug 13, 2023
 All day I have been dealing with errors from the compiler saying stuff like
-"[ts] .forEach doesn't exists on typ string[]" 
+"[ts] .forEach doesn't exists on typ string[]"
 All of that because i wasn't importing the correct library in my `tsconfig.json`.
 
 ###Mon Feb 19, 2024
 
 I saw the following error:
+
 ```
 $ cdk synth
 
@@ -54,13 +53,13 @@ $ which cdk
 Eventhough I had installed the latest, the version of cdk that was being used was on my node 18 version (tied to it)
 I needed to remove that and install it fresh.
 
-
 ### CORS
+
 Since you are using Vercel you need to configure your HEADERS for CORS in
-three places. 
+three places.
 
 1. `vercel.json`
-2. in CDK 
+2. in CDK
 3. In the response of your API
 
 All three have to match. If they don't you will get CORS errors
