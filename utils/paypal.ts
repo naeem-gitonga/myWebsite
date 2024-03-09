@@ -142,6 +142,7 @@ export function callInternalFulfillmentApi(props: InternalFulfillmentApiProps) {
   })
     .then((res: any) => {
       const response = res.json()
+      console.log('See response ',{res, response})
       if (response.ok) {
         clearCart();
         router.push(`/thanks?referenceId=${orderData.id}`);
