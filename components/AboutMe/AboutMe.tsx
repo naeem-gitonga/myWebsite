@@ -35,9 +35,7 @@ export default function AboutMe(): JSX.Element {
         event driven systems. I am an author. I have written two books:{' '}
         <Link
           className="link"
-          href="/interstitial?url=https://www.amazon.com/Program-Your-Life-Naeem-Gitonga/dp/1733442405/ref=sr_1_1?keywords=program+your+life+jaha+naeem+gitonga&qid=1580526523&sr=8-1&where=Amazon"
-          target="_blank"
-          rel="noreferrer"
+          href="/item?item_id=1"
         >
           Program Your Life
         </Link>
