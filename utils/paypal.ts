@@ -140,10 +140,8 @@ export function callInternalFulfillmentApi(props: InternalFulfillmentApiProps) {
       orderData,
     }),
   })
-    .then((res: any) => {
-      const response = res.json()
-      console.log('See response ',{res, response})
-      if (response.ok) {
+    .then((res: Response) => {
+      if (res.ok) {
         clearCart();
         router.push(`/thanks?referenceId=${orderData.id}`);
         return;
