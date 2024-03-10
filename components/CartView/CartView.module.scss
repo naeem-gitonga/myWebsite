@@ -99,5 +99,13 @@
 .undoLinkStyle {
   text-decoration: none;
   color: unset;
-  
+}
+
+@media (min-width: 740px) {
+  .buttonsWrapper {
+    max-width: 300px;
+  }
+  .itemWrapper {
+    max-width: 500px;
+  }
 }

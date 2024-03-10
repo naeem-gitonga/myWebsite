@@ -32,6 +32,7 @@ export default function CartVeiw(): JSX.Element {
     width300Center,
     raiseBtns,
     undoLinkStyle,
+    itemWrapper
   } = styles;
   const { alwaysCentered } = sharedStyles;
   const [addItem, cart, removeItem, clearCart] = useCart();
@@ -104,10 +105,12 @@ export default function CartVeiw(): JSX.Element {
   return (
     <div id="cart" className={`${whichHeight} ${cartWrapper}`}>
       <PageHeader headerName="cart" hideLinks={cart.length !== 0} />
-      <div className={showLoadingDots ? objectEnter : objectEnterActive}>
+      <div className={showLoadingDots ? `${objectEnter} ${itemWrapper}` : `${objectEnterActive}  ${itemWrapper}`}>
         {cart.length === 0 && (
           <h2 className={`${alwaysCentered} ${width300Center}`}>
-            <Link href="/shop" className={undoLinkStyle}>Click here to add items</Link>
+            <Link href="/shop" className={undoLinkStyle}>
+              Click here to add items
+            </Link>
           </h2>
         )}
         {cart.map((item: CartItem) => {

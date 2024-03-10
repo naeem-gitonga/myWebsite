@@ -27,3 +27,23 @@
 .addToCartButton:hover {
   background-color: rgb(237, 229, 229);
 }
+
+.itemDescription {
+  max-width: 600px;
+}
+
+.viewWrapperOverride {
+  max-width: 800px;
+
+  .stackedItems {
+    display: flex;
+    text-align: center;
+    width: 300px;
+    flex-direction: column; /* Stacks items vertically */
+    justify-content: center; /* Centers items vertically within the container */
+    align-items: center;
+  }
+  .itemDescription {
+    margin-top: 50px;
+  }
+}

@@ -7,14 +7,12 @@ import PageHeader from '../PageHeader/PageHeader';
 import { Book } from '@/types/book';
 import styles from './ShopView.module.scss';
 import useCart from '@/hooks/useCart';
-import Modal from '../Modal/Modal';
 import useModal from '@/hooks/useModal';
-import AddToCartMessage from '../AddToCartMessage/AddToCartMessage';
 import books from '../../utils/books.json';
 
 export default function ShopView(): JSX.Element {
-  const [lastItemClicked, setLastItemClicked] = useState<Book | null>(null);
-  const [isOpen, setModalOpen] = useModal();
+  const [, setLastItemClicked] = useState<Book | null>(null);
+  const [, setModalOpen] = useModal();
   const [addToCart] = useCart();
   const { viewWrapper } = sharedStyles;
   const { shopWrapper } = styles;
