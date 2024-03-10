@@ -33,10 +33,7 @@ export default function AboutMe(): JSX.Element {
       <p className={about}>
         I enjoy designing applications, employing new technologies to create
         event driven systems. I am an author. I have written two books:{' '}
-        <Link
-          className="link"
-          href="/item?item_id=1"
-        >
+        <Link className="link" href="/item?item_id=1">
           Program Your Life
         </Link>
         ,{' '}

@@ -19,6 +19,7 @@ import loadPaypal, {
 } from '@/utils/paypal';
 
 import styles from './CartView.module.scss';
+import Link from 'next/link';
 
 export default function CartVeiw(): JSX.Element {
   const {
@@ -30,6 +31,7 @@ export default function CartVeiw(): JSX.Element {
     cartItem,
     width300Center,
     raiseBtns,
+    undoLinkStyle,
   } = styles;
   const { alwaysCentered } = sharedStyles;
   const [addItem, cart, removeItem, clearCart] = useCart();
@@ -105,7 +107,7 @@ export default function CartVeiw(): JSX.Element {
       <div className={showLoadingDots ? objectEnter : objectEnterActive}>
         {cart.length === 0 && (
           <h2 className={`${alwaysCentered} ${width300Center}`}>
-            Add items to purchase
+            <Link href="/shop" className={undoLinkStyle}>Click here to add items</Link>
           </h2>
         )}
         {cart.map((item: CartItem) => {
