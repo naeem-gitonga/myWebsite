@@ -12,7 +12,7 @@ import { Hash } from '@aws-sdk/hash-node';
 import sendgrid from '@sendgrid/mail';
 
 import BaseService from '../base/base-service';
-import { emailTemplate } from './email-template';
+import { customerTemplate } from './email-templates/customer-template';
 import { PaypalRoutes, ServerErrors } from '../../declarations/enums';
 import {
   Order,
@@ -22,6 +22,7 @@ import {
 } from '@declarations/order';
 import { RouteMap } from '@declarations/routing';
 import { WhichTemplate } from '@declarations/which-email';
+import { orderReceived } from './email-templates/order-received';
 
 config();
 const configuration = { region: 'us-east-1' };
@@ -71,8 +72,9 @@ export default class PaypalService extends BaseService<Order> {
   async sendEmail(): Promise<SendEmailResult> {
     let link;
     const { email, firstName, lastName, orderData, affiliateId } = this.body;
+    const { id: orderId, purchase_units: purchaseUnits } = orderData;
     try {
-      link = await this.createPresignedUrlWithoutClient(orderData.id);
+      link = await this.createPresignedUrlWithoutClient(orderId);
     } catch (e) {
       console.log('SIGNING URL ', e);
     }
@@ -106,12 +108,15 @@ export default class PaypalService extends BaseService<Order> {
       }
 
       emailSendResult = await sendgrid.send({
-        to: 'jngincorporated@gmail.com', // email,
+        to:
+          process.env.WHICH_ROUTE === 'production'
+            ? email
+            : 'jngincorporated@gmail.com',
         from: this.senderEmailAddress,
-        subject: `Naeem Gitonga - Order ${orderData.id}`,
-        html: emailTemplate(
+        subject: `Naeem Gitonga - Order ${orderId}`,
+        html: customerTemplate(
           link,
-          orderData.id,
+          orderId,
           firstName,
           boughtPyl,
           boughtRb,
@@ -119,41 +124,32 @@ export default class PaypalService extends BaseService<Order> {
           ''
         ),
       });
+
+      if (boughtPyl || boughtConsult) {
+        await sendgrid.send({
+          to: 'jngincorporated@gmail.com',
+          from: this.senderEmailAddress,
+          subject: `Order Received: ${orderId}`,
+          html: orderReceived(orderId, firstName, boughtConsult),
+        });
+      }
       console.log('Email sent successfully:');
     } catch (e) {
-      console.log(
-        `${ServerErrors.failedToSendBook} for order ${orderData.id}`,
-        e
-      );
+      console.log(`${ServerErrors.failedToSendBook} for order ${orderId}`, e);
 
-      await this.addOrder(orderData.id, user, null, link, false);
+      await this.addOrder(orderId, user, null, link, false);
       this.sendToDeadLetterQueue(this.event, ServerErrors.failedToSendBook);
 
       throw new Error(`
         Payment processed but we failed to send your eBook! 
         Please contact support at ${this.senderEmailAddress} and 
-        provide this orderId: ${orderData.id}`);
+        provide this orderId: ${orderId}`);
     }
 
     try {
-      await this.addOrder(
-        orderData.id,
-        user,
-        emailSendResult.MessageId,
-        link,
-        true
-      );
+      await this.addOrder(orderId, user, emailSendResult.MessageId, link, true);
     } catch (e) {
       this.sendToDeadLetterQueue(this.event, ServerErrors.failedToSaveToDB);
-      console.log({
-        ...user,
-        userId: user._id,
-        orderId: orderData.id,
-        paid: true,
-        link,
-        sent: true,
-        emailMessageId: emailSendResult.MessageId,
-      });
       console.log(ServerErrors.failedToSaveToDB);
       console.log(e);
     }

@@ -17,12 +17,11 @@ export default function response(
           'Access-Control-Allow-Headers': '*',
           'Access-Control-Allow-Methods': 'POST,OPTIONS',
           'Access-Control-Allow-Credentials': 'true',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         }
       : {}),
     ...headers,
   };
-  console.log({headerObj})
   const bodyObj = err
     ? {
         error: {

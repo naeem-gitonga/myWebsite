@@ -67,7 +67,6 @@ export default async function loadPaypal(
         if (dotsContainer) {
           dotsContainer.style.visibility = 'visible';
         }
-        
       });
     },
     onError: function (err: Record<string, unknown>) {
