@@ -8,6 +8,7 @@ import books from '../../utils/books.json';
 import { Suspense } from 'react';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import canBeParsedToInt from '@/utils/canBeparsedToInt';
+import useBreakpoint from '@/hooks/useBreakpoint';
 
 export default function Item(): JSX.Element {
   return (
@@ -22,6 +23,9 @@ function ItemContent(): JSX.Element {
   const searchParams = useSearchParams();
   const router = useRouter();
   const stringId = searchParams?.get('item_id');
+  const deviceSize = useBreakpoint();
+  const isDesktop = deviceSize === 'md' || deviceSize === 'lg';
+  console.log({ deviceSize });
   let [isNumber, id] = canBeParsedToInt(stringId as unknown as string);
   if (isNumber === false) {
     router.push('/shop');
@@ -33,13 +37,42 @@ function ItemContent(): JSX.Element {
     itemDescription,
     itemWrapper,
     addToCartButton,
+    viewWrapperOverride,
+    one,
+    two,
+    three,
+    four,
+    stackedItems,
   } = styles;
   const { tenPadding, sectionHeight, viewWrapper } = sharedStyles;
+
+  if (isDesktop) {
+    return (
+      <div className={`${tenPadding} ${sectionHeight} ${itemWrapper}`}>
+        <PageHeader headerName="item" hideLinks={false} />
+        <div className={`${viewWrapper} ${viewWrapperOverride}`}>
+          <div className={`${imageContainer} ${imageStyles[book.imageUrl]}`} />
+          <div className={stackedItems}>
+            <h2 className={itemTitleHeader}>{book.title}</h2>
+            <AddToCartButton
+              className={`${addToCartButton} ${three}`}
+              book={book}
+            />
+          </div>
+          <div
+            className={itemDescription}
+            dangerouslySetInnerHTML={{ __html: book.description }}
+          />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`${tenPadding} ${sectionHeight} ${itemWrapper}`}>
       <PageHeader headerName="item" hideLinks={false} />
       <div className={viewWrapper}>
-        <h2 className={itemTitleHeader}>{book.title}</h2>
+        <h2 className={`${itemTitleHeader} ${one}`}>{book.title}</h2>
         <div className={`${imageContainer} ${imageStyles[book.imageUrl]}`} />
         <AddToCartButton className={addToCartButton} book={book} />
         <div
