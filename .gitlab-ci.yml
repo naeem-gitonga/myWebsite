@@ -76,9 +76,9 @@ deploy_staging:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
   needs:
+    - job: test_cdk
     - job: build_staging
       artifacts: true
-    - job: test_cdk
   dependencies:
     - build_staging
   script:
@@ -102,24 +102,24 @@ deploy_staging:
       done
     - cdk deploy --require-approval=never
 
-build_prod:
-  artifacts:
-    expose_as: 'backend-build'
-    name: 'backend-build'
-    paths:
-      - $PWD/backend/apis/.serverless/jngpaypal.zip
-  needs: ['test_lambda']
-  dependencies:
-    - test_lambda
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      when: never
-    - if: '$CI_COMMIT_BRANCH == "master"'
-      changes:
-        - backend/apis/**/*
-  stage: build
-  environment:
-    name: production
-  script:
-    - npm run package
+# build_prod:
+#   artifacts:
+#     expose_as: 'backend-build'
+#     name: 'backend-build'
+#     paths:
+#       - $PWD/backend/apis/.serverless/jngpaypal.zip
+#   needs: ['test_lambda']
+#   dependencies:
+#     - test_lambda
+#   rules:
+#     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+#       when: never
+#     - if: '$CI_COMMIT_BRANCH == "master"'
+#       changes:
+#         - backend/apis/**/*
+#   stage: build
+#   environment:
+#     name: production
+#   script:
+#     - npm run package
 
