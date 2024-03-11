@@ -58,7 +58,6 @@ deploy_staging:
   needs:
     - job: build_staging
       artifacts: true
-    - job: test_lambda
   dependencies:
     - build_staging
   script:
