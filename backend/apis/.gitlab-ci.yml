@@ -79,7 +79,6 @@ deploy_staging:
       changes:
         - backend/apis/**/*
   needs:
-    - job: test_cdk
     - job: build_staging
       artifacts: true
   dependencies:
