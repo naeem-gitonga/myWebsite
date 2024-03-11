@@ -2,6 +2,11 @@ cache:
   paths:
     - backend/apis/node_modules/
 
+stages:
+  - test
+  - build
+  - deploy
+
 .common_install: &common_install
   - cd backend/apis
   - npm i
@@ -56,7 +61,6 @@ deploy_staging:
   rules:
     - if: '$CI_COMMIT_REF_NAME == "staging"'
   needs:
-    - job: test_cdk
     - job: build_staging
       artifacts: true
   dependencies:
