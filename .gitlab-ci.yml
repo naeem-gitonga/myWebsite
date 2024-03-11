@@ -78,6 +78,7 @@ deploy_staging:
   needs:
     - job: build_staging
       artifacts: true
+    - job: test_cdk
   dependencies:
     - build_staging
   script:
