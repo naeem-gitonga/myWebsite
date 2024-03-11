@@ -1,5 +1,9 @@
-include:
-  - '$PWD/.gitlab-ci.yml'
+.common_setup: &common_setup
+  - cd backend/cdk
+  - npm i
+  - npm i -g aws-cdk typescript ts-node
+  # - aws sts get-caller-identity
+
 cache:
   paths:
     - backend/apis/node_modules/
