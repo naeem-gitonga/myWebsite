@@ -62,7 +62,7 @@ deploy_staging:
   dependencies:
     - build_staging
   script:
-    - cd ../cdk
+    - cd backend/cdk
     - npm i
     - |
       variables=(
