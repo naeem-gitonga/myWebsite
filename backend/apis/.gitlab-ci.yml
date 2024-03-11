@@ -68,7 +68,7 @@ deploy_staging:
   environment:
     name: staging
   rules:
-    - if: '$CI_COMMIT_REF_NAME == "staging"'
+    - if: '$CI_COMMIT_BRANCH == "staging"'
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
   needs:
