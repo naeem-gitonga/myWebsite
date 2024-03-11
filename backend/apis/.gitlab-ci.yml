@@ -13,6 +13,13 @@ stages:
   - build
   - deploy
 
+.install_aws: &install_aws
+  - apt update
+  - apt install -y jq
+  - curl -k "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  - unzip "awscliv2.zip"
+  - ./aws/install
+
 .common_install: &common_install
   - cd backend/apis
   - npm i
@@ -99,6 +106,7 @@ deploy_staging:
   dependencies:
     - build_staging
   script:
+    - *install_aws
     - *common_setup
     - *assume_role
     - npm i
