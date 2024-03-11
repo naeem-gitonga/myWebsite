@@ -67,40 +67,43 @@ deploy_frontend_production:
   script:
     - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/k4eiYJ4iju
 
-# deploy_staging:
-#   stage: deploy
-#   environment:
-#     name: staging
-#   rules:
-#     - if: '$CI_COMMIT_BRANCH == "staging"'
-#     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-#       when: never
-#   needs:
-#     - job: test_cdk
-#     - job: build_staging
-#       artifacts: true
-#   dependencies:
-#     - build_staging
-#   script:
-#     - *common_setup
-#     - npm i
-#     - |
-#       variables=(
-#         "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
-#         "CALENDLY_API_ACCESS_TOKEN=${CALENDLY_API_ACCESS_TOKEN}"
-#         "DEAD_LETTER_QUEUE_URL=${DEAD_LETTER_QUEUE_URL}"
-#         "NODE_ENV=staging"
-#         "ORIGIN=${ORIGIN}"
-#         "SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}"
-#         "SEND_GRID_API_KEY=${SEND_GRID_API_KEY}"
-#         "STAGE=prod"
-#         "WHICH_ROUTE=${WHICH_ROUTE}"
-#       )
-#       env_file="./.env"
-#       for var in "${variables[@]}"; do
-#         echo "$var" >> "$env_file"
-#       done
-#     - cdk deploy --require-approval=never
+deploy_staging:
+  stage: deploy
+  environment:
+    name: staging
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "staging"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == "staging"'
+      changes:
+        - backend/apis/**/*
+  needs:
+    - job: test_cdk
+    - job: build_staging
+      artifacts: true
+  dependencies:
+    - build_staging
+  script:
+    - *common_setup
+    - npm i
+    - |
+      variables=(
+        "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
+        "CALENDLY_API_ACCESS_TOKEN=${CALENDLY_API_ACCESS_TOKEN}"
+        "DEAD_LETTER_QUEUE_URL=${DEAD_LETTER_QUEUE_URL}"
+        "NODE_ENV=staging"
+        "ORIGIN=${ORIGIN}"
+        "SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}"
+        "SEND_GRID_API_KEY=${SEND_GRID_API_KEY}"
+        "STAGE=prod"
+        "WHICH_ROUTE=${WHICH_ROUTE}"
+      )
+      env_file="./.env"
+      for var in "${variables[@]}"; do
+        echo "$var" >> "$env_file"
+      done
+    - cdk deploy --require-approval=never
 
 # build_prod:
 #   artifacts:
