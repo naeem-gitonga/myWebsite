@@ -8,11 +8,6 @@ cache:
   paths:
     - backend/apis/node_modules/
 
-stages:
-  - test
-  - build
-  - deploy
-
 .common_install: &common_install
   - cd backend/apis
   - npm i
@@ -31,6 +26,7 @@ test_lambda:
     - npm run test
 
 build_staging:
+  stage: build
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
@@ -42,10 +38,10 @@ build_staging:
     name: 'backend-build-staging'
     paths:
       - $PWD/backend/apis/.serverless/jngpaypal.zip
-  needs: ['test_lambda']
+  needs:
+    - job: test_lambda
   dependencies:
     - test_lambda
-  stage: build
   environment:
     name: staging
   script:

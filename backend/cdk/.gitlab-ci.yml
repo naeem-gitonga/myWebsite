@@ -5,7 +5,9 @@ cache:
 test_cdk:
   stage: test-cdk
   image: node:20.11.1
-  needs: ['build_staging']
+  needs: 
+    - job: build_staging
+      artifacts: true
   dependencies:
     - build_staging
   rules:
