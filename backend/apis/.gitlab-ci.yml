@@ -1,3 +1,5 @@
+include:
+  - '$PWD/.gitlab-ci.yml'
 cache:
   paths:
     - backend/apis/node_modules/
