@@ -63,7 +63,6 @@ build_staging:
     name: staging
   script:
     - *common_install
-    - *assume_role
     - touch .env
     - |
       variables=(
@@ -101,6 +100,7 @@ deploy_staging:
     - build_staging
   script:
     - *common_setup
+    - *assume_role
     - npm i
     - |
       variables=(
