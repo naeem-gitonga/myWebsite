@@ -52,18 +52,16 @@ export default class BackendService extends Construct {
 
     const environment: { [s: string]: {} } = {
       all: {
-        WHICH_ROUTE: process.env.WHICH_ROUTE as string,
-        NODE_ENV: process.env.NODE_ENV as string,
-        STAGE: process.env.STAGE as string,
-        CLIENT_ID: process.env.CLIENT_ID as string,
-        PAY_PAL_URL: process.env.PAY_PAL_URL as string,
         ACCESS_KEY_ID: process.env.ACCESS_KEY_ID as string,
-        SECRET_ACCESS_KEY: process.env.SECRET_ACCESS_KEY as string,
-        DEAD_LETTER_QUEUE_URL: deadLetterQueue.queueUrl,
-        SEND_GRID_API_KEY: process.env.SEND_GRID_API_KEY as string,
         CALENDLY_API_ACCESS_TOKEN: process.env
           .CALENDLY_API_ACCESS_TOKEN as string,
+        DEAD_LETTER_QUEUE_URL: deadLetterQueue.queueUrl,
+        NODE_ENV: process.env.NODE_ENV as string,
         ORIGIN: process.env.ORIGIN,
+        SECRET_ACCESS_KEY: process.env.SECRET_ACCESS_KEY as string,
+        SEND_GRID_API_KEY: process.env.SEND_GRID_API_KEY as string,
+        STAGE: process.env.STAGE as string,
+        WHICH_ROUTE: process.env.WHICH_ROUTE as string,
       },
     };
 
