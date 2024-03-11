@@ -126,7 +126,7 @@ deploy_staging:
       for var in "${variables[@]}"; do
         echo "$var" >> "$env_file"
       done
-    - cdk deploy --require-approval=never
+    - cdk deploy --require-approval=never --role-arn ${ROLE_ARN}
 
 # build_prod:
 #   artifacts:
