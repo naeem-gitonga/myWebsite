@@ -11,10 +11,6 @@ test_cdk:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
-    - if: '$CI_COMMIT_BRANCH != "master"'
-      changes:
-        - backend/cdk/**/*
-        # - backend/apis/**/* # ! trynna see if this will work
   script:
     - cd backend/cdk
     - npm i
