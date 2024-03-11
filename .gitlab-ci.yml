@@ -111,6 +111,8 @@ build_prod:
   dependencies:
     - test_lambda
   rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes:
         - backend/apis/**/*
@@ -118,6 +120,5 @@ build_prod:
   environment:
     name: production
   script:
-    - *common_install
     - npm run package
 
