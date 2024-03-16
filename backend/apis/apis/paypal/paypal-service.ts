@@ -51,6 +51,7 @@ export default class PaypalService extends BaseService<Order> {
     email: string;
     orderData: PaypalResult;
     affiliateId: string;
+    s3Url?: string;
   };
 
   public productToTemplate = {
@@ -71,10 +72,11 @@ export default class PaypalService extends BaseService<Order> {
 
   async sendEmail(): Promise<SendEmailResult> {
     let link;
-    const { email, firstName, lastName, orderData, affiliateId } = this.body;
+    const { email, firstName, lastName, orderData, affiliateId, s3Url } =
+      this.body;
     const { id: orderId, purchase_units: purchaseUnits } = orderData;
     try {
-      link = await this.createPresignedUrlWithoutClient(orderId);
+      link = await this.createPresignedUrlWithoutClient(orderId, s3Url);
     } catch (e) {
       console.log('SIGNING URL ', e);
     }
@@ -211,9 +213,14 @@ export default class PaypalService extends BaseService<Order> {
     }
   }
 
-  async createPresignedUrlWithoutClient(orderId: string): Promise<string> {
+  async createPresignedUrlWithoutClient(
+    orderId: string,
+    s3Url?: string
+  ): Promise<string> {
     const url = parseUrl(
-      `https://rapidbackend.s3.amazonaws.com/rapid-back-end-ebook.pdf`
+      s3Url
+        ? s3Url
+        : `https://rapidbackend.s3.amazonaws.com/rapid-back-end-ebook.pdf`
     );
 
     // * I worked all day on this. the fromIni() only works locally, and My syntax was off for the credentials (wasn't camel casing the key names was using ACCESS_KEY_ID instead)

@@ -44,7 +44,6 @@
 .cartWrapper {
   padding: 10px;
   height: calc(100vh - 70px);
-
 }
 
 .objectEnter {
@@ -122,6 +121,7 @@
     font-weight: 700;
   }
 }
+
 @media (min-width: 740px) {
   .cartItems {
     overflow: auto;
@@ -136,6 +136,6 @@
   }
 
   .totalAndPay {
-   margin-left: 40px;
+    margin-left: 40px;
   }
 }
