@@ -105,7 +105,7 @@ export default async function loadPaypal(
 
 export function createCartForPaypal(
   cart: CartItem[]
-): [PaypalCartItem[], subtotal: number] {
+): [cart: PaypalCartItem[], subtotal: number] {
   let paypalCart: PaypalCartItem[] = [];
   let subtotal = 0;
   for (const item of cart) {
