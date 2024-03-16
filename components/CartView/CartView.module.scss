@@ -10,8 +10,7 @@
 
 .buttonsWrapper {
   margin-bottom: 0;
-  width: 75%;
-  margin: auto;
+  // margin: auto;
 }
 
 .smallItemPreviewWrapper {
@@ -44,6 +43,8 @@
 
 .cartWrapper {
   padding: 10px;
+  height: calc(100vh - 70px);
+
 }
 
 .objectEnter {
@@ -59,6 +60,12 @@
   visibility: visible;
   margin: auto;
   width: 75%;
+}
+
+.objectEnterActive2 {
+  opacity: 1;
+  visibility: visible;
+  margin: auto;
 }
 
 .quantity {
@@ -101,11 +108,34 @@
   color: unset;
 }
 
-@media (min-width: 740px) {
-  .buttonsWrapper {
-    max-width: 300px;
+.itemWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.totalAndPay {
+  max-width: 450px;
+  text-align: center;
+  flex-grow: 1;
+  .subTotal {
+    font-size: 20px;
+    font-weight: 700;
   }
-  .itemWrapper {
+}
+@media (min-width: 740px) {
+  .cartItems {
+    overflow: auto;
+    height: 100%;
     max-width: 500px;
+    flex-grow: 1;
+  }
+
+  .itemWrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .totalAndPay {
+   margin-left: 40px;
   }
 }

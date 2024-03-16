@@ -127,7 +127,6 @@ deploy_staging:
         echo "$var" >> "$env_file"
       done
     - cdk deploy --require-approval=never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
-
 # build_prod:
 #   artifacts:
 #     expose_as: 'backend-build'
