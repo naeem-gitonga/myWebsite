@@ -46,6 +46,10 @@ deploy_frontend_staging:
         - next.config.js
         - package.json
         - vercel.json
+    - changes:
+      - /backend/apis/**/*
+      - /backend/cdk/**/*
+      when: never
   script:
     - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/cGxMEW1fLT
 
@@ -64,5 +68,9 @@ deploy_frontend_production:
         - next.config.js
         - package.json
         - vercel.json
+    - changes:
+      - /backend/apis/**/*
+      - /backend/cdk/**/*
+      when: never
   script:
     - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/k4eiYJ4iju
