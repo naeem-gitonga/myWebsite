@@ -5,16 +5,14 @@ cache:
 test_cdk:
   stage: test-cdk
   image: node:20.11.1
-  needs: ['build_staging']
+  needs:
+    - job: build_staging
+      artifacts: true
   dependencies:
     - build_staging
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
-    - if: '$CI_COMMIT_BRANCH != "master"'
-      changes:
-        - backend/cdk/**/*
-        # - backend/apis/**/* # ! trynna see if this will work
   script:
     - cd backend/cdk
     - npm i

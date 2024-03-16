@@ -18,5 +18,11 @@
                 { "key": "Access-Control-Allow-Headers", "value": "*" }
             ]
         }
-    ] 
-  }
+    ],
+    "git": {
+        "deploymentEnabled": {
+          "master": false,
+          "staging": false
+        }
+    }
+}

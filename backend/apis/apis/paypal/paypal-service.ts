@@ -72,6 +72,7 @@ export default class PaypalService extends BaseService<Order> {
   async sendEmail(): Promise<SendEmailResult> {
     let link;
     const { email, firstName, lastName, orderData, affiliateId } = this.body;
+
     const { id: orderId, purchase_units: purchaseUnits } = orderData;
     try {
       link = await this.createPresignedUrlWithoutClient(orderId);

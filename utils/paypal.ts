@@ -103,8 +103,11 @@ export default async function loadPaypal(
   return paypal;
 }
 
-export function createCartForPaypal(cart: CartItem[]) {
+export function createCartForPaypal(
+  cart: CartItem[]
+): [cart: PaypalCartItem[], subtotal: number] {
   let paypalCart: PaypalCartItem[] = [];
+  let subtotal = 0;
   for (const item of cart) {
     for (let i = 0; i < item.quantity; i++) {
       paypalCart = [
@@ -114,28 +117,28 @@ export function createCartForPaypal(cart: CartItem[]) {
           amount: { currency_code: 'USD', value: item.price },
         },
       ];
+      subtotal = item.price + subtotal;
     }
   }
-  return paypalCart;
+
+  return [paypalCart, subtotal];
 }
 
 type InternalFulfillmentApiProps = {
   orderData: OrderResponseBody;
-  setWhichHeight: Dispatch<SetStateAction<string>>;
-  cartHeight: string;
   router: AppRouterInstance;
   clearCart: () => void;
 };
 export function callInternalFulfillmentApi(props: InternalFulfillmentApiProps) {
-  const { orderData, setWhichHeight, cartHeight, clearCart, router } = props;
+  const { orderData,clearCart, router } = props;
   fetch(process.env.NEXT_PUBLIC_PAYPAL_API_URL as string, {
     method: 'POST',
     mode: 'cors',
     referrerPolicy: 'origin',
     body: JSON.stringify({
       email: orderData.payment_source?.paypal?.email_address,
-      firstName: orderData.payment_source?.paypal?.name?.given_name,
-      lastName: orderData.payment_source?.paypal?.name?.surname,
+      firstName: orderData.payer?.name?.given_name,
+      lastName: orderData.payer?.name?.surname,
       orderData,
     }),
   })
@@ -149,7 +152,7 @@ export function callInternalFulfillmentApi(props: InternalFulfillmentApiProps) {
     })
     .catch((e) => {
       router.push(`/thanks?referenceId=${orderData.id}&ftse=1`);
-      setWhichHeight(cartHeight);
+      clearCart();
       console.error(e);
     });
 }

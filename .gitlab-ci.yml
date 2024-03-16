@@ -30,3 +30,39 @@ stages:
   - export AWS_SESSION_TOKEN=`echo $CREDS | jq .Credentials.SessionToken`
   - export AWS_DEFAULT_REGION="${AWS_REGION}"
   - echo $AWS_SESSION_TOKEN
+
+deploy_frontend_staging:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == "staging"'
+      changes:
+        - app/**/*
+        - components/**/*
+        - hooks/**/*
+        - pages/**/*
+        - types/**/*
+        - utils/**/*
+        - next.config.js
+        - package.json
+        - vercel.json
+  script:
+    - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/cGxMEW1fLT
+
+deploy_frontend_production:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      changes:
+        - app/**/*
+        - components/**/*
+        - hooks/**/*
+        - pages/**/*
+        - types/**/*
+        - utils/**/*
+        - next.config.js
+        - package.json
+        - vercel.json
+  script:
+    - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/k4eiYJ4iju

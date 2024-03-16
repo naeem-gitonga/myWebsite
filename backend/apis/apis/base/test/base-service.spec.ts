@@ -86,6 +86,7 @@ describe('Base service tests', () => {
       'Access-Control-Allow-Headers': '*',
       'Access-Control-Allow-Methods': 'POST,OPTIONS',
       'Access-Control-Allow-Credentials': true,
+      'Content-Type': 'application/json',
       'set-cookie': 'mywonderful=cookie',
     };
     const res = await response({ dog: 'bark' }, 200, undefined, cookie);
