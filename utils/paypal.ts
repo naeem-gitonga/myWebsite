@@ -137,8 +137,8 @@ export function callInternalFulfillmentApi(props: InternalFulfillmentApiProps) {
     referrerPolicy: 'origin',
     body: JSON.stringify({
       email: orderData.payment_source?.paypal?.email_address,
-      firstName: orderData.payment_source?.paypal?.name?.given_name,
-      lastName: orderData.payment_source?.paypal?.name?.surname,
+      firstName: orderData.payer?.name?.given_name,
+      lastName: orderData.payer?.name?.surname,
       orderData,
     }),
   })
@@ -152,6 +152,7 @@ export function callInternalFulfillmentApi(props: InternalFulfillmentApiProps) {
     })
     .catch((e) => {
       router.push(`/thanks?referenceId=${orderData.id}&ftse=1`);
+      clearCart();
       console.error(e);
     });
 }
