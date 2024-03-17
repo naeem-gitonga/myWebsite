@@ -25,7 +25,6 @@ export default function RootLayout({
       </head>
       <body id="body" className="body">
         {children}
-
         <Script
           id="font-awesome"
           src="https://use.fontawesome.com/804fb94b8b.js"

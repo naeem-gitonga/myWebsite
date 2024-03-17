@@ -93,7 +93,7 @@ export default function CartVeiw(): JSX.Element {
         onSuccess,
         clearCart,
         cart,
-      })
+      });
     }
   }, [cart, cartHeight, clearCart, setModalOpen, onError, onSuccess]);
 
@@ -133,7 +133,11 @@ export default function CartVeiw(): JSX.Element {
           })}
         </div>
         <div className={totalAndPay}>
-          {cart.length !== 0 && <p className={subTotal}><span>Subtotal: </span>${subtotal}</p>}
+          {cart.length !== 0 && (
+            <p className={subTotal}>
+              <span>Subtotal: </span>${subtotal}
+            </p>
+          )}
           <div
             id="paypal-button-container"
             className={

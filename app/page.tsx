@@ -13,6 +13,7 @@ import ReturnArrow from 'components/ReturnArrow/ReturnArrow';
 import ArticleTileView from 'components/ArticleTileView/ArticleTileView';
 import ShoppingCartIcon from 'components/ShoppingCartIcon/ShoppingCartIcon';
 import particlesParams from 'utils/particlesParams.json';
+import PromoBanner from '@/components/PromoBanner/PromoBanner';
 
 export default function Home() {
   useInfoLog();
@@ -55,6 +56,7 @@ export default function Home() {
             gtag('config', 'G-00FHGBS0KW');
           `}
       </Script>
+      <PromoBanner />
       <div id="particles-js" className="particles" />
       <Header setWhichSection={setWhichSection} />
       <ShoppingCartIcon unsetPosition={false} fill="white" />

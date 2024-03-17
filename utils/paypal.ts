@@ -130,7 +130,7 @@ type InternalFulfillmentApiProps = {
   clearCart: () => void;
 };
 export function callInternalFulfillmentApi(props: InternalFulfillmentApiProps) {
-  const { orderData,clearCart, router } = props;
+  const { orderData, clearCart, router } = props;
   fetch(process.env.NEXT_PUBLIC_PAYPAL_API_URL as string, {
     method: 'POST',
     mode: 'cors',

@@ -1,0 +1,26 @@
+.promoBanner {
+    box-sizing: border-box;
+    background-color: red;
+    height: 65px;
+    text-align: center;
+    padding: 25px;
+    position: fixed;
+    width: 100vw;
+    z-index: 39;
+}
+  
+.bannerLink {
+    text-decoration: none;
+    color: black;
+}
+  
+p.text {
+    margin: 0 auto;
+    font-weight: 800;
+}
+
+@media (max-width: 480px) {
+    .promoBanner {
+        padding: 15px 100px;
+    }
+}
