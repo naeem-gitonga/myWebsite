@@ -24,8 +24,8 @@ function ItemContent(): JSX.Element {
   const router = useRouter();
   const stringId = searchParams?.get('item_id');
   const deviceSize = useBreakpoint();
-  const isDesktop = deviceSize === 'md' || deviceSize === 'lg';
-  console.log({ deviceSize });
+  const isDesktop = deviceSize === 'lg';
+
   let [isNumber, id] = canBeParsedToInt(stringId as unknown as string);
   if (isNumber === false) {
     router.push('/shop');
@@ -38,11 +38,8 @@ function ItemContent(): JSX.Element {
     itemWrapper,
     addToCartButton,
     viewWrapperOverride,
-    one,
-    two,
-    three,
-    four,
     stackedItems,
+    price,
   } = styles;
   const { tenPadding, sectionHeight, viewWrapper } = sharedStyles;
 
@@ -54,8 +51,9 @@ function ItemContent(): JSX.Element {
           <div className={`${imageContainer} ${imageStyles[book.imageUrl]}`} />
           <div className={stackedItems}>
             <h2 className={itemTitleHeader}>{book.title}</h2>
+            <p className={price}>${book.price}</p>
             <AddToCartButton
-              className={`${addToCartButton} ${three}`}
+              className={addToCartButton}
               book={book}
             />
           </div>
@@ -72,8 +70,9 @@ function ItemContent(): JSX.Element {
     <div className={`${tenPadding} ${sectionHeight} ${itemWrapper}`}>
       <PageHeader headerName="item" hideLinks={false} />
       <div className={viewWrapper}>
-        <h2 className={`${itemTitleHeader} ${one}`}>{book.title}</h2>
+        <h2 className={itemTitleHeader}>{book.title}</h2>
         <div className={`${imageContainer} ${imageStyles[book.imageUrl]}`} />
+        <p className={price}>${book.price}</p>
         <AddToCartButton className={addToCartButton} book={book} />
         <div
           className={itemDescription}
