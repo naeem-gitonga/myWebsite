@@ -41,16 +41,16 @@ test_lambda:
   image: node:20.11.1
   rules:
     - changes:
-      - app/**/*
-      - components/**/*
-      - hooks/**/*
-      - pages/**/*
-      - types/**/*
-      - utils/**/*
-      - next.config.js
-      - package.json
-      - vercel.json
-      - .gitlab-ci.yml
+      - $PWD/app/**/*
+      - $PWD/components/**/*
+      - $PWD/hooks/**/*
+      - $PWD/pages/**/*
+      - $PWD/types/**/*
+      - $PWD/utils/**/*
+      - $PWD/next.config.js
+      - $PWD/package.json
+      - $PWD/vercel.json
+      - $PWD/.gitlab-ci.yml
       when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
@@ -69,16 +69,16 @@ build_staging:
       changes:
         - backend/apis/**/*
     - changes:
-      - app/**/*
-      - components/**/*
-      - hooks/**/*
-      - pages/**/*
-      - types/**/*
-      - utils/**/*
-      - next.config.js
-      - package.json
-      - vercel.json
-      - .gitlab-ci.yml
+      - $PWD/app/**/*
+      - $PWD/components/**/*
+      - $PWD/hooks/**/*
+      - $PWD/pages/**/*
+      - $PWD/types/**/*
+      - $PWD/utils/**/*
+      - $PWD/next.config.js
+      - $PWD/package.json
+      - $PWD/vercel.json
+      - $PWD/.gitlab-ci.yml
       when: never
   artifacts:
     expose_as: 'backend-build-staging'
@@ -118,16 +118,16 @@ deploy_staging:
     name: staging
   rules:
     - changes:
-      - app/**/*
-      - components/**/*
-      - hooks/**/*
-      - pages/**/*
-      - types/**/*
-      - utils/**/*
-      - next.config.js
-      - package.json
-      - vercel.json
-      - .gitlab-ci.yml
+      - $PWD/app/**/*
+      - $PWD/components/**/*
+      - $PWD/hooks/**/*
+      - $PWD/pages/**/*
+      - $PWD/types/**/*
+      - $PWD/utils/**/*
+      - $PWD/next.config.js
+      - $PWD/package.json
+      - $PWD/vercel.json
+      - $PWD/.gitlab-ci.yml
       when: never
     - if: '$CI_COMMIT_BRANCH == "staging"'
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
@@ -173,6 +173,18 @@ build_production:
   dependencies:
     - test_lambda
   rules:
+    - changes:
+      - $PWD/app/**/*
+      - $PWD/components/**/*
+      - $PWD/hooks/**/*
+      - $PWD/pages/**/*
+      - $PWD/types/**/*
+      - $PWD/utils/**/*
+      - $PWD/next.config.js
+      - $PWD/package.json
+      - $PWD/vercel.json
+      - $PWD/.gitlab-ci.yml
+      when: never
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes:
         - backend/apis/**/*
@@ -206,6 +218,18 @@ deploy_production:
   environment:
     name: production
   rules:
+    - changes:
+      - $PWD/app/**/*
+      - $PWD/components/**/*
+      - $PWD/hooks/**/*
+      - $PWD/pages/**/*
+      - $PWD/types/**/*
+      - $PWD/utils/**/*
+      - $PWD/next.config.js
+      - $PWD/package.json
+      - $PWD/vercel.json
+      - $PWD/.gitlab-ci.yml
+      when: never
     - if: '$CI_COMMIT_BRANCH == "master"'
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
