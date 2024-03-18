@@ -40,9 +40,10 @@ function ItemContent(): JSX.Element {
     viewWrapperOverride,
     stackedItems,
     price,
+    strike
   } = styles;
   const { tenPadding, sectionHeight, viewWrapper } = sharedStyles;
-
+  const { imageUrl, title, promotion, description } = book;
   if (isDesktop) {
     return (
       <div className={`${tenPadding} ${sectionHeight} ${itemWrapper}`}>
@@ -50,13 +51,14 @@ function ItemContent(): JSX.Element {
         <div className={`${viewWrapper} ${viewWrapperOverride}`}>
           <div className={`${imageContainer} ${imageStyles[book.imageUrl]}`} />
           <div className={stackedItems}>
-            <h2 className={itemTitleHeader}>{book.title}</h2>
-            <p className={price}>${book.price}</p>
+            <h2 className={itemTitleHeader}>{title}</h2>
+            <p className={`${price} ${promotion ? strike: ''}`}>${book.price}</p>
+            <p className={price}>${promotion}</p>
             <AddToCartButton className={addToCartButton} book={book} />
           </div>
           <div
             className={itemDescription}
-            dangerouslySetInnerHTML={{ __html: book.description }}
+            dangerouslySetInnerHTML={{ __html: description }}
           />
         </div>
       </div>
@@ -67,13 +69,14 @@ function ItemContent(): JSX.Element {
     <div className={`${tenPadding} ${sectionHeight} ${itemWrapper}`}>
       <PageHeader headerName="item" hideLinks={false} />
       <div className={viewWrapper}>
-        <h2 className={itemTitleHeader}>{book.title}</h2>
-        <div className={`${imageContainer} ${imageStyles[book.imageUrl]}`} />
-        <p className={price}>${book.price}</p>
+        <h2 className={itemTitleHeader}>{title}</h2>
+        <div className={`${imageContainer} ${imageStyles[imageUrl]}`} />
+        <p className={`${price} ${promotion ? strike: ''}`}>${book.price}</p>
+        <p className={price}>${promotion}</p>
         <AddToCartButton className={addToCartButton} book={book} />
         <div
           className={itemDescription}
-          dangerouslySetInnerHTML={{ __html: book.description }}
+          dangerouslySetInnerHTML={{ __html: description }}
         />
       </div>
     </div>
