@@ -40,6 +40,18 @@ test_lambda:
   stage: test
   image: node:20.11.1
   rules:
+    - changes:
+      - app/**/*
+      - components/**/*
+      - hooks/**/*
+      - pages/**/*
+      - types/**/*
+      - utils/**/*
+      - next.config.js
+      - package.json
+      - vercel.json
+      - .gitlab-ci.yml
+      when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
     - changes:
@@ -56,6 +68,18 @@ build_staging:
     - if: '$CI_COMMIT_BRANCH == "staging"'
       changes:
         - backend/apis/**/*
+    - changes:
+      - app/**/*
+      - components/**/*
+      - hooks/**/*
+      - pages/**/*
+      - types/**/*
+      - utils/**/*
+      - next.config.js
+      - package.json
+      - vercel.json
+      - .gitlab-ci.yml
+      when: never
   artifacts:
     expose_as: 'backend-build-staging'
     name: 'backend-build-staging'
@@ -93,6 +117,18 @@ deploy_staging:
   environment:
     name: staging
   rules:
+    - changes:
+      - app/**/*
+      - components/**/*
+      - hooks/**/*
+      - pages/**/*
+      - types/**/*
+      - utils/**/*
+      - next.config.js
+      - package.json
+      - vercel.json
+      - .gitlab-ci.yml
+      when: never
     - if: '$CI_COMMIT_BRANCH == "staging"'
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
