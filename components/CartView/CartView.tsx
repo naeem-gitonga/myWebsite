@@ -21,6 +21,7 @@ import loadPaypal, {
 import styles from './CartView.module.scss';
 import Link from 'next/link';
 import useBreakpoint from '@/hooks/useBreakpoint';
+import roundToTwoDecimalPlaces from '@/utils/roundTonearestTwoDecimal';
 
 export default function CartVeiw(): JSX.Element {
   const {
@@ -85,7 +86,7 @@ export default function CartVeiw(): JSX.Element {
 
     if (cart.length) {
       const [paypalCart, x] = createCartForPaypal(cart);
-      setSubtotal(parseInt(x.toFixed(2)));
+      setSubtotal(roundToTwoDecimalPlaces(+x.toFixed(2)));
       loadPaypal({
         setShowLoadingDots,
         purchaseUnits: paypalCart,
