@@ -52,10 +52,7 @@ function ItemContent(): JSX.Element {
           <div className={stackedItems}>
             <h2 className={itemTitleHeader}>{book.title}</h2>
             <p className={price}>${book.price}</p>
-            <AddToCartButton
-              className={addToCartButton}
-              book={book}
-            />
+            <AddToCartButton className={addToCartButton} book={book} />
           </div>
           <div
             className={itemDescription}
