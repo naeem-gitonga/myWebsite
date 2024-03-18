@@ -5,3 +5,4 @@ next.config.js
 *.json
 *.d.ts
 backend/cdk/cdk.out
+*.yml
