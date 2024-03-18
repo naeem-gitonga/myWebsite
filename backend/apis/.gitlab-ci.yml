@@ -127,22 +127,80 @@ deploy_staging:
         echo "$var" >> "$env_file"
       done
     - cdk deploy --require-approval=never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
-# build_prod:
-#   artifacts:
-#     expose_as: 'backend-build'
-#     name: 'backend-build'
-#     paths:
-#       - $PWD/backend/apis/.serverless/jngpaypal.zip
-#   needs: ['test_lambda']
-#   dependencies:
-#     - test_lambda
-#   rules:
-#     - if: '$CI_COMMIT_BRANCH == "master"'
-#       changes:
-#         - backend/apis/**/*
-#   stage: build
-#   environment:
-#     name: production
-#   script:
-#     - *common_install
-#     - npm run package
+
+build_production:
+  artifacts:
+    expose_as: 'backend-build-production'
+    name: 'backend-build-production'
+    paths:
+      - $PWD/backend/apis/.serverless/jngpaypal.zip
+  needs: ['test_lambda']
+  dependencies:
+    - test_lambda
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      changes:
+        - backend/apis/**/*
+  stage: build
+  environment:
+    name: production
+  script:
+    - *common_install
+    - touch .env
+    - |
+      variables=(
+        "ORIGIN=${ORIGIN}"
+        "SEND_GRID_API_KEY=${SEND_GRID_API_KEY}"
+        "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
+        "SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}"
+        "WHICH_ROUTE=${WHICH_ROUTE}"
+        "NODE_ENV=production"
+      )
+      env_file="./.env"
+      for var in "${variables[@]}"; do
+        echo "$var" >> "$env_file"
+      done
+    - npm run package
+
+deploy_production:
+  id_tokens:
+    GITLAB_OIDC_TOKEN:
+      aud: https://gitlab.com
+  stage: deploy
+  environment:
+    name: production
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "staging"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == "staging"'
+      changes:
+        - backend/apis/**/*
+  needs:
+    - job: build_production
+      artifacts: true
+  dependencies:
+    - build_production
+  script:
+    - *install_aws
+    - *common_setup
+    - *assume_role
+    - npm i
+    - |
+      variables=(
+        "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
+        "CALENDLY_API_ACCESS_TOKEN=${CALENDLY_API_ACCESS_TOKEN}"
+        "DEAD_LETTER_QUEUE_URL=${DEAD_LETTER_QUEUE_URL}"
+        "NODE_ENV=production"
+        "ORIGIN=${ORIGIN}"
+        "SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}"
+        "SEND_GRID_API_KEY=${SEND_GRID_API_KEY}"
+        "STAGE=prod"
+        "WHICH_ROUTE=${WHICH_ROUTE}"
+      )
+      env_file="./.env"
+      for var in "${variables[@]}"; do
+        echo "$var" >> "$env_file"
+      done
+    - cdk deploy --require-approval=never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
+
