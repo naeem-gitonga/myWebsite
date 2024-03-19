@@ -12,7 +12,7 @@ export default function MyWork(): JSX.Element {
   const { disclaimer, zeroMarginBottom, workWrapper } = styles;
   return (
     <section id="myWork" className={workWrapper}>
-      <PageHeader headerName="work" hideLinks={cart.length !== 0} />
+      <PageHeader headerName="work" hideLinks={false} />
       <p className={`${disclaimer} ${zeroMarginBottom}`}>* I built it myself</p>
       <p className={styles.disclaimer}>** I worked on it with a team</p>
       <div className={viewWrapper}>
