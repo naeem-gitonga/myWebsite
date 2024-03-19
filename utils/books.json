@@ -12,6 +12,7 @@
       "imageUrl": "rapidbackend",
       "bookUrl": "/item?item_id=2",
       "price": 14.99,
+      "promotion": 5.99,
       "id": 2,
       "description": "<p>Rapid Back-End was designed with software engineers in mind. It is a tool that when deployed will give you the power and flexibility needed for a modern API solution. The core technologies of Rapid Back-end are: TypeScript, JWTs, AWS CDK, Serverless, Serverless Offline, API Gateway, Lambda, Jest, and MongoDB. If you are requiring use of a SQL type datastore then you can easily change your deployment to use either flavor of SQL that you desire.</p><p>Going serverless can lead to many functions and an increased surface area making a growing system more difficult to maintain. Functions as Microservices (FaMS) with Rapid Back-End are the best option. Enjoy built-in auth, easy routing, and modular components.</p>"
     }

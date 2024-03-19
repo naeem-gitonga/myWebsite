@@ -85,8 +85,6 @@ build_staging:
     name: 'backend-build-staging'
     paths:
       - $PWD/backend/apis/.serverless/jngpaypal.zip
-  needs:
-    - job: test_lambda
   dependencies:
     - test_lambda
   environment:
@@ -169,7 +167,6 @@ build_production:
     name: 'backend-build-production'
     paths:
       - $PWD/backend/apis/.serverless/jngpaypal.zip
-  needs: ['test_lambda']
   dependencies:
     - test_lambda
   rules:
