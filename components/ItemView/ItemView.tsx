@@ -9,6 +9,7 @@ import { Suspense } from 'react';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import canBeParsedToInt from '@/utils/canBeparsedToInt';
 import useBreakpoint from '@/hooks/useBreakpoint';
+import Price from '../Price/Price';
 
 export default function Item(): JSX.Element {
   return (
@@ -40,7 +41,7 @@ function ItemContent(): JSX.Element {
     viewWrapperOverride,
     stackedItems,
     price,
-    strike
+    strike,
   } = styles;
   const { tenPadding, sectionHeight, viewWrapper } = sharedStyles;
   const { imageUrl, title, promotion, description } = book;
@@ -52,8 +53,12 @@ function ItemContent(): JSX.Element {
           <div className={`${imageContainer} ${imageStyles[book.imageUrl]}`} />
           <div className={stackedItems}>
             <h2 className={itemTitleHeader}>{title}</h2>
-            <p className={`${price} ${promotion ? strike: ''}`}>${book.price}</p>
-            <p className={price}>${promotion}</p>
+            <Price
+              price={book.price}
+              priceStyle={price}
+              strike={strike}
+              promotion={promotion}
+            />
             <AddToCartButton className={addToCartButton} book={book} />
           </div>
           <div
@@ -71,8 +76,12 @@ function ItemContent(): JSX.Element {
       <div className={viewWrapper}>
         <h2 className={itemTitleHeader}>{title}</h2>
         <div className={`${imageContainer} ${imageStyles[imageUrl]}`} />
-        <p className={`${price} ${promotion ? strike: ''}`}>${book.price}</p>
-        <p className={price}>${promotion}</p>
+        <Price
+          price={book.price}
+          priceStyle={price}
+          strike={strike}
+          promotion={promotion}
+        />
         <AddToCartButton className={addToCartButton} book={book} />
         <div
           className={itemDescription}
