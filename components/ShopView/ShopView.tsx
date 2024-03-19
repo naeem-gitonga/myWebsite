@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import BookTile from '../BookTile/BookTile';
+import ItemTile from '../ItemTile/ItemTile';
 import sharedStyles from 'components/SharedCss/SharedCss.module.scss';
 import ReturnArrow from 'components/ReturnArrow/ReturnArrow';
 import PageHeader from '../PageHeader/PageHeader';
@@ -23,7 +23,7 @@ export default function ShopView(): JSX.Element {
       <div className={viewWrapper}>
         {books.map((a: Book) => {
           return (
-            <BookTile
+            <ItemTile
               book={a}
               key={a.id}
               addToCart={addToCart}

@@ -20,7 +20,6 @@ import loadPaypal, {
 
 import styles from './CartView.module.scss';
 import Link from 'next/link';
-import useBreakpoint from '@/hooks/useBreakpoint';
 import roundToTwoDecimalPlaces from '@/utils/roundTonearestTwoDecimal';
 
 export default function CartVeiw(): JSX.Element {
@@ -56,7 +55,7 @@ export default function CartVeiw(): JSX.Element {
         clearCart,
       });
     },
-    [cartHeight, router, clearCart, setModalOpen]
+    [router, clearCart]
   );
 
   const onError = useCallback(

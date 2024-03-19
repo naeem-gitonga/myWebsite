@@ -5,4 +5,5 @@ export type Book = {
   bookUrl: string;
   price: number;
   description: string;
+  promotion: number;
 };
