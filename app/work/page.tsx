@@ -1,6 +1,18 @@
 import Footer from 'components/Footer/Footer';
 import '../globals.css';
 import MyWork from 'components/MyWork/MyWork';
+import { Metadata } from 'next';
+type Props = {
+  params: { item_id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+// * example of static metadata
+export const metadata: Metadata = {
+  title: 'My Work',
+  description: 'Projects that Naeem has created himself or with product teams. Some projects date back to 2017 to demonstrate growth.'
+}
+ 
 
 export default function Work(): JSX.Element {
   return (
