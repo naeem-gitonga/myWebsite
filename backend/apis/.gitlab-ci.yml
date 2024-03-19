@@ -226,7 +226,6 @@ deploy_production:
       - $PWD/vercel.json
       - $PWD/.gitlab-ci.yml
       when: never
-    - if: '$CI_COMMIT_BRANCH == "master"'
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
     - if: '$CI_COMMIT_BRANCH == "master"'
