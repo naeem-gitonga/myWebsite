@@ -1,3 +1,5 @@
+import React from 'react';
+
 type Price = {
   price: number;
   priceStyle: string;
