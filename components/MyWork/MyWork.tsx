@@ -7,8 +7,8 @@ import PageHeader from '../PageHeader/PageHeader';
 import useCart from '@/hooks/useCart';
 
 export default function MyWork(): JSX.Element {
-  const { sectionHeader, viewWrapper } = sharedStyles;
-  const [addItem, cart, removeItem, clearCart] = useCart();
+  const { viewWrapper } = sharedStyles;
+  const [, cart] = useCart();
   const { disclaimer, zeroMarginBottom, workWrapper } = styles;
   return (
     <section id="myWork" className={workWrapper}>

@@ -12,10 +12,6 @@ type HeaderProps = {
 export default function Header(props: HeaderProps): JSX.Element {
   const { setWhichSection } = props;
   const showShop = process.env.NEXT_PUBLIC_SHOW_SHOP == 'true';
-  const hideParticles = () => {
-    const particles = document.getElementById('particles-js');
-    particles?.classList.add('hide');
-  };
   return (
     <div id="header">
       <div className={styles.wrapper}>
