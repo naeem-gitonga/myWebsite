@@ -63,7 +63,7 @@ export default function CartVeiw(): JSX.Element {
       setModalOpen();
       console.error(error);
     },
-    [cartHeight, setModalOpen]
+    [setModalOpen]
   );
 
   useEffect(() => {
