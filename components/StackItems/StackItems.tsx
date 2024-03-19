@@ -154,5 +154,10 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="NextJs" className={nextjs} key="nextjs" />,
     <StackItem text="TypeScript" className={typescript} key="typescript" />,
     <StackItem text="React" className={react} key="react" />,
+    <StackItem text="CDK" className={cdk} key="cdk" />,
+    <StackItem text="API Gateway" className={apigateway} key="apigateway" />,
+    <StackItem text="Lambda" className={lambda} key="lambda" />,
+    <StackItem text="Serverless" className={serverless} key="serverless" />,
+    <StackItem text="Jest" className={jest} key="jest" />,
   ],
 };
