@@ -29,8 +29,6 @@ export default function Home() {
         return <AboutMe />;
       case 'contact':
         return <ContactForm />;
-      case 'myWork':
-        return <MyWork />;
       case 'donate':
         return <Donate />;
       case 'articles':

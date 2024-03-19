@@ -12,7 +12,6 @@ type HeaderProps = {
 export default function Header(props: HeaderProps): JSX.Element {
   const { setWhichSection } = props;
   const showShop = process.env.NEXT_PUBLIC_SHOW_SHOP == 'true';
-  console.log('SEE SHOW SHOP ', showShop, typeof showShop);
   const hideParticles = () => {
     const particles = document.getElementById('particles-js');
     particles?.classList.add('hide');
@@ -30,8 +29,8 @@ export default function Header(props: HeaderProps): JSX.Element {
                   aboutMe
                 </Link>
               </li>
-              <li id="work-link" onClick={() => setWhichSection('myWork')}>
-                <Link href="#myWork" className={styles.firstUlLink}>
+              <li id="work-link">
+                <Link href="/work" className={styles.firstUlLink}>
                   myWork
                 </Link>
               </li>
