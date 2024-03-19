@@ -153,21 +153,4 @@ export const projects: Project[] = [
     gitHubLink:
       '/interstitial?url=https://github.com/PROB8/learningo&where=Github',
   },
-  {
-    title: "What's my Horoscope?*",
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/myHoroscope.png',
-    projectDes: 'MVP for app gives simple horoscope/motivational quote.',
-    projectStack: 'horoscope',
-    gitHubLink:
-      '/interstitial?url=https://github.com/PROB8/find-my-horoscope&where=Github',
-  },
-  {
-    title: "Polls 'R' Us*",
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/pollsRUs.png',
-    projectDes:
-      "MVP for an app that allows you to collect the world's opinion.",
-    projectStack: 'polls',
-    gitHubLink:
-      '/interstitial?url=https://github.com/JNaeemGitonga/naeem-polling&where=Github',
-  },
 ];
