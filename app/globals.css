@@ -36,3 +36,8 @@ body.body {
 .overflowHidden {
   overflow: hidden;
 }
+
+.iframe {
+  display:none;
+  visibility:hidden
+}
