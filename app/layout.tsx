@@ -23,7 +23,7 @@ export default function RootLayout({
           href="https://d2j3yisnywcb30.cloudfront.net/pix/favicon.ico"
         />
 
-        <Script type="text/javascript">
+        <Script id="gtm" type="text/javascript">
           {`
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
