@@ -67,6 +67,11 @@ export default async function loadPaypal(
         if (dotsContainer) {
           dotsContainer.style.visibility = 'visible';
         }
+        window.dataLayer.push({
+          event: 'product-purchased',
+          item: options.cart,
+          env: process.env.NEXT_PUBLIC_STAGE,
+        });
       });
     },
     onError: function (err: Record<string, unknown>) {
