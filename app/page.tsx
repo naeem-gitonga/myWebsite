@@ -45,15 +45,6 @@ export default function Home() {
         src="https://www.googletagmanager.com/gtag/js?id=G-00FHGBS0KW"
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-  
-            gtag('config', 'G-00FHGBS0KW');
-          `}
-      </Script>
       <PromoBanner />
       <div id="particles-js" className="particles" />
       <Header setWhichSection={setWhichSection} />

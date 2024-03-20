@@ -24,6 +24,11 @@ export default function AddToCartButton(
           addToCart(book);
           setLastItemClicked(book);
           setModalOpen();
+          window.dataLayer.push({
+            event: 'product-added-to-cart',
+            item: book.title,
+            env: process.env.NEXT_PUBLIC_STAGE,
+          });
         }}
         className={className}
       >

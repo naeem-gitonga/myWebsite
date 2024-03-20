@@ -34,10 +34,13 @@ export default function RootLayout({
         </Script>
       </head>
       <body id="body" className="body">
-
         <noscript>
-          <iframe className="iframe" src="https://www.googletagmanager.com/ns.html?id=GTM-PF892R2H"
-        height="0" width="0"></iframe>
+          <iframe
+            className="iframe"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PF892R2H"
+            height="0"
+            width="0"
+          ></iframe>
         </noscript>
 
         {children}
