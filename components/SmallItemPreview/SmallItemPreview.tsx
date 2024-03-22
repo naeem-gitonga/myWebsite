@@ -24,7 +24,7 @@ export default function SmallItemPreview(
     imageWrapper,
     quantity,
   } = styles;
-  const { title, price, imageUrl } = item;
+  const { title, price, imageUrl, promotion } = item;
   return (
     <div className={smallItemPreviewWrapper}>
       <div className={imageWrapper}>
@@ -32,7 +32,7 @@ export default function SmallItemPreview(
       </div>
       <div className={itemDescription}>
         <p>{title}</p>
-        <p>${price}</p>
+        <p>${promotion ? promotion : price}</p>
         {showCounter && (
           <CounterInput
             style={quantity}
