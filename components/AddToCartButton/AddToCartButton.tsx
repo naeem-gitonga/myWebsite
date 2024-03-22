@@ -1,4 +1,3 @@
-
 import AddToCartMessage from '../AddToCartMessage/AddToCartMessage';
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
