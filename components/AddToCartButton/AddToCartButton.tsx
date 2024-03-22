@@ -1,4 +1,4 @@
-import useCart from '@/hooks/useCart';
+
 import AddToCartMessage from '../AddToCartMessage/AddToCartMessage';
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
@@ -9,12 +9,13 @@ import { Product } from '@/types/product';
 type AddToCartButtonProps = {
   className: string;
   product: Product;
+  addToCart: (arg: Product) => void;
 };
 export default function AddToCartButton(
   props: AddToCartButtonProps
 ): JSX.Element {
-  const { className, product } = props;
-  const [addToCart] = useCart();
+  const { className, product, addToCart } = props;
+
   const [lastItemClicked, setLastItemClicked] = useState<Product | null>(null);
   const [isOpen, setModalOpen] = useModal();
   return (

@@ -14,6 +14,7 @@ export default function useCart(): [
   (id: number) => void,
   () => void,
 ] {
+
   const [cart, setCart] = useState<CartItem[]>([]);
   const updateCartAndStorage = (newCart: CartItem[]) => {
     window.localStorage.setItem('cart-jng', JSON.stringify(newCart));
@@ -31,6 +32,7 @@ export default function useCart(): [
 
   const addItem = useCallback((item: Product) => {
     setCart((currentCart) => {
+
       const existingItemIndex = currentCart.findIndex(
         (existingItem) => item.id === existingItem.id
       );

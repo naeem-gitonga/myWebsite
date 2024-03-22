@@ -26,7 +26,8 @@ export default function ItemTile(props: itemTileProps): JSX.Element {
   } = styles;
 
   const {
-    product: { title: t, imageUrl, productUrl, price: p, promotion },
+    addToCart,
+    product: { title: t, imageUrl, productUrl, price: p, promotion, },
   } = props;
   const product = props.product;
 
@@ -38,7 +39,7 @@ export default function ItemTile(props: itemTileProps): JSX.Element {
       <div className={titleBox}>
         <h2 className={title}>{t}</h2>
         <div className={infoWrapper}>
-          <AddToCartButton className={addToCartButton} product={product} />
+          <AddToCartButton className={addToCartButton} product={product} addToCart={addToCart} />
           <Price
             priceStyle={price}
             price={p}
