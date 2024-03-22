@@ -33,7 +33,7 @@ function ItemContent(): JSX.Element {
     router.push('/shop');
   }
 
-  const product = products.find(p => p.id === id) as Product;
+  const product = products.find((p) => p.id === id) as Product;
   const {
     imageContainer,
     itemTitleHeader,
@@ -52,7 +52,9 @@ function ItemContent(): JSX.Element {
       <div className={`${tenPadding} ${sectionHeight} ${itemWrapper}`}>
         <PageHeader headerName="item" hideLinks={false} />
         <div className={`${viewWrapper} ${viewWrapperOverride}`}>
-          <div className={`${imageContainer} ${imageStyles[product.imageUrl]}`} />
+          <div
+            className={`${imageContainer} ${imageStyles[product.imageUrl]}`}
+          />
           <div className={stackedItems}>
             <h2 className={itemTitleHeader}>{title}</h2>
             <Price
