@@ -6,4 +6,5 @@ export type Product = {
   price: number;
   description: string;
   promotion: number;
+  emailTemplate: number;
 };
