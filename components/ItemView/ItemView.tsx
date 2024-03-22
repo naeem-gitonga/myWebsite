@@ -11,6 +11,7 @@ import canBeParsedToInt from '@/utils/canBeparsedToInt';
 import useBreakpoint from '@/hooks/useBreakpoint';
 import Price from '../Price/Price';
 import { Product } from '@/types/product';
+import useCart from '@/hooks/useCart'
 
 export default function Item(): JSX.Element {
   return (
@@ -22,6 +23,7 @@ export default function Item(): JSX.Element {
 }
 
 function ItemContent(): JSX.Element {
+  const [addToCart] = useCart();
   const searchParams = useSearchParams();
   const router = useRouter();
   const stringId = searchParams?.get('item_id');
@@ -63,7 +65,7 @@ function ItemContent(): JSX.Element {
               strike={strike}
               promotion={promotion}
             />
-            <AddToCartButton className={addToCartButton} product={product} />
+            <AddToCartButton className={addToCartButton} product={product} addToCart={addToCart} />
           </div>
           <div
             className={itemDescription}
@@ -86,7 +88,7 @@ function ItemContent(): JSX.Element {
           strike={strike}
           promotion={promotion}
         />
-        <AddToCartButton className={addToCartButton} product={product} />
+        <AddToCartButton className={addToCartButton} product={product} addToCart={addToCart} />
         <div
           className={itemDescription}
           dangerouslySetInnerHTML={{ __html: description }}
