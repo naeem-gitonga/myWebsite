@@ -31,8 +31,10 @@ export default function ItemTile(props: itemTileProps): JSX.Element {
   const product = props.product;
   
   return (
-    <Link href={productUrl} className={tileWrapper}>
+    <div className={tileWrapper}>
+    <Link href={productUrl}>
       <div className={`${imageContainer} ${sharedStyles[imageUrl]}`} />
+    </Link>
       <div className={titleBox}>
         <h2 className={title}>{t}</h2>
         <div className={infoWrapper}>
@@ -45,6 +47,6 @@ export default function ItemTile(props: itemTileProps): JSX.Element {
           />
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
