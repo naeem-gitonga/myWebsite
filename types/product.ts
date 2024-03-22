@@ -1,8 +1,8 @@
-export type Book = {
+export type Product = {
   id: number;
   title: string;
   imageUrl: string;
-  bookUrl: string;
+  productUrl: string;
   price: number;
   description: string;
   promotion: number;

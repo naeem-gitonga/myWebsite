@@ -4,14 +4,14 @@ import ItemTile from '../ItemTile/ItemTile';
 import sharedStyles from 'components/SharedCss/SharedCss.module.scss';
 import ReturnArrow from 'components/ReturnArrow/ReturnArrow';
 import PageHeader from '../PageHeader/PageHeader';
-import { Book } from '@/types/book';
+import { Product } from '@/types/product';
 import styles from './ShopView.module.scss';
 import useCart from '@/hooks/useCart';
 import useModal from '@/hooks/useModal';
-import books from '../../utils/books.json';
+import products from '../../utils/products.json';
 
 export default function ShopView(): JSX.Element {
-  const [, setLastItemClicked] = useState<Book | null>(null);
+  const [, setLastItemClicked] = useState<Product | null>(null);
   const [, setModalOpen] = useModal();
   const [addToCart] = useCart();
   const { viewWrapper } = sharedStyles;
@@ -21,11 +21,11 @@ export default function ShopView(): JSX.Element {
     <div id="shop" className={shopWrapper}>
       <PageHeader headerName="shop" hideLinks={false} />
       <div className={viewWrapper}>
-        {books.map((a: Book) => {
+        {products.map((product: Product) => {
           return (
             <ItemTile
-              book={a}
-              key={a.id}
+              product={product}
+              key={product.id}
               addToCart={addToCart}
               openModal={setModalOpen}
               setLastItemClicked={setLastItemClicked}

@@ -4,12 +4,13 @@ import styles from './ItemView.module.scss';
 import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import imageStyles from '../SharedCss/Images.module.scss';
 import PageHeader from '../PageHeader/PageHeader';
-import books from '../../utils/books.json';
+import products from '../../utils/products.json';
 import { Suspense } from 'react';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import canBeParsedToInt from '@/utils/canBeparsedToInt';
 import useBreakpoint from '@/hooks/useBreakpoint';
 import Price from '../Price/Price';
+import { Product } from '@/types/product';
 
 export default function Item(): JSX.Element {
   return (
@@ -31,7 +32,8 @@ function ItemContent(): JSX.Element {
   if (isNumber === false) {
     router.push('/shop');
   }
-  const book = books[id - 1];
+
+  const product = products.find(p => p.id === id) as Product;
   const {
     imageContainer,
     itemTitleHeader,
@@ -44,22 +46,22 @@ function ItemContent(): JSX.Element {
     strike,
   } = styles;
   const { tenPadding, sectionHeight, viewWrapper } = sharedStyles;
-  const { imageUrl, title, promotion, description } = book;
+  const { imageUrl, title, promotion, description } = product;
   if (isDesktop) {
     return (
       <div className={`${tenPadding} ${sectionHeight} ${itemWrapper}`}>
         <PageHeader headerName="item" hideLinks={false} />
         <div className={`${viewWrapper} ${viewWrapperOverride}`}>
-          <div className={`${imageContainer} ${imageStyles[book.imageUrl]}`} />
+          <div className={`${imageContainer} ${imageStyles[product.imageUrl]}`} />
           <div className={stackedItems}>
             <h2 className={itemTitleHeader}>{title}</h2>
             <Price
-              price={book.price}
+              price={product.price}
               priceStyle={price}
               strike={strike}
               promotion={promotion}
             />
-            <AddToCartButton className={addToCartButton} book={book} />
+            <AddToCartButton className={addToCartButton} product={product} />
           </div>
           <div
             className={itemDescription}
@@ -77,12 +79,12 @@ function ItemContent(): JSX.Element {
         <h2 className={itemTitleHeader}>{title}</h2>
         <div className={`${imageContainer} ${imageStyles[imageUrl]}`} />
         <Price
-          price={book.price}
+          price={product.price}
           priceStyle={price}
           strike={strike}
           promotion={promotion}
         />
-        <AddToCartButton className={addToCartButton} book={book} />
+        <AddToCartButton className={addToCartButton} product={product} />
         <div
           className={itemDescription}
           dangerouslySetInnerHTML={{ __html: description }}

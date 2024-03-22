@@ -1,16 +1,16 @@
 import styles from './ItemTile.module.scss';
 import Link from 'next/link';
-import { Book } from '@/types/book';
+import { Product } from '@/types/product';
 import { Dispatch, SetStateAction } from 'react';
 import sharedStyles from 'components/SharedCss/Images.module.scss';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import Price from '../Price/Price';
 
 type itemTileProps = {
-  book: Book;
-  addToCart: (arg: Book) => void;
+  product: Product;
+  addToCart: (arg: Product) => void;
   openModal: () => void;
-  setLastItemClicked: Dispatch<SetStateAction<Book | null>>;
+  setLastItemClicked: Dispatch<SetStateAction<Product | null>>;
 };
 
 export default function ItemTile(props: itemTileProps): JSX.Element {
@@ -26,16 +26,17 @@ export default function ItemTile(props: itemTileProps): JSX.Element {
   } = styles;
 
   const {
-    book: { title: t, imageUrl, bookUrl, price: p, promotion },
+    product: { title: t, imageUrl, productUrl, price: p, promotion },
   } = props;
-  const book = props.book;
+  const product = props.product;
+  
   return (
-    <Link href={bookUrl} className={tileWrapper}>
+    <Link href={productUrl} className={tileWrapper}>
       <div className={`${imageContainer} ${sharedStyles[imageUrl]}`} />
       <div className={titleBox}>
         <h2 className={title}>{t}</h2>
         <div className={infoWrapper}>
-          <AddToCartButton className={addToCartButton} book={book} />
+          <AddToCartButton className={addToCartButton} product={product} />
           <Price
             priceStyle={price}
             price={p}

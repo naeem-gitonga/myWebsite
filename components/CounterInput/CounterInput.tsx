@@ -1,9 +1,9 @@
-import { Book } from '@/types/book';
+import { Product } from '@/types/product';
 import CartItem from '@/types/cartItem';
 
 type CounterInputProps = {
   item: CartItem;
-  addItem: (b: Book) => void;
+  addItem: (b: Product) => void;
   removeItem: (b: number) => void;
   style?: string;
 };

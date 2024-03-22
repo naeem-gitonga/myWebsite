@@ -4,29 +4,29 @@ import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
 import { useState } from 'react';
 import useModal from '@/hooks/useModal';
-import { Book } from '@/types/book';
+import { Product } from '@/types/product';
 
 type AddToCartButtonProps = {
   className: string;
-  book: Book;
+  product: Product;
 };
 export default function AddToCartButton(
   props: AddToCartButtonProps
 ): JSX.Element {
-  const { className, book } = props;
+  const { className, product } = props;
   const [addToCart] = useCart();
-  const [lastItemClicked, setLastItemClicked] = useState<Book | null>(null);
+  const [lastItemClicked, setLastItemClicked] = useState<Product | null>(null);
   const [isOpen, setModalOpen] = useModal();
   return (
     <>
       <Button
         cb={() => {
-          addToCart(book);
-          setLastItemClicked(book);
+          addToCart(product);
+          setLastItemClicked(product);
           setModalOpen();
           window.dataLayer.push({
             event: 'product-added-to-cart',
-            item: book.title,
+            item: product.title,
             env: process.env.NEXT_PUBLIC_STAGE,
           });
         }}

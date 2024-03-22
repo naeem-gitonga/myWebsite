@@ -1,15 +1,15 @@
-import { Book } from '@/types/book';
+import { Product } from '@/types/product';
 import { useState, useCallback, useEffect } from 'react';
 import { Subject } from 'rxjs';
 
 export const itemCountUpdated = new Subject<number>();
 
-interface CartItem extends Book {
+interface CartItem extends Product {
   quantity: number;
 }
 
 export default function useCart(): [
-  (arg: Book) => void,
+  (arg: Product) => void,
   CartItem[],
   (id: number) => void,
   () => void,
@@ -29,7 +29,7 @@ export default function useCart(): [
     updateCartAndStorage(parsedCart);
   }, []);
 
-  const addItem = useCallback((item: Book) => {
+  const addItem = useCallback((item: Product) => {
     setCart((currentCart) => {
       const existingItemIndex = currentCart.findIndex(
         (existingItem) => item.id === existingItem.id

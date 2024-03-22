@@ -1,14 +1,14 @@
 import sharedStyles from 'components/SharedCss/Images.module.scss';
 import CounterInput from '../CounterInput/CounterInput';
 import CartItem from '@/types/cartItem';
-import { Book } from '@/types/book';
+import { Product } from '@/types/product';
 
 type SmallItemPreviewProps = {
   styles: {
     readonly [key: string]: string;
   };
   item: CartItem;
-  addItem?: (b: Book) => void;
+  addItem?: (b: Product) => void;
   removeItem?: (b: number) => void;
   showCounter: boolean;
 };
@@ -37,7 +37,7 @@ export default function SmallItemPreview(
           <CounterInput
             style={quantity}
             item={item}
-            addItem={addItem as (b: Book) => void}
+            addItem={addItem as (b: Product) => void}
             removeItem={removeItem as (b: number) => void}
           />
         )}
