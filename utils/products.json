@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Program Your Life: Lessons of a Software Engineer",
+    "imageUrl": "pylcover",
+    "productUrl": "/item?item_id=1",
+    "price": 25,
+    "promotion": 0,
+    "id": 1,
+    "description": "<p>Program Your Life is about how Naeem systematically changed the course of his life over three years starting in 2016. He takes the reader on a journey from the time that he was the sole owner-operator of a small trucking company based out of East Point, GA and transformed into a thriving Software Engineer.</p><p>He uses the mobile Software Development Lifecycle to help tell his story because that development lifecycle bears a striking resemblance to that which all humans take to develop their own lives. In it, he details his hardships, situations that he faced which were racially charged and how he felt during those situations as well as tactics that he used to overcome and rise above those situations.</p><p>He is the “first trucker turned software engineer” and throughout this book wants the reader to know that they too can and should engineer their life and purposes. Because if they don’t, they will undoubtedly be programmed by someone else.</p>",
+    "s3Url": "",
+    "emailTemplate": 0
+  },
+  {
+    "title": "Program Your Life: Lessons of a Software Engineer (PDF)",
+    "imageUrl": "pylcover",
+    "productUrl": "/item?item_id=3",
+    "price": 4.99,
+    "promotion": 0,
+    "id": 3,
+    "description": "<p>Program Your Life is about how Naeem systematically changed the course of his life over three years starting in 2016. He takes the reader on a journey from the time that he was the sole owner-operator of a small trucking company based out of East Point, GA and transformed into a thriving Software Engineer.</p><p>He uses the mobile Software Development Lifecycle to help tell his story because that development lifecycle bears a striking resemblance to that which all humans take to develop their own lives. In it, he details his hardships, situations that he faced which were racially charged and how he felt during those situations as well as tactics that he used to overcome and rise above those situations.</p><p>He is the “first trucker turned software engineer” and throughout this book wants the reader to know that they too can and should engineer their life and purposes. Because if they don’t, they will undoubtedly be programmed by someone else.</p>",
+    "s3Url": "https://program-your-life.s3.amazonaws.com/program_your_life.pdf",
+    "emailTemplate": 1
+  },
+  {
+    "title": "Rapid Back-End (PDF)",
+    "imageUrl": "rapidbackend",
+    "productUrl": "/item?item_id=2",
+    "price": 14.99,
+    "promotion": 5.99,
+    "id": 2,
+    "description": "<p>Rapid Back-End was designed with software engineers in mind. It is a tool that when deployed will give you the power and flexibility needed for a modern API solution. The core technologies of Rapid Back-end are: TypeScript, JWTs, AWS CDK, Serverless, Serverless Offline, API Gateway, Lambda, Jest, and MongoDB. If you are requiring use of a SQL type datastore then you can easily change your deployment to use either flavor of SQL that you desire.</p><p>Going serverless can lead to many functions and an increased surface area making a growing system more difficult to maintain. Functions as Microservices (FaMS) with Rapid Back-End are the best option. Enjoy built-in auth, easy routing, and modular components.</p>",
+    "s3Url": "https://rapidbackend.s3.amazonaws.com/rapid-back-end-ebook.pdf",
+    "emailTemplate": 2
+  }
+]

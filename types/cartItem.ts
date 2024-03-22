@@ -1,5 +1,5 @@
-import { Book } from './book';
+import { Product } from './product';
 
-export default interface CartItem extends Book {
+export default interface CartItem extends Product {
   quantity: number;
 }

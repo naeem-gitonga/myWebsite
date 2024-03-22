@@ -115,14 +115,15 @@ export function createCartForPaypal(
   let subtotal = 0;
   for (const item of cart) {
     for (let i = 0; i < item.quantity; i++) {
+      const currentPrice = item.promotion ? item.promotion : item.price;
       paypalCart = [
         ...paypalCart,
         {
           reference_id: `${item.id}-${i}`,
-          amount: { currency_code: 'USD', value: item.price },
+          amount: { currency_code: 'USD', value: currentPrice },
         },
       ];
-      subtotal = item.price + subtotal;
+      subtotal = currentPrice + subtotal;
     }
   }
 

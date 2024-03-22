@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import styles from './AddToCartMessage.module.scss';
-import { Book } from '@/types/book';
+import { Product } from '@/types/product';
 import SmallItemPreview from '../SmallItemPreview/SmallItemPreview';
 import CartItem from '@/types/cartItem';
 
 type AddToCartMessageProps = {
   setModalOpen: () => void;
-  lastItemClicked: Book | null;
+  lastItemClicked: Product | null;
 };
 export default function AddToCartMessage(props: AddToCartMessageProps) {
   const { setModalOpen, lastItemClicked } = props;
