@@ -11,10 +11,10 @@ export default function ArticleTileView(
   props: ArticleTileViewProps
 ): JSX.Element {
   const { sharedHeader } = props;
-  const { viewWrapper } = styles;
+  const { viewWrapper, articlesWrapper } = styles;
   const { sectionHeader } = sharedStyles;
   return (
-    <div id="articles">
+    <div id="articles" className={articlesWrapper}>
       {sharedHeader ? (
         <PageHeader hideLinks={false} headerName="myArticles" />
       ) : (
