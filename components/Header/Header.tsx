@@ -30,9 +30,7 @@ export default function Header(props: HeaderProps): JSX.Element {
                   myWork
                 </Link>
               </li>
-              <li
-                id="articles-link"
-              >
+              <li id="articles-link">
                 <Link href="/articles" className={styles.firstUlLink}>
                   myArticles
                 </Link>

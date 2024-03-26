@@ -6,5 +6,7 @@ export type Product = {
   price: number;
   description: string;
   promotion: number;
-  emailTemplate: number;
+  emailTemplate: string;
+  isbn: string;
+  publishedOn: string;
 };
