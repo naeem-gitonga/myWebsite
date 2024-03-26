@@ -43,7 +43,7 @@ export const projects: Project[] = [
       'I just ported this website over to React. Originally it was written in 2018, using vanilla JS, some jQuery, and HTML. I decided to bring it into the now and add some new features.',
     projectStack: 'jngwebsite',
     gitHubLink:
-      '/interstitial?url=https://github.com/JNaeemGitonga/myWebsite&where=Github',
+      '/interstitial?url=https://gitlab.com/naeemgitonga/myWebsite&where=Gitlab',
   },
   {
     title: 'Pluralsight**',
