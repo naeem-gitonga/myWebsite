@@ -11,7 +11,7 @@ import canBeParsedToInt from '@/utils/canBeparsedToInt';
 import useBreakpoint from '@/hooks/useBreakpoint';
 import Price from '../Price/Price';
 import { Product } from '@/types/product';
-import useCart from '@/hooks/useCart'
+import useCart from '@/hooks/useCart';
 
 export default function Item(): JSX.Element {
   return (
@@ -35,7 +35,7 @@ function ItemContent(): JSX.Element {
     router.push('/shop');
   }
 
-  const product = products.find((p) => p.id === id) as Product;
+  const product = products.find((p) => p.id === id) as unknown as Product;
   const {
     imageContainer,
     itemTitleHeader,
@@ -45,10 +45,11 @@ function ItemContent(): JSX.Element {
     viewWrapperOverride,
     stackedItems,
     price,
+    pIsbn,
     strike,
   } = styles;
   const { tenPadding, sectionHeight, viewWrapper } = sharedStyles;
-  const { imageUrl, title, promotion, description } = product;
+  const { imageUrl, title, promotion, description, isbn, publishedOn } = product;
   if (isDesktop) {
     return (
       <div className={`${tenPadding} ${sectionHeight} ${itemWrapper}`}>
@@ -65,12 +66,19 @@ function ItemContent(): JSX.Element {
               strike={strike}
               promotion={promotion}
             />
-            <AddToCartButton className={addToCartButton} product={product} addToCart={addToCart} />
+            <AddToCartButton
+              className={addToCartButton}
+              product={product}
+              addToCart={addToCart}
+            />
           </div>
-          <div
-            className={itemDescription}
-            dangerouslySetInnerHTML={{ __html: description }}
-          />
+          <div className={itemDescription}>
+            <p className={pIsbn}><strong>ISBN:</strong> {isbn}</p>
+            <p><strong>Published Date:</strong> {publishedOn}</p>
+            <div
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+          </div>
         </div>
       </div>
     );
@@ -88,11 +96,18 @@ function ItemContent(): JSX.Element {
           strike={strike}
           promotion={promotion}
         />
-        <AddToCartButton className={addToCartButton} product={product} addToCart={addToCart} />
-        <div
-          className={itemDescription}
-          dangerouslySetInnerHTML={{ __html: description }}
+        <AddToCartButton
+          className={addToCartButton}
+          product={product}
+          addToCart={addToCart}
         />
+        <div className={itemDescription}>
+          <p className={pIsbn}><strong>ISBN:</strong> {isbn}</p>
+          <p><strong>Published Date:</strong> {publishedOn}</p>
+          <div
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        </div>
       </div>
     </div>
   );
