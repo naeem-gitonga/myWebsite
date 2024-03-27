@@ -49,7 +49,8 @@ function ItemContent(): JSX.Element {
     strike,
   } = styles;
   const { tenPadding, sectionHeight, viewWrapper } = sharedStyles;
-  const { imageUrl, title, promotion, description, isbn, publishedOn } = product;
+  const { imageUrl, title, promotion, description, isbn, publishedOn } =
+    product;
   if (isDesktop) {
     return (
       <div className={`${tenPadding} ${sectionHeight} ${itemWrapper}`}>
@@ -73,11 +74,13 @@ function ItemContent(): JSX.Element {
             />
           </div>
           <div className={itemDescription}>
-            <p className={pIsbn}><strong>ISBN:</strong> {isbn}</p>
-            <p><strong>Published Date:</strong> {publishedOn}</p>
-            <div
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
+            <p className={pIsbn}>
+              <strong>ISBN:</strong> {isbn}
+            </p>
+            <p>
+              <strong>Published Date:</strong> {publishedOn}
+            </p>
+            <div dangerouslySetInnerHTML={{ __html: description }} />
           </div>
         </div>
       </div>
@@ -102,11 +105,13 @@ function ItemContent(): JSX.Element {
           addToCart={addToCart}
         />
         <div className={itemDescription}>
-          <p className={pIsbn}><strong>ISBN:</strong> {isbn}</p>
-          <p><strong>Published Date:</strong> {publishedOn}</p>
-          <div
-            dangerouslySetInnerHTML={{ __html: description }}
-          />
+          <p className={pIsbn}>
+            <strong>ISBN:</strong> {isbn}
+          </p>
+          <p>
+            <strong>Published Date:</strong> {publishedOn}
+          </p>
+          <div dangerouslySetInnerHTML={{ __html: description }} />
         </div>
       </div>
     </div>
