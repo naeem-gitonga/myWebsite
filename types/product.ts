@@ -9,4 +9,5 @@ export type Product = {
   emailTemplate: string;
   isbn: string;
   publishedOn: string;
+  show: boolean | string;
 };
