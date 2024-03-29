@@ -8,7 +8,7 @@ import { Product } from '@/types/product';
 import styles from './ShopView.module.scss';
 import useCart from '@/hooks/useCart';
 import useModal from '@/hooks/useModal';
-import products from '../../utils/products.json';
+import { products } from '../../utils/products';
 
 export default function ShopView(): JSX.Element {
   const [, setLastItemClicked] = useState<Product | null>(null);
@@ -22,6 +22,9 @@ export default function ShopView(): JSX.Element {
       <PageHeader headerName="shop" hideLinks={false} />
       <div className={viewWrapper}>
         {products.map((product: Product) => {
+          if (product.show == 'false') {
+            return null;
+          }
           return (
             <ItemTile
               product={product}
