@@ -134,9 +134,10 @@ type InternalFulfillmentApiProps = {
   orderData: OrderResponseBody;
   router: AppRouterInstance;
   clearCart: () => void;
+  cart: CartItem[];
 };
 export function callInternalFulfillmentApi(props: InternalFulfillmentApiProps) {
-  const { orderData, clearCart, router } = props;
+  const { orderData, clearCart, router, cart } = props;
   fetch(process.env.NEXT_PUBLIC_PAYPAL_API_URL as string, {
     method: 'POST',
     mode: 'cors',
@@ -145,7 +146,16 @@ export function callInternalFulfillmentApi(props: InternalFulfillmentApiProps) {
       email: orderData.payment_source?.paypal?.email_address,
       firstName: orderData.payer?.name?.given_name,
       lastName: orderData.payer?.name?.surname,
-      orderData,
+      id: orderData.id,
+      address: {
+        // * I hate using any but I'll figure this out some other time.
+        zip: (orderData.purchase_units as any)[0].shipping.address.postal_code,
+        city: (orderData.purchase_units as any)[0].shipping.address
+          .admin_area_2,
+        state: (orderData.purchase_units as any)[0].shipping.address
+          .admin_area_1,
+      },
+      cart,
     }),
   })
     .then((res: Response) => {

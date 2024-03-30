@@ -1,6 +1,6 @@
-// Type definitions for Project JNG Website
-// Project JNG Website
-// Definitions by: Naeem Gitonga
+// Type definitions for Project Name
+// Project Name
+// Definitions by: Your Name here
 
 import { ObjectId } from 'bson';
 

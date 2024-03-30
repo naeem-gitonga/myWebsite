@@ -1,12 +1,11 @@
 export const customerTemplate = (
-  link: string,
+  links: { s3Url: string; emailTemplateHtml: string }[],
   orderId: string,
-  name: string,
-  boughtPyl: boolean,
-  boughtRb: boolean,
-  boughtConsult: boolean,
-  consultLink: string
-) => `
+  name: string
+) => {
+  const eachMessage = links.join('');
+
+  return `
   <html>
     <div style="max-width: 1200px; margin: auto; padding: 50px; font-family: 'Roboto', sans-serif; background-color: #fff;">
       <div class="header-container" style="display: flex; justify-content: space-between;">
@@ -26,37 +25,10 @@ export const customerTemplate = (
   
       <div class="value-section" style="margin: 25px auto; max-width: 800px; font-size: 24px; margin-bottom: 0">
         <p style="color: black">
-          Thank you ${name}, I am grateful that you have chosen to shop with me! 
+          Thank you ${name}, I am truly grateful that you have chosen to shop with me! 
         </p>
   
-        ${
-          boughtPyl
-            ? `<p style="color: black">
-            Please allow 7-10 business to receive your order of Program Your Life.
-            Once your order has shipped, you will receive an email containing the tracking number. 
-          </p>`
-            : ''
-        }
-  
-        ${
-          boughtRb
-            ? `<p style="color: black">
-            Please click the link below to download your copy of Rapid Back-End. It is time 
-            sensitive. You have <strong style="color: red">3 DAYS</strong> from the time of purchase to download the eBook
-            before this link is invalidated. 
-          </p>
-  
-          <a href=${link}>Download Rapid Back-End eBook</a>`
-            : ''
-        }
-  
-        ${
-          boughtConsult
-            ? `<p style="color: black">
-            Please book your time <a href=${consultLink}>here</a>.
-          </p>`
-            : ''
-        }
+        ${eachMessage}
   
         <p style="color: black; text-align: left; font-size: 14px; margin-bottom: 0;">
           If you have any questions regarding this order, contact 
@@ -64,4 +36,6 @@ export const customerTemplate = (
         </p>
       <footer id="footer"></footer>
     </div>
-  </html>`;
+  </html>
+`;
+};

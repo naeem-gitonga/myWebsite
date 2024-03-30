@@ -52,9 +52,10 @@ export default function CartVeiw(): JSX.Element {
         orderData,
         router,
         clearCart,
+        cart,
       });
     },
-    [router, clearCart]
+    [router, clearCart, cart]
   );
 
   const onError = useCallback(

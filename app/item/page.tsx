@@ -2,7 +2,7 @@ import Footer from 'components/Footer/Footer';
 import '../globals.css';
 import ItemView from '@/components/ItemView/ItemView';
 import type { Metadata, ResolvingMetadata } from 'next';
-import products from '../../utils/products.json';
+import { products } from '../../utils/products';
 import { truncateStringWithEllipsis } from '@/utils/truncateString';
 
 type Props = {
