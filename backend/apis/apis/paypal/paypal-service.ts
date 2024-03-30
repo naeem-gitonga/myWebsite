@@ -251,7 +251,7 @@ export default class PaypalService extends BaseService<Order> {
     const urlPromises = urls.map(async (urlObj) => {
       console.log(urlObj);
       if (urlObj.s3Url === '') {
-        return '';
+        return urlObj.emailTemplateHtml;
       }
       const url = parseUrl(urlObj.s3Url);
 
