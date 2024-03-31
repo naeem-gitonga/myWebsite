@@ -1,17 +1,18 @@
 'use client';
 import { useSearchParams, useRouter } from 'next/navigation';
-import styles from './ItemView.module.scss';
-import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import imageStyles from '../SharedCss/Images.module.scss';
 import PageHeader from '../PageHeader/PageHeader';
-import { products } from '../../utils/products';
 import { Suspense } from 'react';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import canBeParsedToInt from '@/utils/canBeparsedToInt';
 import useBreakpoint from '@/hooks/useBreakpoint';
-import Price from '../Price/Price';
 import { Product } from '@/types/product';
 import useCart from '@/hooks/useCart';
+
+import styles from './ItemView.module.scss';
+import { products } from '../../utils/products';
+import sharedStyles from '../SharedCss/SharedCss.module.scss';
+import Price from '../Price/Price';
 
 export default function Item(): JSX.Element {
   return (
