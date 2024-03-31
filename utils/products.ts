@@ -61,7 +61,7 @@ export const products = [
     description: `<p>If you would like to speak to naeem about anything related to what you found on this web app, you may do so by booking an hour of time with him. He is available for code review, architecture, business and management consultation, get to know Naeem, even life advice.</p>`,
     s3Url: '',
     emailTemplate: '04',
-    emailTemplateHtml: `<p style="color: black">Please book your time <a href="'04'">here</a>.</p>`,
+    emailTemplateHtml: `<p style="color: black">You decided to put some time on my calendar! Please book your time <a href="'04'">here</a>.</p>`,
     publishedOn: '',
     isbn: '',
     show: process.env.NEXT_PUBLIC_SHOW_CONSULT as unknown as boolean,

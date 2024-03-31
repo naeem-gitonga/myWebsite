@@ -303,7 +303,6 @@ export default class PaypalService extends BaseService<Order> {
       throw new Error("*** couldn't fetch your calendly link");
     }
     const json = await response.json();
-    console.log('SEE THE JSON', json);
-    return json;
+    return json.resource.booking_url;
   }
 }
