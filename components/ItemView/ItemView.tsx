@@ -69,6 +69,7 @@ function ItemContent(): JSX.Element {
           <div className={`${imageContainer} ${imageStyles[product.imageUrl]}`}>
             {previewLink !== '' && (
               <div className={triangle}>
+                {/** For external pointing links it is better to use an a tag */}
                 <a href={previewLink}>
                   <span className={triangleText}>Download sample</span>
                 </a>{' '}
