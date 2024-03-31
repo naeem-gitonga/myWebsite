@@ -50,6 +50,8 @@ function ItemContent(): JSX.Element {
     strike,
     triangle,
     triangleText,
+    triangleTextWrapper,
+    center,
   } = styles;
   const { tenPadding, sectionHeight, viewWrapper } = sharedStyles;
   const {
@@ -71,8 +73,11 @@ function ItemContent(): JSX.Element {
               <div className={triangle}>
                 {/** For external pointing links it is better to use an a tag */}
                 <a href={previewLink}>
-                  <span className={triangleText}>Download Sample</span>
-                </a>{' '}
+                  <div className={triangleTextWrapper}>
+                    <p className={triangleText}>Download</p>
+                    <p className={`${triangleText} ${center}`}>Sample</p>
+                  </div>
+                </a>
               </div>
             )}
           </div>
@@ -117,7 +122,10 @@ function ItemContent(): JSX.Element {
           {previewLink !== '' && (
             <div className={triangle}>
               <a href={previewLink}>
-                <span className={triangleText}>Download Sample</span>
+                <div className={triangleTextWrapper}>
+                  <p className={triangleText}>Download</p>
+                  <p className={`${triangleText} ${center}`}>Sample</p>
+                </div>
               </a>
             </div>
           )}

@@ -77,16 +77,23 @@
 }
 
 .triangleText {
+  color: white;
+  font-size: 14px;
+  margin: 0;
+  width: 15px;
+  text-wrap: wrap;
+  font-weight: 800;
+}
+
+.triangleTextWrapper {
   position: absolute;
-    top: -128px;
-    right: 59px;
-    transform: rotate(45deg);
-    color: white;
-    font-size: 14px;
-    display: block;
-    width: 15px;
-    text-wrap: wrap;
-    font-weight: 800;
+  top: -127px;
+  right: 52px;
+  transform: rotate(45deg);
+}
+
+.center {
+  margin-left: 8px;
 }
 
 @media (max-width: 1023px) {
