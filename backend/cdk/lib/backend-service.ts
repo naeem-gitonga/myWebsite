@@ -62,6 +62,7 @@ export default class BackendService extends Construct {
         SEND_GRID_API_KEY: process.env.SEND_GRID_API_KEY as string,
         STAGE: process.env.STAGE as string,
         WHICH_ROUTE: process.env.WHICH_ROUTE as string,
+        CALENDLY_API_URL: process.env.CALENDLY_API_URL as string,
       },
     };
 
