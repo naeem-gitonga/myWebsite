@@ -13,7 +13,6 @@ import styles from './ItemView.module.scss';
 import { products } from '../../utils/products';
 import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import Price from '../Price/Price';
-import Link from 'next/link';
 
 export default function Item(): JSX.Element {
   return (
@@ -70,9 +69,9 @@ function ItemContent(): JSX.Element {
           <div className={`${imageContainer} ${imageStyles[product.imageUrl]}`}>
             {previewLink !== '' && (
               <div className={triangle}>
-                <Link href={previewLink}>
+                <a href={previewLink}>
                   <span className={triangleText}>Download sample</span>
-                </Link>{' '}
+                </a>{' '}
               </div>
             )}
           </div>
@@ -116,9 +115,9 @@ function ItemContent(): JSX.Element {
         <div className={`${imageContainer} ${imageStyles[imageUrl]}`}>
           {previewLink !== '' && (
             <div className={triangle}>
-              <Link href={previewLink}>
+              <a href={previewLink}>
                 <span className={triangleText}>Download sample</span>
-              </Link>
+              </a>
             </div>
           )}
         </div>
