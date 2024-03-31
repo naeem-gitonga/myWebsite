@@ -14,5 +14,6 @@ export type Product = {
     s3Url: string;
     calendlyLink: boolean;
     previewLink: string;
+    imageUrlItemView: string;
   };
   

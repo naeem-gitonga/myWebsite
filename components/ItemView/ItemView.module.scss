@@ -1,10 +1,8 @@
 .imageContainer {
-  height: 400px;
-  width: 400px;
-  background-position: center;
-  background-size: auto 100% !important;
-  background-repeat: no-repeat;
-  background-color: black;
+  img {
+    position: unset !important;
+    height: unset !important;
+  }
   position: relative;
 }
 
