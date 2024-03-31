@@ -16,6 +16,7 @@ export const products = [
     publishedOn: 'July 15, 2019',
     show: true,
     calendlyLink: false,
+    previewLink: '',
   },
   {
     id: 3,
@@ -33,6 +34,7 @@ export const products = [
     publishedOn: 'July 15, 2019',
     show: process.env.NEXT_PUBLIC_SHOW_PYLPDF as unknown as boolean,
     calendlyLink: false,
+    previewLink: '',
   },
   {
     id: 2,
@@ -50,6 +52,8 @@ export const products = [
     publishedOn: 'August 10, 2023',
     show: true,
     calendlyLink: false,
+    previewLink:
+      'https://jahanaeemgitongawebsite.s3.amazonaws.com/rapid-back-end-intro-ch-1.pdf',
   },
   {
     title: '1-Hour Consultation',
@@ -66,5 +70,6 @@ export const products = [
     isbn: '',
     show: process.env.NEXT_PUBLIC_SHOW_CONSULT as unknown as boolean,
     calendlyLink: true,
+    previewLink: '',
   },
 ];

@@ -13,6 +13,7 @@ import styles from './ItemView.module.scss';
 import { products } from '../../utils/products';
 import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import Price from '../Price/Price';
+import Link from 'next/link';
 
 export default function Item(): JSX.Element {
   return (
@@ -48,18 +49,33 @@ function ItemContent(): JSX.Element {
     price,
     pIsbn,
     strike,
+    triangle,
+    triangleText,
   } = styles;
   const { tenPadding, sectionHeight, viewWrapper } = sharedStyles;
-  const { imageUrl, title, promotion, description, isbn, publishedOn } =
-    product;
+  const {
+    imageUrl,
+    title,
+    promotion,
+    description,
+    isbn,
+    publishedOn,
+    previewLink,
+  } = product;
   if (isDesktop) {
     return (
       <div className={`${tenPadding} ${sectionHeight} ${itemWrapper}`}>
         <PageHeader headerName="item" hideLinks={false} />
         <div className={`${viewWrapper} ${viewWrapperOverride}`}>
-          <div
-            className={`${imageContainer} ${imageStyles[product.imageUrl]}`}
-          />
+          <div className={`${imageContainer} ${imageStyles[product.imageUrl]}`}>
+            {previewLink !== '' && (
+              <div className={triangle}>
+                <Link href={previewLink}>
+                  <span className={triangleText}>Download sample</span>
+                </Link>{' '}
+              </div>
+            )}
+          </div>
           <div className={stackedItems}>
             <h2 className={itemTitleHeader}>{title}</h2>
             <Price
@@ -75,12 +91,16 @@ function ItemContent(): JSX.Element {
             />
           </div>
           <div className={itemDescription}>
-            {isbn && <p className={pIsbn}>
-              <strong>ISBN:</strong> {isbn}
-            </p>}
-            {publishedOn && <p>
-              <strong>Published Date:</strong> {publishedOn}
-            </p>}
+            {isbn && (
+              <p className={pIsbn}>
+                <strong>ISBN:</strong> {isbn}
+              </p>
+            )}
+            {publishedOn && (
+              <p>
+                <strong>Published Date:</strong> {publishedOn}
+              </p>
+            )}
             <div dangerouslySetInnerHTML={{ __html: description }} />
           </div>
         </div>
@@ -93,7 +113,15 @@ function ItemContent(): JSX.Element {
       <PageHeader headerName="item" hideLinks={false} />
       <div className={viewWrapper}>
         <h2 className={itemTitleHeader}>{title}</h2>
-        <div className={`${imageContainer} ${imageStyles[imageUrl]}`} />
+        <div className={`${imageContainer} ${imageStyles[imageUrl]}`}>
+          {previewLink !== '' && (
+            <div className={triangle}>
+              <Link href={previewLink}>
+                <span className={triangleText}>Download sample</span>
+              </Link>
+            </div>
+          )}
+        </div>
         <Price
           price={product.price}
           priceStyle={price}
@@ -106,12 +134,16 @@ function ItemContent(): JSX.Element {
           addToCart={addToCart}
         />
         <div className={itemDescription}>
-          {isbn && <p className={pIsbn}>
-            <strong>ISBN:</strong> {isbn}
-          </p>}
-          {publishedOn && <p>
-            <strong>Published Date:</strong> {publishedOn}
-          </p>}
+          {isbn && (
+            <p className={pIsbn}>
+              <strong>ISBN:</strong> {isbn}
+            </p>
+          )}
+          {publishedOn && (
+            <p>
+              <strong>Published Date:</strong> {publishedOn}
+            </p>
+          )}
           <div dangerouslySetInnerHTML={{ __html: description }} />
         </div>
       </div>
