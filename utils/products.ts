@@ -58,7 +58,7 @@ export const products = [
     price: 100,
     promotion: 0,
     id: 4,
-    description: `<p>If you would like to speak to naeem about anything related to what you found on this web app, you may do so by booking an hour of time with him. He is available for code review, architecture, business and management consultation, get to know Naeem, even life advice.</p>`,
+    description: `<p>If you would like to speak to Naeem about anything related to what you found on this web app, you may do so by booking an hour of time with him. He is available for code review, architecture, business and management consultation, get to know Naeem, even life advice.</p>`,
     s3Url: '',
     emailTemplate: '04',
     emailTemplateHtml: `<p style="color: black">You decided to put some time on my calendar! Please book your time <a href="'04'">here</a>.</p>`,
