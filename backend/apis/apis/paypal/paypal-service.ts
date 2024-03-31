@@ -10,7 +10,6 @@ import { parseUrl } from '@smithy/url-parser';
 import { formatUrl } from '@aws-sdk/util-format-url';
 import { Hash } from '@aws-sdk/hash-node';
 import sendgrid from '@sendgrid/mail';
-import request from 'superagent';
 
 import BaseService from '../base/base-service';
 import { customerTemplate } from './email-templates/customer-template';
