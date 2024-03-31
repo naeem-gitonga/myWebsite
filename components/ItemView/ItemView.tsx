@@ -4,7 +4,7 @@ import styles from './ItemView.module.scss';
 import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import imageStyles from '../SharedCss/Images.module.scss';
 import PageHeader from '../PageHeader/PageHeader';
-import products from '../../utils/products.json';
+import { products } from '../../utils/products';
 import { Suspense } from 'react';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
 import canBeParsedToInt from '@/utils/canBeparsedToInt';
