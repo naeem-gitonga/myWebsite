@@ -71,7 +71,7 @@ function ItemContent(): JSX.Element {
               <div className={triangle}>
                 {/** For external pointing links it is better to use an a tag */}
                 <a href={previewLink}>
-                  <span className={triangleText}>Download sample</span>
+                  <span className={triangleText}>Download Sample</span>
                 </a>{' '}
               </div>
             )}
@@ -117,7 +117,7 @@ function ItemContent(): JSX.Element {
           {previewLink !== '' && (
             <div className={triangle}>
               <a href={previewLink}>
-                <span className={triangleText}>Download sample</span>
+                <span className={triangleText}>Download Sample</span>
               </a>
             </div>
           )}
