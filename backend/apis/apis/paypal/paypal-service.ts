@@ -300,7 +300,7 @@ export default class PaypalService extends BaseService<Order> {
 
     if (!response.ok) {
       console.log('SEE RESPONSE ', response);
-      throw new Error("*** couldn't fetch your calendly link");
+      throw new Error(ServerErrors.failedToMakeLink);
     }
     const json = await response.json();
     return json.resource.booking_url;
