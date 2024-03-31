@@ -1,6 +1,6 @@
-// Type definitions for Project Name
-// Project Name
-// Definitions by: Your Name here
+// Type definitions for Project JNG Website
+// Project JNG Website
+// Definitions by: Naeem Gitonga
 
 import { ObjectId } from 'bson';
 
@@ -30,7 +30,7 @@ export interface User {
   phone?: string;
   city?: string;
   state?: string;
-  zip?: number;
+  zip?: string;
   address1?: string;
   address2?: string;
   affiliateId?: string;
@@ -86,10 +86,10 @@ export interface PaypalResult {
             };
             create_time: string;
             update_time: string;
-          }
+          },
         ];
       };
-    }
+    },
   ];
   payer: {
     name: {
@@ -109,6 +109,6 @@ export interface PaypalResult {
       href: string;
       rel: string;
       method: 'GET';
-    }
+    },
   ];
 }

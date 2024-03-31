@@ -3,7 +3,7 @@ import { useEffect, useState, useCallback } from 'react';
 import PageHeader from 'components/PageHeader/PageHeader';
 import sharedStyles from 'components/SharedCss/SharedCss.module.scss';
 import SmallItemPreview from 'components/SmallItemPreview/SmallItemPreview';
-import CartItem from '@/types/cartItem';
+import CartItem from '@/types/cart-item';
 import LoadingDots from '../LoadingDots/LoadingDots';
 import Modal from '../Modal/Modal';
 import PaymentResponseMessage from '../PaymentResponseMessage/PaymentResponseMessage';
@@ -52,9 +52,10 @@ export default function CartVeiw(): JSX.Element {
         orderData,
         router,
         clearCart,
+        cart,
       });
     },
-    [router, clearCart]
+    [router, clearCart, cart]
   );
 
   const onError = useCallback(

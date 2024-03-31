@@ -44,6 +44,7 @@
 .cartWrapper {
   padding: 10px;
   height: calc(100vh - 70px);
+  overflow: scroll;
 }
 
 .objectEnter {

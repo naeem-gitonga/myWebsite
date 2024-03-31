@@ -14,15 +14,9 @@ import sendgrid from '@sendgrid/mail';
 import BaseService from '../base/base-service';
 import { customerTemplate } from './email-templates/customer-template';
 import { PaypalRoutes, ServerErrors } from '../../declarations/enums';
-import {
-  Order,
-  PaypalResult,
-  SendEmailResult,
-  User,
-} from '@declarations/order';
+import { Order, SendEmailResult, User } from '@declarations/order';
 import { RouteMap } from '@declarations/routing';
-import { WhichTemplate } from '@declarations/which-email';
-import { orderReceived } from './email-templates/order-received';
+import CartItem from '@root/types/cart-item';
 
 config();
 const configuration = { region: 'us-east-1' };
@@ -49,15 +43,14 @@ export default class PaypalService extends BaseService<Order> {
     firstName: string;
     lastName: string;
     email: string;
-    orderData: PaypalResult;
+    id: string;
     affiliateId: string;
-    s3Url?: string;
-  };
-
-  public productToTemplate = {
-    1: 'pyl',
-    2: 'rb',
-    3: 'consult',
+    address: {
+      city: string;
+      state: string;
+      zip: string;
+    };
+    cart: CartItem[];
   };
 
   public event: APIGatewayEvent;
@@ -71,17 +64,44 @@ export default class PaypalService extends BaseService<Order> {
   }
 
   async sendEmail(): Promise<SendEmailResult> {
-    let link;
-    const { email, firstName, lastName, orderData, affiliateId, s3Url } =
-      this.body;
-    const { id: orderId, purchase_units: purchaseUnits } = orderData;
+    let links = [];
+    const {
+      email,
+      firstName,
+      lastName,
+      id: orderId,
+      affiliateId,
+      address,
+      cart,
+    } = this.body;
+    let urlObjs = [];
+    const codes = cart.map((i) => {
+      urlObjs = [
+        ...urlObjs,
+        {
+          s3Url: i.s3Url,
+          emailTemplateCode: i.emailTemplate,
+          emailTemplateHtml: i.emailTemplateHtml,
+          calendlyLink: i.calendlyLink,
+        },
+      ];
+      return i.emailTemplate;
+    });
+    const calendlyLinkIndex = codes.indexOf('04');
     try {
-      link = await this.createPresignedUrlWithoutClient(orderId, s3Url);
+      if (calendlyLinkIndex !== -1) {
+        //Todo: Write code to fetch one-time link from calendly
+        console.log({ calendlyLinkIndex });
+      }
+    } catch (e) {}
+
+    try {
+      links = await this.createUrls(orderId, urlObjs);
     } catch (e) {
       console.log('SIGNING URL ', e);
     }
 
-    if (link === undefined) {
+    if (urlObjs.length !== links.length) {
       await this.sendToDeadLetterQueue(
         this.event,
         ServerErrors.failedToMakeLink
@@ -94,21 +114,14 @@ export default class PaypalService extends BaseService<Order> {
       firstName,
       lastName,
       email,
-      city: orderData.purchase_units[0].shipping.address.admin_area_2,
-      state: orderData.purchase_units[0].shipping.address.admin_area_1,
+      city: address.city,
+      state: address.state,
+      zip: address.zip,
       affiliateId,
     };
     let emailSendResult;
 
     try {
-      const [boughtPyl, boughtRb, boughtConsult] = this.whichEmail(
-        orderData.purchase_units
-      );
-
-      if (boughtConsult) {
-        //Todo: Write code to fetch one-time link from calendly
-      }
-
       emailSendResult = await sendgrid.send({
         to:
           process.env.WHICH_ROUTE === 'production'
@@ -116,30 +129,23 @@ export default class PaypalService extends BaseService<Order> {
             : 'jngincorporated@gmail.com',
         from: this.senderEmailAddress,
         subject: `Naeem Gitonga - Order ${orderId}`,
-        html: customerTemplate(
-          link,
-          orderId,
-          firstName,
-          boughtPyl,
-          boughtRb,
-          boughtConsult,
-          ''
-        ),
+        html: customerTemplate(links, orderId, firstName),
       });
 
-      if (boughtPyl || boughtConsult) {
-        await sendgrid.send({
-          to: 'jngincorporated@gmail.com',
-          from: this.senderEmailAddress,
-          subject: `Order Received: ${orderId}`,
-          html: orderReceived(orderId, firstName, boughtConsult),
-        });
-      }
-      console.log('Email sent successfully:');
+      // TODO: bring this back when you have figured out how to use the emailTemplateCode to seemlessly do this
+      // if (boughtPyl || boughtConsult) {
+      //   await sendgrid.send({
+      //     to: 'jngincorporated@gmail.com',
+      //     from: this.senderEmailAddress,
+      //     subject: `Order Received: ${orderId}`,
+      //     html: orderReceived(orderId, firstName, boughtConsult),
+      //   });
+      // }
+      console.log('Email sent successfully!');
     } catch (e) {
       console.log(`${ServerErrors.failedToSendBook} for order ${orderId}`, e);
 
-      await this.addOrder(orderId, user, null, link, false);
+      await this.addOrder(orderId, user, null, links, false);
       this.sendToDeadLetterQueue(this.event, ServerErrors.failedToSendBook);
 
       throw new Error(`
@@ -149,7 +155,15 @@ export default class PaypalService extends BaseService<Order> {
     }
 
     try {
-      await this.addOrder(orderId, user, emailSendResult.MessageId, link, true);
+      // * add order to your own record
+      // TODO: fix this as it is not adding to the correct document if it is adding anything at all
+      await this.addOrder(
+        orderId,
+        user,
+        emailSendResult.MessageId,
+        links,
+        true
+      );
     } catch (e) {
       this.sendToDeadLetterQueue(this.event, ServerErrors.failedToSaveToDB);
       console.log(ServerErrors.failedToSaveToDB);
@@ -168,13 +182,13 @@ export default class PaypalService extends BaseService<Order> {
     orderId: string,
     user: any,
     emailMessageId: string | null,
-    link: string,
+    link: any,
     sent: boolean
   ) {
     await this.create({
-      Bucket: 'rapidbackend',
+      Bucket: 'gtng',
       Key: `${
-        process.env.NODE_ENV === 'development' ? 'development-' : ''
+        process.env.NODE_ENV === 'staging' ? 'development-' : ''
       }orders/${user._id}.json`,
       Body: JSON.stringify({
         ...user,
@@ -208,59 +222,87 @@ export default class PaypalService extends BaseService<Order> {
       await sqs.send(command);
     } catch (e) {
       console.log('DEAD LETTER QUEUE ERROR', e);
-      console.log('Message dropped: ', title, event);
+      // console.log('Message dropped: ', title, event);
       throw new Error(ServerErrors.ItBroke);
     }
   }
 
-  async createPresignedUrlWithoutClient(
+  async createUrls(
     orderId: string,
-    s3Url?: string
-  ): Promise<string> {
-    const url = parseUrl(
-      s3Url
-        ? s3Url
-        : `https://rapidbackend.s3.amazonaws.com/rapid-back-end-ebook.pdf`
-    );
+    urls: {
+      s3Url: string;
+      emailTemplateHtml: string;
+      emailTemplateCode: string;
+      calendlyLink: boolean;
+    }[]
+  ): Promise<string[]> {
+    const urlPromises = urls.map(async (urlObj) => {
+      if (urlObj.calendlyLink === true) {
+        const link = await this.fetchCalendlySchedulingLink();
+        const url = parseUrl(link);
+        urlObj.emailTemplateHtml = urlObj.emailTemplateHtml.replace(
+          `'${urlObj.emailTemplateCode}'`,
+          formatUrl(url)
+        );
+        return urlObj.emailTemplateHtml;
+      }
 
-    // * I worked all day on this. the fromIni() only works locally, and My syntax was off for the credentials (wasn't camel casing the key names was using ACCESS_KEY_ID instead)
-    const presigner = new S3RequestPresigner({
-      credentials:
-        process.env.NODE_ENV === 'production' ||
-        process.env.NODE_ENV === 'staging'
-          ? {
-              accessKeyId: process.env.ACCESS_KEY_ID,
-              secretAccessKey: process.env.SECRET_ACCESS_KEY,
-            }
-          : fromIni(),
-      region: 'us-east-1',
-      sha256: Hash.bind(null, 'sha256'),
+      if (urlObj.s3Url !== '') {
+        const url = parseUrl(urlObj.s3Url);
+
+        // * I worked all day on this. the fromIni() only works locally, and My syntax was off for the credentials (wasn't camel casing the key names was using ACCESS_KEY_ID instead)
+        const presigner = new S3RequestPresigner({
+          credentials:
+            process.env.NODE_ENV === 'production' ||
+            process.env.NODE_ENV === 'staging'
+              ? {
+                  accessKeyId: process.env.ACCESS_KEY_ID,
+                  secretAccessKey: process.env.SECRET_ACCESS_KEY,
+                }
+              : fromIni(),
+          region: 'us-east-1',
+          sha256: Hash.bind(null, 'sha256'),
+        });
+        const signedUrlObject = await presigner.presign(
+          new HttpRequest({ ...url, method: 'GET', query: { orderId } }),
+          { expiresIn: 259200 }
+        );
+
+        urlObj.emailTemplateHtml = urlObj.emailTemplateHtml.replace(
+          `'${urlObj.emailTemplateCode}'`,
+          formatUrl(signedUrlObject)
+        );
+      }
+
+      return urlObj.emailTemplateHtml;
     });
 
-    const signedUrlObject = await presigner.presign(
-      new HttpRequest({ ...url, method: 'GET', query: { orderId } }),
-      { expiresIn: 259200 }
-    );
-
-    return formatUrl(signedUrlObject);
-  }
-
-  whichEmail(purchaseUnits: PaypalResult['purchase_units']): WhichTemplate {
-    const boughtMap = {
-      pyl: false,
-      rb: false,
-      consult: false,
-    };
-
-    purchaseUnits.forEach((curr, i) => {
-      const id = parseInt(curr.reference_id.split('-')[0]);
-      boughtMap[this.productToTemplate[id]] = true;
-    });
-
-    return [boughtMap.pyl, boughtMap.rb, boughtMap.consult];
+    const signedUrls = await Promise.all(urlPromises);
+    return signedUrls;
   }
 
   async fetchCalendlySchedulingLink(): Promise<string> {
-    return '';
+    const response = await fetch(
+      `${process.env.CALENDLY_API_URL as string}/scheduling_links`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${process.env.CALENDLY_API_ACCESS_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          max_event_count: 1,
+          owner: `${process.env.CALENDLY_API_URL}/event_types/012345678901234567890`,
+          owner_type: 'EventType',
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      console.log('SEE RESPONSE ', response);
+      throw new Error(ServerErrors.failedToMakeLink);
+    }
+    const json = await response.json();
+    return json.resource.booking_url;
   }
 }

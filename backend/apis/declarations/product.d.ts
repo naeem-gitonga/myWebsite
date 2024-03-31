@@ -10,4 +10,6 @@ export type Product = {
   isbn: string;
   publishedOn: string;
   show: boolean | string;
+  emailTemplateHtml: string;
+  s3Url: string;
 };

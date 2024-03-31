@@ -1,5 +1,5 @@
 import { Product } from '@/types/product';
-import CartItem from '@/types/cartItem';
+import CartItem from '@/types/cart-item';
 
 type CounterInputProps = {
   item: CartItem;

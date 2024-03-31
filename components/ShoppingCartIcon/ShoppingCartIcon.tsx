@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { itemCountUpdated } from '@/hooks/useCart';
-import CartItem from '@/types/cartItem';
+import CartItem from '@/types/cart-item';
 
 type ShoppingCartIconProps = { unsetPosition: boolean; fill: string };
 export default function ShoppingCartIcon(
