@@ -75,12 +75,12 @@ function ItemContent(): JSX.Element {
             />
           </div>
           <div className={itemDescription}>
-            <p className={pIsbn}>
+            {isbn && <p className={pIsbn}>
               <strong>ISBN:</strong> {isbn}
-            </p>
-            <p>
+            </p>}
+            {publishedOn && <p>
               <strong>Published Date:</strong> {publishedOn}
-            </p>
+            </p>}
             <div dangerouslySetInnerHTML={{ __html: description }} />
           </div>
         </div>
@@ -106,12 +106,12 @@ function ItemContent(): JSX.Element {
           addToCart={addToCart}
         />
         <div className={itemDescription}>
-          <p className={pIsbn}>
+          {isbn && <p className={pIsbn}>
             <strong>ISBN:</strong> {isbn}
-          </p>
-          <p>
+          </p>}
+          {publishedOn && <p>
             <strong>Published Date:</strong> {publishedOn}
-          </p>
+          </p>}
           <div dangerouslySetInnerHTML={{ __html: description }} />
         </div>
       </div>
