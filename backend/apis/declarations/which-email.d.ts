@@ -1,1 +1,5 @@
-export type WhichTemplate = [boughtPyl: boolean, boughtRb: boolean, boughtConsult: boolean];
+export type WhichTemplate = [
+  boughtPyl: boolean,
+  boughtRb: boolean,
+  boughtConsult: boolean,
+];

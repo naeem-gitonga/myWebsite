@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from './AddToCartMessage.module.scss';
 import { Product } from '@/types/product';
 import SmallItemPreview from '../SmallItemPreview/SmallItemPreview';
-import CartItem from '@/types/cartItem';
+import CartItem from '@/types/cart-item';
 
 type AddToCartMessageProps = {
   setModalOpen: () => void;

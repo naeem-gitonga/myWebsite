@@ -1,6 +1,6 @@
 import sharedStyles from 'components/SharedCss/Images.module.scss';
 import CounterInput from '../CounterInput/CounterInput';
-import CartItem from '@/types/cartItem';
+import CartItem from '@/types/cart-item';
 import { Product } from '@/types/product';
 
 type SmallItemPreviewProps = {

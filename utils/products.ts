@@ -15,6 +15,7 @@ export const products = [
     emailTemplate: '01',
     publishedOn: 'July 15, 2019',
     show: true,
+    calendlyLink: false,
   },
   {
     id: 3,
@@ -31,6 +32,7 @@ export const products = [
     emailTemplate: '03',
     publishedOn: 'July 15, 2019',
     show: process.env.NEXT_PUBLIC_SHOW_PYLPDF as unknown as boolean,
+    calendlyLink: false,
   },
   {
     id: 2,
@@ -47,6 +49,7 @@ export const products = [
     emailTemplate: '02',
     publishedOn: 'August 10, 2023',
     show: true,
+    calendlyLink: false,
   },
   {
     title: '1 Hour Consult with Naeem',
@@ -62,5 +65,6 @@ export const products = [
     publishedOn: '',
     isbn: '',
     show: process.env.NEXT_PUBLIC_SHOW_CONSULT as unknown as boolean,
+    calendlyLink: true,
   },
 ];

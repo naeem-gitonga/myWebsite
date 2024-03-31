@@ -41,21 +41,20 @@ test_lambda:
   image: node:20.11.1
   rules:
     - changes:
-      - $PWD/app/**/*
-      - $PWD/components/**/*
-      - $PWD/hooks/**/*
-      - $PWD/pages/**/*
-      - $PWD/types/**/*
-      - $PWD/utils/**/*
-      - $PWD/next.config.js
-      - $PWD/package.json
-      - $PWD/vercel.json
-      - $PWD/.gitlab-ci.yml
+        - $PWD/app/**/*
+        - $PWD/components/**/*
+        - $PWD/hooks/**/*
+        - $PWD/pages/**/*
+        - $PWD/utils/**/*
+        - $PWD/next.config.js
+        - $PWD/package.json
+        - $PWD/vercel.json
+        - $PWD/.gitlab-ci.yml
       when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
     - changes:
-      - backend/apis/**/*
+        - backend/apis/**/*
   script:
     - *common_install
     - npm run test
@@ -69,16 +68,15 @@ build_staging:
       changes:
         - backend/apis/**/*
     - changes:
-      - $PWD/app/**/*
-      - $PWD/components/**/*
-      - $PWD/hooks/**/*
-      - $PWD/pages/**/*
-      - $PWD/types/**/*
-      - $PWD/utils/**/*
-      - $PWD/next.config.js
-      - $PWD/package.json
-      - $PWD/vercel.json
-      - $PWD/.gitlab-ci.yml
+        - $PWD/app/**/*
+        - $PWD/components/**/*
+        - $PWD/hooks/**/*
+        - $PWD/pages/**/*
+        - $PWD/utils/**/*
+        - $PWD/next.config.js
+        - $PWD/package.json
+        - $PWD/vercel.json
+        - $PWD/.gitlab-ci.yml
       when: never
   artifacts:
     expose_as: 'backend-build-staging'
@@ -116,16 +114,15 @@ deploy_staging:
     name: staging
   rules:
     - changes:
-      - $PWD/app/**/*
-      - $PWD/components/**/*
-      - $PWD/hooks/**/*
-      - $PWD/pages/**/*
-      - $PWD/types/**/*
-      - $PWD/utils/**/*
-      - $PWD/next.config.js
-      - $PWD/package.json
-      - $PWD/vercel.json
-      - $PWD/.gitlab-ci.yml
+        - $PWD/app/**/*
+        - $PWD/components/**/*
+        - $PWD/hooks/**/*
+        - $PWD/pages/**/*
+        - $PWD/utils/**/*
+        - $PWD/next.config.js
+        - $PWD/package.json
+        - $PWD/vercel.json
+        - $PWD/.gitlab-ci.yml
       when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
@@ -170,16 +167,15 @@ build_production:
     - test_lambda
   rules:
     - changes:
-      - $PWD/app/**/*
-      - $PWD/components/**/*
-      - $PWD/hooks/**/*
-      - $PWD/pages/**/*
-      - $PWD/types/**/*
-      - $PWD/utils/**/*
-      - $PWD/next.config.js
-      - $PWD/package.json
-      - $PWD/vercel.json
-      - $PWD/.gitlab-ci.yml
+        - $PWD/app/**/*
+        - $PWD/components/**/*
+        - $PWD/hooks/**/*
+        - $PWD/pages/**/*
+        - $PWD/utils/**/*
+        - $PWD/next.config.js
+        - $PWD/package.json
+        - $PWD/vercel.json
+        - $PWD/.gitlab-ci.yml
       when: never
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes:
@@ -215,16 +211,15 @@ deploy_production:
     name: production
   rules:
     - changes:
-      - $PWD/app/**/*
-      - $PWD/components/**/*
-      - $PWD/hooks/**/*
-      - $PWD/pages/**/*
-      - $PWD/types/**/*
-      - $PWD/utils/**/*
-      - $PWD/next.config.js
-      - $PWD/package.json
-      - $PWD/vercel.json
-      - $PWD/.gitlab-ci.yml
+        - $PWD/app/**/*
+        - $PWD/components/**/*
+        - $PWD/hooks/**/*
+        - $PWD/pages/**/*
+        - $PWD/utils/**/*
+        - $PWD/next.config.js
+        - $PWD/package.json
+        - $PWD/vercel.json
+        - $PWD/.gitlab-ci.yml
       when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
@@ -258,4 +253,3 @@ deploy_production:
         echo "$var" >> "$env_file"
       done
     - cdk deploy --require-approval=never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
-

@@ -1,5 +1,5 @@
-import CartItem from '@/types/cartItem';
-import PaypalCartItem from '@/types/paypalCartItem';
+import CartItem from '@/types/cart-item';
+import PaypalCartItem from '@/types/paypal-cart-item';
 import {
   CreateOrderActions,
   CreateOrderData,

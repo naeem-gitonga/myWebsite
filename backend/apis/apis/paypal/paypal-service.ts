@@ -10,17 +10,14 @@ import { parseUrl } from '@smithy/url-parser';
 import { formatUrl } from '@aws-sdk/util-format-url';
 import { Hash } from '@aws-sdk/hash-node';
 import sendgrid from '@sendgrid/mail';
+import request from 'superagent';
 
 import BaseService from '../base/base-service';
 import { customerTemplate } from './email-templates/customer-template';
 import { PaypalRoutes, ServerErrors } from '../../declarations/enums';
-import {
-  Order,
-  SendEmailResult,
-  User,
-} from '@declarations/order';
+import { Order, SendEmailResult, User } from '@declarations/order';
 import { RouteMap } from '@declarations/routing';
-import CartItem from '@root/types/cartItem';
+import CartItem from '@root/types/cart-item';
 
 config();
 const configuration = { region: 'us-east-1' };
@@ -49,11 +46,6 @@ export default class PaypalService extends BaseService<Order> {
     email: string;
     id: string;
     affiliateId: string;
-    // urlObjs: {
-    //   emailTemplateCode: string;
-    //   s3Url: string;
-    //   emailTemplateHtml: string;
-    // }[];
     address: {
       city: string;
       state: string;
@@ -91,6 +83,7 @@ export default class PaypalService extends BaseService<Order> {
           s3Url: i.s3Url,
           emailTemplateCode: i.emailTemplate,
           emailTemplateHtml: i.emailTemplateHtml,
+          calendlyLink: i.calendlyLink,
         },
       ];
       return i.emailTemplate;
@@ -104,11 +97,7 @@ export default class PaypalService extends BaseService<Order> {
     } catch (e) {}
 
     try {
-      links = await this.createPresignedUrlWithoutClient(
-        orderId,
-        urlObjs,
-        urlObjs[calendlyLinkIndex]
-      );
+      links = await this.createUrls(orderId, urlObjs);
     } catch (e) {
       console.log('SIGNING URL ', e);
     }
@@ -239,39 +228,42 @@ export default class PaypalService extends BaseService<Order> {
     }
   }
 
-  async createPresignedUrlWithoutClient(
+  async createUrls(
     orderId: string,
     urls: {
       s3Url: string;
       emailTemplateHtml: string;
       emailTemplateCode: string;
-    }[],
-    consultLink?: string
+      calendlyLink: boolean;
+    }[]
   ): Promise<string[]> {
     const urlPromises = urls.map(async (urlObj) => {
-      console.log(urlObj);
-      if (urlObj.s3Url === '') {
+      if (urlObj.calendlyLink === true) {
+        const link = await this.fetchCalendlySchedulingLink();
+        const url = parseUrl(link);
+        urlObj.emailTemplateHtml = urlObj.emailTemplateHtml.replace(
+          `'${urlObj.emailTemplateCode}'`,
+          formatUrl(url)
+        );
         return urlObj.emailTemplateHtml;
       }
-      const url = parseUrl(urlObj.s3Url);
-
-      // * I worked all day on this. the fromIni() only works locally, and My syntax was off for the credentials (wasn't camel casing the key names was using ACCESS_KEY_ID instead)
-      const presigner = new S3RequestPresigner({
-        credentials:
-          process.env.NODE_ENV === 'production' ||
-          process.env.NODE_ENV === 'staging'
-            ? {
-                accessKeyId: process.env.ACCESS_KEY_ID,
-                secretAccessKey: process.env.SECRET_ACCESS_KEY,
-              }
-            : fromIni(),
-        region: 'us-east-1',
-        sha256: Hash.bind(null, 'sha256'),
-      });
-
-      //TODO: Somehow, someway, inject the consultLink for the consultation booking for calendly
 
       if (urlObj.s3Url !== '') {
+        const url = parseUrl(urlObj.s3Url);
+
+        // * I worked all day on this. the fromIni() only works locally, and My syntax was off for the credentials (wasn't camel casing the key names was using ACCESS_KEY_ID instead)
+        const presigner = new S3RequestPresigner({
+          credentials:
+            process.env.NODE_ENV === 'production' ||
+            process.env.NODE_ENV === 'staging'
+              ? {
+                  accessKeyId: process.env.ACCESS_KEY_ID,
+                  secretAccessKey: process.env.SECRET_ACCESS_KEY,
+                }
+              : fromIni(),
+          region: 'us-east-1',
+          sha256: Hash.bind(null, 'sha256'),
+        });
         const signedUrlObject = await presigner.presign(
           new HttpRequest({ ...url, method: 'GET', query: { orderId } }),
           { expiresIn: 259200 }
@@ -282,6 +274,7 @@ export default class PaypalService extends BaseService<Order> {
           formatUrl(signedUrlObject)
         );
       }
+
       return urlObj.emailTemplateHtml;
     });
 
@@ -290,6 +283,28 @@ export default class PaypalService extends BaseService<Order> {
   }
 
   async fetchCalendlySchedulingLink(): Promise<string> {
-    return '';
+    const response = await fetch(
+      `${process.env.CALENDLY_API_URL as string}/scheduling_links`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${process.env.CALENDLY_API_ACCESS_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          max_event_count: 1,
+          owner: `${process.env.CALENDLY_API_URL}/event_types/012345678901234567890`,
+          owner_type: 'EventType',
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      console.log('SEE RESPONSE ', response);
+      throw new Error("*** couldn't fetch your calendly link");
+    }
+    const json = await response.json();
+    console.log('SEE THE JSON', json);
+    return json;
   }
 }

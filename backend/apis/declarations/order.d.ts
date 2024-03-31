@@ -86,10 +86,10 @@ export interface PaypalResult {
             };
             create_time: string;
             update_time: string;
-          }
+          },
         ];
       };
-    }
+    },
   ];
   payer: {
     name: {
@@ -109,6 +109,6 @@ export interface PaypalResult {
       href: string;
       rel: string;
       method: 'GET';
-    }
+    },
   ];
 }

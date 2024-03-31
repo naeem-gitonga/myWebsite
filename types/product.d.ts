@@ -12,5 +12,6 @@ export type Product = {
     show: boolean | string;
     emailTemplateHtml: string;
     s3Url: string;
+    calendlyLink: boolean;
   };
   
