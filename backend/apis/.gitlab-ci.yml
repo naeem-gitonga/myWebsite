@@ -55,6 +55,8 @@ test_lambda:
       when: never
     - changes:
         - backend/apis/**/*
+        - backend/cdk/lib/*
+        - backend/cdk/bin/*
   script:
     - *common_install
     - npm run test
@@ -67,6 +69,8 @@ build_staging:
     - if: '$CI_COMMIT_BRANCH == "staging"'
       changes:
         - backend/apis/**/*
+        - backend/cdk/lib/*
+        - backend/cdk/bin/*
     - changes:
         - $PWD/app/**/*
         - $PWD/components/**/*
@@ -129,6 +133,8 @@ deploy_staging:
     - if: '$CI_COMMIT_BRANCH == "staging"'
       changes:
         - backend/apis/**/*
+        - backend/cdk/lib/*
+        - backend/cdk/bin/*
   needs:
     - job: build_staging
       artifacts: true
@@ -180,6 +186,8 @@ build_production:
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes:
         - backend/apis/**/*
+        - backend/cdk/lib/*
+        - backend/cdk/bin/*
   stage: build
   environment:
     name: production
@@ -226,6 +234,8 @@ deploy_production:
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes:
         - backend/apis/**/*
+        - backend/cdk/lib/*
+        - backend/cdk/bin/*
   needs:
     - job: build_production
       artifacts: true
