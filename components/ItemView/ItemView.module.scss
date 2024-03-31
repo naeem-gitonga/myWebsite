@@ -1,9 +1,9 @@
 .imageContainer {
-  height: 400px;
-  width: 400px;
-  background-position: center;
-  background-size: auto 100% !important;
-  background-repeat: no-repeat;
+  img {
+    position: unset !important;
+    height: unset !important;
+  }
+  position: relative;
 }
 
 .itemWrapper {
@@ -61,6 +61,37 @@
 .strike {
   color: grey;
   text-decoration: line-through;
+}
+
+.triangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-left: 140px solid transparent;
+  border-bottom: 140px solid transparent;
+  border-top: 140px solid blue;
+}
+
+.triangleText {
+  color: white;
+  font-size: 14px;
+  margin: 0;
+  width: 15px;
+  text-wrap: wrap;
+  font-weight: 800;
+}
+
+.triangleTextWrapper {
+  position: absolute;
+  top: -127px;
+  right: 52px;
+  transform: rotate(45deg);
+}
+
+.center {
+  margin-left: 8px;
 }
 
 @media (max-width: 1023px) {

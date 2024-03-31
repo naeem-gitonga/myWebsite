@@ -13,5 +13,7 @@ export type Product = {
     emailTemplateHtml: string;
     s3Url: string;
     calendlyLink: boolean;
+    previewLink: string;
+    imageUrlItemView: string;
   };
   
