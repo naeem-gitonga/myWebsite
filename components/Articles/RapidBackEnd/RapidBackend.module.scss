@@ -1,0 +1,23 @@
+.innerWrapper {
+  .imageWrapper {
+    margin: auto;
+    text-align: center;
+    img {
+        margin: 20px auto 0;
+      position: unset !important;
+      height: unset !important;
+    }
+    .altText {
+        color: #3d3b3b74;
+        margin: 5px auto 30px;
+        a {
+            color: #3d3b3b74;
+        }
+    }
+  }
+  
+  .text {
+    line-height: 35px;
+    font-size: 20px;
+  }
+}

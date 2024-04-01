@@ -22,7 +22,7 @@ export default function ArticleTileView(
       )}
       <div className={viewWrapper}>
         {articles.map((a: any) => {
-          return <ArticleTile article={a} key={a.title} />;
+          return <ArticleTile article={a} key={a.title} noTarget />;
         })}
       </div>
       <ReturnArrow />
@@ -36,8 +36,8 @@ const articles = [
     imageUrl: 'exprapidbackend',
     lengthInMinutes: 3,
     publishedDate: 'Jun 11, 2023',
-    articleUrl:
-      '/interstitial?url=https://medium.com/@naeemgtng/exploring-functions-as-microservices-a-powerful-approach-for-cloud-based-applications-d7fdfe4c9e1e&where=Medium',
+    articleUrl: '/articles/rapidbackend',
+    noTarget: true,
   },
   {
     title: 'Do I really need a CKA certification?',
