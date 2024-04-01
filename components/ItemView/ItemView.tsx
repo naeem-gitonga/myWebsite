@@ -1,6 +1,6 @@
 'use client';
 import { useSearchParams, useRouter } from 'next/navigation';
-import imageStyles from '../SharedCss/Images.module.scss';
+
 import PageHeader from '../PageHeader/PageHeader';
 import { Suspense } from 'react';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';

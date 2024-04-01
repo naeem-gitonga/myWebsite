@@ -80,6 +80,6 @@ export const products = [
     show: process.env.NEXT_PUBLIC_SHOW_CONSULT as unknown as boolean,
     calendlyLink: true,
     previewLink: '',
-    imageUrlItemView: ''
+    imageUrlItemView: '',
   },
 ];

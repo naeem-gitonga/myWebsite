@@ -11,6 +11,7 @@ type ArticleTileProps = {
     isBook?: boolean;
     type?: string;
   };
+  noTarget?: boolean;
 };
 
 export default function ArticleTile(props: ArticleTileProps): JSX.Element {
@@ -33,10 +34,15 @@ export default function ArticleTile(props: ArticleTileProps): JSX.Element {
       isBook,
       type,
     },
+    noTarget,
   } = props;
 
   return (
-    <Link href={articleUrl} className={tileWrapper} target="_blank">
+    <Link
+      href={articleUrl}
+      className={tileWrapper}
+      target={noTarget ? '_self' : '_blank'}
+    >
       <div className={`${imageContainer} ${styles[imageUrl]}`} />
       <div className={titleBox}>
         <h2 className={title}>{t}</h2>
