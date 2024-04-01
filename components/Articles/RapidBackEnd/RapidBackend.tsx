@@ -8,7 +8,7 @@ import Tags from '@/components/Tags/Tags';
 
 import seeTheLight from '../../pictures/see-the-light.jpg';
 import serviceArchitecture from '../../pictures/architecture-breakdown.png';
-import rapidBackEndLogo from '../../pictures/rapidbackend.png'
+import rapidBackEndLogo from '../../pictures/rapidbackend.png';
 import Link from 'next/link';
 
 export default function RapidBackend(): JSX.Element {
@@ -68,7 +68,16 @@ export default function RapidBackend(): JSX.Element {
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
-          <p className={altText}>Diagram taken from <a className={anchorColor} target="_blank" href="https://www.cloudflare.com/learning/serverless/glossary/function-as-a-service-faas/">cloudflare.com</a></p>
+          <p className={altText}>
+            Diagram taken from{' '}
+            <a
+              className={anchorColor}
+              target="_blank"
+              href="https://www.cloudflare.com/learning/serverless/glossary/function-as-a-service-faas/"
+            >
+              cloudflare.com
+            </a>
+          </p>
         </div>
         <p className={text}>
           As depicted, FaaS is derived from microservices, showcasing the
@@ -103,7 +112,9 @@ export default function RapidBackend(): JSX.Element {
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
-          <p className={altText}><Link href="/item?item_id=2">Rapid Back-End</Link></p>
+          <p className={altText}>
+            <Link href="/item?item_id=2">Rapid Back-End</Link>
+          </p>
         </div>
         <h2>Advantages of FaMS and Rapid Back-End</h2>
         <p className={text}>
