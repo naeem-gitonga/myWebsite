@@ -275,7 +275,6 @@ export default class PaypalService extends BaseService<Order> {
   }
 
   async fetchCalendlySchedulingLink(): Promise<string> {
-    console.log('ENV VARS ', {api_url: process.env.CALENDLY_API_URL, api_access_token: process.env.CALENDLY_API_ACCESS_TOKEN, event_uri:process.env.CALENDLY_EVENT_URI })
     const response = await fetch(
       `${process.env.CALENDLY_API_URL as string}/scheduling_links`,
       {
