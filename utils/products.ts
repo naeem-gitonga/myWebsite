@@ -70,7 +70,7 @@ export const products = [
     title: '1-Hour Consultation',
     imageUrl: 'consult',
     productUrl: '/item?item_id=4',
-    price: 1,
+    price: 100,
     promotion: 0,
     description: `<p>If you would like to speak to Naeem about anything related to the content found on this web app, you may do so by booking an hour of time with him.</p><p>He is available for code review, architecture, business and management consultation, get to know Naeem, even life advice.</p><p>This is a one hour, one-on-one session. Upon payment you will receive an email with details on how to book your session.</p>`,
     s3Url: '',
