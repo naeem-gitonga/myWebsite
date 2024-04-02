@@ -7,6 +7,7 @@ export enum ServerErrors {
   CannotConnectDb = 'Cannot connect to database.',
   failedToSaveToDB = 'FAILED_TO_SAVE_ORDER',
   failedToMakeLink = 'FAILED_TO_MAKE_LINK',
+  failedToMakeCalendlyLink = 'FAILED_TO_MAKE_CALENDLY_LINK',
   failedToSendBook = 'FAILED_TO_SEND_BOOK',
 }
 
