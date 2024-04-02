@@ -125,15 +125,6 @@ export default class PaypalService extends BaseService<Order> {
         html: customerTemplate(links, orderId, firstName),
       });
 
-      // TODO: bring this back when you have figured out how to use the emailTemplateCode to seemlessly do this
-      // if (boughtPyl || boughtConsult) {
-      //   await sendgrid.send({
-      //     to: 'jngincorporated@gmail.com',
-      //     from: this.senderEmailAddress,
-      //     subject: `Order Received: ${orderId}`,
-      //     html: orderReceived(orderId, firstName, boughtConsult),
-      //   });
-      // }
       console.log('Email sent successfully!');
     } catch (e) {
       console.log(`${ServerErrors.failedToSendBook} for order ${orderId}`, e);
