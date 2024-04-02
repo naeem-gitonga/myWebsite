@@ -10,13 +10,12 @@ import seeTheLight from '../../pictures/see-the-light.jpg';
 import serviceArchitecture from '../../pictures/architecture-breakdown.png';
 import rapidBackEndLogo from '../../pictures/rapidbackend.png';
 import Link from 'next/link';
+import { imageLoader } from '@/utils/imageLoader';
 
 export default function RapidBackend(): JSX.Element {
   const { innerWrapper, imageWrapper, altText, text, anchorColor } = styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
-  const imageLoader = ({ src, width, quality }: any) => {
-    return `${src}?w=${width}&q=${quality || 75}`;
-  };
+
   return (
     <div id="rapid-backend" className={`${tenPadding}`}>
       <PageHeader headerName="article" hideLinks={false} />
