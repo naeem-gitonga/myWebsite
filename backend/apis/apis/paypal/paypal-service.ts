@@ -87,13 +87,6 @@ export default class PaypalService extends BaseService<Order> {
       ];
       return i.emailTemplate;
     });
-    const calendlyLinkIndex = codes.indexOf('04');
-    try {
-      if (calendlyLinkIndex !== -1) {
-        //Todo: Write code to fetch one-time link from calendly
-        console.log({ calendlyLinkIndex });
-      }
-    } catch (e) {}
 
     try {
       links = await this.createUrls(orderId, urlObjs);
@@ -292,15 +285,15 @@ export default class PaypalService extends BaseService<Order> {
         },
         body: JSON.stringify({
           max_event_count: 1,
-          owner: `${process.env.CALENDLY_API_URL}/event_types/012345678901234567890`,
+          owner: process.env.CALENDLY_EVENT_URI,
           owner_type: 'EventType',
         }),
       }
     );
 
     if (!response.ok) {
-      console.log('SEE RESPONSE ', response);
-      throw new Error(ServerErrors.failedToMakeLink);
+      console.log('SEE RESPONSE', response);
+      throw new Error(ServerErrors.failedToMakeCalendlyLink);
     }
     const json = await response.json();
     return json.resource.booking_url;

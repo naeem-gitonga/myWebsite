@@ -63,6 +63,7 @@ export default class BackendService extends Construct {
         STAGE: process.env.STAGE as string,
         WHICH_ROUTE: process.env.WHICH_ROUTE as string,
         CALENDLY_API_URL: process.env.CALENDLY_API_URL as string,
+        CALENDLY_EVENT_URI: process.env.CALENDLY_EVENT_URI as string,
       },
     };
 
