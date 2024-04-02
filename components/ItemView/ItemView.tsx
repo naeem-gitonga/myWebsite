@@ -14,6 +14,7 @@ import styles from './ItemView.module.scss';
 import { products } from '../../utils/products';
 import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import Price from '../Price/Price';
+import { imageLoader } from '@/utils/imageLoader';
 
 export default function Item(): JSX.Element {
   return (
@@ -65,10 +66,6 @@ function ItemContent(): JSX.Element {
     publishedOn,
     previewLink,
   } = product;
-
-  const imageLoader = ({ src, width, quality }: any) => {
-    return `${src}?w=${width}&q=${quality || 75}`;
-  };
 
   const image = (
     <div className={imageContainer}>
