@@ -7,7 +7,7 @@ export function generateMetadata(): Metadata {
   return {
     title: 'React Context-Api and Lazy-loading: Naeem Gitonga',
     description:
-      'You like Node, TypeScript, AWS Lambdas, JWTs, microservices and you need to deploy a comprehensive back-end solution. Enter Rapid Back-End. Naeem Gitonga',
+      'An overview of React\'s context api with lazy loading. Naeem Gitonga',
   };
 }
 

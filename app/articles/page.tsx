@@ -5,9 +5,9 @@ import { Metadata } from 'next';
 
 export function generateMetadata(): Metadata {
   return {
-    title: 'React Context-Api and Lazy-loading: Naeem Gitonga',
+    title: 'My Articles',
     description:
-      'An overview of React\'s context api with lazy loading. Naeem Gitonga',
+      'Explore the blog of Naeem Gitonga as he shares his learnings in software engineering and DevOps. Naeem Gitonga',
   };
 }
 
