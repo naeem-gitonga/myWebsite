@@ -7,7 +7,7 @@ export function generateMetadata(): Metadata {
   return {
     title: 'React Context-Api and Lazy-loading: Naeem Gitonga',
     description:
-      'An overview of React\'s context api with lazy loading. Naeem Gitonga',
+      'An overview of React\'s context api with lazy loading by Naeem Gitonga',
   };
 }
 

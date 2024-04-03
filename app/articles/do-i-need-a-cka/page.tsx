@@ -7,7 +7,7 @@ export function generateMetadata(): Metadata {
   return {
     title: 'Do I really need a CKA certification?: Naeem Gitonga',
     description:
-      'Why Naeem Gitonga decided to pursue the Certified Kubernetes Adminostrator certificate and what he learned in the process. Naeem Gitonga',
+      'Why Naeem Gitonga decided to pursue the Certified Kubernetes Adminostrator certificate and what he learned in the process by Naeem Gitonga',
   };
 }
 
