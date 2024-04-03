@@ -44,7 +44,7 @@ export default function Header(props: HeaderProps): JSX.Element {
               <Link href="#contact" onClick={() => setWhichSection('contact')}>
                 <Envelope />
               </Link>
-            
+
               <Link
                 id="donate-link"
                 href="#donate"
