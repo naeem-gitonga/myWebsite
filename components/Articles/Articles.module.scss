@@ -23,11 +23,62 @@
 }
 
 .grey {
-    color: #3d3b3b74;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out; /* Add this line */
+  color: #3d3b3b74;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out; /* Add this line */
 }
 
 .grey:hover {
-    color: #3d3b3be0;
+  color: #3d3b3be0;
+}
+
+.code {
+  background-color: #dfdfdf;
+  padding: 2px 4px;
+  font-size: 15px;
+  display: inline-block;
+  line-height: 20px;
+}
+
+.figure {
+  clear: both;
+  box-sizing: inherit;
+  word-wrap: break-word;
+  margin: 0;
+
+  .firstInner {
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    box-sizing: inherit;
+    unicode-bidi: isolate;
+    word-wrap: break-word;
+    .secondInner {
+      height: 0;
+      display: block;
+      box-sizing: inherit;
+      word-wrap: break-word;
+      iframe {
+        position: absolute;
+        left: 0;
+        height: 100%;
+        top: 0;
+        width: 100%;
+        border: none;
+      }
+    }
+    .firstGist {
+      height: 613px;
+    }
+    .secondGist {
+      height: 1407px;
+    }
+    .thirdGist {
+      height: 907px;
+    }
+    .fourthGist {
+      height: 218px;
+    }
+  }
 }
