@@ -116,6 +116,6 @@ const articles = [
     lengthInMinutes: 6,
     publishedDate: 'Dec 26, 2018',
     articleUrl:
-      '/interstitial?url=https://medium.com/swlh/react-context-api-and-lazy-loading-4c4b0a48f696?source=friends_link&sk=37e076874f86e49dc260d97b92025734&where=Medium',
+      '/articles/react-context-api'
   },
 ];

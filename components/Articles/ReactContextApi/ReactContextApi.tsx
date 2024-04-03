@@ -254,10 +254,10 @@ export default function ReactContextApi(): JSX.Element {
         <div className={minus10LeftMargin}>
           <Tags
             tags={[
-              'Serverless Architecture',
-              'AWS Lambda',
-              'AWS CDK',
-              'Backend Development',
+              'React',
+              'context api',
+              'front-end development',
+              'lazy loading',
               'Software Engineering',
             ]}
           />
