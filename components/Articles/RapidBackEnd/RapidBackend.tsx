@@ -11,6 +11,7 @@ import serviceArchitecture from '../../pictures/architecture-breakdown.png';
 import rapidBackEndLogo from '../../pictures/rapidbackend.png';
 import Link from 'next/link';
 import { imageLoader } from '@/utils/imageLoader';
+import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 
 export default function RapidBackend(): JSX.Element {
   const { innerWrapper, imageWrapper, altText, text, anchorColor } = styles;
@@ -165,6 +166,7 @@ export default function RapidBackend(): JSX.Element {
           />
         </div>
       </div>
+      <ReturnArrow />
     </div>
   );
 }
