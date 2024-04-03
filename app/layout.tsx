@@ -4,7 +4,7 @@ import './globals.css';
 export const metadata = {
   title: 'Jaha Naeem Gitonga',
   description:
-    'Jaha Naeem Gitonga of GTNG, the tech lead, software | DevOps engineer to build your next app or website.',
+    'Jaha Naeem Gitonga of GTNG, engineering and business leader, Software | DevOps subject matter expert.',
 };
 
 export default function RootLayout({
