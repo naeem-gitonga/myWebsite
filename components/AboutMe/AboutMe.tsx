@@ -39,18 +39,16 @@ export default function AboutMe(): JSX.Element {
         ,{' '}
         <Link
           className="link"
-          href="/interstitial?url=https://rapidbackend.co&where=Rapid Back-End"
-          target="_blank"
-          rel="noreferrer"
+          href="/item?item_id=2"
         >
           Rapid Back-End
         </Link>
-        . I write tech articles on{' '}
+        . I write tech articles{' '}
         <Link
           className="link"
-          href="/interstitial?url=https://naeemgtng.medium.com/&where=Medium"
+          href="/articles"
         >
-          Medium
+          here
         </Link>{' '}
         exploring various technologies that I know or am learning.
       </p>

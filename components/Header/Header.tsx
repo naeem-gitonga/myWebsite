@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import Envelope from 'components/Icons/Envelope';
-import LinkedIn from 'components/Icons/LinkedIn';
-import Github from 'components/Icons/Github';
 import Bitcoin from 'components/Icons/Bitcoin';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 type HeaderProps = {
   setWhichSection: any;
@@ -17,8 +15,7 @@ export default function Header(props: HeaderProps): JSX.Element {
       <div className={styles.wrapper}>
         <header>
           <div id="top-div" className={styles['main-nav']}>
-            <h1 className={styles.myName}>Jaha Naeem Gitonga</h1>
-            <h5 className={styles.myTitle}>Tech Lead</h5>
+            <h1 className={styles.myName}>Naeem Gitonga</h1>
             <ul className={styles.firstUl}>
               <li id="aboutMe-link" onClick={() => setWhichSection('aboutMe')}>
                 <Link className={styles.firstUlLink} href="#aboutMe">
@@ -47,20 +44,7 @@ export default function Header(props: HeaderProps): JSX.Element {
               <Link href="#contact" onClick={() => setWhichSection('contact')}>
                 <Envelope />
               </Link>
-              <Link
-                href="/interstitial?url=https://www.linkedin.com/in/ngitonga/&where=LinkedIn"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <LinkedIn />
-              </Link>
-              <Link
-                href="/interstitial?url=https://www.github.com/JNaeemGitonga&where=Github"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Github />
-              </Link>
+            
               <Link
                 id="donate-link"
                 href="#donate"
