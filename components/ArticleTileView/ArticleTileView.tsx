@@ -44,8 +44,7 @@ const articles = [
     imageUrl: 'expcka',
     lengthInMinutes: 4,
     publishedDate: 'Jun 5, 2023',
-    articleUrl:
-      '/interstitial?url=https://medium.com/@naeemgtng/do-i-really-need-a-cka-certification-60f626bebf0e&where=Medium',
+    articleUrl: '/articles/do-i-need-a-cka',
   },
   {
     title: 'AWS IAM — Quick Dive/Quick Guide',

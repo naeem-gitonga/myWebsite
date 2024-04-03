@@ -37,17 +37,11 @@ export default function AboutMe(): JSX.Element {
           Program Your Life
         </Link>
         ,{' '}
-        <Link
-          className="link"
-          href="/item?item_id=2"
-        >
+        <Link className="link" href="/item?item_id=2">
           Rapid Back-End
         </Link>
         . I write tech articles{' '}
-        <Link
-          className="link"
-          href="/articles"
-        >
+        <Link className="link" href="/articles">
           here
         </Link>{' '}
         exploring various technologies that I know or am learning.
