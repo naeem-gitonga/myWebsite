@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Footer from 'components/Footer/Footer';
 import RapidBackend from '@/components/Articles/RapidBackEnd/RapidBackend';
 
-function generateMetadata(): Metadata {
+export function generateMetadata(): Metadata {
   return {
     title: 'Exploring Functions as Microservices: Naeem Gitonga',
     description:
