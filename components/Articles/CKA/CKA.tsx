@@ -90,17 +90,21 @@ export default function CKA(): JSX.Element {
           To my knowledge, I have not been offered any positions or
           opportunities to interview based on me having obtained this
           certification. Although for some employers, there are obvious
-          <a href="https://kubernetes.io/partners/" className={grey}> benefits</a>. However, as a holder of the CKA, prior to receiving it,
-          recruiters had already begun sending me DevOps related job
-          opportunities. While I have not noticed anything &quot;in&quot; the
-          job market, at work, I am much more comfortable answering questions
-          about K8S. I am more competent and confident about various API
-          resources. The questions I ask have changed from basic &quot;how
-          to&quot; to &quot;why have we implemented…&quot;, &quot;have we
-          considered…&quot;, and most importantly &quot;do we truly need…&quot;
-          types of questions. Without a doubt, I am a better K8S administrator.
-          And I still have capacity to learn and improve beyond my current
-          competencies. To answer the question presented in this section, yes!
+          <a href="https://kubernetes.io/partners/" className={grey}>
+            {' '}
+            benefits
+          </a>
+          . However, as a holder of the CKA, prior to receiving it, recruiters
+          had already begun sending me DevOps related job opportunities. While I
+          have not noticed anything &quot;in&quot; the job market, at work, I am
+          much more comfortable answering questions about K8S. I am more
+          competent and confident about various API resources. The questions I
+          ask have changed from basic &quot;how to&quot; to &quot;why have we
+          implemented…&quot;, &quot;have we considered…&quot;, and most
+          importantly &quot;do we truly need…&quot; types of questions. Without
+          a doubt, I am a better K8S administrator. And I still have capacity to
+          learn and improve beyond my current competencies. To answer the
+          question presented in this section, yes!
         </p>
         <h2>En fin</h2>
         <p className={text}>
@@ -115,7 +119,15 @@ export default function CKA(): JSX.Element {
           exam. It is a time-consuming investment but an investment nonetheless
           that will pay dividends. I am in no way promoting it, nor any other
           technology, or course mentioned in this article. I am simply saying
-          that getting my <a className={grey} href="https://www.credly.com/badges/8bb3e026-79c2-4a36-948a-a0fbdc30a022/public_url" target="_blank">CKA</a> has helped — in one way or another.
+          that getting my{' '}
+          <a
+            className={grey}
+            href="https://www.credly.com/badges/8bb3e026-79c2-4a36-948a-a0fbdc30a022/public_url"
+            target="_blank"
+          >
+            CKA
+          </a>{' '}
+          has helped — in one way or another.
         </p>
 
         <div className={minus10LeftMargin}>

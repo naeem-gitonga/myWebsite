@@ -143,9 +143,9 @@ export function callInternalFulfillmentApi(props: InternalFulfillmentApiProps) {
     mode: 'cors',
     referrerPolicy: 'origin',
     body: JSON.stringify({
-      email: orderData.payer?.email_address,
-      firstName: orderData.payer?.name?.given_name,
-      lastName: orderData.payer?.name?.surname,
+      email: orderData?.payment_source?.paypal?.email_address,
+      firstName: orderData?.payment_source?.paypal?.name?.given_name,
+      lastName: orderData?.payment_source?.paypal?.name?.surname,
       id: orderData.id,
       address: {
         // * I hate using any but I'll figure this out some other time.
