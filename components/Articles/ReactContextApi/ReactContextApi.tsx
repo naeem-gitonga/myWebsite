@@ -185,9 +185,6 @@ export default function ReactContextApi(): JSX.Element {
           just for testing the functionality of our lazy load and will replaced
           later. That change will look like this:
         </p>
-
-        <script src="https://gist.github.com/JNaeemGitonga/70bc827723557a3df0d53b03b9051b73.js"></script>
-
         <figure className={figure}>
           <div className={firstInner}>
             <div className={`${secondInner} ${fourthGist}`}>
@@ -198,7 +195,6 @@ export default function ReactContextApi(): JSX.Element {
             </div>
           </div>
         </figure>
-
         <p className={text}>
           Now we are ready to lazy load. We can test our component for lazy
           loading the form by looking in our dev tools Network tab. We should
@@ -207,7 +203,6 @@ export default function ReactContextApi(): JSX.Element {
           After clicking our button. We will see two new chunk files added to
           our history.
         </p>
-
         <div className={imageWrapper}>
           <Image
             alt="React"
@@ -218,7 +213,6 @@ export default function ReactContextApi(): JSX.Element {
           />
           <p className={altText}>React</p>
         </div>
-
         <h2>Context…</h2>
         <p className={text}>
           Now that we are lazy loading masters, let&apos;s work on controlling
