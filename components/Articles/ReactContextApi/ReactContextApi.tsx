@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image';
-import { useEffect } from 'react';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '../Articles.module.scss';
@@ -226,7 +225,7 @@ export default function ReactContextApi(): JSX.Element {
           need it. Got it!?
         </p>
         <p className={text}>
-          And that’s all folks! I hope you enjoyed this blog. Please leave
+          And that&apos;s all folks! I hope you enjoyed this blog. Please leave
           comments/suggestions. Thanks for reading!
         </p>
         <p className={text}>

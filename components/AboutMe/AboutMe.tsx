@@ -6,7 +6,11 @@ export default function AboutMe(): JSX.Element {
   return (
     <div id="aboutMe" className={myWorkWrapper}>
       <div className={textCenter}>
-        <div id="standard" className={headshot} />
+        <div
+          id="standard"
+          data-alt="Naeem Gitonga headshot"
+          className={headshot}
+        />
       </div>
       <h2 className={aboutMe}>aboutMe</h2>
       <p className={about}>

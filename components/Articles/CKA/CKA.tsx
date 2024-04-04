@@ -74,9 +74,9 @@ export default function CKA(): JSX.Element {
         <p className={text}>
           Look, K8S has 123 API resources as of this article. Then you can turn
           around and add to that by making custom ones. How long of a career do
-          you have to have to be considered a &quot;wizard&quot;,
-          &quot;SME&quot;, or authority on K8S? I am good at K8S as a result of
-          using it daily and having obtained this certification. I am better
+          you have to have to be considered a &ldquo;wizard&rdquo;,
+          &ldquo;SME&rdquo;, or authority on K8S? I am good at K8S as a result
+          of using it daily and having obtained this certification. I am better
           than most —the CKA proves it. I solve problems using it in a way that
           someone who does not have the cert may not. And most of all… I am
           still learning. I have experience using it in an enterprise setting.
@@ -96,15 +96,15 @@ export default function CKA(): JSX.Element {
           </a>
           . However, as a holder of the CKA, prior to receiving it, recruiters
           had already begun sending me DevOps related job opportunities. While I
-          have not noticed anything &quot;in&quot; the job market, at work, I am
-          much more comfortable answering questions about K8S. I am more
+          have not noticed anything &ldquo;in&rdquo; the job market, at work, I
+          am much more comfortable answering questions about K8S. I am more
           competent and confident about various API resources. The questions I
-          ask have changed from basic &quot;how to&quot; to &quot;why have we
-          implemented…&quot;, &quot;have we considered…&quot;, and most
-          importantly &quot;do we truly need…&quot; types of questions. Without
-          a doubt, I am a better K8S administrator. And I still have capacity to
-          learn and improve beyond my current competencies. To answer the
-          question presented in this section, yes!
+          ask have changed from basic &ldquo;how to&rdquo; to &ldquo;why have we
+          implemented…&rdquo;, &ldquo;have we considered…&rdquo;, and most
+          importantly &ldquo;do we truly need…&rdquo; types of questions.
+          Without a doubt, I am a better K8S administrator. And I still have
+          capacity to learn and improve beyond my current competencies. To
+          answer the question presented in this section, yes!
         </p>
         <h2>En fin</h2>
         <p className={text}>
