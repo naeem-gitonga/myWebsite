@@ -321,7 +321,7 @@ export default function AWSIAM(): JSX.Element {
             ari:cloud:bitbuckt::workspace/9bb9a27q-19vi-4b3d-87fc-17898aa256611
           </code>
           . This too is has the format of an AWS resource number. Notice how it
-          begins with ari versus <code className={code}>arn</code>. It belongs
+          begins with <code className={code}>ari</code> versus <code className={code}>arn</code>. It belongs
           to <code className={code}>cloud</code>. The service is
           <code className={code}>bitbucket</code>. Apparently there is no
           account number is referenced and there is no specified region, as
