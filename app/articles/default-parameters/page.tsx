@@ -7,7 +7,7 @@ export function generateMetadata(): Metadata {
   return {
     title: "Are JavaScript's default parameters slowing me down?",
     description:
-      'Why Naeem Gitonga decided to pursue the Certified Kubernetes Adminostrator certificate and what he learned in the process by Naeem Gitonga',
+      'Learn how JavaScript default parameters affect runtime by Naeem Gitonga',
   };
 }
 
