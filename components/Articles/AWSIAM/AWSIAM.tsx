@@ -6,11 +6,11 @@ import styles from '../Articles.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import iamLogo from '../../pictures/iam.png';
-import iamOne from '../../pictures/iam-1.png';
-import iamTwo from '../../pictures/iam-2.png';
-import iamThree from '../../pictures/iam-3.png';
-import iamFour from '../../pictures/iam-4.png';
+import iamLogo from '@/components/pictures/iam.png';
+import iamOne from '@/components/pictures/iam-1.png';
+import iamTwo from '@/components/pictures/iam-2.png';
+import iamThree from '@/components/pictures/iam-3.png';
+import iamFour from '@/components/pictures/iam-4.png';
 
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';

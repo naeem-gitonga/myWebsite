@@ -2,7 +2,7 @@
 import Image from 'next/image';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
-import styles from './RapidBackend.module.scss';
+import styles from '../Articles.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
