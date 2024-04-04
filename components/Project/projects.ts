@@ -23,6 +23,8 @@ export type Project = {
   projectStack: ProjectName;
   projectLink?: string;
   gitHubLink?: string;
+  target?: string;
+  linkText?: string;
 };
 
 export const projects: Project[] = [
@@ -34,7 +36,9 @@ export const projects: Project[] = [
       'Scalable back-end, Functions as Microservices (FaMS). Great choice for spinning up a robust back-end within minutes.',
     projectStack: 'rapidbackend',
     projectLink:
-      '/interstitial?url=https://www.rapidbackend.co&where=Rapid Back-End',
+      '/articles/rapidbackend',
+    target: "_self",
+    linkText: "Learn more"
   },
   {
     title: 'This web app*',
