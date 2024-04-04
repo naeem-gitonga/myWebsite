@@ -35,10 +35,9 @@ export const projects: Project[] = [
     projectDes:
       'Scalable back-end, Functions as Microservices (FaMS). Great choice for spinning up a robust back-end within minutes.',
     projectStack: 'rapidbackend',
-    projectLink:
-      '/articles/rapidbackend',
-    target: "_self",
-    linkText: "Learn more"
+    projectLink: '/articles/rapidbackend',
+    target: '_self',
+    linkText: 'Learn more',
   },
   {
     title: 'This web app*',

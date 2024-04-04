@@ -100,3 +100,12 @@ ul.noDots > li {
     }
   }
 }
+
+pre.pre {
+  text-align: center;
+  .code {
+    text-align: left;
+    text-wrap: wrap;
+    padding: 20px;
+  }
+}
