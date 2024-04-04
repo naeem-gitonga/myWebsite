@@ -44,9 +44,9 @@ export default function Project(props: ProjectProps): JSX.Element {
                 <Link
                   className={`${proLink} ${text}`}
                   href={project.projectLink}
-                  target="_blank"
+                  target={project.target || "_blank"}
                 >
-                  Live site
+                  {project.linkText || 'Live site'}
                 </Link>
               </li>
             )}
