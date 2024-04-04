@@ -19,7 +19,7 @@ export const articles = [
     imageUrl: 'awsiam',
     lengthInMinutes: 6,
     publishedDate: 'May 28, 2023',
-    articleUrl: '/i-am',
+    articleUrl: '/articles/i-am',
   },
   {
     title: "Are JavaScript's default parameters slowing me down?",
