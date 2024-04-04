@@ -22,17 +22,10 @@ export default function AboutMe(): JSX.Element {
         projects, ensuring the team&apos;s adherence to best practices, and
         making key technical decisions. I build enterprise web applications. I
         teach software engineering, DevOps, and mentor students in coding a boot
-        camp with{' '}
-        <Link
-          href="/interstitial?url=https://www.gtngfoundation.org&where=GTNG Foundation"
-          target="_blank"
-          rel="noreferrer"
-        >
-          GTNG Foundation
-        </Link>
-        , where the focus is the JavaScript MERN stack, AWS and a few other
-        technologies. Outside of coding, I do more art. Yeah that&apos;s
-        right--programming a computer, building apps and websites is an art!
+        camp with GTNG Foundation , where the focus is the JavaScript MERN
+        stack, AWS and a few other technologies. Outside of coding, I do more
+        art. Yeah that&apos;s right--programming a computer, building apps and
+        websites is an art!
       </p>
       <p className={about}>
         I enjoy designing applications, employing new technologies to create
