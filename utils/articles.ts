@@ -27,7 +27,7 @@ export const articles = [
     lengthInMinutes: 3,
     publishedDate: 'Nov 27, 2020',
     articleUrl:
-      '/interstitial?url=https://naeemgtng.medium.com/dont-use-default-parameters-91cde9abde&where=Medium',
+      '/articles/default-parameters',
   },
   {
     title: "JavaScript's New Sexy",
