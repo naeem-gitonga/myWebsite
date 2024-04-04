@@ -96,7 +96,7 @@ export default function RapidBackend(): JSX.Element {
         </p>
         <h2>The Challenges of Nanoservices</h2>
         <p className={text}>
-          Cloud-based applications built with a “nanoservice” architecture,
+          Cloud-based applications built with a &ldquo;nanoservice&rdquo; architecture,
           consisting of numerous small services, can present challenges.
           Debugging and deploying such applications become complex and
           time-consuming. Moreover, onboarding new engineers to such a system

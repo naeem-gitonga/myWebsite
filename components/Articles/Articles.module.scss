@@ -82,3 +82,11 @@
     }
   }
 }
+
+ul > li.text {
+  list-style-type: disc;
+}
+
+ol.noDots {
+  list-style-type: none;
+}

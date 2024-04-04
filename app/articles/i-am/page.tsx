@@ -1,20 +1,20 @@
 import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
-import ReactContextApi from '@/components/Articles/ReactContextApi/ReactContextApi';
+import AWSIAM from '@/components/Articles/AWSIAM/AWSIAM';
 
 export function generateMetadata(): Metadata {
   return {
-    title: 'React Context-Api and Lazy-loading: Naeem Gitonga',
+    title: 'AWS IAM — Quick Dive/Quick Guide: Naeem Gitonga',
     description:
-      "An overview of React's context api with lazy loading by Naeem Gitonga",
+      'Quick dive into AWS Identity and Access Management (IAM) by Naeem Gitonga',
   };
 }
 
 export default function Article(): JSX.Element {
   return (
     <>
-      <ReactContextApi />
+      <AWSIAM />
       <Footer />
     </>
   );
