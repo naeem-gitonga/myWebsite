@@ -16,22 +16,8 @@ import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 
 export default function AWSIAM(): JSX.Element {
-  const {
-    innerWrapper,
-    imageWrapper,
-    altText,
-    text,
-    code,
-    noDots,
-    figure,
-    firstInner,
-    secondInner,
-    firstGist,
-    secondGist,
-    thirdGist,
-    fourthGist,
-    grey,
-  } = styles;
+  const { innerWrapper, imageWrapper, altText, text, code, noDots, smaller } =
+    styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
 
   return (
@@ -185,7 +171,7 @@ export default function AWSIAM(): JSX.Element {
           <code className={code}>Statement</code> property is a list of JSON
           objects. Let&apos;s examine it more closely.
         </p>
-        <div className={imageWrapper}>
+        <div className={`${imageWrapper} ${smaller}`}>
           <Image
             alt="IAM Policy One"
             loader={imageLoader}
@@ -321,8 +307,9 @@ export default function AWSIAM(): JSX.Element {
             ari:cloud:bitbuckt::workspace/9bb9a27q-19vi-4b3d-87fc-17898aa256611
           </code>
           . This too is has the format of an AWS resource number. Notice how it
-          begins with <code className={code}>ari</code> versus <code className={code}>arn</code>. It belongs
-          to <code className={code}>cloud</code>. The service is
+          begins with <code className={code}>ari</code> versus{' '}
+          <code className={code}>arn</code>. It belongs to{' '}
+          <code className={code}>cloud</code>. The service is
           <code className={code}>bitbucket</code>. Apparently there is no
           account number is referenced and there is no specified region, as
           bitbucket is global. The workspace however does have a universally
@@ -342,7 +329,10 @@ export default function AWSIAM(): JSX.Element {
         </p>
 
         <p className={text}>
-        Other than for humans, this can also be applied to third-party services like the various CICD tools. Having roles that assume roles may seem redundant but it creates layers of security and easier governance for least privilege.
+          Other than for humans, this can also be applied to third-party
+          services like the various CICD tools. Having roles that assume roles
+          may seem redundant but it creates layers of security and easier
+          governance for least privilege.
         </p>
         <p className={text}>Thanks for reading!</p>
         <div className={minus10LeftMargin}>
