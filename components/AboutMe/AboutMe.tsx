@@ -23,7 +23,8 @@ export default function AboutMe(): JSX.Element {
           next question. I&apos;ve lead teams to deliver software, being
           responsible for guiding and overseeing the technical aspects of
           projects, collaborating with stakeholders and ensuring the team&apos;s
-          adherence to best practices, as well as making key technical decisions.
+          adherence to best practices, as well as making key technical
+          decisions.
         </p>
         <p className={about}>
           I build enterprise web applications. I teach software engineering,
