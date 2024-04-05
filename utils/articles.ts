@@ -26,16 +26,14 @@ export const articles = [
     imageUrl: 'dontpanic',
     lengthInMinutes: 3,
     publishedDate: 'Nov 27, 2020',
-    articleUrl:
-      '/articles/default-parameters',
+    articleUrl: '/articles/default-parameters',
   },
   {
     title: "JavaScript's New Sexy",
     imageUrl: 'jsnew',
     lengthInMinutes: 5,
     publishedDate: 'Aug 30, 2020',
-    articleUrl:
-      '/interstitial?url=https://medium.com/p/javascripts-new-sexy-2843b0cf4a06&where=Medium',
+    articleUrl: '/articles/js-new-sexy',
   },
   {
     title: 'Explain Servers to a 5 Year Old',

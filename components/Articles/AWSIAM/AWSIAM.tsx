@@ -14,6 +14,7 @@ import iamFour from '@/components/pictures/iam-4.png';
 
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
+import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
 export default function AWSIAM(): JSX.Element {
   const { innerWrapper, imageWrapper, altText, text, code, noDots, smaller } =
@@ -25,6 +26,7 @@ export default function AWSIAM(): JSX.Element {
       <PageHeader headerName="article" hideLinks={false} />
       <div className={`${width75} ${innerWrapper}`}>
         <h1>AWS IAM — Quick Dive/Quick Guide</h1>
+        <ArticleDateTime imageUrl={'awsiam'} />
         <div className={imageWrapper}>
           <Image
             alt="IAM logo"

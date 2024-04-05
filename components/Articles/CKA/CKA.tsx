@@ -9,6 +9,7 @@ import Tags from '@/components/Tags/Tags';
 import seeTheLight from '../../pictures/cka.jpg';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
+import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
 export default function CKA(): JSX.Element {
   const { innerWrapper, imageWrapper, altText, text, grey } = styles;
@@ -19,6 +20,7 @@ export default function CKA(): JSX.Element {
       <PageHeader headerName="article" hideLinks={false} />
       <div className={`${width75} ${innerWrapper}`}>
         <h1>Do I really need a CKA certification?</h1>
+        <ArticleDateTime imageUrl={'expcka'} />
         <div className={imageWrapper}>
           <Image
             alt="Unsure"

@@ -8,6 +8,9 @@
       margin: 20px auto 0;
       position: unset !important;
       height: unset !important;
+      @media only screen and (max-width: 720px) {
+        max-width: 100% !important;
+      }
     }
     .altText {
       color: #3d3b3b74;
@@ -40,6 +43,9 @@
   font-size: 15px;
   display: inline-block;
   line-height: 20px;
+  a {
+    color: black;
+  }
 }
 
 .figure {
@@ -107,5 +113,16 @@ pre.pre {
     text-align: left;
     text-wrap: wrap;
     padding: 20px;
+  }
+}
+
+.subtext {
+  color: #6b6b6b;
+  font-size: 22px;
+}
+
+p.text {
+  a {
+    color: black;
   }
 }

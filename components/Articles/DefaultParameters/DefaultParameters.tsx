@@ -9,6 +9,7 @@ import Tags from '@/components/Tags/Tags';
 import dontPanic from '../../pictures/dont-panic.png';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
+import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
 export default function DefaultParameters(): JSX.Element {
   const { innerWrapper, imageWrapper, altText, text, code, pre } = styles;
@@ -19,6 +20,7 @@ export default function DefaultParameters(): JSX.Element {
       <PageHeader headerName="article" hideLinks={false} />
       <div className={`${width75} ${innerWrapper}`}>
         <h1>Are JavaScript&apos;s default parameters slowing me down?</h1>
+        <ArticleDateTime imageUrl={'dontpanic'} />
         <div className={imageWrapper}>
           <Image
             alt="Dont panic"
@@ -115,10 +117,10 @@ export default function DefaultParameters(): JSX.Element {
         <p className={text}>
           Aside from the fact that it&apos;s faster, this code is more explicit.
           What I mean by that is that we are handling our exception and
-          explicitly returning the value we want. There isn&apos;t anything implied
-          as in the case of <code className={code}>withDefault</code>. Another
-          benefit of going with withoutDefault is that we&apos;re not running code
-          unnecessarily. In
+          explicitly returning the value we want. There isn&apos;t anything
+          implied as in the case of <code className={code}>withDefault</code>.
+          Another benefit of going with withoutDefault is that we&apos;re not
+          running code unnecessarily. In
           <code className={code}>withDefault</code> we are still performing, to
           some extent, every operation just to return an empty string — time
           waster! Now imagine that you have an application of 10K, 20K, 120K
@@ -136,10 +138,10 @@ export default function DefaultParameters(): JSX.Element {
         <div className={minus10LeftMargin}>
           <Tags
             tags={[
-              'Kubernetes',
+              'JavaScript',
               'Software Development',
-              'DevOps',
-              'CKA',
+              'Programming',
+              'Technology',
               'Software Engineering',
             ]}
           />
