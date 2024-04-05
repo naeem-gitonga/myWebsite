@@ -44,8 +44,7 @@ export const articles: Article[] = [
     imageUrl: 'explservers',
     lengthInMinutes: 3,
     publishedDate: 'Jul 25, 2020',
-    articleUrl:
-      '/interstitial?url=https://medium.com/p/explain-servers-to-a-5-year-old-c59f8a4a2fac&where=Medium',
+    articleUrl: '/articles/explain-servers-to-5-year-old',
     noTarget: false,
   },
   {
