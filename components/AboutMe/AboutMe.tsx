@@ -4,9 +4,9 @@ import styles from './AboutMe.module.scss';
 import Link from 'next/link';
 
 export default function AboutMe(): JSX.Element {
-  const { aboutMe, headshot, about, textCenter, myWorkWrapper } = styles;
+  const { aboutMe, headshot, about, textCenter, aboutMeWrapper } = styles;
   return (
-    <div id="aboutMe" className={myWorkWrapper}>
+    <div id="aboutMe" className={aboutMeWrapper}>
       <PageHeader headerName="aboutMe" hideLinks={false} />
       <div className={textCenter}>
         <div
