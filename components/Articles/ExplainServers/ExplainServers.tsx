@@ -75,7 +75,7 @@ export default function ExplainServers(): JSX.Element {
         </pre>
         <p className={text}>
           You may also hear people refer to APIs as the individual routes that
-          your server has defined...
+          your server has defined.
         </p>
         <p className={text}>
           All of this may seem confusing now but let&apos;s try to tie it
@@ -112,8 +112,8 @@ export default function ExplainServers(): JSX.Element {
           If you order a hamburger at the Italian restaurant, what do you expect
           the response to be? Your waiter would probably say, &ldquo;I
           apologize, we don&apos;t have that.&rdquo; In computers that would be
-          equivalent to a <code className={code}>404</code>
-          {' '}status code meaning &ldquo;not found&rdquo;.
+          equivalent to a <code className={code}>404</code> status code meaning
+          &ldquo;not found&rdquo;.
         </p>
         <p className={text}>
           But if you order spaghetti and 10 minutes later the waiter brings you
