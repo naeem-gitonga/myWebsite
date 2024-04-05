@@ -1,4 +1,4 @@
-export const articles = [
+export const articles: Article[] = [
   {
     title: 'Exploring Functions as Microservices: A Powerful Approach...',
     imageUrl: 'exprapidbackend',
@@ -13,6 +13,7 @@ export const articles = [
     lengthInMinutes: 4,
     publishedDate: 'Jun 5, 2023',
     articleUrl: '/articles/do-i-need-a-cka',
+    noTarget: false,
   },
   {
     title: 'AWS IAM — Quick Dive/Quick Guide',
@@ -20,6 +21,7 @@ export const articles = [
     lengthInMinutes: 6,
     publishedDate: 'May 28, 2023',
     articleUrl: '/articles/i-am',
+    noTarget: false,
   },
   {
     title: "Are JavaScript's default parameters slowing me down?",
@@ -27,6 +29,7 @@ export const articles = [
     lengthInMinutes: 3,
     publishedDate: 'Nov 27, 2020',
     articleUrl: '/articles/default-parameters',
+    noTarget: false,
   },
   {
     title: "JavaScript's New Sexy",
@@ -34,14 +37,15 @@ export const articles = [
     lengthInMinutes: 5,
     publishedDate: 'Aug 30, 2020',
     articleUrl: '/articles/js-new-sexy',
+    noTarget: false,
   },
   {
     title: 'Explain Servers to a 5 Year Old',
     imageUrl: 'explservers',
     lengthInMinutes: 3,
     publishedDate: 'Jul 25, 2020',
-    articleUrl:
-      '/interstitial?url=https://medium.com/p/explain-servers-to-a-5-year-old-c59f8a4a2fac&where=Medium',
+    articleUrl: '/articles/explain-servers-to-5-year-old',
+    noTarget: false,
   },
   {
     title: 'Deploy GoLambda With MongoDB and AWS SAM (Part 3)',
@@ -50,6 +54,7 @@ export const articles = [
     publishedDate: 'Dec 29, 2019',
     articleUrl:
       '/interstitial?url=https://betterprogramming.pub/sam-deploys-golambda-w-mongodb-a03cd97bae45?source=friends_link&sk=21ab91d7cfdf2242928e9de61fab4f93&where=Medium',
+    noTarget: false,
   },
   {
     title: 'XML, read, send, write: Javascript front to Express/Node.js back',
@@ -58,6 +63,7 @@ export const articles = [
     publishedDate: 'Sep 2, 2019',
     articleUrl:
       '/interstitial?url=https://medium.com/swlh/xml-read-send-write-javascript-front-to-node-back-167df21c98df?source=friends_link&sk=0a7a38647a21182748516408a15b24ba&where=Medium',
+    noTarget: false,
   },
   {
     title: 'Micro Services Part II: AWS EC2 Linux AMIs',
@@ -66,6 +72,7 @@ export const articles = [
     publishedDate: 'Mar 16, 2019',
     articleUrl:
       '/interstitial?url=https://faun.pub/micro-services-part-ii-aws-ec2-linux-amis-4e5e644aa43a?source=friends_link&sk=0d641edad9f092218a1e5543c7cf1d82&where=Medium',
+    noTarget: false,
   },
   {
     title: 'Micro Services Part I: Node, Docker, and Docker Compose',
@@ -74,6 +81,7 @@ export const articles = [
     publishedDate: 'Mar 9, 2019',
     articleUrl:
       '/interstitial?url=https://medium.com/p/micro-services-part-i-d9059d1a8ac0&where=Medium',
+    noTarget: false,
   },
   {
     title: 'React Context-Api and Lazy-loading',
@@ -81,5 +89,6 @@ export const articles = [
     lengthInMinutes: 6,
     publishedDate: 'Dec 26, 2018',
     articleUrl: '/articles/react-context-api',
+    noTarget: false,
   },
 ];
