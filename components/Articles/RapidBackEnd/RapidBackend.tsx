@@ -35,7 +35,7 @@ export default function RapidBackend(): JSX.Element {
           Exploring Functions as Microservices: A Powerful Approach to
           Cloud-Based Applications
         </h1>
-        <ArticleDateTime imageUrl='exprapidbackend' />
+        <ArticleDateTime imageUrl="exprapidbackend" />
         <p className={text}>
           In the realm of cloud computing, the concepts of Functions as a
           Service (FaaS) and microservices have gained significant attention.
