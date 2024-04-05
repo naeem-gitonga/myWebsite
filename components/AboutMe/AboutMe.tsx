@@ -27,7 +27,7 @@ export default function AboutMe(): JSX.Element {
         </p>
         <p className={about}>I build enterprise web applications. I
           teach software engineering, DevOps, and mentor students in coding a boot
-          camp with GTNG Foundation , where the focus is the JavaScript MERN
+          camp with GTNG Foundation, where the focus is the JavaScript MERN
           stack, AWS and a few other technologies. Outside of coding, I do more
           art. Yeah that&apos;s right--programming a computer, building apps and
           websites is an art!</p>
