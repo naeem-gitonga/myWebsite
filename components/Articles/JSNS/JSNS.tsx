@@ -9,13 +9,12 @@ import Tags from '@/components/Tags/Tags';
 import newSexy from '../../pictures/js-new.png';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
-import { articles } from '@/utils/articles';
+import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
 export default function JSNS(): JSX.Element {
   const { innerWrapper, imageWrapper, altText, text, code, pre, subtext } =
     styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
-    const article = articles[4];
   return (
     <div id="jsns" className={`${tenPadding}`}>
       <PageHeader headerName="article" hideLinks={false} />
@@ -29,9 +28,10 @@ export default function JSNS(): JSX.Element {
             fill
           />
           <p className={altText}>Photo by NESA by Makers on Unsplash</p>
-        </div><h1>JavaScript&apos;s New Sexy</h1> {/** &rdquo; &ldquo; */}
+        </div>
+        <h1>JavaScript&apos;s New Sexy</h1> {/** &rdquo; &ldquo; */}
         <p className={subtext}>TypeScript: The Developer&apos;s Tool</p>
-        
+        <ArticleDateTime imageUrl={'jsnew'} />
         <p className={text}>
           If you&apos;re new to TypeScript, beware, it&apos;s not without its
           critics. Just two years shy of being 10 years old, it&apos;s been

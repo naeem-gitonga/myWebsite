@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 200px;
+  color: #6b6b6b;
+  .dot {
+    align-self: center;
+  }
+  p {
+    margin: 0;
+  }
+}

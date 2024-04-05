@@ -10,6 +10,7 @@ import seeTheLight from '../../pictures/react.png';
 import reactGif from '../../pictures/react_context.gif';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
+import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
 export default function ReactContextApi(): JSX.Element {
   const {
@@ -28,12 +29,10 @@ export default function ReactContextApi(): JSX.Element {
     grey,
   } = styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
-
   return (
     <div id="react-context-api" className={`${tenPadding}`}>
       <PageHeader headerName="article" hideLinks={false} />
       <div className={`${width75} ${innerWrapper}`}>
-        <h1>React Context-Api and Lazy-loading</h1>
         <div className={imageWrapper}>
           <Image
             alt="React"
@@ -44,6 +43,8 @@ export default function ReactContextApi(): JSX.Element {
           />
           <p className={altText}>React</p>
         </div>
+        <h1>React Context-Api and Lazy-loading</h1>
+        <ArticleDateTime imageUrl={'reactcontext'} />
         <h2>The What...</h2>
         <p className={text}>
           I am working on a new e-commerce site and I wanted to share some of

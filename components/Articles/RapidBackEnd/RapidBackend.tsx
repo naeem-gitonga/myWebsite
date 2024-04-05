@@ -12,19 +12,15 @@ import rapidBackEndLogo from '../../pictures/rapidbackend.png';
 import Link from 'next/link';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
+import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
 export default function RapidBackend(): JSX.Element {
   const { innerWrapper, imageWrapper, altText, text, anchorColor } = styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
-
   return (
     <div id="rapid-backend" className={`${tenPadding}`}>
       <PageHeader headerName="article" hideLinks={false} />
       <div className={`${width75} ${innerWrapper}`}>
-        <h1>
-          Exploring Functions as Microservices: A Powerful Approach to
-          Cloud-Based Applications
-        </h1>
         <div className={imageWrapper}>
           <Image
             alt="See the light"
@@ -35,6 +31,11 @@ export default function RapidBackend(): JSX.Element {
           />
           <p className={altText}>See the light</p>
         </div>
+        <h1>
+          Exploring Functions as Microservices: A Powerful Approach to
+          Cloud-Based Applications
+        </h1>
+        <ArticleDateTime imageUrl='exprapidbackend' />
         <p className={text}>
           In the realm of cloud computing, the concepts of Functions as a
           Service (FaaS) and microservices have gained significant attention.

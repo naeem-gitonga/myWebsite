@@ -9,6 +9,7 @@ import Tags from '@/components/Tags/Tags';
 import dontPanic from '../../pictures/dont-panic.png';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
+import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
 export default function DefaultParameters(): JSX.Element {
   const { innerWrapper, imageWrapper, altText, text, code, pre } = styles;
@@ -19,6 +20,7 @@ export default function DefaultParameters(): JSX.Element {
       <PageHeader headerName="article" hideLinks={false} />
       <div className={`${width75} ${innerWrapper}`}>
         <h1>Are JavaScript&apos;s default parameters slowing me down?</h1>
+        <ArticleDateTime imageUrl={'dontpanic'} />
         <div className={imageWrapper}>
           <Image
             alt="Dont panic"
