@@ -43,7 +43,7 @@ export const projects: Project[] = [
     title: 'This web app*',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/jng-website.png',
     projectDes:
-      'I just ported this website over to React. Originally it was written in 2018, using vanilla JS, some jQuery, and HTML. I decided to bring it into the now and add some new features.',
+      'Re-written using NextJS from vanilla JS, some jQuery, and HTML.',
     projectStack: 'jngwebsite',
     gitHubLink:
       '/interstitial?url=https://gitlab.com/naeemgitonga/myWebsite&where=Gitlab',
