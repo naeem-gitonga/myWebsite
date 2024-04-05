@@ -58,8 +58,8 @@ export default function RapidBackend(): JSX.Element {
           cloud provider, reducing their workload.
         </p>
         <p className={text}>
-          To visualize the relationship between microservices and FaaS, let’s
-          refer to a diagram borrowed from cloudflare.com:
+          To visualize the relationship between microservices and FaaS,
+          let&apos;s refer to a diagram borrowed from cloudflare.com:
         </p>
         <div className={imageWrapper}>
           <Image

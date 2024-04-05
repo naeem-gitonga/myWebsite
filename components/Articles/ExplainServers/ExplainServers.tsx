@@ -12,21 +12,11 @@ import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
 export default function ExplainServers(): JSX.Element {
-  const {
-    innerWrapper,
-    imageWrapper,
-    altText,
-    text,
-    code,
-    pre,
-    subtext,
-    emoji,
-    grey,
-  } = styles;
+  const { innerWrapper, imageWrapper, altText, text, code, pre } = styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
   // * &rdquo; &ldquo; &apos;
   return (
-    <div id="cka" className={`${tenPadding}`}>
+    <div id="servers" className={`${tenPadding}`}>
       <PageHeader headerName="article" hideLinks={false} />
       <div className={`${width75} ${innerWrapper}`}>
         <h1>Explain Servers to a 5 Year Old</h1>
