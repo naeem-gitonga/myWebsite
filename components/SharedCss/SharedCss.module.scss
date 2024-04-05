@@ -17,7 +17,7 @@
 .sectionHeader,
 .sectionHeader2 {
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.6em;
+  font-size: 25px;
   margin: 0 auto;
   width: 72%;
   border-bottom: 1px solid black;
@@ -29,6 +29,11 @@
   border-bottom: none;
   margin: 0;
   min-height: 38px;
+  @media only screen and (max-width: 400px) {
+    font-size: 20px;
+    min-height: 20px;
+    padding-top: 5px;
+  }
 }
 
 .sectionHeight {
