@@ -12,8 +12,16 @@ import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
 export default function JSNS(): JSX.Element {
-  const { innerWrapper, imageWrapper, altText, text, code, pre, subtext, emoji } =
-    styles;
+  const {
+    innerWrapper,
+    imageWrapper,
+    altText,
+    text,
+    code,
+    pre,
+    subtext,
+    emoji,
+  } = styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
   return (
     <div id="jsns" className={`${tenPadding}`}>
