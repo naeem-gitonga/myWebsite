@@ -12,7 +12,7 @@ import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
 export default function JSNS(): JSX.Element {
-  const { innerWrapper, imageWrapper, altText, text, code, pre, subtext } =
+  const { innerWrapper, imageWrapper, altText, text, code, pre, subtext, emoji } =
     styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
   return (
@@ -216,8 +216,9 @@ export default function JSNS(): JSX.Element {
           <a target="_blank" href="https://github.com/zloirock/core-js">
             core-js
           </a>{' '}
-          depending on your browser and or runtime — nothing&apos;s perfect. 🤷🏿‍♂️
+          depending on your browser and or runtime — nothing&apos;s perfect.
         </p>
+        <p className={emoji}>🤷🏿‍♂️</p>
         <div className={minus10LeftMargin}>
           <Tags
             tags={[
