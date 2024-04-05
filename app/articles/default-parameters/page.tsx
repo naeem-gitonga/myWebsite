@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
-import DefaultParameters from '@/components/Articles/DefaultParameters/DefaultParamters';
+import DefaultParameters from '@/components/Articles/DefaultParameters/DefaultParameters';
 
 export function generateMetadata(): Metadata {
   return {
     title: "Are JavaScript's default parameters slowing me down?",
     description:
-      'Learn how JavaScript default parameters affect runtime by Naeem Gitonga',
+      'Learn how JavaScript default parameters affect code execution time by Naeem Gitonga',
   };
 }
 
