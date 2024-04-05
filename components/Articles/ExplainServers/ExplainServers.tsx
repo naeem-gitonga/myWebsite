@@ -113,7 +113,7 @@ export default function ExplainServers(): JSX.Element {
           the response to be? Your waiter would probably say, &ldquo;I
           apologize, we don&apos;t have that.&rdquo; In computers that would be
           equivalent to a <code className={code}>404</code>
-          status code meaning &ldquo;not found&rdquo;.
+          {' '}status code meaning &ldquo;not found&rdquo;.
         </p>
         <p className={text}>
           But if you order spaghetti and 10 minutes later the waiter brings you
