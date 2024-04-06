@@ -328,7 +328,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
           you&apos;ll need to import{' '}
           <code className={code}>
             <a target="_blank" href="https://github.com/joho/godotenv">
-            &ldquo;github.com/joho/godotenv&rdquo;
+              &ldquo;github.com/joho/godotenv&rdquo;
             </a>
           </code>
           . Even in Node you need the{' '}
