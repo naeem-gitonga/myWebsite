@@ -1,5 +1,5 @@
 const products = require('../utils/products')['products'];
-
+// * reference:      https://www.sitemaps.org/protocol.html https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
 function generateSiteMap() {
   const articleEntries = [
     'default-parameters',
