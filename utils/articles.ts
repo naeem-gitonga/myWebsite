@@ -52,8 +52,7 @@ export const articles: Article[] = [
     imageUrl: 'samgolambda',
     lengthInMinutes: 11,
     publishedDate: 'Dec 29, 2019',
-    articleUrl:
-      '/interstitial?url=https://betterprogramming.pub/sam-deploys-golambda-w-mongodb-a03cd97bae45?source=friends_link&sk=21ab91d7cfdf2242928e9de61fab4f93&where=Medium',
+    articleUrl: '/articles/sam-lambda-mongodb',
     noTarget: false,
   },
   {

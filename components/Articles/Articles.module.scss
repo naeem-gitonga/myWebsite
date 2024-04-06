@@ -39,7 +39,7 @@
 }
 
 .code {
-  background-color: #dfdfdf;
+  background-color: rgb(242, 242, 242);
   padding: 2px 4px;
   font-size: 15px;
   display: inline-block;
@@ -54,7 +54,11 @@
   box-sizing: inherit;
   word-wrap: break-word;
   margin: 0;
-
+  .gistSubtext {
+    margin: 0;
+    text-align: center;
+    color: #6b6b6b;
+  }
   .firstInner {
     margin: auto;
     overflow: hidden;
@@ -63,6 +67,7 @@
     box-sizing: inherit;
     unicode-bidi: isolate;
     word-wrap: break-word;
+
     .secondInner {
       height: 0;
       display: block;
@@ -77,6 +82,7 @@
         border: none;
       }
     }
+    // * start ReactContextApi Gists
     .firstGist {
       height: 613px;
     }
@@ -89,6 +95,46 @@
     .fourthGist {
       height: 218px;
     }
+    // * end ReactContextApi Gists
+
+    // * start SamLambdaMongoDB Gists
+    .fifthGist {
+      height: 569px;
+    }
+    .sixthGist {
+      height: 217px;
+    }
+    .seventhGist {
+      height: 218px;
+    }
+    .eighthGist {
+      height: 393px;
+    }
+    .ninthGist {
+      height: 657px;
+    }
+    .tenthGist {
+      height: 283px;
+    }
+    .eleventhGist {
+      height: 195px;
+    }
+    .twelthGist {
+      height: 503px;
+    }
+    .thirteenthGist {
+      height: 569px;
+    }
+    .fourteenthGist {
+      height: 218px;
+    }
+    .fifteenthGist {
+      height: 569px;
+    }
+    .sixteenthGist {
+      height: 569px;
+    }
+    // * end SamLambdaMongoDB Gists
   }
 }
 
@@ -111,6 +157,7 @@ ul.noDots > li {
 pre.pre {
   text-align: center;
   .code {
+    width: 100%;
     text-align: left;
     text-wrap: wrap;
     padding: 20px;
