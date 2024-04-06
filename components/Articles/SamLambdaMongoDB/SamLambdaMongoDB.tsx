@@ -111,20 +111,6 @@ export default function SamLambdaMongoDB(): JSX.Element {
         </p>
 
         <pre className={pre}>
-          <code className={code}>{``}</code>
-        </pre>
-        <h2></h2>
-        <code className={code}></code>
-        <p className={text}></p>
-        <figure className={figure}>
-          <div className={firstInner}>
-            <div className={`${secondInner} ${firstGist}`}>
-              <iframe className={firstGist} src=".pibb"></iframe>
-            </div>
-          </div>
-        </figure>
-
-        <pre className={pre}>
           <code className={code}>
             {`export GOPATH=$HOME/porjects/go\nexport PATH="$PATH:$HOME/projects/go/bin"`}
           </code>
