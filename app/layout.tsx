@@ -2,7 +2,7 @@ import Script from 'next/script';
 import './globals.css';
 
 export const metadata = {
-  title: 'Jaha Naeem Gitonga',
+  title: 'Naeem Gitonga',
   description:
     'Jaha Naeem Gitonga of GTNG, engineering and business leader, Software | DevOps subject matter expert.',
 };
