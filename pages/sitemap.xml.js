@@ -10,6 +10,7 @@ function generateSiteMap() {
     'rapidbackend',
     'react-context-api',
     'sam-lambda-mongodb',
+    'read-write-send-xml',
   ].map((file) => {
     return `
       <url>
