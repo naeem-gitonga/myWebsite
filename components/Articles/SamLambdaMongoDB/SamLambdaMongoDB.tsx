@@ -52,7 +52,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
         <ArticleDateTime imageUrl={'samgolambda'} />
         <div className={imageWrapper}>
           <Image
-            alt="SamGopherMongoDB"
+            alt="AWS Sam, Golang gopher, and MongoDB logo"
             loader={imageLoader}
             src={samGoLambda}
             style={{ objectFit: 'contain', maxWidth: '100%' }}

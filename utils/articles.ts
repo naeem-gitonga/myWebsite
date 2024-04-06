@@ -60,8 +60,7 @@ export const articles: Article[] = [
     imageUrl: 'xml',
     lengthInMinutes: 4,
     publishedDate: 'Sep 2, 2019',
-    articleUrl:
-      '/interstitial?url=https://medium.com/swlh/xml-read-send-write-javascript-front-to-node-back-167df21c98df?source=friends_link&sk=0a7a38647a21182748516408a15b24ba&where=Medium',
+    articleUrl: '/articles/read-write-send-xml',
     noTarget: false,
   },
   {
