@@ -7,7 +7,7 @@ export function generateMetadata(): Metadata {
   return {
     title: 'Deploy GoLambda With MongoDB and AWS SAM (Part 3) by Naeem Gitonga',
     description:
-      'Learn how to deploy a lambda with a Golang runtime using AWS SAM by Naeem Gitonga',
+      'Learn how to deploy an AWS lambda with a Golang runtime using AWS SAM by Naeem Gitonga',
   };
 }
 
