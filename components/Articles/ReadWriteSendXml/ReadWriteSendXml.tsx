@@ -18,7 +18,6 @@ export default function SamLambdaMongoDB(): JSX.Element {
   const {
     innerWrapper,
     imageWrapper,
-    altText,
     text,
     code,
     figure,
@@ -124,7 +123,6 @@ export default function SamLambdaMongoDB(): JSX.Element {
           </div>
           <p className={gistSubtext}>XML with attributes and other metadata</p>
         </figure>
-
         <p className={text}>
           Now for the parser that we will be using on our Node/Express back-end,
           <code className={code}>
@@ -158,7 +156,6 @@ export default function SamLambdaMongoDB(): JSX.Element {
           </div>
           <p className={gistSubtext}>albums.attribute.xml</p>
         </figure>
-
         <p className={text}>
           As you can see our parser has made our JSON a little more nested and
           If you can imagine, the more nested your XML tags and the more
@@ -184,7 +181,6 @@ export default function SamLambdaMongoDB(): JSX.Element {
           </div>
           <p className={gistSubtext}>index.html</p>
         </figure>
-
         <p className={text}>
           Checkout <code className={code}>line 4</code>. I have an input that
           accepts only <code className={code}>xml</code>. 🤔 Now that we&apos;ve
@@ -192,7 +188,6 @@ export default function SamLambdaMongoDB(): JSX.Element {
           Similar to the HTML file I have only shared a gist of the lines that
           are most important to this article.
         </p>
-
         <figure className={figure}>
           <div className={firstInner}>
             <div className={`${secondInner} ${sixthGist}`}>
@@ -204,14 +199,13 @@ export default function SamLambdaMongoDB(): JSX.Element {
           </div>
           <p className={gistSubtext}>app.js (partial file — front-end)</p>
         </figure>
-
         <p className={text}>
           A little bit about these two functions{' '}
           <code className={code}>processFile</code> and{' '}
           <code className={code}>sendXML</code>.
           <code className={code}>processFile</code> will be called when a user
-          presses the &ldquo;Upload&rdquo; button on our app and will initiate the
-          reading and initial parsing of our XML so that it will be ready to
+          presses the &ldquo;Upload&rdquo; button on our app and will initiate
+          the reading and initial parsing of our XML so that it will be ready to
           send to our Express server.
         </p>
         <p className={text}>
@@ -229,7 +223,6 @@ export default function SamLambdaMongoDB(): JSX.Element {
           With that being said, let&apos;s take a look at our{' '}
           <code className={code}>server.js</code>! It&apos;s a minimal server:
         </p>
-
         <figure className={figure}>
           <div className={firstInner}>
             <div className={`${secondInner} ${seventhGist}`}>
@@ -241,7 +234,6 @@ export default function SamLambdaMongoDB(): JSX.Element {
           </div>
           <p className={gistSubtext}>server.xml.js</p>
         </figure>
-
         <p className={text}>
           This server uses <code className={code}>sqlite3</code> to persist our
           data and uses the <code className={code}>express-xml-bodyparser</code>{' '}
@@ -264,7 +256,6 @@ export default function SamLambdaMongoDB(): JSX.Element {
           </a>
           .
         </p>
-
         <pre className={pre}>
           <code className={code}>
             {`<albums>\n <album>\n  <artist>Prince</artist>\n  <title>Purple Rain</title>\n  <year>1984</year>\n  <awards>\n   <grammy>3</grammy>\n  </awards>\n </album>\n <album>\n  <artist>Rick James</artist>\n  <title>Street Songs</title>\n  <year>1981</year>\n  <awards>\n   <grammy>1</grammy>\n  </awards>\n </album>\n</albums>`}
@@ -273,7 +264,6 @@ export default function SamLambdaMongoDB(): JSX.Element {
         <p className={text}>
           I hope this is helpful to someone! Let me know what you think!
         </p>
-
         <div className={minus10LeftMargin}>
           <Tags
             tags={[
@@ -283,7 +273,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
               'Node.js',
               'Software Engineering',
               'REST APIs',
-              'Fullstack development'
+              'Fullstack development',
             ]}
           />
         </div>

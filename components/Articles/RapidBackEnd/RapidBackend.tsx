@@ -93,7 +93,7 @@ export default function RapidBackend(): JSX.Element {
           to harness the benefits of cloud functions while retaining the modular
           nature of microservices. It is often referred to as serverless
           microservices, emphasizing the removal of excessive lambdas that
-          comprise many cloud-based applications
+          comprise many cloud-based applications.
         </p>
         <h2>The Challenges of Nanoservices</h2>
         <p className={text}>

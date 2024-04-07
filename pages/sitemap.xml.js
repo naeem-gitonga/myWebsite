@@ -11,6 +11,8 @@ function generateSiteMap() {
     'react-context-api',
     'sam-lambda-mongodb',
     'read-write-send-xml',
+    'microservices-part-1',
+    'microservices-part-2',
   ].map((file) => {
     return `
       <url>
