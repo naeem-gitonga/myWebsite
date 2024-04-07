@@ -77,8 +77,7 @@ export const articles: Article[] = [
     imageUrl: 'mspt1',
     lengthInMinutes: 5,
     publishedDate: 'Mar 9, 2019',
-    articleUrl:
-      '/interstitial?url=https://medium.com/p/micro-services-part-i-d9059d1a8ac0&where=Medium',
+    articleUrl: '/articles/microservices-part-1',
     noTarget: false,
   },
   {
