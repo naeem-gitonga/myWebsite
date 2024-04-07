@@ -68,8 +68,7 @@ export const articles: Article[] = [
     imageUrl: 'mspt2',
     lengthInMinutes: 4,
     publishedDate: 'Mar 16, 2019',
-    articleUrl:
-      '/interstitial?url=https://faun.pub/micro-services-part-ii-aws-ec2-linux-amis-4e5e644aa43a?source=friends_link&sk=0d641edad9f092218a1e5543c7cf1d82&where=Medium',
+    articleUrl: '/articles/microservices-part-2',
     noTarget: false,
   },
   {
