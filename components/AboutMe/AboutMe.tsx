@@ -26,7 +26,7 @@ export default function AboutMe(): JSX.Element {
           Peace, I&apos;m Jaha Naeem Gitonga, but you can call me Naeem. I am
           from Clinton, NC &#40;born and raised&#41;. For all you recruiters out
           there, that means I do not need a work sponsorship to work in the USA,
-          next question. I&apos;ve lead teams to deliver software, being
+          next question. I&apos;ve led teams to deliver software, being
           responsible for guiding and overseeing the technical aspects of
           projects, collaborating with stakeholders and ensuring the team&apos;s
           adherence to best practices, as well as making key technical
