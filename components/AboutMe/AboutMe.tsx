@@ -1,10 +1,16 @@
 'use client';
-import PageHeader from '../PageHeader/PageHeader';
-import styles from './AboutMe.module.scss';
+import Image from 'next/image';
 import Link from 'next/link';
 
+import { imageLoader } from '@/utils/imageLoader';
+import PageHeader from '../PageHeader/PageHeader';
+import styles from './AboutMe.module.scss';
+
+import ckaLogo from '@/components/pictures/cka.png';
+import awsDevOpsProLogo from '@/components/pictures/aws-devops-pro.png';
 export default function AboutMe(): JSX.Element {
-  const { aboutMe, headshot, about, textCenter, aboutMeWrapper } = styles;
+  const { aboutMe, headshot, about, textCenter, aboutMeWrapper, imageWrapper } =
+    styles;
   return (
     <div id="aboutMe" className={aboutMeWrapper}>
       <PageHeader headerName="aboutMe" hideLinks={false} />
@@ -62,6 +68,24 @@ export default function AboutMe(): JSX.Element {
           Or, reach out to me on LinkedIn I will be sure to follow up. Enjoy and
           thanks for dropping by!
         </p>
+
+        <h2>Certifications</h2>
+        <div id="certifications" className={imageWrapper}>
+          <Image
+            alt="Certified Kubernetes Administrator (CKA) logo"
+            loader={imageLoader}
+            src={ckaLogo}
+            style={{ objectFit: 'contain', maxWidth: '75%' }}
+            fill
+          />
+          <Image
+            alt="AWS DevOps Professional logo"
+            loader={imageLoader}
+            src={awsDevOpsProLogo}
+            style={{ objectFit: 'contain', maxWidth: '75%' }}
+            fill
+          />
+        </div>
       </div>
     </div>
   );
