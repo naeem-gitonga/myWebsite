@@ -32,6 +32,24 @@ export default function AboutMe(): JSX.Element {
           adherence to best practices, as well as making key technical
           decisions.
         </p>
+        <h2>Certifications</h2>
+        <div id="certifications" className={imageWrapper}>
+          <Image
+            alt="Certified Kubernetes Administrator (CKA) logo"
+            loader={imageLoader}
+            src={ckaLogo}
+            style={{ objectFit: 'contain', maxWidth: '75%' }}
+            fill
+          />
+          <Image
+            alt="AWS DevOps Professional logo"
+            loader={imageLoader}
+            src={awsDevOpsProLogo}
+            style={{ objectFit: 'contain', maxWidth: '75%' }}
+            fill
+          />
+        </div>
+        <h2>More about me</h2>
         <p className={about}>
           I build enterprise web applications. I teach software engineering,
           DevOps, and mentor students in coding a boot camp with GTNG
@@ -68,24 +86,6 @@ export default function AboutMe(): JSX.Element {
           Or, reach out to me on LinkedIn I will be sure to follow up. Enjoy and
           thanks for dropping by!
         </p>
-
-        <h2>Certifications</h2>
-        <div id="certifications" className={imageWrapper}>
-          <Image
-            alt="Certified Kubernetes Administrator (CKA) logo"
-            loader={imageLoader}
-            src={ckaLogo}
-            style={{ objectFit: 'contain', maxWidth: '75%' }}
-            fill
-          />
-          <Image
-            alt="AWS DevOps Professional logo"
-            loader={imageLoader}
-            src={awsDevOpsProLogo}
-            style={{ objectFit: 'contain', maxWidth: '75%' }}
-            fill
-          />
-        </div>
       </div>
     </div>
   );
