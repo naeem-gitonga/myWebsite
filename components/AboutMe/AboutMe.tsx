@@ -9,7 +9,8 @@ import styles from './AboutMe.module.scss';
 import ckaLogo from '@/components/pictures/cka.png';
 import awsDevOpsProLogo from '@/components/pictures/aws-devops-pro.png';
 export default function AboutMe(): JSX.Element {
-  const { aboutMe, headshot, about, textCenter, aboutMeWrapper, imageWrapper } = styles;
+  const { aboutMe, headshot, about, textCenter, aboutMeWrapper, imageWrapper } =
+    styles;
   return (
     <div id="aboutMe" className={aboutMeWrapper}>
       <PageHeader headerName="aboutMe" hideLinks={false} />
@@ -68,10 +69,9 @@ export default function AboutMe(): JSX.Element {
           thanks for dropping by!
         </p>
 
-        <hr></hr>
-          <h2>Certifications</h2>
+        <h2>Certifications</h2>
         <div id="certifications" className={imageWrapper}>
-        <Image
+          <Image
             alt="Certified Kubernetes Administrator (CKA) logo"
             loader={imageLoader}
             src={ckaLogo}
