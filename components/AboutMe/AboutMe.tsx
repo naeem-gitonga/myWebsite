@@ -9,7 +9,7 @@ import styles from './AboutMe.module.scss';
 import ckaLogo from '@/components/pictures/cka.png';
 import awsDevOpsProLogo from '@/components/pictures/aws-devops-pro.png';
 export default function AboutMe(): JSX.Element {
-  const { aboutMe, headshot, about, textCenter, aboutMeWrapper, imageWrapper } =
+  const { aboutMe, headshot, about, textCenter, aboutMeWrapper, imageWrapper, subhead } =
     styles;
   return (
     <div id="aboutMe" className={aboutMeWrapper}>
@@ -32,7 +32,7 @@ export default function AboutMe(): JSX.Element {
           adherence to best practices, as well as making key technical
           decisions.
         </p>
-        <h2>Certifications</h2>
+        <h2 className={subhead}>Certifications</h2>
         <div id="certifications" className={imageWrapper}>
           <Image
             alt="Certified Kubernetes Administrator (CKA) logo"
@@ -49,7 +49,7 @@ export default function AboutMe(): JSX.Element {
             fill
           />
         </div>
-        <h2>More about me</h2>
+        <h2 className={subhead}>More about me</h2>
         <p className={about}>
           I build enterprise web applications. I teach software engineering,
           DevOps, and mentor students in coding a boot camp with GTNG
