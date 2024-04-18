@@ -8,8 +8,12 @@ import styles from './AboutMe.module.scss';
 
 import ckaLogo from '@/components/pictures/cka.png';
 import awsDevOpsProLogo from '@/components/pictures/aws-devops-pro.png';
+
+import gtLogo from '@/components/pictures/gt-logo.png';
+import uncwLogo from '@/components/pictures/uncw-logo.png';
+
 export default function AboutMe(): JSX.Element {
-  const { aboutMe, headshot, about, textCenter, aboutMeWrapper, imageWrapper, subhead } =
+  const { aboutMe, headshot, about, textCenter, aboutMeWrapper, imageWrapper, subhead, altText } =
     styles;
   return (
     <div id="aboutMe" className={aboutMeWrapper}>
@@ -80,6 +84,25 @@ export default function AboutMe(): JSX.Element {
           <span className="link">Live site</span> and you&apos;ll be able to
           play around with some stuff.
         </p>
+        <h2 className={subhead}>Education</h2>
+        <div id="education" className={imageWrapper}>
+          <Image
+            alt="Georgia Tech Logo"
+            loader={imageLoader}
+            src={gtLogo}
+            style={{ objectFit: 'contain', maxWidth: '75%' }}
+            fill
+          />
+          <p className={altText}>Scheller MBA, Management of Information Resources and Marketing &apos;25</p>
+          <Image
+            alt="AWS DevOps Professional logo"
+            loader={imageLoader}
+            src={uncwLogo}
+            style={{ objectFit: 'contain', maxWidth: '75%' }}
+            fill
+          />
+          <p className={altText}>UNCW Spanish, University Honors &apos;11</p>
+        </div>
         <p className={about}>
           Please, if you would like to work with me or just stopped by look
           around, click on the envelope icon above and drop me a line or two.
