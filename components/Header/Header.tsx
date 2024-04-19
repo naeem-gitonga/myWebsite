@@ -17,7 +17,7 @@ export default function Header(props: HeaderProps): JSX.Element {
           <div id="top-div" className={styles['main-nav']}>
             <h1 className={styles.myName}>Naeem Gitonga</h1>
             <ul className={styles.firstUl}>
-              <li id="aboutMe-link" onClick={() => setWhichSection('aboutMe')}>
+              <li id="aboutMe-link">
                 <Link className={styles.firstUlLink} href="/about">
                   aboutMe
                 </Link>
@@ -41,7 +41,7 @@ export default function Header(props: HeaderProps): JSX.Element {
               )}
             </ul>
             <div className={styles.links}>
-              <Link href="/contact" onClick={() => setWhichSection('contact')}>
+              <Link href="/contact">
                 <Envelope />
               </Link>
 
