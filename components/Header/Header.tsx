@@ -41,7 +41,7 @@ export default function Header(props: HeaderProps): JSX.Element {
               )}
             </ul>
             <div className={styles.links}>
-              <Link href="#contact" onClick={() => setWhichSection('contact')}>
+              <Link href="/contact" onClick={() => setWhichSection('contact')}>
                 <Envelope />
               </Link>
 

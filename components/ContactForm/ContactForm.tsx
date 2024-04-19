@@ -1,24 +1,25 @@
-import styles from './ContactForm.module.css';
+'use client';
+import styles from './ContactForm.module.scss';
 import sharedStyles from '../SharedCss/SharedCss.module.scss';
+import PageHeader from '../PageHeader/PageHeader';
 
 export default function ContactForm(): JSX.Element {
   const {
-    contactMe,
+    contactWrapper,
     contactForm,
     input,
     form,
     message,
     submit,
-    contact,
     label,
   } = styles;
   return (
-    <section
-      className={`${contact} ${sharedStyles.height100vh} animated`}
+    <div
       id="contact"
+      className={`${contactWrapper} ${sharedStyles.height100vh}`}
     >
+      <PageHeader headerName="contactMe" hideLinks={false} />
       <div className={contactForm}>
-        <h2 className={contactMe}>contactMe</h2>
         <form
           className={form}
           action="https://formspree.io/blackb8r@gmail.com"
@@ -58,6 +59,6 @@ export default function ContactForm(): JSX.Element {
           <input className={submit} type="submit" value="Send message" />
         </form>
       </div>
-    </section>
+    </div>
   );
 }

@@ -13,8 +13,16 @@ import gtLogo from '@/components/pictures/gt-logo.png';
 import uncwLogo from '@/components/pictures/uncw-logo.png';
 
 export default function AboutMe(): JSX.Element {
-  const { aboutMe, headshot, about, textCenter, aboutMeWrapper, imageWrapper, subhead, altText } =
-    styles;
+  const {
+    aboutMe,
+    headshot,
+    about,
+    textCenter,
+    aboutMeWrapper,
+    imageWrapper,
+    subhead,
+    altText,
+  } = styles;
   return (
     <div id="aboutMe" className={aboutMeWrapper}>
       <PageHeader headerName="aboutMe" hideLinks={false} />
@@ -93,7 +101,10 @@ export default function AboutMe(): JSX.Element {
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
-          <p className={altText}>Scheller MBA, Management of Information Resources and Marketing &apos;25</p>
+          <p className={altText}>
+            Scheller MBA, Management of Information Resources and Marketing
+            &apos;25
+          </p>
           <Image
             alt="AWS DevOps Professional logo"
             loader={imageLoader}
@@ -105,9 +116,9 @@ export default function AboutMe(): JSX.Element {
         </div>
         <p className={about}>
           Please, if you would like to work with me or just stopped by look
-          around, click on the envelope icon above and drop me a line or two.
-          Or, reach out to me on LinkedIn I will be sure to follow up. Enjoy and
-          thanks for dropping by!
+          around, click <Link href="/contact">here</Link> and drop me a line or
+          two. Or, reach out to me on LinkedIn I will be sure to follow up.
+          Enjoy and thanks for dropping by!
         </p>
       </div>
     </div>
