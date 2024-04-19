@@ -27,8 +27,6 @@ export default function Home() {
     switch (whichSection) {
       case 'aboutMe':
         return <AboutMe />;
-      case 'contact':
-        return <ContactForm />;
       case 'donate':
         return <Donate />;
       case 'articles':

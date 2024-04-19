@@ -1,8 +1,7 @@
-.contactForm {
+.contactWrapper {
   padding: 10px;
-}
-
-.contact {
+  overflow: auto;
+  height: calc(100vh - 70px);
 }
 
 .contactMe {
