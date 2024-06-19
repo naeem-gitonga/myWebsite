@@ -75,7 +75,7 @@ export default class PaypalService extends BaseService<Order> {
       cart,
     } = this.body;
     let urlObjs = [];
-    const codes = cart.map((i) => {
+    cart.map((i) => {
       urlObjs = [
         ...urlObjs,
         {
