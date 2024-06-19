@@ -35,7 +35,7 @@ export default function AboutMe(): JSX.Element {
       </div>
       <div className={aboutMe}>
         <p className={about}>
-          Peace, I&apos;m Jaha Naeem Gitonga, but you can call me Naeem. I am
+          Peace, I&apos;m Naeem Gitonga. I am
           from Clinton, NC &#40;born and raised&#41;. For all you recruiters out
           there, that means I do not need a work sponsorship to work in the USA,
           next question. I&apos;ve led teams to deliver software, being

@@ -20,7 +20,7 @@ export function generateMetadata(
     product?.description as string
   );
   return {
-    title: `${product?.title} by Jaha Naeem Gitonga`,
+    title: `${product?.title} by Naeem Gitonga`,
     description: description,
   };
 }

@@ -195,7 +195,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
         <pre className={pre}>
           <code
             className={code}
-          >{`$ make deps\ngo get -u ./...\n# cd /Users/jahagitonga/projects/go/src/test-go; git submodule update --init --recursive\nfatal: No url found for submodule path 'test-go' in .gitmodules\npackage aahs-go-back-end/aahs-func/test-go: exit status 128`}</code>
+          >{`$ make deps\ngo get -u ./...\n# cd /Users/naeemgitonga/projects/go/src/test-go; git submodule update --init --recursive\nfatal: No url found for submodule path 'test-go' in .gitmodules\npackage aahs-go-back-end/aahs-func/test-go: exit status 128`}</code>
         </pre>
         <ul>
           <li className={text}>

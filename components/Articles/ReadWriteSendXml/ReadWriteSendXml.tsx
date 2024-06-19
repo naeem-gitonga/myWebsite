@@ -44,7 +44,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
         <ArticleDateTime imageUrl={'xml'} />
         <div className={imageWrapper}>
           <Image
-            alt="Jaha Naeem Gitonga sitting at computer"
+            alt="Naeem Gitonga sitting at computer"
             loader={imageLoader}
             src={computerGenius}
             style={{ objectFit: 'contain', maxWidth: '100%' }}
