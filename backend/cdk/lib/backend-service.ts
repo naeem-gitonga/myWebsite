@@ -120,6 +120,10 @@ export default class BackendService extends Construct {
       'https://www.staging.jahanaeemgitonga.com/',
       'https://staging.jahanaeemgitonga.com/*',
       'https://staging.jahanaeemgitonga.com/',
+      'https://www.staging.naeemgitonga.com/*',
+      'https://www.staging.naeemgitonga.com/',
+      'https://staging.naeemgitonga.com/*',
+      'https://staging.naeemgitonga.com/',
     ];
 
     if (isProd) {
@@ -128,6 +132,10 @@ export default class BackendService extends Construct {
         'https://www.jahanaeemgitonga.com/',
         'https://jahanaeemgitonga.com/',
         'https://jahanaeemgitonga.com/*',
+        'https://www.naeemgitonga.com/*',
+        'https://www.naeemgitonga.com/',
+        'https://naeemgitonga.com/',
+        'https://naeemgitonga.com/*',
       ];
     }
     let conditions: any = {

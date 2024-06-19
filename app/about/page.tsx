@@ -7,7 +7,7 @@ export function generateMetadata(): Metadata {
   return {
     title: 'About Naeem Gitonga',
     description:
-      'Learn about the man, the leader, the engineer who is Jaha Naeem Gitonga by Naeem Gitonga.',
+      'Learn about the man, the leader, the engineer who is Naeem Gitonga by Naeem Gitonga.',
   };
 }
 

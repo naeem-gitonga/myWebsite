@@ -6,7 +6,7 @@ First built in 2017. Recently ported over to be a Next.js React app.
 
 Seriously, thanks for dropping by!
 
-[My Portfolio Webpage](https://www.jahanaeemgitonga.com/)
+[My Portfolio Webpage](https://www.naeemgitonga.com/)
 
 
 ## Images/Static Files

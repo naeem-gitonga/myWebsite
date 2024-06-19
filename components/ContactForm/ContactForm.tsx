@@ -4,15 +4,8 @@ import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import PageHeader from '../PageHeader/PageHeader';
 
 export default function ContactForm(): JSX.Element {
-  const {
-    contactWrapper,
-    contactForm,
-    input,
-    form,
-    message,
-    submit,
-    label,
-  } = styles;
+  const { contactWrapper, contactForm, input, form, message, submit, label } =
+    styles;
   return (
     <div
       id="contact"
