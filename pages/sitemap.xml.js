@@ -1,5 +1,4 @@
 const products = require('../utils/products')['products'];
-
 // * reference:      https://www.sitemaps.org/protocol.html https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
 function generateSiteMap(prefix) {
   const articleEntries = [
@@ -72,7 +71,6 @@ export async function getServerSideProps({ res, req }) {
   if (referrer.includes('jaha')) {
     sitemap = generateSiteMap('jaha');
   }
-
   sitemap = generateSiteMap('');
 
   res.setHeader('Content-Type', 'text/xml');
