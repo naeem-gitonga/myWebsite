@@ -172,7 +172,7 @@ export default class PaypalService extends BaseService<Order> {
     await this.create({
       Bucket: 'gtng',
       Key: `${
-        process.env.NODE_ENV === 'staging' ? 'development-' : ''
+        process.env.WHICH_ROUTE === 'staging' ? 'development-' : ''
       }orders/${user._id}.json`,
       Body: JSON.stringify({
         ...user,

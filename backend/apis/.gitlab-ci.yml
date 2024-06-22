@@ -133,11 +133,8 @@ deploy_staging:
     - if: '$CI_COMMIT_BRANCH == "staging"'
       changes:
         - backend/apis/**/*
-        - backend/cdk/lib/*
-        - backend/cdk/bin/*
-  needs:
-    - job: build_staging
-      artifacts: true
+        - backend/cdk/**/*
+        - backend/cdk/**/*
   dependencies:
     - build_staging
   script:

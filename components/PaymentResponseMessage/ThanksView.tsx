@@ -18,7 +18,7 @@ function ThanksContent(): JSX.Element {
   const searchParams = useSearchParams();
 
   const referenceId = searchParams?.get('referenceId');
-  const ftseParam = searchParams?.get('ftse');
+  const ftseParam = searchParams?.get('ftse'); // ? ftse = "failure to send email"
   const [_isNumber, ftse] = canBeParsedToInt(ftseParam as unknown as string);
   const { thanksViewWrapper, width300Center } = styles;
   return (
@@ -28,12 +28,12 @@ function ThanksContent(): JSX.Element {
         <p className={'firstP'}>
           Awesome! We have successfully processed your payment.
         </p>
-        <p>
-          Please check your email for your confirmation. Check your spam folder
-          if you do not see it in your inbox.
-        </p>
         {ftse !== 1 ? (
           <>
+            <p>
+              Please check your email for your confirmation. Check your spam
+              folder if you do not see it in your inbox.
+            </p>
             <p>
               Your payment reference ID is <strong>{referenceId}</strong>.
             </p>

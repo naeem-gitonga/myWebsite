@@ -13,6 +13,7 @@ import {
   Effect,
   PolicyDocument,
   PolicyStatement,
+  ServicePrincipal,
 } from 'aws-cdk-lib/aws-iam';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { Duration, RemovalPolicy } from 'aws-cdk-lib';
@@ -46,8 +47,13 @@ export default class BackendService extends Construct {
 
     // * Define an IAM policy statement for writing to the SQS queue
     const sqsPermission = new PolicyStatement({
-      actions: ['sqs:SendMessage'],
+      actions: ['sqs:SendMessage', 'sqs:Get*'],
       resources: [deadLetterQueue.queueArn],
+    });
+
+    const s3Permission = new PolicyStatement({
+      actions: ['s3:PutObject'],
+      resources: ['arn:aws:s3:::gtng/*orders/*'],
     });
 
     const environment: { [s: string]: {} } = {
@@ -111,15 +117,12 @@ export default class BackendService extends Construct {
       lambda.addToRolePolicy(policyStatementRb);
       lambda.addToRolePolicy(policyStatementJng);
       lambda.addToRolePolicy(sqsPermission);
+      lambda.addToRolePolicy(s3Permission);
       functions[nameLowerCased] = lambda;
     });
 
     // const deployStage = process.env.DEPLOY_STAGE; //? I May bring this back to conditionally set the condition to use my IP Address
     let referrers = [
-      'https://www.staging.jahanaeemgitonga.com/*',
-      'https://www.staging.jahanaeemgitonga.com/',
-      'https://staging.jahanaeemgitonga.com/*',
-      'https://staging.jahanaeemgitonga.com/',
       'https://www.staging.naeemgitonga.com/*',
       'https://www.staging.naeemgitonga.com/',
       'https://staging.naeemgitonga.com/*',
@@ -128,16 +131,13 @@ export default class BackendService extends Construct {
 
     if (isProd) {
       referrers = [
-        'https://www.jahanaeemgitonga.com/*',
-        'https://www.jahanaeemgitonga.com/',
-        'https://jahanaeemgitonga.com/',
-        'https://jahanaeemgitonga.com/*',
         'https://www.naeemgitonga.com/*',
         'https://www.naeemgitonga.com/',
         'https://naeemgitonga.com/',
         'https://naeemgitonga.com/*',
       ];
     }
+
     let conditions: any = {
       StringEquals: {
         'aws:Referer': referrers,
@@ -161,14 +161,14 @@ export default class BackendService extends Construct {
 
     // * create log group for backend api gateway logs
     const removalPolicy = isProd ? RemovalPolicy.RETAIN : RemovalPolicy.DESTROY;
-    const prdLogGroup = new LogGroup(this, 'jng-backend-log-group', {
+    const prdLogGroup = new LogGroup(this, 'ng-backend-log-group', {
       removalPolicy,
-      logGroupName: `jng-backend-log-group${isProd ? '' : '-staging'}`,
+      logGroupName: `ng-backend-log-group${isProd ? '' : '-staging'}`,
     });
 
     const api = new LambdaRestApi(
       this,
-      `jng-backend-api-gateway${isProd ? '' : '-staging'}`,
+      `ng-backend-api-gateway${isProd ? '' : '-staging'}`,
       {
         handler: functions[`jngpaypal${isProd ? '' : '-staging'}`],
         proxy: false,
@@ -189,6 +189,12 @@ export default class BackendService extends Construct {
       }
     );
 
+    // * this is hard coded cause there is only one function
+    functions[`jngpaypal${isProd ? '' : '-staging'}`].addPermission('api-gateway-invoke-permission', {
+      principal: new ServicePrincipal('apigateway.amazonaws.com'),
+      sourceArn: api.arnForExecuteApi('POST', '/api/jngpaypal*'),
+    });
+
     const basePath = api.root.addResource('api');
 
     functionNames.forEach((name: string) => {
@@ -198,7 +204,7 @@ export default class BackendService extends Construct {
         slashApiSlashNameRoutes.addResource('{proxy+}'); // * this makes routes like: /api/auth/{proxy+}, etc.;
 
       // * now add all RESTful verbs  to both routes that we made
-      ['POST'].forEach((m: string) => {
+      ['POST','OPTIONS'].forEach((m: string) => {
         slashApiSlashNameRoutes.addMethod(
           m,
           new LambdaIntegration(functions[nameLowerCased])
