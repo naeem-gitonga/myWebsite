@@ -1,7 +1,7 @@
 .common_setup: &common_setup
   - cd backend/cdk
   - npm i
-  - npm i -g aws-cdk typescript ts-node serverless
+  - npm i -g aws-cdk typescript ts-node serverless dotenv
   # - aws sts get-caller-identity
 
 cache:
@@ -23,7 +23,7 @@ stages:
 .common_install: &common_install
   - cd backend/apis
   - npm i 
-  - npm i -g serverless
+  - npm i -g serverless dotevn
 
 .assume_role: &assume_role
   - >
