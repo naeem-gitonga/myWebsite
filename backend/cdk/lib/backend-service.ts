@@ -13,7 +13,6 @@ import {
   Effect,
   PolicyDocument,
   PolicyStatement,
-  ServicePrincipal,
 } from 'aws-cdk-lib/aws-iam';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { Duration, RemovalPolicy } from 'aws-cdk-lib';
