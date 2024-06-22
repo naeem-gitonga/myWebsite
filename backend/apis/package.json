@@ -25,7 +25,7 @@
     "javascript",
     "lambda"
   ],
-  "author": "J. Naeem Gitonga",
+  "author": "Naeem Gitonga",
   "license": "UNLICENSED",
   "devDependencies": {
     "@aws-sdk/client-sqs": "^3.395.0",

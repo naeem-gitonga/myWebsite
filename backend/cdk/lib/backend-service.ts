@@ -184,16 +184,10 @@ export default class BackendService extends Construct {
           allowCredentials: true,
           allowOrigins: [process.env.ORIGIN as string],
           allowHeaders: ['*'],
-          allowMethods: ['POST', 'OPTIONS'],
+          allowMethods: ['POST'],
         },
       }
     );
-
-    // * this is hard coded cause there is only one function
-    functions[`jngpaypal${isProd ? '' : '-staging'}`].addPermission('api-gateway-invoke-permission', {
-      principal: new ServicePrincipal('apigateway.amazonaws.com'),
-      sourceArn: api.arnForExecuteApi('POST', '/api/jngpaypal*'),
-    });
 
     const basePath = api.root.addResource('api');
 
@@ -204,7 +198,7 @@ export default class BackendService extends Construct {
         slashApiSlashNameRoutes.addResource('{proxy+}'); // * this makes routes like: /api/auth/{proxy+}, etc.;
 
       // * now add all RESTful verbs  to both routes that we made
-      ['POST','OPTIONS'].forEach((m: string) => {
+      ['POST'].forEach((m: string) => {
         slashApiSlashNameRoutes.addMethod(
           m,
           new LambdaIntegration(functions[nameLowerCased])
