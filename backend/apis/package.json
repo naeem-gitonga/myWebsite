@@ -1,5 +1,5 @@
 {
-  "name": "jng-personal-website-backend",
+  "name": "ng-personal-website-backend",
   "version": "1.0.0",
   "description": "back-end resources",
   "main": "handler.ts",
