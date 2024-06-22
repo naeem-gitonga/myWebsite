@@ -135,6 +135,9 @@ deploy_staging:
         - backend/apis/**/*
         - backend/cdk/**/*
         - backend/cdk/**/*
+  needs:
+    - job: build_staging
+      artifacts: true
   dependencies:
     - build_staging
   script:
