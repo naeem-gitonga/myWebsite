@@ -233,8 +233,7 @@ deploy_production_backend:
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes:
         - backend/apis/**/*
-        - backend/cdk/lib/*
-        - backend/cdk/bin/*
+        - backend/cdk/**/*
   needs:
     - job: build_production
       artifacts: true
