@@ -109,7 +109,7 @@ build_staging:
       done
     - npm run package
 
-deploy_staging:
+deploy_staging_backend:
   id_tokens:
     GITLAB_OIDC_TOKEN:
       aud: https://gitlab.com
@@ -133,7 +133,6 @@ deploy_staging:
     - if: '$CI_COMMIT_BRANCH == "staging"'
       changes:
         - backend/apis/**/*
-        - backend/cdk/**/*
         - backend/cdk/**/*
   needs:
     - job: build_staging
@@ -164,14 +163,13 @@ deploy_staging:
     - cdk deploy --require-approval=never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
 
 build_production:
-  artifacts:
-    expose_as: 'backend-build-production'
-    name: 'backend-build-production'
-    paths:
-      - $PWD/backend/apis/.serverless/jngpaypal.zip
-  dependencies:
-    - test_lambda
+  stage: build
   rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      changes:
+        - backend/apis/**/*
+        - backend/cdk/lib/*
+        - backend/cdk/bin/*
     - changes:
         - $PWD/app/**/*
         - $PWD/components/**/*
@@ -183,12 +181,13 @@ build_production:
         - $PWD/vercel.json
         - $PWD/.gitlab-ci.yml
       when: never
-    - if: '$CI_COMMIT_BRANCH == "master"'
-      changes:
-        - backend/apis/**/*
-        - backend/cdk/lib/*
-        - backend/cdk/bin/*
-  stage: build
+  artifacts:
+    expose_as: 'backend-build-production'
+    name: 'backend-build-production'
+    paths:
+      - $PWD/backend/apis/.serverless/jngpaypal.zip
+  dependencies:
+    - test_lambda
   environment:
     name: production
   script:
@@ -210,7 +209,7 @@ build_production:
       done
     - npm run package
 
-deploy_production:
+deploy_production_backend:
   id_tokens:
     GITLAB_OIDC_TOKEN:
       aud: https://gitlab.com
