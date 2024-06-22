@@ -169,8 +169,7 @@ build_production:
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes:
         - backend/apis/**/*
-        - backend/cdk/lib/*
-        - backend/cdk/bin/*
+        - backend/cdk/**/*
     - changes:
         - $PWD/app/**/*
         - $PWD/components/**/*
