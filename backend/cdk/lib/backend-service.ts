@@ -189,7 +189,6 @@ export default class BackendService extends Construct {
     );
 
     const basePath = api.root.addResource('api');
-
     functionNames.forEach((name: string) => {
       const nameLowerCased = name.toLowerCase();
       const slashApiSlashNameRoutes = basePath.addResource(nameLowerCased); // * this makes routes like: /api/auth, /api/lambdaa, or /api/lambdab
