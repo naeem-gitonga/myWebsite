@@ -202,7 +202,6 @@ build_production:
         "SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}"
         "WHICH_ROUTE=${WHICH_ROUTE}"
         "NODE_ENV=production"
-        "STAGE=prod"
       )
       env_file="./.env"
       for var in "${variables[@]}"; do
