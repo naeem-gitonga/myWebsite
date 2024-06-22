@@ -11,7 +11,7 @@
     "start": "serverless offline",
     "why:test:dev": "echo \"cause you can't have a watch flag in a CI/CD pipeline... it will block the pipeline\"",
     "coverage": "jest --collect-coverage",
-    "package": "SLS_DEBUG=* && npx sls package",
+    "package": "SLS_DEBUG=* && sls package",
     "package:production:locally": "SLS_DEBUG=* && echo \"NODE_ENV=production\" >> .env && sls package && sed -i '' '$d' .env",
     "package:staging:locally": "SLS_DEBUG=* && echo \"NODE_ENV=staging\" >> .env && sls package && sed -i '' '$d' .env"
   },

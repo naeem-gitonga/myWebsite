@@ -143,7 +143,7 @@ deploy_staging_backend:
     - *install_aws
     - *common_setup
     - *assume_role
-    - npm i
+    - npm i && npm i -g serverless
     - |
       variables=(
         "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
@@ -243,7 +243,7 @@ deploy_production_backend:
     - *install_aws
     - *common_setup
     - *assume_role
-    - npm i
+    - npm i && npm i -g serverless
     - |
       variables=(
         "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
