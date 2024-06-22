@@ -1,7 +1,7 @@
 .common_setup: &common_setup
   - cd backend/cdk
   - npm i
-  - npm i -g aws-cdk typescript ts-node
+  - npm i -g aws-cdk typescript ts-node serverless
   # - aws sts get-caller-identity
 
 cache:
@@ -22,7 +22,8 @@ stages:
 
 .common_install: &common_install
   - cd backend/apis
-  - npm i
+  - npm i 
+  - npm i -g serverless
 
 .assume_role: &assume_role
   - >
@@ -143,7 +144,7 @@ deploy_staging_backend:
     - *install_aws
     - *common_setup
     - *assume_role
-    - npm i && npm i -g serverless
+    - npm i
     - |
       variables=(
         "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
