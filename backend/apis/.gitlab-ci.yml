@@ -32,9 +32,10 @@ stages:
     --output text))
   - aws sts get-caller-identity
 
+image: node:20.11.1
+
 test_lambda:
   stage: test
-  image: node:20.11.1
   rules:
     - changes:
         - $PWD/app/**/*
