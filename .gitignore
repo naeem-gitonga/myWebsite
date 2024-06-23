@@ -2,6 +2,14 @@
 
 # dependencies
 /node_modules
+/backend/apis/node_modules
+backend/cdk/node_modules
+backend/apis/.serverless
+backend/apis/.webpack
+/backend/apis/.env*
+
+.env*
+
 /.pnp
 .pnp.js
 
