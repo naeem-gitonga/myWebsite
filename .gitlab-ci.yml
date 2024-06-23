@@ -26,8 +26,8 @@ deploy_frontend_staging:
         - package.json
         - vercel.json
     - changes:
-      - /backend/apis/**/*
-      - /backend/cdk/**/*
+      - $PWD/backend/apis/**/*
+      - $PWD/backend/cdk/**/*
       when: never
   script:
     - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/cGxMEW1fLT
@@ -48,8 +48,8 @@ deploy_frontend_production:
         - package.json
         - vercel.json
     - changes:
-      - /backend/apis/**/*
-      - /backend/cdk/**/*
+      - $PWD/backend/apis/**/*
+      - $PWD/backend/cdk/**/*
       when: never
   script:
     - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/k4eiYJ4iju
