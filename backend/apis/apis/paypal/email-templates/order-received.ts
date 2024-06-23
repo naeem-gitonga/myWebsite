@@ -1,5 +1,3 @@
-import { PaypalResult } from '@declarations/order';
-
 export const orderReceived = (
   orderId: string,
   name: string,
