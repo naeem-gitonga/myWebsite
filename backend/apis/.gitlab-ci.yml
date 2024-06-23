@@ -181,7 +181,7 @@ build_production:
   #   - test_lambda
   script:
     - *common_install
-    - yarn add global dotenv
+    - yarn add global dotenv yaml
     - yarn
     - touch .env
     - |
