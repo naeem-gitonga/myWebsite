@@ -2,11 +2,6 @@
   - cd backend/cdk
   - npm i
   - npm i -g aws-cdk typescript ts-node serverless dotenv serverless-dotenv-plugin
-  # - aws sts get-caller-identity
-
-cache:
-  paths:
-    - backend/apis/node_modules/
 
 stages:
   - test
@@ -70,8 +65,7 @@ build_staging:
     - if: '$CI_COMMIT_BRANCH == "staging"'
       changes:
         - backend/apis/**/*
-        - backend/cdk/lib/*
-        - backend/cdk/bin/*
+        - backend/cdk/**/*
     - changes:
         - $PWD/app/**/*
         - $PWD/components/**/*
@@ -150,7 +144,6 @@ deploy_staging_backend:
       variables=(
         "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
         "CALENDLY_API_ACCESS_TOKEN=${CALENDLY_API_ACCESS_TOKEN}"
-        "DEAD_LETTER_QUEUE_URL=${DEAD_LETTER_QUEUE_URL}"
         "NODE_ENV=staging"
         "ORIGIN=${ORIGIN}"
         "SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}"
@@ -202,6 +195,7 @@ build_production:
         "SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}"
         "WHICH_ROUTE=${WHICH_ROUTE}"
         "NODE_ENV=production"
+        "STAGE"="prod"
       )
       env_file="./.env"
       for var in "${variables[@]}"; do
@@ -248,7 +242,6 @@ deploy_production_backend:
       variables=(
         "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
         "CALENDLY_API_ACCESS_TOKEN=${CALENDLY_API_ACCESS_TOKEN}"
-        "DEAD_LETTER_QUEUE_URL=${DEAD_LETTER_QUEUE_URL}"
         "NODE_ENV=production"
         "ORIGIN=${ORIGIN}"
         "SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}"
