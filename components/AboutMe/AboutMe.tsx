@@ -70,7 +70,7 @@ export default function AboutMe(): JSX.Element {
           is an art!
         </p>
         <p className={about}>
-          Currently I'm working as a Senior MLOps engineer. I am also an evening
+          Currently I&apos;m working as a Senior MLOps engineer. I am also an evening
           MBA student at Georgia Tech. I finish in December 2025.
         </p>
         <p className={about}>
