@@ -70,8 +70,13 @@ export default function AboutMe(): JSX.Element {
           is an art!
         </p>
         <p className={about}>
-          I enjoy designing applications, employing new technologies to create
-          event driven systems. I am an author. I have written two books:{' '}
+          Currently I'm working as a Senior MLOps engineer. I am also an evening
+          MBA student at Georgia Tech. I finish in December 2025.
+        </p>
+        <p className={about}>
+          I enjoy designing and building applications &#40;not to be confused with UI design&#41;, employing
+          new technologies to create event driven systems. I am an author. I
+          have written two books:{' '}
           <Link className="link" href="/item?item_id=1">
             Program Your Life
           </Link>
@@ -83,7 +88,9 @@ export default function AboutMe(): JSX.Element {
           <Link className="link" href="/articles">
             here
           </Link>{' '}
-          exploring various technologies that I know or am learning.
+          exploring various technologies that I know or am learning. I&apos;ve
+          been too busy with school and work to write new articles at the moment
+          but stay tuned.
         </p>
         <p className={about}>
           Here you will see some samples of my work. If you hover over the
