@@ -28,12 +28,12 @@ export default function AddToCartMessage(props: AddToCartMessageProps) {
         />
       )}
       <div className={continueCheckLinksWrapper}>
-        <p className={psuedoLink} onClick={setModalOpen}>
-          Continue Shopping
-        </p>
         <Link onClick={setModalOpen} href="/cart">
           Go to cart
         </Link>
+         <p className={psuedoLink} onClick={setModalOpen}>
+          Continue Shopping
+        </p>
       </div>
     </div>
   );

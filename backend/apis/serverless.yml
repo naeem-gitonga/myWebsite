@@ -1,10 +1,12 @@
 service: jngpaypal
+useDotenv: true
+build:
+  esbuild: false
 package:
   individually: false
 plugins:
   - serverless-webpack
   - serverless-offline
-  - serverless-dotenv-plugin
 custom:
   currentStage: ${opt:stage, self:provider.stage}
   serverless-offline:
@@ -13,7 +15,7 @@ custom:
     httpPort: 4000
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs22.x
   stage: ${file(./js-helpers/set-stage.js):setStage}
 functions: ${file(./js-helpers/load-services.js):functions}
 resources:
