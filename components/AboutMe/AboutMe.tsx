@@ -70,8 +70,8 @@ export default function AboutMe(): JSX.Element {
           is an art!
         </p>
         <p className={about}>
-          Currently I&apos;m working as a Senior MLOps engineer. I am also an evening
-          MBA student at Georgia Tech. I finish in December 2025.
+          Formerly I was working as a Senior MLOps engineer. I am an evening
+          MBA student at Georgia Tech. I finish in May 2026.
         </p>
         <p className={about}>
           I enjoy designing and building applications &#40;not to be confused with UI design&#41;, employing
