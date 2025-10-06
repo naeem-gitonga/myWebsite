@@ -160,7 +160,11 @@ update_lambda_runtime:
   dependencies:
     - deploy_staging_backend
   script:
-    - sh $PWD/backend/apis/scripts/update-runtimes.sh
+    - *install_aws
+    - *common_setup
+    - *assume_role
+    - cd ..
+    - sh apis/scripts/update-runtimes.sh
 
 build_production:
   stage: build

@@ -7,17 +7,16 @@ NEW_RUNTIME="nodejs22.x"
 REGIONS=$(aws ec2 describe-regions --output text --query "Regions[].RegionName")
 
 # For each region:
-for REGION in $REGIONS; do
-  echo "Processing region: $REGION"
+echo "Processing region: us-east-1"
 
-  # List functions with the old runtime in the current region and extract FunctionNames
-  aws lambda list-functions --region "$REGION" --output text \
-    --query "Functions[?Runtime=='$OLD_RUNTIME'].FunctionName" | \
-    grep -v '^$' | \
-    xargs -I {} aws lambda update-function-configuration \
-      --function-name "jngpaypal-staging" \
-      --runtime "$NEW_RUNTIME" \
-      --region "$REGION"
-done
+# List functions with the old runtime in the current region and extract FunctionNames
+aws lambda list-functions --region "us-east-1" --output text \
+  --query "Functions[?Runtime=='$OLD_RUNTIME'].FunctionName" | \
+  grep -v '^$' | \
+  xargs -I {} aws lambda update-function-configuration \
+    --function-name "jngpaypal-staging" \
+    --runtime "$NEW_RUNTIME" \
+    --region "us-east-1" \
+    --no-cli-pager --no-cli-auto-prompt 
 
 echo "Upgrade process completed for all regions."
