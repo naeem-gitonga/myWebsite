@@ -6,7 +6,7 @@ stages:
 .common_setup: &common_setup
   - cd backend/cdk
   - npm i
-  - npm i -g aws-cdk typescript ts-node serverless dotenv serverless-dotenv-plugin
+  - npm i -g aws-cdk typescript ts-node serverless dotenv
 
 .install_aws: &install_aws
   - apt update
@@ -18,7 +18,7 @@ stages:
 .common_install: &common_install
   - cd backend/apis
   - npm i 
-  - npm i -g serverless dotenv serverless-dotenv-plugin
+  - npm i -g serverless dotenv
 
 .assume_role: &assume_role
   - >
@@ -84,8 +84,6 @@ build_staging:
     name: 'backend-build-staging'
     paths:
       - $PWD/backend/apis/.serverless/jngpaypal.zip
-  # dependencies:
-  #   - test_lambda
   script:
     - *common_install
     - touch .env
@@ -103,6 +101,7 @@ build_staging:
       for var in "${variables[@]}"; do
         echo "$var" >> "$env_file"
       done
+    - serverless login
     - npm run package
 
 deploy_staging_backend:
@@ -152,6 +151,20 @@ deploy_staging_backend:
         echo "$var" >> "$env_file"
       done
     - cdk deploy --require-approval=never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
+
+update_lambda_runtime:
+  id_tokens:
+    GITLAB_OIDC_TOKEN:
+      aud: https://gitlab.com
+  stage: deploy
+  dependencies:
+    - deploy_staging_backend
+  script:
+    - *install_aws
+    - *common_setup
+    - *assume_role
+    - cd ..
+    - sh apis/scripts/update-runtimes.sh
 
 build_production:
   stage: build

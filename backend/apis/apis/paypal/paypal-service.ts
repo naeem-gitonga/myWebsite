@@ -206,7 +206,6 @@ export default class PaypalService extends BaseService<Order> {
       await sqs.send(command);
     } catch (e) {
       console.log('DEAD LETTER QUEUE ERROR', e);
-      // console.log('Message dropped: ', title, event);
       throw new Error(ServerErrors.ItBroke);
     }
   }

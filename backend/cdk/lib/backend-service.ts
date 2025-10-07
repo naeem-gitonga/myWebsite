@@ -18,6 +18,7 @@ import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { Duration, RemovalPolicy } from 'aws-cdk-lib';
 import { LogGroup } from 'aws-cdk-lib/aws-logs';
 import { Queue } from 'aws-cdk-lib/aws-sqs';
+import { policyStatementJng, policyStatementRb, s3Permission } from './iam-roles';
 
 export default class BackendService extends Construct {
   constructor(scope: Construct, id: string) {
@@ -48,11 +49,6 @@ export default class BackendService extends Construct {
     const sqsPermission = new PolicyStatement({
       actions: ['sqs:SendMessage', 'sqs:Get*'],
       resources: [deadLetterQueue.queueArn],
-    });
-
-    const s3Permission = new PolicyStatement({
-      actions: ['s3:PutObject'],
-      resources: ['arn:aws:s3:::gtng/*orders/*'],
     });
 
     const environment: { [s: string]: {} } = {
@@ -98,20 +94,6 @@ export default class BackendService extends Construct {
       rapidbackendBucket.grantRead(lambda);
       jngwebsiteBucket.grantRead(lambda);
 
-      const policyStatementRb = new PolicyStatement({
-        sid: 'S3GetObject',
-        actions: ['s3:GetObject', 's3:PutObject', 's3:ListBucket'],
-        resources: ['arn:aws:s3:::rapidbackend', 'arn:aws:s3:::rapidbackend/*'],
-      });
-
-      const policyStatementJng = new PolicyStatement({
-        sid: 'S3GetObjectJng',
-        actions: ['s3:GetObject', 's3:PutObject', 's3:ListBucket'],
-        resources: [
-          'arn:aws:s3:::jahanaeemgitongawebsite',
-          'arn:aws:s3:::jahanaeemgitongawebsite/*',
-        ],
-      });
 
       lambda.addToRolePolicy(policyStatementRb);
       lambda.addToRolePolicy(policyStatementJng);
