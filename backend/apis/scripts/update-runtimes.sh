@@ -14,7 +14,7 @@ aws lambda list-functions --region "us-east-1" --output text \
   --query "Functions[?Runtime=='$OLD_RUNTIME'].FunctionName" | \
   grep -v '^$' | \
   xargs -I {} aws lambda update-function-configuration \
-    --function-name "jngpaypal-staging" \
+    --function-name "jngpaypal" \
     --runtime "$NEW_RUNTIME" \
     --region "us-east-1" \
     --no-cli-pager --no-cli-auto-prompt 
