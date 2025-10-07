@@ -194,7 +194,7 @@ build_production:
   #   - test_lambda
   script:
     - *common_install
-    - yarn add global dotenv yaml ts-loader fast-glob
+    - yarn add global dotenv yaml ts-loader fast-glob serverless-webpack
     - yarn
     - touch .env
     - |
