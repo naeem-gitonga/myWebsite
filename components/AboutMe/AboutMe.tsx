@@ -36,8 +36,7 @@ export default function AboutMe(): JSX.Element {
       <div className={aboutMe}>
         <p className={about}>
           Peace, I&apos;m Naeem Gitonga. I am from Clinton, NC &#40;born and
-          raised&#41;. For all you recruiters out there, that means I do not
-          need a work sponsorship to work in the USA, next question. I&apos;ve
+          raised&#41;. I&apos;ve
           led teams to deliver software, being responsible for guiding and
           overseeing the technical aspects of projects, collaborating with
           stakeholders and ensuring the team&apos;s adherence to best practices,
