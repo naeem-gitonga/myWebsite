@@ -107,7 +107,7 @@ export default function AboutMe(): JSX.Element {
             fill
           />
           <p className={altText}>
-            Scheller MBA, TI&#x3a;GER &apos;25
+            Scheller MBA, TI&#x3a;GER &apos;26
           </p>
           <Image
             alt="AWS DevOps Professional logo"
