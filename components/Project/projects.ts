@@ -99,7 +99,7 @@ export const projects: Project[] = [
     projectDes: 'Custom web app. Go and vent your frustrations today.',
     projectStack: 'aah',
     gitHubLink:
-      '/interstitial?url=https://github.com/JNaeemGitonga/first-golang-app&where=Github',
+      '/interstitial?url=https://github.com/naeem-gitonga/first-golang-app&where=Github',
   },
 
   {
@@ -108,7 +108,7 @@ export const projects: Project[] = [
     projectDes: 'Custom single-page website.',
     projectStack: 'gab',
     gitHubLink:
-      '/interstitial?url=https://github.com/JNaeemGitonga/zalina-test&where=Github',
+      '/interstitial?url=https://github.com/naeem-gitonga/zalina-test&where=Github',
   },
   {
     title: 'Connex*',
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     projectStack: 'gtng',
     projectLink: '/interstitial?url=http://www.gtng.tech&where=GTNG, Inc.',
     gitHubLink:
-      '/interstitial?url=https://github.com/JNaeemGitonga/gtng&where=Github',
+      '/interstitial?url=https://github.com/naeem-gitonga/gtng&where=Github',
   },
   {
     title: 'Arithmetik*',
@@ -145,7 +145,7 @@ export const projects: Project[] = [
     projectLink:
       '/interstitial?url=https://www.npmjs.com/package/arithmetik&where=NPM',
     gitHubLink:
-      '/interstitial?url=https://github.com/JNaeemGitonga/arithmetik&where=Github',
+      '/interstitial?url=https://github.com/naeem-gitonga/arithmetik&where=Github',
   },
   {
     title: 'Learningo!*',

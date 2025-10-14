@@ -79,7 +79,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${firstGist}`}>
               <iframe
                 className={firstGist}
-                src="https://gist.github.com/JNaeemGitonga/16600984f7af637e79c46a2b1217f1df.pibb"
+                src="https://gist.github.com/naeem-gitonga/16600984f7af637e79c46a2b1217f1df.pibb"
               ></iframe>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${firstGist}`}>
               <iframe
                 className={firstGist}
-                src="https://gist.github.com/JNaeemGitonga/750ec04d91337c27fc7f433fbb0ffad7.pibb"
+                src="https://gist.github.com/naeem-gitonga/750ec04d91337c27fc7f433fbb0ffad7.pibb"
               ></iframe>
             </div>
           </div>
@@ -117,7 +117,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${thirdGist}`}>
               <iframe
                 className={thirdGist}
-                src="https://gist.github.com/JNaeemGitonga/130dbeaaafe2be2ce197007ef95e9b2f.pibb"
+                src="https://gist.github.com/naeem-gitonga/130dbeaaafe2be2ce197007ef95e9b2f.pibb"
               ></iframe>
             </div>
           </div>
@@ -137,7 +137,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
           lines so I just removed them with some JavaScript. You can see the{' '}
           <a
             target="_blank"
-            href="https://github.com/JNaeemGitonga/xml-loading"
+            href="https://github.com/naeem-gitonga/xml-loading"
           >
             repo
           </a>{' '}
@@ -150,7 +150,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${fourthGist}`}>
               <iframe
                 className={fourthGist}
-                src="https://gist.github.com/JNaeemGitonga/1328fc7f0ac73a6b1232263735bc0baf.pibb"
+                src="https://gist.github.com/naeem-gitonga/1328fc7f0ac73a6b1232263735bc0baf.pibb"
               ></iframe>
             </div>
           </div>
@@ -175,7 +175,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${fifthGist}`}>
               <iframe
                 className={fifthGist}
-                src="https://gist.github.com/JNaeemGitonga/3ee101a47f2f857584fb2b06a0343526.pibb"
+                src="https://gist.github.com/naeem-gitonga/3ee101a47f2f857584fb2b06a0343526.pibb"
               ></iframe>
             </div>
           </div>
@@ -193,7 +193,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${sixthGist}`}>
               <iframe
                 className={sixthGist}
-                src="https://gist.github.com/JNaeemGitonga/54140f27a81a379111a3964305b0d961.pibb"
+                src="https://gist.github.com/naeem-gitonga/54140f27a81a379111a3964305b0d961.pibb"
               ></iframe>
             </div>
           </div>
@@ -228,7 +228,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${seventhGist}`}>
               <iframe
                 className={seventhGist}
-                src="https://gist.github.com/JNaeemGitonga/99a610b01744b2e5c66ef88182d4eaa2.pibb"
+                src="https://gist.github.com/naeem-gitonga/99a610b01744b2e5c66ef88182d4eaa2.pibb"
               ></iframe>
             </div>
           </div>
@@ -250,7 +250,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
           A full repo of this project can be seen{' '}
           <a
             target="_blank"
-            href="https://github.com/JNaeemGitonga/xml-loading"
+            href="https://github.com/naeem-gitonga/xml-loading"
           >
             here
           </a>

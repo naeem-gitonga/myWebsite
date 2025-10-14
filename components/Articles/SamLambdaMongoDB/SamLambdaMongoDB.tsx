@@ -226,7 +226,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${fifthGist}`}>
               <iframe
                 className={fifthGist}
-                src="https://gist.github.com/JNaeemGitonga/fc4f36f056ea7748e4497c87c5c0b9cb.pibb"
+                src="https://gist.github.com/naeem-gitonga/fc4f36f056ea7748e4497c87c5c0b9cb.pibb"
               ></iframe>
             </div>
           </div>
@@ -290,7 +290,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
           packages that I used can be found{' '}
           <a
             target="_blank"
-            href="https://github.com/JNaeemGitonga/first-golang-app/blob/master/aahs-func/aahs-backend/main.go"
+            href="https://github.com/naeem-gitonga/first-golang-app/blob/master/aahs-func/aahs-backend/main.go"
           >
             here
           </a>{' '}
@@ -303,7 +303,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${sixthGist}`}>
               <iframe
                 className={firstGist}
-                src="https://gist.github.com/JNaeemGitonga/1eb5378d12374f12e2a38b346760f49e.pibb"
+                src="https://gist.github.com/naeem-gitonga/1eb5378d12374f12e2a38b346760f49e.pibb"
               ></iframe>
             </div>
           </div>
@@ -350,7 +350,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${seventhGist}`}>
               <iframe
                 className={seventhGist}
-                src="https://gist.github.com/JNaeemGitonga/b4e76befb1e369e97f97d5227dbe8e0f.pibb"
+                src="https://gist.github.com/naeem-gitonga/b4e76befb1e369e97f97d5227dbe8e0f.pibb"
               ></iframe>
             </div>
           </div>
@@ -377,7 +377,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${eighthGist}`}>
               <iframe
                 className={eighthGist}
-                src="https://gist.github.com/JNaeemGitonga/0b071d25c99c016e0cd3a805e527539c.pibb"
+                src="https://gist.github.com/naeem-gitonga/0b071d25c99c016e0cd3a805e527539c.pibb"
               ></iframe>
             </div>
           </div>
@@ -424,7 +424,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${twelthGist}`}>
               <iframe
                 className={twelthGist}
-                src="https://gist.github.com/JNaeemGitonga/b2c4c8283ddceb48e1e51e5a8cfd7efd.pibb"
+                src="https://gist.github.com/naeem-gitonga/b2c4c8283ddceb48e1e51e5a8cfd7efd.pibb"
               ></iframe>
             </div>
           </div>
@@ -462,7 +462,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${ninthGist}`}>
               <iframe
                 className={ninthGist}
-                src="https://gist.github.com/JNaeemGitonga/d56c659b46287a148e2c413f2f272b88.pibb"
+                src="https://gist.github.com/naeem-gitonga/d56c659b46287a148e2c413f2f272b88.pibb"
               ></iframe>
             </div>
           </div>
@@ -493,7 +493,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${tenthGist}`}>
               <iframe
                 className={tenthGist}
-                src="https://gist.github.com/JNaeemGitonga/8ce8aeb7c6b661649eb14bc1b32a48ff.pibb"
+                src="https://gist.github.com/naeem-gitonga/8ce8aeb7c6b661649eb14bc1b32a48ff.pibb"
               ></iframe>
             </div>
           </div>
@@ -517,7 +517,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${eleventhGist}`}>
               <iframe
                 className={eleventhGist}
-                src="https://gist.github.com/JNaeemGitonga/977b342b7c95d21526a0183ade2a9060.pibb"
+                src="https://gist.github.com/naeem-gitonga/977b342b7c95d21526a0183ade2a9060.pibb"
               ></iframe>
             </div>
           </div>
@@ -538,7 +538,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${thirteenthGist}`}>
               <iframe
                 className={thirteenthGist}
-                src="https://gist.github.com/JNaeemGitonga/7e871a3584cbbbf3d83fec932f538ef4.pibb"
+                src="https://gist.github.com/naeem-gitonga/7e871a3584cbbbf3d83fec932f538ef4.pibb"
               ></iframe>
             </div>
           </div>
@@ -573,7 +573,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${fourteenthGist}`}>
               <iframe
                 className={fourteenthGist}
-                src="https://gist.github.com/JNaeemGitonga/622fe484fe00cb101f52547528f07bef.pibb"
+                src="https://gist.github.com/naeem-gitonga/622fe484fe00cb101f52547528f07bef.pibb"
               ></iframe>
             </div>
           </div>
@@ -591,7 +591,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${fourteenthGist}`}>
               <iframe
                 className={fourteenthGist}
-                src="https://gist.github.com/JNaeemGitonga/622fe484fe00cb101f52547528f07bef.pibb"
+                src="https://gist.github.com/naeem-gitonga/622fe484fe00cb101f52547528f07bef.pibb"
               ></iframe>
             </div>
           </div>
@@ -624,7 +624,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${fifteenthGist}`}>
               <iframe
                 className={fifteenthGist}
-                src="https://gist.github.com/JNaeemGitonga/9c3f7046fc02220aad9e548cffaab423.pibb"
+                src="https://gist.github.com/naeem-gitonga/9c3f7046fc02220aad9e548cffaab423.pibb"
               ></iframe>
             </div>
           </div>
@@ -668,7 +668,7 @@ export default function SamLambdaMongoDB(): JSX.Element {
             <div className={`${secondInner} ${sixteenthGist}`}>
               <iframe
                 className={sixteenthGist}
-                src="https://gist.github.com/JNaeemGitonga/7e871a3584cbbbf3d83fec932f538ef4.pibb"
+                src="https://gist.github.com/naeem-gitonga/7e871a3584cbbbf3d83fec932f538ef4.pibb"
               ></iframe>
             </div>
           </div>

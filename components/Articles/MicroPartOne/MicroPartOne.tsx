@@ -63,7 +63,7 @@ export default function MicroPartOne(): JSX.Element {
           </a>{' '}
           so that you can clone the{' '}
           <a
-            href="https://github.com/JNaeemGitonga/docker-test"
+            href="https://github.com/naeem-gitonga/docker-test"
             target="_blank"
           >
             repo
@@ -73,7 +73,7 @@ export default function MicroPartOne(): JSX.Element {
         <p className={text}>
           I have created a repo of this app on Github. Clone it from{' '}
           <a
-            href="https://github.com/JNaeemGitonga/docker-test"
+            href="https://github.com/naeem-gitonga/docker-test"
             target="_blank"
           >
             here

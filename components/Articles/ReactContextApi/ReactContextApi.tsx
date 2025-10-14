@@ -96,7 +96,7 @@ export default function ReactContextApi(): JSX.Element {
             <div className={`${secondInner} ${firstGist}`}>
               <iframe
                 className={firstGist}
-                src="https://gist.github.com/JNaeemGitonga/734e8db330da961bb7fc4565b2f8ec22.pibb"
+                src="https://gist.github.com/naeem-gitonga/734e8db330da961bb7fc4565b2f8ec22.pibb"
               ></iframe>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default function ReactContextApi(): JSX.Element {
               <iframe
                 className={secondGist}
                 id="second-gist"
-                src="https://gist.github.com/JNaeemGitonga/6125e8a74c94382f043db584b92c8a6f.pibb"
+                src="https://gist.github.com/naeem-gitonga/6125e8a74c94382f043db584b92c8a6f.pibb"
               ></iframe>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function ReactContextApi(): JSX.Element {
             <div className={`${secondInner} ${thirdGist}`}>
               <iframe
                 id="third-gist"
-                src="https://gist.github.com/JNaeemGitonga/73aba165af5455967b5198fb6ca9d7c3.pibb"
+                src="https://gist.github.com/naeem-gitonga/73aba165af5455967b5198fb6ca9d7c3.pibb"
               ></iframe>
             </div>
           </div>
@@ -190,7 +190,7 @@ export default function ReactContextApi(): JSX.Element {
             <div className={`${secondInner} ${fourthGist}`}>
               <iframe
                 id="fourth-gist"
-                src="https://gist.github.com/JNaeemGitonga/70bc827723557a3df0d53b03b9051b73.pibb"
+                src="https://gist.github.com/naeem-gitonga/70bc827723557a3df0d53b03b9051b73.pibb"
               ></iframe>
             </div>
           </div>
@@ -245,7 +245,7 @@ export default function ReactContextApi(): JSX.Element {
           <a
             className={grey}
             target="_blank"
-            href="https://github.com/JNaeemGitonga/lazy-load-context"
+            href="https://github.com/naeem-gitonga/lazy-load-context"
           >
             here
           </a>
