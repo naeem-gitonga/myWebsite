@@ -301,6 +301,18 @@ export default function GitlabToGithubMirrors(): JSX.Element {
         </p>
 
         <p className={text}>
+          The official docs on Gitlab mirroring can be found <Link className="link" href="/interstitial?url=https://docs.gitlab.com/user/project/repository/mirror/&where=Gitlab Mirror Docs">
+            here
+          </Link>. 
+        </p>
+        
+        <p className={text}>
+          Github deploy key docs can be found <Link className="link" href="/interstitial?url=https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys&where=Github deploy key Docs">
+            here
+          </Link>. 
+        </p>
+
+        <p className={text}>
           Thanks for reading!
         </p>
 
