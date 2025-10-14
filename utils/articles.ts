@@ -1,5 +1,13 @@
 export const articles: Article[] = [
   {
+    title: 'How to Create Mirrors (Gitlab to Github)',
+    imageUrl: 'gitlabmirror',
+    lengthInMinutes: 3,
+    publishedDate: 'Oct 15, 2025',
+    articleUrl: '/articles/gitlab-to-github-mirrors',
+    noTarget: true,
+  },
+  {
     title: 'Exploring Functions as Microservices: A Powerful Approach...',
     imageUrl: 'exprapidbackend',
     lengthInMinutes: 3,

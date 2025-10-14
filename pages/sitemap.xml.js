@@ -5,6 +5,7 @@ function generateSiteMap(prefix) {
     'default-parameters',
     'do-i-need-a-cka',
     'explain-servers-to-5-year-old',
+    'gitlab-to-github-mirrors',
     'i-am',
     'js-new-sexy',
     'rapidbackend',
