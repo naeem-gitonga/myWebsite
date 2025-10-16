@@ -4,7 +4,7 @@ import './globals.css';
 export const metadata = {
   title: 'Naeem Gitonga',
   description:
-    'Naeem Gitonga of GTNG, engineering and business leader, Software | DevOps subject matter expert.',
+    'Naeem Gitonga of GTNG, engineering and business leader, Software | DevOps | MLOps subject matter expert.',
 };
 
 export default function RootLayout({
@@ -23,15 +23,6 @@ export default function RootLayout({
           href="https://d2j3yisnywcb30.cloudfront.net/pix/favicon.ico"
         />
 
-        <Script id="gtm" type="text/javascript">
-          {`
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-PF892R2H');
-          `}
-        </Script>
       </head>
       <body id="body" className="body">
         <noscript>
