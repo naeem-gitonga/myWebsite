@@ -4,9 +4,7 @@ import styles from './page.module.css';
 import Header from 'components/Header/Header';
 import AboutMe from 'components/AboutMe/AboutMe';
 import Footer from 'components/Footer/Footer';
-import ContactForm from 'components/ContactForm/ContactForm';
 import useInfoLog from 'hooks/useInfoLog';
-import MyWork from 'components/MyWork/MyWork';
 import Script from 'next/script';
 import Donate from 'components/Donate/Donate';
 import ReturnArrow from 'components/ReturnArrow/ReturnArrow';
@@ -43,6 +41,17 @@ export default function Home() {
         src="https://www.googletagmanager.com/gtag/js?id=G-00FHGBS0KW"
         strategy="afterInteractive"
       />
+      <Script
+        id="gtag-manager"
+        type="text/javascript"
+      >
+        {
+          `window.dataLayer = window.dataLayer || [];
+          function gtag(a: string, b: string | Date){ window &&  window.dataLayer.push([a, b])  }
+          gtag('js', new Date());
+          gtag('config', 'G-00FHGBS0KW');`
+          }
+      </Script>
       <PromoBanner />
       <div id="particles-js" className="particles" />
       <Header setWhichSection={setWhichSection} />
