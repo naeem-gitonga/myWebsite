@@ -14,6 +14,7 @@ export default function ArticleTileView(
   const { sharedHeader } = props;
   const { viewWrapper, articlesWrapper } = styles;
   const { sectionHeader } = sharedStyles;
+
   return (
     <div id="articles" className={articlesWrapper}>
       {sharedHeader ? (

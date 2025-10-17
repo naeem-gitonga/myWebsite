@@ -58,10 +58,10 @@ export const projects: Project[] = [
       '/interstitial?url=https://www.pluralsight.com&where=Pluralsight',
   },
   {
-    title: 'AcloudGuru**',
+    title: 'A Cloud Guru**',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/acloudguru.png',
     projectDes:
-      'Learning application, here I honed my skills with Serverless event driven architecture.',
+      'Learning application, here I honed my skills with Serverless event driven architecture (Acquired by Pluralsight).',
     projectStack: 'acloudguru',
     projectLink:
       '/interstitial?url=https://www.pluralsight.com/cloud-guru&where=A Cloud Guru',
@@ -82,7 +82,7 @@ export const projects: Project[] = [
       'Enterprise aviation monitoring and tracking used to monitor aircraft and aircraft fleets.',
     projectStack: 'honeywell',
     projectLink:
-      '/interstitial?url=https://www.honeywellforge.ai/us/en/industries/aerospace&where=Honeywell HCE',
+      '/interstitial?url=https://www.honeywell.com/us/en/industries/aerospace&where=Honeywell HCE',
   },
   {
     title: 'Cricket Wireless**',
@@ -116,7 +116,7 @@ export const projects: Project[] = [
     projectDes:
       'Software product in Beta mode for Transportation Industry (BOLs).',
     projectStack: 'connex',
-    projectLink: '/interstitial?url=https://www.connexapp.com&where=Connex',
+    projectLink: '/interstitial?url=https://www.connexapp.com/&where=Connex',
     gitHubLink:
       '/interstitial?url=https://bitbucket.org/naeemgitonga/connex-back/src/master/&where=Bitbucket',
   },
@@ -133,7 +133,7 @@ export const projects: Project[] = [
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/gtng.png',
     projectDes: 'Custom website.',
     projectStack: 'gtng',
-    projectLink: '/interstitial?url=http://www.gtng.tech&where=GTNG, Inc.',
+    projectLink: '/interstitial?url=https://www.gtng.tech/&where=GTNG, Inc.',
     gitHubLink:
       '/interstitial?url=https://github.com/naeem-gitonga/gtng&where=Github',
   },
@@ -154,6 +154,6 @@ export const projects: Project[] = [
       'MVP for app that allows users to learn the topic of their choosing.',
     projectStack: 'learningo',
     gitHubLink:
-      '/interstitial?url=https://github.com/PROB8/learningo&where=Github',
+      '/interstitial?url=https://github.com/naeem-gitonga/learningo&where=Github',
   },
 ];

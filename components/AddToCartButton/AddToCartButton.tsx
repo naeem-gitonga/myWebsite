@@ -25,7 +25,7 @@ export default function AddToCartButton(
           setLastItemClicked(product);
           setModalOpen();
           window.dataLayer.push({
-            event: 'product-added-to-cart',
+            event: 'product_added_to_cart',
             item: product.title,
             env: process.env.NEXT_PUBLIC_STAGE,
           });

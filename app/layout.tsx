@@ -2,7 +2,7 @@ import Script from 'next/script';
 import './globals.css';
 
 export const metadata = {
-  title: 'Naeem Gitonga',
+  title: 'Home - Naeem Gitonga',
   description:
     'Naeem Gitonga of GTNG, engineering and business leader, Software | DevOps | MLOps subject matter expert.',
 };
@@ -24,16 +24,22 @@ export default function RootLayout({
         />
 
       </head>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-00FHGBS0KW"
+        strategy="afterInteractive"
+      />
+      <Script
+        id="gtag-manager-layout"
+        type="text/javascript"
+      >
+        {
+          `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js', new Date());
+          gtag('config', 'G-00FHGBS0KW');`
+          }
+      </Script>
       <body id="body" className="body">
-        <noscript>
-          <iframe
-            className="iframe"
-            src="https://www.googletagmanager.com/ns.html?id=GTM-PF892R2H"
-            height="0"
-            width="0"
-          ></iframe>
-        </noscript>
-
         {children}
         <Script
           id="font-awesome"
