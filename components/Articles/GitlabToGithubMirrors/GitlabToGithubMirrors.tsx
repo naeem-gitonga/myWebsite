@@ -116,7 +116,7 @@ export default function GitlabToGithubMirrors(): JSX.Element {
           </code>
         </pre>
         <p className={text}>
-          We&apos;ll use the former in the next step.
+          Copy the above. We&apos;ll use it in the next step.
         </p>
 
         <p className={text}>
