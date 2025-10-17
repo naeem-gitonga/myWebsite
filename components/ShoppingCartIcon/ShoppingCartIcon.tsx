@@ -64,9 +64,9 @@ export default function ShoppingCartIcon(
           className={fas}
           icon={faCartShopping}
         />
-        <div className={numOfItemsWrapper}>
-          <p className={numOfItemsStyles}>{itemCount}</p>
-        </div>
+       {itemCount !== 0 && <div className={numOfItemsWrapper}>
+           <p className={numOfItemsStyles}>{itemCount}</p>
+        </div>}
       </div>
     </Link>
   );
