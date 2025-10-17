@@ -87,9 +87,8 @@ export default function AboutMe(): JSX.Element {
           <Link className="link" href="/articles">
             here
           </Link>{' '}
-          exploring various technologies that I know or am learning. I&apos;ve
-          been too busy with school and work to write new articles at the moment
-          but stay tuned.
+          exploring various technologies that I know or am learning. I
+          occasionally write articles, so stay tuned!
         </p>
         <p className={about}>
           Here you will see some samples of my work. If you hover over the
@@ -119,7 +118,7 @@ export default function AboutMe(): JSX.Element {
           <p className={altText}>UNCW Spanish, University Honors &apos;11</p>
         </div>
         <p className={about}>
-          Please, if you would like to work with me or just stopped by look
+          Please, if you would like to work with me or just stopped by to look
           around, click <Link href="/contact">here</Link> and drop me a line or
           two. Or, reach out to me on LinkedIn I will be sure to follow up.
           Enjoy and thanks for dropping by!

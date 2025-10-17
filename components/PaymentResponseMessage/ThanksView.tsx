@@ -1,9 +1,19 @@
+"use client"
 import Link from 'next/link';
 import PageHeader from '../PageHeader/PageHeader';
 import styles from './PaymentResponseMessage.module.scss';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 import canBeParsedToInt from '@/utils/canBeparsedToInt';
+import { Metadata } from 'next';
+
+export function generateMetadata(): Metadata {
+  return {
+    title: "Thank you!",
+    description:
+      'Thank you for your purchase by Naeem Gitonga',
+  };
+}
 
 export default function ThanksView(): JSX.Element {
   return (

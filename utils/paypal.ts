@@ -68,7 +68,7 @@ export default async function loadPaypal(
           dotsContainer.style.visibility = 'visible';
         }
         window.dataLayer.push({
-          event: 'product-purchased',
+          event: 'product_purchased',
           item: options.cart,
           env: process.env.NEXT_PUBLIC_STAGE,
         });
@@ -85,7 +85,8 @@ export default async function loadPaypal(
       clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID as string,
     })) as PayPalNamespace;
   } catch (error) {
-    console.error('failed to load the PayPal JS SDK script', error);
+    console.error('failed to load the PayPal JS SDK script');
+    console.error(error);
   }
 
   if (paypal != null && paypal.Buttons && cart.length > 0) {

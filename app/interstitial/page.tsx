@@ -1,27 +1,26 @@
-'use client';
-import React, { Suspense, useEffect } from 'react';
-import LoadingDots from '../../components/LoadingDots/LoadingDots';
-import { useSearchParams } from 'next/navigation';
+import styles from "./InterstitialPage.module.scss";
+import LoadingDots from "@/components/LoadingDots/LoadingDots";
+import Redirector from "./Redirector"; 
+import { Metadata } from "next";
 
-import styles from './InterstitialPage.module.scss';
+type Props = {
+  searchParams?: { url?: string; where?: string };
+};
 
-function Interstitial(): JSX.Element {
-  const searchParams = useSearchParams();
-  const url = searchParams?.get('url');
-  const siteName = searchParams?.get('where');
-  useEffect(() => {
-    if (!url) {
-      console.error('No redirectUrl param found');
-      return;
-    }
+export function generateMetadata(): Metadata {
+  return {
+    title: "Interstitial page",
+    description:
+      'You see this when you leave naeemgitonga.com by Naeem Gitonga',
+  };
+}
 
-    const timer = setTimeout(() => {
-      window.location.href = url;
-      window.history.replaceState(null, '', null);
-    }, 1000);
+export default function InterstitialPage({ searchParams }: Props | any) {
+  const url = searchParams?.url ?? "";
+  const siteName = searchParams?.where ?? "the destination";
 
-    return () => clearTimeout(timer);
-  }, [url]);
+  const isSafe = typeof url === "string" && /^(https?:)\/\//i.test(url);
+
   return (
     <div className={styles.page}>
       <div id="particles-js" className={styles.hide} />
@@ -29,14 +28,9 @@ function Interstitial(): JSX.Element {
         <LoadingDots outerClassName={styles.loaderWrapper} />
         <h1 className={styles.header}>Now taking you to {siteName}...</h1>
       </div>
-    </div>
-  );
-}
 
-export default function InterstitialPage(): JSX.Element {
-  return (
-    <Suspense>
-      <Interstitial />
-    </Suspense>
+      {/* Minimal client-only piece */}
+      <Redirector url={isSafe ? url : ""} delayMs={1000} />
+    </div>
   );
 }
