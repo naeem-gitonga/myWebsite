@@ -94,7 +94,6 @@ export default class BackendService extends Construct {
       rapidbackendBucket.grantRead(lambda);
       jngwebsiteBucket.grantRead(lambda);
 
-
       lambda.addToRolePolicy(policyStatementRb);
       lambda.addToRolePolicy(policyStatementJng);
       lambda.addToRolePolicy(sqsPermission);
