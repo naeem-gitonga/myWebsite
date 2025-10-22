@@ -1,5 +1,13 @@
 export const articles: Article[] = [
   {
+    title: 'Image Server on DGX Spark — GPU Inference in 55 Seconds',
+    imageUrl: 'aiimage',
+    lengthInMinutes: 5,
+    publishedDate: 'Oct 22, 2025',
+    articleUrl: '/articles/image-server-dgx',
+    noTarget: true,
+  },
+  {
     title: 'How to Create Mirrors (Gitlab to Github)',
     imageUrl: 'gitlabmirror',
     lengthInMinutes: 5,

@@ -134,6 +134,7 @@ deploy_staging_backend:
     - *install_aws
     - *common_setup
     - *assume_role
+    - echo "Geronimo Deploy!"
     - npm i
     - |
       variables=(
