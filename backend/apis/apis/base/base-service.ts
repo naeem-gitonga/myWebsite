@@ -21,9 +21,9 @@ export default class BaseService<T> {
    * regex is  a sort of list of various dynamic route parameters that your routes could have. These would be ObjectIds
    */
   private regex = RegExp(/({id}|{userId}|{caseId})/gm);
-  //* this may help us if we have routes with multiple route params
-  //* in your service you can refer to this using this.paramMap
-  //* as a lookup table
+  // * this may help us if we have routes with multiple route params
+  // * in your service you can refer to this using this.paramMap
+  // * as a lookup table
   private paramMap: ParamMap = {};
 
   constructor(event: APIGatewayProxyEvent, routeMap?: RouteMap) {
