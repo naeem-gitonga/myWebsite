@@ -39,7 +39,7 @@ export default function ImageServer(): JSX.Element {
         </div>
         <h2>TL;DR</h2>
         <p className={text}>
-          TL;DR: This post shares what I learned over three days of experimenting 
+          This post shares what I learned over three days of experimenting 
           with my DGX Spark while building a small text-to-image inference app. 
           See the repo <Link className="link" href="/interstitial?url=https://www.github.com/naeem-gitonga/image-server&where=Image Server Repo">
             here
