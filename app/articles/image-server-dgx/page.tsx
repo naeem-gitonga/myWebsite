@@ -10,11 +10,13 @@ export function generateMetadata(): Metadata {
       "Exploring the DGX Spark: A Hands-On Journey Into GPU-Powered Text-to-Image AI by Naeem Gitonga",
     keywords:['AI', 'MLOps', 'Cuda', 'DGX Spark', 'Pytorch', 'text-to-image', 'Machine Learning Engineer', 'Software Engineering'],
     openGraph: {
+      title: "Image Server on DGX Spark — GPU Inference in 55 Seconds",
       images: [{
-        url: 'https://d2j3yisnywcb30.cloudfront.net/pix/ai-generated-image.png',
+        url: "https://d2j3yisnywcb30.cloudfront.net/pix/ai-generated-image.png",
         width: 1200,
         height: 627,
-      }]
+      }],
+      type: "website"
     },
   };
 }
