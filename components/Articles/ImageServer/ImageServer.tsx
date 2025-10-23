@@ -169,8 +169,14 @@ export default function ImageServer(): JSX.Element {
           <p className={altText}>Terminal view low memory usage</p>
         </div>
 
-        <h2>The Setup</h2>
+        <p className={text}>
+          In case you&apos;re wondering, clearing up memory at this stage does not affect
+          how fast the model makes inference on subsequent requests. In fact, times are consistent
+          across requests whether I cleared the memory or not. Still, I think it is best practice 
+          to free up memory as you can do so safely.
+        </p>
 
+        <h2>The Setup</h2>
         <p className={text}>
           When I first started working on the Image Server, I followed my usual 
           Python workflow — using tools like <code className={code}>uv</code> and{' '} 
@@ -198,7 +204,6 @@ export default function ImageServer(): JSX.Element {
           Once I realized the <code className={code}>venv</code> setup was blocking me, I scrapped it. I started 
           developing directly inside the container, did a quick <code className={code}>pip install</code>{' '} for my 
           dependencies, and — <i>voilà</i> — I was using the GPU.
-
         </p>
 
         <h2>Wrapping Up</h2>
