@@ -25,7 +25,7 @@ export default function ImageServer(): JSX.Element {
     <div id="servers" className={`${tenPadding}`}>
       <PageHeader headerName="article" hideLinks={false} />
       <div className={`${width75} ${innerWrapper}`}>
-        <h1>Image Server on DGX Spark — GPU Inference in 55 Seconds</h1>
+        <h1>Image Server AI — GPU Inference in 55 Seconds</h1>
         <ArticleDateTime imageUrl={'aiimage'} />
         <div className={imageWrapper}>
           <Image
@@ -40,7 +40,7 @@ export default function ImageServer(): JSX.Element {
         <h2>TL;DR</h2>
         <p className={text}>
           This post shares what I learned over three days of experimenting 
-          with my DGX Spark while building a small text-to-image inference app. 
+          with my DGX Spark while building a text-to-image inference app. 
           See the repo <Link className="link" href="/interstitial?url=https://www.github.com/naeem-gitonga/image-server&where=Image Server Repo">
             here
           </Link>.
@@ -83,7 +83,7 @@ export default function ImageServer(): JSX.Element {
         </p>
         <p className={text}>
           Did I need to buy the DGX Spark to know that? Probably not. I&apos;d seen similar 
-          gains back when I was at Pluralsight and turned on GPU usage for training models. 
+          gains back when I turned on GPU usage for training models at Pluralsight. 
           Tasks that used to take four hours dropped to under 30 minutes.
         </p>
         <p className={text}>

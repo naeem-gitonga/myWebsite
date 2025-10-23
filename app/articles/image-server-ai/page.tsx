@@ -5,12 +5,12 @@ import ImageServer from '@/components/Articles/ImageServer/ImageServer';
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Image Server on DGX Spark — GPU Inference in 55 Seconds",
+    title: "Image Server AI — GPU Inference in 55 Seconds",
     description:
-      "Exploring the DGX Spark: A Hands-On Journey Into GPU-Powered Text-to-Image AI by Naeem Gitonga",
+      "GPU inference, memory optimization, and model deployment, text-to-image by Naeem Gitonga",
     keywords:['AI', 'MLOps', 'Cuda', 'DGX Spark', 'Pytorch', 'text-to-image', 'Machine Learning Engineer', 'Software Engineering'],
     openGraph: {
-      title: "Image Server on DGX Spark — GPU Inference in 55 Seconds",
+      title: "Image Server AI — GPU Inference in 55 Seconds",
       images: [{
         url: "https://d2j3yisnywcb30.cloudfront.net/pix/ai-generated-image.png",
         width: 1200,

@@ -4,7 +4,7 @@ export const articles: Article[] = [
     imageUrl: 'aiimage',
     lengthInMinutes: 5,
     publishedDate: 'Oct 22, 2025',
-    articleUrl: '/articles/image-server-dgx',
+    articleUrl: '/articles/image-server-ai',
     noTarget: true,
   },
   {
