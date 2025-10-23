@@ -29,7 +29,7 @@ export default function ImageServer(): JSX.Element {
         <ArticleDateTime imageUrl={'aiimage'} />
         <div className={imageWrapper}>
           <Image
-            alt="Woman in mirror"
+            alt="Profile of AI robot"
             loader={imageLoader}
             src={aiimage}
             style={{ objectFit: 'contain', maxWidth: '75%' }}
@@ -37,7 +37,7 @@ export default function ImageServer(): JSX.Element {
           />
           <p className={altText}>Pensive robot by Image Server AI</p>
         </div>
-        <h2>TL/DR</h2>
+        <h2>TL;DR</h2>
         <p className={text}>
           TL;DR: This post shares what I learned over three days of experimenting 
           with my DGX Spark while building a small text-to-image inference app. 
@@ -53,7 +53,7 @@ export default function ImageServer(): JSX.Element {
         </p>
 
         <p className={text}>
-          When I first watched Jensen Huang&apos;s talk about on it, I knew then it would be a great idea for 
+          When I first watched Jensen Huang&apos;s talk on it, I knew then it would be a great idea for 
           anyone working in Machine Learning to own one. I primarily do MLOps, but my background 
           in software engineering often pulls me into building ML applications too. I was also 
           curious about diving deeper into machine learning concepts — and working with the DGX 
@@ -64,7 +64,7 @@ export default function ImageServer(): JSX.Element {
         <p className={text}>
           Well, I like being first! My reservation number was <strong>#14127</strong>, but I saw people in the 
           forums with six-digit numbers, so I was still early. I was curious about the workflow. 
-          I wanted to run models directly from my desktop, practice locally, and then move everything 
+          I wanted to run models directly from my desktop, develop locally, and then move everything 
           to the cloud. The DGX Spark lets me do exactly that.
         </p>
        
@@ -100,13 +100,13 @@ export default function ImageServer(): JSX.Element {
           Free up your memory!
         </p>
         <p className={text}>
-          When the application first starts, memory usage sits around <strong>11-13 GB</strong>. 
-          But when a request kicks off inference, I watched it spike to <strong>116 GB</strong>. 
+          When the application first starts, memory usage sits around <strong>11-13GB</strong>. 
+          But when a request kicks off inference, I watched it spike to <strong>116GB</strong>. 
           After inference, it stays near the peak — unless you explicitly clean up.
         </p>
         <p className={text}>
           Triggering <strong>garbage collection after sending the response</strong> drops memory usage back to the 
-          <strong>mid-40 GB</strong> range. The remaining ~30 GB is likely tied to the loaded model, which the OS 
+          <strong>mid-40GB</strong> range. The remaining ~30GB is likely tied to the loaded model, which the OS 
           keeps cached in memory.
         </p>
         <p className={text}>
@@ -128,7 +128,7 @@ export default function ImageServer(): JSX.Element {
 
 
         <p className={text}>
-          You can’t see it here, but CPU utilization rose gradually — while 
+          You can&apos;t see it here, but CPU utilization rose gradually — while 
           GPU utilization surged almost instantly. It&apos;s doing exactly what it should. 
         </p>
 
@@ -144,7 +144,7 @@ export default function ImageServer(): JSX.Element {
         </div>
 
         <p className={text}>
-          After clearing our pipeline and garbage collection we see huge change in 
+          After clearing our pipeline and garbage collection, we see a huge change in 
           the available memory, used memory and free memory: 
         </p>
 
@@ -172,7 +172,7 @@ export default function ImageServer(): JSX.Element {
         <p className={text}>
           In case you&apos;re wondering, clearing up memory at this stage does not affect
           how fast the model makes inference on subsequent requests. In fact, times are consistent
-          across requests whether I cleared the memory or not. Still, I think it is best practice 
+          across requests whether I cleared the memory or not. Still, I think it&apos;s best practice 
           to free up memory as you can do so safely.
         </p>
 
@@ -208,12 +208,12 @@ export default function ImageServer(): JSX.Element {
 
         <h2>Wrapping Up</h2>
         <p className={text}>
-          Here&apos;s the link to the project where you can see exactly what I built.
-        </p>
-        <p className={text}>
           Three days in, and I&apos;ve already learned a ton, more that I can share in this one post. 
           There&apos;s still more to explore — but the DGX Spark has been a powerful 
           hands-on way to push deeper into GPU workflows and text-to-image inference.
+        </p>
+        <p className={text}>
+          As always, thanks for reading and look out for the follow-up!
         </p>
         <div className={minus10LeftMargin}>
           <Tags
