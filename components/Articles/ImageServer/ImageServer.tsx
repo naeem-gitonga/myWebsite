@@ -53,7 +53,7 @@ export default function ImageServer(): JSX.Element {
         </p>
 
         <p className={text}>
-          When I first saw Jensen Huang talk about it, I thought it would be a great idea for 
+          When I first watched Jensen Huang&apos;s talk about on it, I knew then it would be a great idea for 
           anyone working in Machine Learning to own one. I primarily do MLOps, but my background 
           in software engineering often pulls me into building ML applications too. I was also 
           curious about diving deeper into machine learning concepts — and working with the DGX 
@@ -144,7 +144,8 @@ export default function ImageServer(): JSX.Element {
         </div>
 
         <p className={text}>
-          After clearing our pipeline and garbage collection we huge change in available memory, used memory and free memory: 
+          After clearing our pipeline and garbage collection we see huge change in 
+          the available memory, used memory and free memory: 
         </p>
 
         <div className={imageWrapper}>
@@ -172,18 +173,18 @@ export default function ImageServer(): JSX.Element {
 
         <p className={text}>
           When I first started working on the Image Server, I followed my usual 
-          Python workflow — using tools like <code className={code}>uv</code> and 
+          Python workflow — using tools like <code className={code}>uv</code> and{' '} 
           <code className={code}>.venv</code>. But that approach 
           wasn&apos;t giving me what I needed.
         </p>
 
         <p className={text}>
-          I ran into this weird issue where, because the app was using a <code className={code}>venv</code> 
+          I ran into this weird issue where, because the app was using a <code className={code}>venv</code>{' '} 
           inside a container, it couldn&apos;t access the system-level CUDA dependencies. 
           Basically, it was trapped inside a virtual environment <em>inside</em> another virtual environment.
         </p>
         <p className={text}>
-          After a lot of trial and error (and a few headaches), I started digging through 
+          After a lot of trial and error, I started digging through 
           the NVIDIA forums. I found a post that described exactly what I was running into. 
           I left a comment, and a moderator plus an NVIDIA engineer pointed me to the company&apos;s 
           proprietary PyTorch Docker image — the one with full CUDA 13.0 support built in.
@@ -195,8 +196,8 @@ export default function ImageServer(): JSX.Element {
         </p>
         <p className={text}>
           Once I realized the <code className={code}>venv</code> setup was blocking me, I scrapped it. I started 
-          developing directly inside the container, did a quick <code className={code}>pip install</code> for my 
-          dependencies, and — <em>voilà</em> — I was using the GPU.
+          developing directly inside the container, did a quick <code className={code}>pip install</code>{' '} for my 
+          dependencies, and — <i>voilà</i> — I was using the GPU.
 
         </p>
 
@@ -205,9 +206,9 @@ export default function ImageServer(): JSX.Element {
           Here&apos;s the link to the project where you can see exactly what I built.
         </p>
         <p className={text}>
-          Three days in, and I&apos;ve already learned a ton. There&apos;s still more to explore 
-          — but the DGX Spark has been a powerful hands-on way to push deeper into GPU 
-          workflows and text-to-image inference.
+          Three days in, and I&apos;ve already learned a ton, more that I can share in this one post. 
+          There&apos;s still more to explore — but the DGX Spark has been a powerful 
+          hands-on way to push deeper into GPU workflows and text-to-image inference.
         </p>
         <div className={minus10LeftMargin}>
           <Tags
