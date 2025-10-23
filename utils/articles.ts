@@ -1,6 +1,6 @@
 export const articles: Article[] = [
   {
-    title: 'Image Server on DGX Spark — GPU Inference in 55 Seconds',
+    title: 'Image Server AI — GPU Inference in 55 Seconds',
     imageUrl: 'aiimage',
     lengthInMinutes: 5,
     publishedDate: 'Oct 22, 2025',
