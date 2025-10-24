@@ -2,7 +2,8 @@
 import Image from 'next/image';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
-import styles from '../Articles.module.scss';
+import articleStyles from '../Articles.module.scss';
+import styles from './ImageServer.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
@@ -11,6 +12,7 @@ import dashboard1 from '../../pictures/during-inference.png';
 import dashboard2 from '../../pictures/after-inference.png';
 import freeh1 from '../../pictures/after-inference-2.png';
 import freeh2 from '../../pictures/during-inference-2.png';
+import terminalwindow from '../../pictures/memory-profiling.png'
 
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
@@ -18,7 +20,17 @@ import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 import Link from 'next/link';
 
 export default function ImageServer(): JSX.Element {
-  const { innerWrapper, imageWrapper, altText, text, code, pre } = styles;
+  const {
+    innerWrapper,
+    imageWrapper,
+    altText,
+    text,
+    code,
+    figure,
+    firstInner,
+    secondInner,
+  } = articleStyles;
+  const {firstGist} = styles
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
   // * &rdquo; &ldquo; &apos;
   return (
@@ -175,6 +187,82 @@ export default function ImageServer(): JSX.Element {
           across requests whether I cleared the memory or not. Still, I think it&apos;s best practice 
           to free up memory as you can do so safely.
         </p>
+        
+
+        <h2>{'<edit>'}</h2>
+        <h2>Load Testing and Caching</h2>
+         <p className={text}>
+          While iterating on this project, I decided to dig deeper into memory behavior and see how caching my 
+          model was truly affecting the application. I started adding some quick benchmarks and simple log 
+          statements to understand what advantage I was losing by clearing the cache after every run.
+          I also re-evaluated my approach. Initially, I was sending one request at a time. This time, I 
+          disabled cleanup and sent multiple requests to simulate a real server environment — something 
+          closer to what you&apos;d expect in production. Think of it like basic load testing.
+         </p>
+         <figure className={figure}>
+          <div className={firstInner}>
+            <div className={`${secondInner} ${firstGist}`}>
+              <iframe
+                id="first-gist"
+                src="https://gist.github.com/naeem-gitonga/02af5f42ba44010103ecb1bdb6c0d58e.pibb"
+              ></iframe>
+            </div>
+          </div>
+        </figure>
+        <p className={text}>
+          After a few requests, the results spoke for themselves.  
+        </p>
+        <h3>Running Load Test</h3>
+        <p className={text}>
+          First, I commented my <code className={code}>drop_cache()</code> function call.
+          I didn&apos;t use any particular framework, I just opened a few terminal windows and
+          sent the same request one immediately after the other. See the results below.
+        </p>
+        <div className={imageWrapper}>
+          <Image
+            alt="Terminal instance with load results"
+            loader={imageLoader}
+            src={terminalwindow}
+            style={{ objectFit: 'contain', maxWidth: '100%' }}
+            fill
+          />
+          <p className={altText}>Benchmarking results with cached model</p>
+        </div>
+
+        <p className={text}>
+          The first line <code className={code}>Init took: 17.4253... seconds</code>{' '}
+          shows that after startup, the initiall run took nearly 18s. Subsequent runs 
+          , with the pipeline cached, took between 1 and 10 seconds. That's a win. It may seem
+          minor, but in a large-scale application handling millions of request per second,
+          not caching the inference pipeline would cost serious time and compute. Inference
+          consistently took between 55 (best case) and 59s.
+        </p>
+
+        <p className={text}>
+          Out of curiosity, I re-enabled the <code className={code}>Drop_cache()</code> 
+          function and sent multiple request again. Short 
+          asnwer: I crashed not only the server but the computer that was serving the application.
+          This not only points to the benefits of how chaching the pipeline helps, it also points
+          to the need for possibly locking the pipeline initialization along with the inference
+          to prevent any possible race condition.
+        </p>
+        <h3>Why It Works</h3>
+        <p className={text}>
+          Without caching, I have an instant performance killer.
+        </p>
+        <ul>
+          <li className={text}>For your 57s inference, adding 17s overhead = <strong>30% slower</strong></li>
+          <li className={text}>Over 100 requests: 1700s wasted just reloading</li>
+        </ul>
+
+        <p className={text}>
+          With caching, I have some solid wins.
+        </p>
+        <ul>
+          <li className={text}>Keeps weights in memory — avoiding the 17s reload</li>
+          <li className={text}>Avoids overhead, ~16s saved per request</li>
+        </ul>
+        <h2>{'</edit>'}</h2>
 
         <h2>The Setup</h2>
         <p className={text}>
