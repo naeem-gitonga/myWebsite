@@ -232,7 +232,7 @@ export default function ImageServer(): JSX.Element {
         <p className={text}>
           The first line <code className={code}>Init took: 17.4253... seconds</code>{' '}
           shows that after startup, the initiall run took nearly 18s. Subsequent runs 
-          , with the pipeline cached, took between 1 and 10 seconds. That's a win. It may seem
+          , with the pipeline cached, took between 1 and 10 seconds. That&apos;s a win. It may seem
           minor, but in a large-scale application handling millions of request per second,
           not caching the inference pipeline would cost serious time and compute. Inference
           consistently took between 55 (best case) and 59s.
