@@ -60,7 +60,7 @@ export const projects: Project[] = [
       'Re-written using NextJS from vanilla JS, some jQuery, and HTML.',
     projectStack: 'jngwebsite',
     gitHubLink:
-      '/interstitial?url=https://gitlab.com/naeemgitonga/myWebsite&where=Gitlab',
+      '/interstitial?url=https://www.gitlab.com/naeemgitonga/myWebsite&where=Gitlab',
   },
   {
     title: 'Pluralsight**',
