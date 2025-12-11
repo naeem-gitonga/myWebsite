@@ -8,7 +8,25 @@ stages:
   - test
   - build
   - test-cdk
+  - release
   - deploy
+
+.front_end_changes: &front_end_changes
+  - app/**/*
+  - components/**/*
+  - hooks/**/*
+  - pages/**/*
+  - types/**/*
+  - utils/**/*
+  - next.config.js
+  - package.json
+  - vercel.json
+  - .gitlab-ci.yml
+
+.backend_end_changes: &back_end_changes
+  - backend/apis/**/*
+  - backend/cdk/**/*
+  - README.md
 
 deploy_frontend_staging:
   stage: deploy
@@ -16,22 +34,23 @@ deploy_frontend_staging:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
     - if: '$CI_COMMIT_BRANCH == "staging"'
-      changes:
-        - app/**/*
-        - components/**/*
-        - hooks/**/*
-        - pages/**/*
-        - types/**/*
-        - utils/**/*
-        - next.config.js
-        - package.json
-        - vercel.json
-    - changes:
-        - $PWD/backend/apis/**/*
-        - $PWD/backend/cdk/**/*
+      changes: *front_end_changes
+    - changes: *back_end_changes
       when: never
   script:
     - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/cGxMEW1fLT
+publish:
+  image: node:23.5
+  stage: release
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      changes: *front_end_changes
+    - changes: *back_end_changes
+      when: never
+  script:
+    - npx semantic-release
 
 deploy_frontend_production:
   stage: deploy
@@ -39,19 +58,8 @@ deploy_frontend_production:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
     - if: '$CI_COMMIT_BRANCH == "master"'
-      changes:
-        - app/**/*
-        - components/**/*
-        - hooks/**/*
-        - pages/**/*
-        - types/**/*
-        - utils/**/*
-        - next.config.js
-        - package.json
-        - vercel.json
-    - changes:
-      - $PWD/backend/apis/**/*
-      - $PWD/backend/cdk/**/*
+      changes: *front_end_changes
+    - changes: *back_end_changes
       when: never
   script:
     - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/k4eiYJ4iju
