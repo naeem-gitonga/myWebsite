@@ -4,7 +4,7 @@ import Redirector from "./Redirector";
 import { Metadata } from "next";
 
 type Props = {
-  searchParams?: { url?: string; where?: string };
+  searchParams?: Promise<{ url?: string; where?: string }>;
 };
 
 export function generateMetadata(): Metadata {
@@ -15,7 +15,7 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default async function InterstitialPage(params: Props | any) {
+export default async function InterstitialPage(params: Props) {
   const searchParams = await params.searchParams;
   const url = searchParams?.url ?? "";
   const siteName = searchParams?.where ?? "the destination";
