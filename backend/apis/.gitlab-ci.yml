@@ -121,6 +121,7 @@ deploy_staging_backend:
         - $PWD/package.json
         - $PWD/vercel.json
         - $PWD/.gitlab-ci.yml
+        - $PWD/.releaserc
       when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
