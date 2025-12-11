@@ -40,18 +40,6 @@ deploy_frontend_staging:
       when: never
   script:
     - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/cGxMEW1fLT
-publish:
-  image: node:23.5
-  stage: release
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      when: never
-    - if: '$CI_COMMIT_BRANCH == "master"'
-      changes: *front_end_changes
-    - changes: *back_end_changes
-      when: never
-  script:
-    - npx semantic-release
 
 publish:
   image: node:23.5
@@ -64,6 +52,7 @@ publish:
     - changes: *back_end_changes
       when: never
   script:
+    - npm install @semantic-release/gitlab
     - npx semantic-release
 
 deploy_frontend_production:
