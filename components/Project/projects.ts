@@ -40,7 +40,7 @@ export const projects: Project[] = [
     target: '_self',
     linkText: 'Learn more',
     gitHubLink:
-      '/interstitial?url=https://https://gitlab.com/naeemgitonga/image-server&where=Gitlab'
+      '/interstitial?url=https://gitlab.com/naeemgitonga/image-server&where=Gitlab'
   },
   {
     title: 'Rapid Back-End*',
