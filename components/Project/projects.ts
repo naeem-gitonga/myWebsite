@@ -13,7 +13,7 @@ export type ProjectName =
   | 'acloudguru'
   | 'cricket'
   | 'arithmetik'
-  | 'jngwebsite'
+  | 'ngwebsite'
   | 'rapidbackend'
   | 'imageserver';
 
@@ -55,10 +55,10 @@ export const projects: Project[] = [
   },
   {
     title: 'This web app*',
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/jng-website.png',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/ng-website.png',
     projectDes:
       'Re-written using NextJS from vanilla JS, some jQuery, and HTML.',
-    projectStack: 'jngwebsite',
+    projectStack: 'ngwebsite',
     gitHubLink:
       '/interstitial?url=https://www.gitlab.com/naeemgitonga/myWebsite&where=Gitlab',
   },
