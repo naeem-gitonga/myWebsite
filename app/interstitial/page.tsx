@@ -15,7 +15,8 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function InterstitialPage({ searchParams }: Props | any) {
+export default async function InterstitialPage(params: any) {
+  const searchParams = await params.searchParams;
   const url = searchParams?.url ?? "";
   const siteName = searchParams?.where ?? "the destination";
 

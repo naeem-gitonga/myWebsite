@@ -110,3 +110,15 @@ $pictures-url: '../pictures/';
 .jest {
   @include background('jest');
 }
+
+.python {
+  @include background('python');
+}
+
+.pytorch {
+  @include background('pytorch');
+}
+
+.cuda {
+  @include background('cuda');
+}

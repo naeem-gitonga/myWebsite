@@ -14,7 +14,8 @@ export type ProjectName =
   | 'cricket'
   | 'arithmetik'
   | 'jngwebsite'
-  | 'rapidbackend';
+  | 'rapidbackend'
+  | 'imageserver';
 
 export type Project = {
   projectImg: string;
@@ -28,6 +29,19 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: 'Image Server*',
+    projectImg:
+      'https://d2j3yisnywcb30.cloudfront.net/pix/ai-generated-image.png',
+    projectDes:
+      'Example of running inference on GPU.',
+    projectStack: 'imageserver',
+    projectLink: '/articles/image-server-ai',
+    target: '_self',
+    linkText: 'Learn more',
+    gitHubLink:
+      '/interstitial?url=https://gitlab.com/naeemgitonga/image-server&where=Gitlab'
+  },
   {
     title: 'Rapid Back-End*',
     projectImg:
@@ -46,13 +60,13 @@ export const projects: Project[] = [
       'Re-written using NextJS from vanilla JS, some jQuery, and HTML.',
     projectStack: 'jngwebsite',
     gitHubLink:
-      '/interstitial?url=https://gitlab.com/naeemgitonga/myWebsite&where=Gitlab',
+      '/interstitial?url=https://www.gitlab.com/naeemgitonga/myWebsite&where=Gitlab',
   },
   {
     title: 'Pluralsight**',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/pluralsight.png',
     projectDes:
-      "Enterprise Learning application, I've led teams, and initiatives on migrations and new features.",
+      "Enterprise Learning application, I led and supported teams and initiatives on migrations and new features.",
     projectStack: 'pluralsight',
     projectLink:
       '/interstitial?url=https://www.pluralsight.com&where=Pluralsight',
