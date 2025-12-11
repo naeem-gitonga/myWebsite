@@ -53,7 +53,7 @@ publish:
       when: never
   script:
     - npm install @semantic-release/gitlab
-    - npx semantic-release
+    - npx semantic-release@25
 
 deploy_frontend_production:
   stage: deploy
