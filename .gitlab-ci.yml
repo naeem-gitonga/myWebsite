@@ -52,7 +52,7 @@ publish:
     - changes: *back_end_changes
       when: never
   script:
-    - npm install @semantic-release/gitlab
+    - npm install @semantic-release/gitlab @semantic-release/commit-analyzer @semantic-release/release-notes-generator
     - npx semantic-release@25
 
 deploy_frontend_production:
