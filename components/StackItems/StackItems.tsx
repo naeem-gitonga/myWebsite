@@ -27,6 +27,9 @@ const {
   jest,
   apigateway,
   jwt,
+  python,
+  pytorch,
+  cuda,
 } = styles;
 
 type StackItemProps = {
@@ -56,6 +59,12 @@ const defaultStack = [
 ];
 
 export const projectStackMap: ProjectMapType = {
+  imageserver: [
+    <StackItem text="Python" className={python} key="python" />,
+    <StackItem text="PyTorch" className={pytorch} key="pytorch" />,
+    <StackItem text="Docker" className={docker} key="docker" />,
+    <StackItem text="Cuda" className={cuda} key="cuda" />,
+  ],
   rapidbackend: [
     <StackItem text="MongoDB" className={mongo} key="mongo" />,
     <StackItem text="Serverless" className={serverless} key="serverless" />,
