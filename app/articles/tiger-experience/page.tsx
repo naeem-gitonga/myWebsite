@@ -12,7 +12,7 @@ export function generateMetadata(): Metadata {
     openGraph: {
       title: "My TI:GER Experience",
       images: [{
-        url: "/tiger-group.png",
+        url: "/images/tiger-group.png",
         width: 1200,
         height: 627,
       }],
