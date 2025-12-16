@@ -11,6 +11,11 @@ export function generateMetadata(): Metadata {
     keywords:['Georgia Institute of Technology', 'TI:GER', 'business development', 'product development', 'strategy', 'customer discovery', 'MBA', 'Software Engineering'],
     openGraph: {
       title: "My TI:GER Experience",
+      images: [{
+        url: "../../../components/pictures/tiger-group.png",
+        width: 1200,
+        height: 627,
+      }],
       type: "website"
     },
   };
