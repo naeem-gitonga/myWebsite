@@ -49,13 +49,10 @@ export default function TigerExperience(): JSX.Element {
           />
           <p className={altText}>From left-right: Aman Jonathan Prakash, Me, James &ldquo;Jimmy&rdquo; Storm, Rakim Hirji</p>
         </div>
-        <h2>FYI</h2>
-        <p className={text}>
-          This isn&apos;t an endorsement of the program. This is my experience.
-        </p>
+        <p className={text}><strong>This isn&apos;t an endorsement of the program. This is my experience.</strong></p>
 
         <p className={text}>
-          For the uninformed, TI:GER stands for <strong>Technology Innovation: Generating Economic Results</strong>. This 
+          For the uninformed, TI:GER stands for Technology Innovation: Generating Economic Results. This 
           was a huge factor in why I decided to go to Georgia Tech for my MBA. At the time of my application, 
           students were paired with real start-up companies so that they could solve real business problems 
           as part of their course of study.  
@@ -76,26 +73,30 @@ export default function TigerExperience(): JSX.Element {
         </p>
        
         <p className={text}>
-          And honestly — I&apos;ve only been using it for three days, so I&apos;m still just scratching the surface.
-        </p>
-
-        <h2>Learning</h2>
-        <p className={text}>
-          Inference on a single Blackwell GPU is about <strong>32x faster</strong> than on a 126 GB unified memory CPU.
+          In the first week of TI:GER you get the definition of innovation. If you asked around, hey what&apos;s 
+          innovation? You might hear, &ldquo;something new&rdquo;, &ldquo;something fresh&rdquo;, &ldquo;something 
+          the world has never seen (repeat)&rdquo;. 
         </p>
 
         <p className={text}>
-          Simply put: what took 30 minutes on CPU took just 55 seconds on GPU. That&apos;s 
-          a massive boost — and it makes sense why everyone&apos;s so hyped about GPUs.
+          But in TI:GER, we live by a different code. Innovation is simple: <strong>&ldquo;invention x commercialization.&rdquo;</strong> 
+          Therefore, without one or the other, there is no innovation. This causes the innovator to think about 
+          the invention <em>and</em> know the business. 
+        </p>
+
+        <p className={text}>
+          Side note, you always want to say &ldquo;yes, AND...&rdquo; it helps to foster a more inclusive atmosphere. My MBA Jackets know this.
+        </p>
+
+        <p className={text}>
+          Our focus is IDE—<strong>Innovation-Driven Enterprise</strong>—and all this time as a software engineer, I thought it only meant 
+          integrated development environment—IYKYK. Our focus is big markets. Our small businesses need to capture large 
+          market share. Simply put, we need to scale. 
         </p>
         <p className={text}>
-          Did I need to buy the DGX Spark to know that? Probably not. I&apos;d seen similar 
-          gains back when I turned on GPU usage for training models at Pluralsight. 
-          Tasks that used to take four hours dropped to under 30 minutes.
-        </p>
-        <p className={text}>
-          But the <i>gotcha</i> this time was that the hardware is so new, standard libraries 
-          like PyTorch haven&apos;t officially released versions compatible with the <strong>CUDA 13.0 Toolkit</strong> yet.
+          Some of this stuff is 1:1 with an engineering mindset. However, over the last two semesters I had to call on all of my previously 
+          learned skills whether from practice in my day job or from a course in my MBA program and learn new ones in order to innovate. 
+          Those skills include but are not limited to finance, strategy, marketing, and accounting.
         </p>
         <p className={text}>
           Fortunately, NVIDIA publishes its own version of PyTorch, and they maintain a Docker 
