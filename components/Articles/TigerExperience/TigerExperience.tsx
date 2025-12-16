@@ -41,6 +41,7 @@ export default function TigerExperience(): JSX.Element {
         </div>
         <p className={text}><strong>This isn&apos;t an endorsement of the program. This is my experience.</strong></p>
 
+        <h2>The Setup</h2>
         <p className={text}>
           For the uninformed, TI:GER stands for Technology Innovation: Generating Economic Results. This 
           was a huge factor in why I decided to go to Georgia Tech for my MBA. At the time of my application, 
@@ -54,7 +55,6 @@ export default function TigerExperience(): JSX.Element {
           businesses. Instead, we&apos;d be building a greenfield project and working from a textbook called Disciplined Entrepreneurship. 
         </p>
 
-         <h2>On B School</h2>
         <p className={text}>
           MBA school is all about group work and you learn early who your style complements. I reached 
           out to a guy that I had worked with before and we teamed up to interview our other group members. 
@@ -62,6 +62,7 @@ export default function TigerExperience(): JSX.Element {
           semester we would get to know one another and build a business from an idea. 
         </p>
        
+       <h2>How TI:GER Defines Innovation</h2>
         <p className={text}>
           In the first week of TI:GER you get the definition of innovation. If you asked around, hey what&apos;s 
           innovation? You might hear, &ldquo;something new&rdquo;, &ldquo;something fresh&rdquo;, &ldquo;something 
@@ -94,7 +95,6 @@ export default function TigerExperience(): JSX.Element {
             to talk to people but to speak to a customer other than another engineer was one of the best parts about this program. 
         </p>
 
-        <h2>?</h2>
         <p className={text}>
           We put together a real product and had real data to help us do so. There was one particular book that I 
           recommended to my group that helped us all. If you are interested in the name of it, contact me directly 
@@ -114,6 +114,7 @@ export default function TigerExperience(): JSX.Element {
           me the tools to think through the process of creating new products. 
         </p>
 
+        <h2>Where This Breaks Down in Practice</h2>
         <p className={text}>
           The best example that I have is from a company that I am familiar with. This company&apos;s main business was 
           selling content. They had two economic buyers, 1) corporate enterprises (B2B) and 2) other individuals (B2C). 
@@ -127,7 +128,7 @@ export default function TigerExperience(): JSX.Element {
 
         <p className={text}>
           Well, the answer to the first question may seem obvious, but they chose to make their AI 
-          product for the 35-40% of their revenue base. For revenue-protection and/or growth—bad decision. 
+          product for the 35-40% of their revenue base. For revenue-protection and/or growth—<strong>bad decision</strong>. 
           The answer to the second question was they built an AI chatbot. 
         </p>
 
@@ -136,7 +137,6 @@ export default function TigerExperience(): JSX.Element {
           expertise, market knowledge, finance, basic accounting, and plain old common sense come into play. 
         </p>
 
-        <h2>?</h2>
         <p className={text}>
             This is where TI:GER shines. It is an exercise of the aforementioned domains/skills. 
             TI:GER is where you get to employ good decision making using all of the previously mentioned skills.
@@ -148,8 +148,9 @@ export default function TigerExperience(): JSX.Element {
             chatbot, leaving enough people to “keep the lights on”, in an effort to improve their bottom line.
         </p>
 
+        <h2>My Takeaways</h2>
         <p className={text}>
-            Lesson here, take care of your main revenue stream, think holistically, and build products that support and promote 
+            Lesson here, <strong>take care of your main revenue stream</strong>, think holistically, and build products that support and promote 
             the value that made your primary market choose you over other vendors in the first place. Chasing fads will most 
             certainly have you chasing the next as the previous one dies. Meanwhile, you have lost time and the opportunity to 
             create real value that can grow your business, your competitors outpace you, and you struggle to make shareholders happy.
@@ -175,10 +176,9 @@ export default function TigerExperience(): JSX.Element {
         <p className={text}>
             Suffice it to say, I think the company made the right choice in their RIF and I would have done the same 
             given the circumstances. When you notice that you have an expense that does not drive revenue nor supports 
-            the viability or value of your core—cut it! 
+            the viability or value of your core—<strong>cut it!</strong> 
         </p>
 
-        <h2>The Setup</h2>
         <p className={text}>
           TI:GER taught me how to gather the necessary data, analyze that data, see the signals, and develop a 
           plan of action based on all findings; therefore, avoid that situation entirely.
@@ -193,6 +193,10 @@ export default function TigerExperience(): JSX.Element {
           I don&apos;t think the TI:GER concentration is the end-all-be-all when it comes to MBA programs or concentrations. 
           There are many great business schools out here that do not have an official TI:GER concentration. However, I am a 
           better manager, leader, and person because of the work I completed in Georgia Tech&apos;s TI:GER program.
+        </p>
+
+        <p className={text}>
+          <strong>Thank you TI:GER!</strong>
         </p>
         <div className={imageWrapper}>
           <Image
