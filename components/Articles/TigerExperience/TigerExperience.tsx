@@ -51,7 +51,7 @@ export default function TigerExperience(): JSX.Element {
 
         <p className={text}>
           Well, fast-forward to my first TI:GER class and I find out that due to no fault of the faculty and staff 
-          of the TI:GER program things have changed, meaning that they were no longer pairing us with &ldquo;real-live&rdquo; 
+          of the TI:GER program, things have changed, meaning that they were no longer pairing us with &ldquo;real-live&rdquo; 
           businesses. Instead, we&apos;d be building a greenfield project and working from a textbook called Disciplined Entrepreneurship. 
         </p>
 
@@ -71,7 +71,7 @@ export default function TigerExperience(): JSX.Element {
 
         <p className={text}>
           But in TI:GER, we live by a different code. Innovation is simple: <strong>&ldquo;invention x commercialization.&rdquo;</strong> 
-          Therefore, without one or the other, there is no innovation. This causes the innovator to think about 
+          {' '}Therefore, without one or the other, there is no innovation. This causes the innovator to think about 
           the invention <em>and</em> know the business. 
         </p>
 
