@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import articleStyles from '../Articles.module.scss';
@@ -92,18 +93,18 @@ export default function TigerExperience(): JSX.Element {
 
         <p className={text}>
             A new skill for me was customer discovery. It was great to talk to people again. Being a senior MLOps Engineer, I definitely got 
-            to talk to people but to speak to a customer other than another engineer was one of the best parts about this program. 
+            to talk to people but to speak to a customer other than another engineer was one of the best parts about my journey. 
         </p>
 
         <p className={text}>
           We put together a real product and had real data to help us do so. There was one particular book that I 
           recommended to my group that helped us all. If you are interested in the name of it, contact me directly 
-          and I&apos;ll share it with you. 
+          and I&apos;ll share it with you. Contact me <Link className="link" href="/contact">here</Link>.
         </p>
 
         <p className={text}>
           Customer discovery is an art. You need to be able to read the room, hear what is being said, and 
-          listen for what they&apos;re not saying. The hardest part is getting people to talk to you, but I 
+          listen for what they&apos;re not saying. The hardest part is getting people to schedule a call, but I 
           literally can do these all day long and not get bored.
         </p>
 
@@ -123,7 +124,7 @@ export default function TigerExperience(): JSX.Element {
 
         <p className={text}>
           This company wanted to employ AI in their platform during the beginning of the AI Boom. 
-          So who did they make their AI product for? And how did they use the AI? 
+          So who did they make their AI product for? And how did they employ the AI? 
         </p>
 
         <p className={text}>
@@ -139,20 +140,20 @@ export default function TigerExperience(): JSX.Element {
 
         <p className={text}>
             This is where TI:GER shines. It is an exercise of the aforementioned domains/skills. 
-            TI:GER is where you get to employ good decision making using all of the previously mentioned skills.
+            Furthermore, TI:GER is where you get to employ good decision making using all of the previously mentioned skills.
         </p>
  
         <p className={text}>
             In the face of economic headwinds and as a result of the decision to spend millions of dollars and thousands 
-            of man hours in the development of their AI project, the company RIF&apos;d most of their AI team that built their 
-            chatbot, leaving enough people to “keep the lights on”, in an effort to improve their bottom line.
+            of man hours in the development of their AI project, the company RIF&apos;d most of their AI team (those that built 
+            and maintained) their chatbot, leaving enough people to &ldquo;keep the lights on&rdquo;, in an effort to improve their bottom line.
         </p>
 
         <h2>My Takeaways</h2>
         <p className={text}>
             Lesson here, <strong>take care of your main revenue stream</strong>, think holistically, and build products that support and promote 
             the value that made your primary market choose you over other vendors in the first place. Chasing fads will most 
-            certainly have you chasing the next as the previous one dies. Meanwhile, you have lost time and the opportunity to 
+            certainly have you chasing the next as soon as the current one dies. Meanwhile, you have lost time and the opportunity to 
             create real value that can grow your business, your competitors outpace you, and you struggle to make shareholders happy.
         </p>
 
@@ -185,7 +186,7 @@ export default function TigerExperience(): JSX.Element {
         </p>
 
         <p className={text}>
-          I still have to make small-regular deposits into themy bank of experience, education, and training. Yet unlike many others in management 
+          I still have to make small-regular deposits into my bank of experience, education, and training. Yet unlike many others in management 
           and leadership roles, my tool belt prepares me for multi-faceted, multi-modal approaches to solving problems regarding 
           business, people, and technology.
         </p>
