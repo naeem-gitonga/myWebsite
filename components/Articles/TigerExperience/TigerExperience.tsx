@@ -142,69 +142,39 @@ export default function TigerExperience(): JSX.Element {
         </p>
 
         <p className={text}>
-          In case you&apos;re wondering, clearing up memory at this stage does not affect
-          how fast the model makes inference on subsequent requests. In fact, times are consistent
-          across requests whether I cleared the memory or not. Still, I think it&apos;s best practice 
-          to free up memory as you can do so safely.
+          Without blaming any one person you may see where things like economics, product knowledge, technical 
+          expertise, market knowledge, finance, basic accounting, and plain old common sense come into play. 
         </p>
-        
 
-        <h2>{'<edit>'}</h2>
-        <h2>Load Testing and Caching</h2>
-         <p className={text}>
-          While iterating on this project, I decided to dig deeper into memory behavior and see how caching my 
-          model was truly affecting the application. I started adding some quick benchmarks and simple log 
-          statements to understand what advantage I was losing by clearing the cache after every run.
-          I also re-evaluated my approach. Initially, I was sending one request at a time. This time, I 
-          disabled cleanup and sent multiple requests to simulate a real server environment — something 
-          closer to what you&apos;d expect in production. Think of it like basic load testing.
-         </p>
-         <figure className={figure}>
-          <div className={firstInner}>
-            <div className={`${secondInner} ${firstGist}`}>
-              <iframe
-                id="first-gist"
-                src="https://gist.github.com/naeem-gitonga/02af5f42ba44010103ecb1bdb6c0d58e.pibb"
-              ></iframe>
-            </div>
-          </div>
-        </figure>
+        <h2>?</h2>
         <p className={text}>
-          After a few requests, the results spoke for themselves.  
+            This is where TI:GER shines. It is an exercise of the aforementioned domains/skills. 
+            TI:GER is where you get to employ good decision making using all of the previously mentioned skills.
         </p>
-        <h3>Running Load Test</h3>
+ 
         <p className={text}>
-          First, I commented my <code className={code}>drop_cache()</code> function call.
-          I didn&apos;t use any particular framework, I just opened a few terminal windows and
-          sent the same request one immediately after the other. See the results below.
-        </p>
-        <div className={imageWrapper}>
-          <Image
-            alt="Terminal instance with load results"
-            loader={imageLoader}
-            src={terminalwindow}
-            style={{ objectFit: 'contain', maxWidth: '100%' }}
-            fill
-          />
-          <p className={altText}>Benchmarking results with cached model</p>
-        </div>
-
-        <p className={text}>
-          The first line <code className={code}>Init took: 17.4253... seconds</code>{' '}
-          shows that after startup, the initiall run took nearly 18s. Subsequent runs 
-          , with the pipeline cached, took between 1 and 10 seconds. That&apos;s a win. It may seem
-          minor, but in a large-scale application handling millions of request per second,
-          not caching the inference pipeline would cost serious time and compute. Inference
-          consistently took between 55 (best case) and 59s.
+            In the face of economic headwinds and as a result of the decision to spend millions of dollars and thousands 
+            of man hours in the development of their AI project, the company RIF&apos;d most of their AI team that built their 
+            chatbot, leaving enough people to “keep the lights on”, in an effort to improve their bottom line.
         </p>
 
         <p className={text}>
-          Out of curiosity, I re-enabled the <code className={code}>Drop_cache()</code> 
-          function and sent multiple request again. Short 
-          asnwer: I crashed not only the server but the computer that was serving the application.
-          This not only points to the benefits of how chaching the pipeline helps, it also points
-          to the need for possibly locking the pipeline initialization along with the inference
-          to prevent any possible race condition.
+            Lesson here, take care of your main revenue stream, think holistically, and build products that support and promote 
+            the value that made your primary market choose you over other vendors in the first place. Chasing fads will most 
+            certainly have you chasing the next as the previous one dies. Meanwhile, you have lost time and the opportunity to 
+            create real value that can grow your business, your competitors outpace you, and you struggle to make shareholders happy.
+        </p>
+
+        <p className={text}>
+            Here&apos;s an idea, instead of chasing the latest AI fad, think big picture, look at what will help you to deliver 
+            faster, more efficiently to your primary market.
+        </p>
+
+        <p className={text}>
+            In that company&apos;s case, an AI tool that helped to deliver content faster would have been the proper use 
+            of its resources. Why? Because 100% of their revenue comes from the content that they create and up to 
+            65% of their revenue comes from their enterprise customers who ONLY consume the content. That&apos;s to say they 
+            will never interact with their AI chatbot.
         </p>
         <h3>Why It Works</h3>
         <p className={text}>
