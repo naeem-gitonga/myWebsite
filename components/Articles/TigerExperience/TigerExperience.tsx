@@ -3,21 +3,16 @@ import Image from 'next/image';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import articleStyles from '../Articles.module.scss';
-import styles from './TigerExperience.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
 import tigergroup from '../../pictures/tiger-group.png';
-import dashboard1 from '../../pictures/during-inference.png';
-import dashboard2 from '../../pictures/after-inference.png';
-import freeh1 from '../../pictures/after-inference-2.png';
-import freeh2 from '../../pictures/during-inference-2.png';
-import terminalwindow from '../../pictures/memory-profiling.png'
+import tigerClassPhoto from '../../pictures/tiger-class-photo.jpg';
+
 
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
-import Link from 'next/link';
 
 export default function TigerExperience(): JSX.Element {
   const {
@@ -25,12 +20,7 @@ export default function TigerExperience(): JSX.Element {
     imageWrapper,
     altText,
     text,
-    code,
-    figure,
-    firstInner,
-    secondInner,
   } = articleStyles;
-  const {firstGist} = styles
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
   // * &rdquo; &ldquo; &apos;
   return (
@@ -176,72 +166,58 @@ export default function TigerExperience(): JSX.Element {
             65% of their revenue comes from their enterprise customers who ONLY consume the content. That&apos;s to say they 
             will never interact with their AI chatbot.
         </p>
-        <h3>Why It Works</h3>
-        <p className={text}>
-          Without caching, I have an instant performance killer.
-        </p>
-        <ul>
-          <li className={text}>For your 57s inference, adding 17s overhead = <strong>30% slower</strong></li>
-          <li className={text}>Over 100 requests: 1700s wasted just reloading</li>
-        </ul>
 
         <p className={text}>
-          With caching, I have some solid wins.
+            I shared some ideas with insiders but unfortunately that came after the company had millions 
+            of dollars in sunk costs in their fledgling AI chatbot. 
         </p>
-        <ul>
-          <li className={text}>Keeps weights in memory — avoiding the 17s reload</li>
-          <li className={text}>Avoids overhead, ~16s saved per request</li>
-        </ul>
-        <h2>{'</edit>'}</h2>
+
+        <p className={text}>
+            Suffice it to say, I think the company made the right choice in their RIF and I would have done the same 
+            given the circumstances. When you notice that you have an expense that does not drive revenue nor supports 
+            the viability or value of your core—cut it! 
+        </p>
 
         <h2>The Setup</h2>
         <p className={text}>
-          When I first started working on the Image Server, I followed my usual 
-          Python workflow — using tools like <code className={code}>uv</code> and{' '} 
-          <code className={code}>.venv</code>. But that approach 
-          wasn&apos;t giving me what I needed.
+          TI:GER taught me how to gather the necessary data, analyze that data, see the signals, and develop a 
+          plan of action based on all findings; therefore, avoid that situation entirely.
         </p>
 
         <p className={text}>
-          I ran into this weird issue where, because the app was using a <code className={code}>venv</code>{' '} 
-          inside a container, it couldn&apos;t access the system-level CUDA dependencies. 
-          Basically, it was trapped inside a virtual environment <em>inside</em> another virtual environment.
+          I still have to make small-regular deposits into themy bank of experience, education, and training. Yet unlike many others in management 
+          and leadership roles, my tool belt prepares me for multi-faceted, multi-modal approaches to solving problems regarding 
+          business, people, and technology.
         </p>
         <p className={text}>
-          After a lot of trial and error, I started digging through 
-          the NVIDIA forums. I found a post that described exactly what I was running into. 
-          I left a comment, and a moderator plus an NVIDIA engineer pointed me to the company&apos;s 
-          proprietary PyTorch Docker image — the one with full CUDA 13.0 support built in.
+          I don&apos;t think the TI:GER concentration is the end-all-be-all when it comes to MBA programs or concentrations. 
+          There are many great business schools out here that do not have an official TI:GER concentration. However, I am a 
+          better manager, leader, and person because of the work I completed in Georgia Tech&apos;s TI:GER program.
         </p>
-        <p className={text}>
-          You can see that thread <Link className="link" href="/interstitial?url=https://forums.developer.nvidia.com/t/effective-pytorch-and-cuda/348230&where=Nvidia Forum">
-            here
-          </Link>. 
-        </p>
-        <p className={text}>
-          Once I realized the <code className={code}>venv</code> setup was blocking me, I scrapped it. I started 
-          developing directly inside the container, did a quick <code className={code}>pip install</code>{' '} for my 
-          dependencies, and — <i>voilà</i> — I was using the GPU.
-        </p>
-
-        <h2>Wrapping Up</h2>
-        <p className={text}>
-          Three days in, and I&apos;ve already learned a ton, more that I can share in this one post. 
-          There&apos;s still more to explore — but the DGX Spark has been a powerful 
-          hands-on way to push deeper into GPU workflows and text-to-image inference.
-        </p>
-        <p className={text}>
-          As always, thanks for reading and look out for the follow-up!
-        </p>
+        <div className={imageWrapper}>
+          <Image
+            alt="pic of many people"
+            loader={imageLoader}
+            src={tigerClassPhoto}
+            style={{ objectFit: 'contain', maxWidth: '100%' }}
+            fill
+          />
+          <p className={altText}>
+            Class photo
+          </p>
+        </div>
         <div className={minus10LeftMargin}>
           <Tags
             tags={[
-              'AI',
-              'MLOps',
-              'ML Engineering',
-              'Python',
-              'Cuda',
-              'Image-to-text',
+              'Scheller College of Business',
+              'Software Engineering',
+              'Business Strategy',
+              'TI:GER',
+              'Georgia Institute of Technology',
+              'MBA',
+              'Product Development',
+              'Customer Discovery',
+              'business development'
             ]}
           />
         </div>
