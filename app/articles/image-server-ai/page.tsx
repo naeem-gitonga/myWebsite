@@ -12,7 +12,7 @@ export function generateMetadata(): Metadata {
     openGraph: {
       title: "Image Server AI — GPU Inference in 55 Seconds",
       images: [{
-        url: "../../../components/pictures/ai-generated-image.png",
+        url: "/components/pictures/ai-generated-image.png",
         width: 1200,
         height: 627,
       }],
