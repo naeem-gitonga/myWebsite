@@ -2,31 +2,38 @@ import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
 import ImageServer from '@/components/Articles/ImageServer/ImageServer';
+import { getAbsoluteUrl, siteConfig } from '@/lib/siteConfig';
 
 export function generateMetadata(): Metadata {
+  const title = "Image Server AI — GPU Inference in 55 Seconds";
+  const description = "GPU inference, memory optimization, and model deployment, text-to-image by Naeem Gitonga";
+  const imageUrl = getAbsoluteUrl('/images/ai-generated-image-og.jpg');
+  const pageUrl = getAbsoluteUrl('/articles/image-server-ai');
+
   return {
-    title: "Image Server AI — GPU Inference in 55 Seconds",
-    description:
-      "GPU inference, memory optimization, and model deployment, text-to-image by Naeem Gitonga",
+    title,
+    description,
     keywords:['AI', 'MLOps', 'Cuda', 'DGX Spark', 'Pytorch', 'text-to-image', 'Machine Learning Engineer', 'Software Engineering'],
     openGraph: {
-      title: "Image Server AI — GPU Inference in 55 Seconds",
-      description: "GPU inference, memory optimization, and model deployment, text-to-image by Naeem Gitonga",
-      url: "https://www.staging.naeemgitonga.com/articles/image-server-ai",
-      siteName: "Naeem Gitonga",
+      title,
+      description,
+      url: pageUrl,
+      siteName: siteConfig.siteName,
+      locale: 'en_US',
       images: [{
-        url: "https://www.staging.naeemgitonga.com/images/ai-generated-image.png",
+        url: imageUrl,
         width: 1200,
         height: 627,
-        alt: "AI Generated Image from GPU Server"
+        alt: "AI Generated Image from GPU Server",
+        type: 'image/jpeg',
       }],
       type: "article"
     },
     twitter: {
       card: "summary_large_image",
-      title: "Image Server AI — GPU Inference in 55 Seconds",
-      description: "GPU inference, memory optimization, and model deployment, text-to-image by Naeem Gitonga",
-      images: ["https://www.staging.naeemgitonga.com/images/ai-generated-image.png"],
+      title,
+      description,
+      images: [imageUrl],
     },
   };
 }

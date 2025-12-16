@@ -2,31 +2,38 @@ import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
 import TigerExperience from '@/components/Articles/TigerExperience/TigerExperience';
+import { getAbsoluteUrl, siteConfig } from '@/lib/siteConfig';
 
 export function generateMetadata(): Metadata {
+  const title = "My TI:GER Experience";
+  const description = "This isn't an endorsement of the program. This is my experience-by Naeem Gitonga";
+  const imageUrl = getAbsoluteUrl('/images/tiger-group-og.jpg');
+  const pageUrl = getAbsoluteUrl('/articles/tiger-experience');
+
   return {
-    title: "My TI:GER Experience",
-    description:
-      "This isn't an endorsement of the program. This is my experience-by Naeem Gitonga",
+    title,
+    description,
     keywords:['Georgia Institute of Technology', 'TI:GER', 'business development', 'product development', 'strategy', 'customer discovery', 'MBA', 'Software Engineering'],
     openGraph: {
-      title: "My TI:GER Experience",
-      description: "This isn't an endorsement of the program. This is my experience-by Naeem Gitonga",
-      url: "https://www.staging.naeemgitonga.com/articles/tiger-experience",
-      siteName: "Naeem Gitonga",
+      title,
+      description,
+      url: pageUrl,
+      siteName: siteConfig.siteName,
+      locale: 'en_US',
       images: [{
-        url: "https://www.staging.naeemgitonga.com/images/tiger-group.png",
+        url: imageUrl,
         width: 1200,
         height: 627,
-        alt: "My TI:GER Experience group photo"
+        alt: "My TI:GER Experience group photo",
+        type: 'image/jpeg',
       }],
       type: "article"
     },
     twitter: {
       card: "summary_large_image",
-      title: "My TI:GER Experience",
-      description: "This isn't an endorsement of the program. This is my experience-by Naeem Gitonga",
-      images: ["https://www.staging.naeemgitonga.com/images/tiger-group.png"],
+      title,
+      description,
+      images: [imageUrl],
     },
   };
 }
