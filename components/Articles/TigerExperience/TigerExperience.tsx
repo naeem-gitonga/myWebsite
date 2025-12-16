@@ -98,84 +98,48 @@ export default function TigerExperience(): JSX.Element {
           learned skills whether from practice in my day job or from a course in my MBA program and learn new ones in order to innovate. 
           Those skills include but are not limited to finance, strategy, marketing, and accounting.
         </p>
-        <p className={text}>
-          Fortunately, NVIDIA publishes its own version of PyTorch, and they maintain a Docker 
-          image packed with the right dependencies for my setup. That image saved me.
-        </p>
-
-        <h2>Memory Management</h2>
-        <p className={text}>
-          Free up your memory!
-        </p>
-        <p className={text}>
-          When the application first starts, memory usage sits around <strong>11-13GB</strong>. 
-          But when a request kicks off inference, I watched it spike to <strong>116GB</strong>. 
-          After inference, it stays near the peak — unless you explicitly clean up.
-        </p>
-        <p className={text}>
-          Triggering <strong>garbage collection after sending the response</strong> drops memory usage back to the 
-          <strong>mid-40GB</strong> range. The remaining ~30GB is likely tied to the loaded model, which the OS 
-          keeps cached in memory.
-        </p>
-        <p className={text}>
-          Being able to monitor memory in real time is a huge advantage when developing AI applications. In the absence 
-          of the DGX Spark, there is tooling in both Linux and Python to help with this. But this makes it easy. 
-          The screenshot below shows the <strong>DGX Dashboard</strong> during inference. 
-        </p>
-
-        <div className={imageWrapper}>
-          <Image
-            alt="DGX dashboard during inference"
-            loader={imageLoader}
-            src={dashboard1}
-            style={{ objectFit: 'contain', maxWidth: '50%' }}
-            fill
-          />
-          <p className={altText}>Dashboad spiked GPU, high CPU</p>
-        </div>
-
 
         <p className={text}>
-          You can&apos;t see it here, but CPU utilization rose gradually — while 
-          GPU utilization surged almost instantly. It&apos;s doing exactly what it should. 
+            A new skill for me was customer discovery. It was great to talk to people again. Being a senior MLOps Engineer, I definitely got 
+            to talk to people but to speak to a customer other than another engineer was one of the best parts about this program. 
         </p>
 
-        <div className={imageWrapper}>
-          <Image
-            alt="Running free -h command in terminal during inference"
-            loader={imageLoader}
-            src={freeh2}
-            style={{ objectFit: 'contain', maxWidth: '100%' }}
-            fill
-          />
-          <p className={altText}>High memory usage during inference</p>
-        </div>
+        <h2>?</h2>
+        <p className={text}>
+          We put together a real product and had real data to help us do so. There was one particular book that I 
+          recommended to my group that helped us all. If you are interested in the name of it, contact me directly 
+          and I&apos;ll share it with you. 
+        </p>
 
         <p className={text}>
-          After clearing our pipeline and garbage collection, we see a huge change in 
-          the available memory, used memory and free memory: 
+          Customer discovery is an art. You need to be able to read the room, hear what is being said, and 
+          listen for what they&apos;re not saying. The hardest part is getting people to talk to you, but I 
+          literally can do these all day long and not get bored.
         </p>
 
-        <div className={imageWrapper}>
-          <Image
-            alt="DGX dashboard after inference"
-            loader={imageLoader}
-            src={dashboard2}
-            style={{ objectFit: 'contain', maxWidth: '50%' }}
-            fill
-          />
-          <p className={altText}>Dashboard showing low memory usage</p>
-        </div>
-        <div className={imageWrapper}>
-          <Image
-            alt="Running free -h command in terminal after inference"
-            loader={imageLoader}
-            src={freeh1}
-            style={{ objectFit: 'contain', maxWidth: '100%' }}
-            fill
-          />
-          <p className={altText}>Terminal view low memory usage</p>
-        </div>
+        <p className={text}>
+          As an engineer, we&apos;ll often make things that we think are useful but when “the thing” is put on the open 
+          market we find that it isn&apos;t getting the use that we had intended. The main reason for that is because we 
+          don&apos;t have one or two things, commercialization or invention, or even worse neither of the two! TI:GER gave 
+          me the tools to think through the process of creating new products. 
+        </p>
+
+        <p className={text}>
+          The best example that I have is from a company that I am familiar with. This company&apos;s main business was 
+          selling content. They had two economic buyers, 1) corporate enterprises (B2B) and 2) other individuals (B2C). 
+          Their B2B customers made up about 60-65% of their revenue. 
+        </p>
+
+        <p className={text}>
+          This company wanted to employ AI in their platform during the beginning of the AI Boom. 
+          So who did they make their AI product for? And how did they use the AI? 
+        </p>
+
+        <p className={text}>
+          Well, the answer to the first question may seem obvious, but they chose to make their AI 
+          product for the 35-40% of their revenue base. For revenue-protection and/or growth—bad decision. 
+          The answer to the second question was they built an AI chatbot. 
+        </p>
 
         <p className={text}>
           In case you&apos;re wondering, clearing up memory at this stage does not affect
