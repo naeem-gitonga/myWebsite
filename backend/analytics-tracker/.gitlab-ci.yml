@@ -1,13 +1,13 @@
 lambda_test:
   stage: test
-  image: node:20.11.1
+  image: node:22.21.1
   rules:
     - changes:
         - backend/analytics-tracker/**/*
     - when: never
   script:
     - cd backend/analytics-tracker
-    - npm ci
+    - npm i
     - npm run test
 
 # lambda_deploy:
