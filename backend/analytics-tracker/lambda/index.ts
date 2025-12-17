@@ -134,7 +134,9 @@ function isAllowedBucket(bucket: string): boolean {
 export const handler = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
-  console.log('Analytics event received:', JSON.stringify(event, null, 2));
+  if (process.env.NODE_ENV !== 'cicd') {
+    console.log('Analytics event received:', JSON.stringify(event, null, 2));
+  }
 
   const corsHeaders = {
     'Access-Control-Allow-Origin': getCorsOrigin(),

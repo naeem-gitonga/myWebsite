@@ -6,6 +6,7 @@ lambda_test:
         - backend/analytics-tracker/**/*
     - when: never
   script:
+    - export NODE_ENV=cicd
     - cd backend/analytics-tracker
     - npm i
     - npm run test
