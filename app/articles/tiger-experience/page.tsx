@@ -27,7 +27,9 @@ export function generateMetadata(): Metadata {
         alt: "My TI:GER Experience group photo",
         type: 'image/jpeg',
       }],
-      type: "article"
+      type: "article",
+      authors: [siteConfig.author],
+      publishedTime: '2025-12-16T00:00:00.000Z',
     },
     twitter: {
       card: "summary_large_image",
