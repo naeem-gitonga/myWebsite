@@ -62,7 +62,7 @@ export default function TigerExperience(): JSX.Element {
           <Image
             alt="group of four guys"
             loader={imageLoader}
-            src="/images/tiger-group.png" 
+            src="/images/tiger-group.jpg" 
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
