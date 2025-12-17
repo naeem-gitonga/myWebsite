@@ -182,7 +182,9 @@ export const handler = async (
 
     // Validate bucket is allowed
     if (!isAllowedBucket(body.bucket)) {
-      console.error(`Bucket not allowed: ${body.bucket}. Allowed buckets: ${getAllowedBuckets().join(', ')}`);
+      if (process.env.NODE_ENV !== 'cicd') {
+        console.error(`Bucket not allowed: ${body.bucket}. Allowed buckets: ${getAllowedBuckets().join(', ')}`);
+      }
       return {
         statusCode: 403,
         headers: corsHeaders,
@@ -268,7 +270,9 @@ export const handler = async (
       }),
     };
   } catch (error) {
-    console.error('Error processing analytics event:', error);
+    if (process.env.NODE_ENV !== 'cicd') {
+      console.error('Error processing analytics event:', error);
+    }
 
     return {
       statusCode: 500,
