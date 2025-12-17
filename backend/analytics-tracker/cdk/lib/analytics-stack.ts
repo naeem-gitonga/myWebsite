@@ -22,14 +22,14 @@ export interface AnalyticsTrackerConfig {
   allowedBuckets: string[];
 
   /**
-   * CORS origin for the API Gateway
+   * CORS origin(s) for the API Gateway
    * Use '*' to allow all origins, or specify specific domains
    * Examples:
    *   - '*' (allow all)
    *   - 'https://example.com'
-   *   - Multiple origins will be joined
+   *   - ['https://example.com', 'https://staging.example.com']
    */
-  corsOrigin?: string;
+  corsOrigins?: string | string[];
 
   /**
    * Function name prefix
@@ -87,7 +87,8 @@ export class AnalyticsTrackerStack extends Stack {
 
     const functionPrefix = config.functionPrefix || 'default';
     const apiName = config.apiName || 'analytics-tracker-api';
-    const corsOrigin = config.corsOrigin || '*';
+    const corsOrigins = config.corsOrigins || '*';
+    const corsOriginsArray = Array.isArray(corsOrigins) ? corsOrigins : [corsOrigins];
     const enableMetrics = config.enableMetrics ?? true;
     const lambdaTimeout = config.lambdaTimeout || 10;
     const enableAccessLogs = config.enableAccessLogs ?? true;
@@ -115,7 +116,7 @@ export class AnalyticsTrackerStack extends Stack {
       timeout: Duration.seconds(lambdaTimeout),
       environment: {
         ALLOWED_BUCKETS: config.allowedBuckets.join(','),
-        CORS_ORIGIN: corsOrigin,
+        CORS_ORIGINS: corsOriginsArray.join(','),
       },
     });
 
@@ -156,7 +157,7 @@ export class AnalyticsTrackerStack extends Stack {
         dataTraceEnabled: false, // Don't log request/response bodies (PII concerns)
       },
       defaultCorsPreflightOptions: {
-        allowOrigins: corsOrigin === '*' ? Cors.ALL_ORIGINS : [corsOrigin],
+        allowOrigins: corsOrigins === '*' ? Cors.ALL_ORIGINS : corsOriginsArray,
         allowMethods: ['POST', 'OPTIONS'],
         allowHeaders: ['Content-Type', 'X-Requested-With', 'Authorization'],
         allowCredentials: false,

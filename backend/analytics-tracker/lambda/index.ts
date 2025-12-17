@@ -16,10 +16,48 @@ function getAllowedBuckets(): string[] {
 }
 
 /**
- * Get CORS origin from environment variable
+ * Get allowed CORS origins from environment variable
  */
-function getCorsOrigin(): string {
-  return process.env.CORS_ORIGIN || '*';
+function getAllowedCorsOrigins(): string[] {
+  return (process.env.CORS_ORIGINS || '*')
+    .split(',')
+    .map((o) => o.trim())
+    .filter((o) => o.length > 0);
+}
+
+/**
+ * Check if origin is allowed
+ */
+function isAllowedOrigin(requestOrigin: string | undefined): boolean {
+  const allowedOrigins = getAllowedCorsOrigins();
+
+  // If wildcard, allow all
+  if (allowedOrigins.length === 1 && allowedOrigins[0] === '*') {
+    return true;
+  }
+
+  // Check if request origin is in allowed list
+  return requestOrigin !== undefined && allowedOrigins.includes(requestOrigin);
+}
+
+/**
+ * Get CORS origin for response based on request origin
+ */
+function getCorsOrigin(requestOrigin: string | undefined): string {
+  const allowedOrigins = getAllowedCorsOrigins();
+
+  // If wildcard, allow all
+  if (allowedOrigins.length === 1 && allowedOrigins[0] === '*') {
+    return '*';
+  }
+
+  // Check if request origin is in allowed list
+  if (requestOrigin && allowedOrigins.includes(requestOrigin)) {
+    return requestOrigin;
+  }
+
+  // Return first allowed origin as fallback
+  return allowedOrigins[0] || '*';
 }
 
 interface AnalyticsEvent {
@@ -138,12 +176,28 @@ export const handler = async (
     console.log('Analytics event received:', JSON.stringify(event, null, 2));
   }
 
+  const requestOrigin = event.headers?.origin || event.headers?.Origin;
   const corsHeaders = {
-    'Access-Control-Allow-Origin': getCorsOrigin(),
+    'Access-Control-Allow-Origin': getCorsOrigin(requestOrigin),
     'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Content-Type': 'application/json',
   };
+
+  // Validate origin is allowed
+  if (!isAllowedOrigin(requestOrigin)) {
+    if (process.env.NODE_ENV !== 'cicd') {
+      console.error(`Origin not allowed: ${requestOrigin}. Allowed origins: ${getAllowedCorsOrigins().join(', ')}`);
+    }
+    return {
+      statusCode: 403,
+      headers: corsHeaders,
+      body: JSON.stringify({
+        error: 'Forbidden',
+        message: 'Origin not allowed',
+      }),
+    };
+  }
 
   // Handle preflight requests
   if (event.httpMethod === 'OPTIONS') {
