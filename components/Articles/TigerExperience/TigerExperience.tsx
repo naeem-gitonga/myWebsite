@@ -7,10 +7,6 @@ import articleStyles from '../Articles.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import tigergroup from '../../pictures/tiger-group.png';
-import tigerClassPhoto from '../../pictures/tiger-class-photo.jpg';
-
-
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
@@ -32,13 +28,13 @@ export default function TigerExperience(): JSX.Element {
         <ArticleDateTime imageUrl={'tigergroup'} />
         <div className={imageWrapper}>
           <Image
-            alt="group of four guys"
+            alt="hero image"
             loader={imageLoader}
-            src={tigergroup}
+            src="/images/tiger-hero.jpg" 
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
-          <p className={altText}>From left-right: Aman Jonathan Prakash, Me, Jimmy Strom, Rakim Hirji</p>
+          <p className={altText}>From graduation ceremony</p>
         </div>
         <p className={text}><strong>This isn&apos;t an endorsement of the program. This is my experience.</strong></p>
 
@@ -62,7 +58,16 @@ export default function TigerExperience(): JSX.Element {
           This was great, we had four to five people &ldquo;interview&rdquo; with us and we picked two. Throughout the 
           semester we would get to know one another and build a business from an idea. 
         </p>
-       
+       <div className={imageWrapper}>
+          <Image
+            alt="group of four guys"
+            loader={imageLoader}
+            src="/images/tiger-group.png" 
+            style={{ objectFit: 'contain', maxWidth: '75%' }}
+            fill
+          />
+          <p className={altText}>My group from left-right: Aman Jonathan Prakash, Me, Jimmy Strom, Rakim Hirji</p>
+        </div>
        <h2>How TI:GER Defines Innovation</h2>
         <p className={text}>
           In the first week of TI:GER you get the definition of innovation. If you asked around, hey what&apos;s 
@@ -203,7 +208,7 @@ export default function TigerExperience(): JSX.Element {
           <Image
             alt="pic of many people"
             loader={imageLoader}
-            src={tigerClassPhoto}
+            src="/images/tiger-class-photo.jpg"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
