@@ -2,6 +2,7 @@ const products = require('../utils/products')['products'];
 // * reference:      https://www.sitemaps.org/protocol.html https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
 function generateSiteMap(prefix) {
   const articleEntries = [
+    'tiger-experience',
     'image-server-ai',
     'default-parameters',
     'do-i-need-a-cka',

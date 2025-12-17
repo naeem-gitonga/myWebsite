@@ -1,19 +1,19 @@
 import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
-import ImageServer from '@/components/Articles/ImageServer/ImageServer';
+import TigerExperience from '@/components/Articles/TigerExperience/TigerExperience';
 import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
 export function generateMetadata(): Metadata {
-  const title = "Image Server AI — GPU Inference in 55 Seconds";
-  const description = "GPU inference, memory optimization, and model deployment, text-to-image by Naeem Gitonga";
-  const imageUrl = getAbsoluteUrl('/images/ai-generated-image-og.jpg');
-  const pageUrl = getAbsoluteUrl('/articles/image-server-ai');
+  const title = "My TI:GER Experience";
+  const description = "This isn't an endorsement of the program. This is my experience-by Naeem Gitonga";
+  const imageUrl = getAbsoluteUrl('/images/tiger-group-og.jpg');
+  const pageUrl = getAbsoluteUrl('/articles/tiger-experience');
 
   return {
     title,
     description,
-    keywords:['AI', 'MLOps', 'Cuda', 'DGX Spark', 'Pytorch', 'text-to-image', 'Machine Learning Engineer', 'Software Engineering'],
+    keywords:['Georgia Institute of Technology', 'TI:GER', 'business development', 'product development', 'strategy', 'customer discovery', 'MBA', 'Software Engineering'],
     openGraph: {
       title,
       description,
@@ -24,12 +24,12 @@ export function generateMetadata(): Metadata {
         url: imageUrl,
         width: 1200,
         height: 627,
-        alt: "AI Generated Image from GPU Server",
+        alt: "My TI:GER Experience group photo",
         type: 'image/jpeg',
       }],
       type: "article",
       authors: [siteConfig.author],
-      publishedTime: '2024-11-01T00:00:00.000Z',
+      publishedTime: '2025-12-16T00:00:00.000Z',
     },
     twitter: {
       card: "summary_large_image",
@@ -43,7 +43,7 @@ export function generateMetadata(): Metadata {
 export default function Article(): JSX.Element {
   return (
     <>
-      <ImageServer />
+      <TigerExperience />
       <Footer />
     </>
   );

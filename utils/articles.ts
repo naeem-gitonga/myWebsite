@@ -1,5 +1,13 @@
 export const articles: Article[] = [
   {
+    title: 'My TI:GER Experience',
+    imageUrl: 'tigergroup',
+    lengthInMinutes: 5,
+    publishedDate: 'Dec 16, 2025',
+    articleUrl: '/articles/tiger-experience',
+    noTarget: true,
+  },
+  {
     title: 'Image Server AI — GPU Inference in 55 Seconds',
     imageUrl: 'aiimage',
     lengthInMinutes: 5,
