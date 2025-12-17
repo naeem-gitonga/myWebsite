@@ -2,6 +2,7 @@ lambda_test:
   stage: test
   image: node:22.21.1
   rules:
+    - if: '$CI_COMMIT_BRANCH == "staging"'
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
     - changes:
@@ -13,7 +14,7 @@ lambda_test:
     - npm i
     - npm run test
 
-# lambda_deploy:
+# lambda_deploy_staging:
 #   stage: deploy
 #   image: node:20.11.1
 #   rules:
