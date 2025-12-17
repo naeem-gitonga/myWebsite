@@ -1,0 +1,88 @@
+{
+  "/Users/jahagitonga/projects/myWebsite/backend/analytics-tracker/serverless.yml": {
+    "versionFramework": "4.28.0",
+    "servicePath": "/Users/jahagitonga/projects/myWebsite/backend/analytics-tracker/serverless.yml",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "analytics-tracker",
+      "useDotenv": true,
+      "plugins": [
+        "serverless-offline"
+      ],
+      "custom": {
+        "serverless-offline": {
+          "httpPort": 4001,
+          "noPrependStageInUrl": true
+        }
+      },
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs24.x",
+        "stage": "dev",
+        "region": "us-east-1",
+        "environment": {
+          "ALLOWED_BUCKETS": "${env:ALLOWED_BUCKETS}",
+          "CORS_ORIGIN": "*"
+        }
+      },
+      "functions": {
+        "track": {
+          "handler": "lambda/index.handler",
+          "events": [
+            {
+              "http": {
+                "path": "track",
+                "method": "post",
+                "cors": true
+              }
+            },
+            {
+              "http": {
+                "path": "track",
+                "method": "options",
+                "cors": true
+              }
+            }
+          ]
+        }
+      }
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs24.x",
+      "stage": "dev",
+      "region": "us-east-1",
+      "environment": {
+        "ALLOWED_BUCKETS": "${env:ALLOWED_BUCKETS}",
+        "CORS_ORIGIN": "*"
+      }
+    },
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "error": {
+      "message": "Cannot resolve '${env:ALLOWED_BUCKETS}' variable at 'provider.environment.ALLOWED_BUCKETS'. No value is available for this variable, and no default value was provided. Please check your variable definitions or provide a default value.",
+      "stack": "Error: Cannot resolve '${env:ALLOWED_BUCKETS}' variable at 'provider.environment.ALLOWED_BUCKETS'. No value is available for this variable, and no default value was provided. Please check your variable definitions or provide a default value.\n    at _ResolverManager.resolve (file:///Users/jahagitonga/.serverless/releases/4.28.0/package/dist/sf-core.js:719:32282)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async #handlePlaceholderNode (file:///Users/jahagitonga/.serverless/releases/4.28.0/package/dist/sf-core.js:719:30470)\n    at async file:///Users/jahagitonga/.serverless/releases/4.28.0/package/dist/sf-core.js:719:28315\n    at async processNodeAndHandleCompletion (file:///Users/jahagitonga/.serverless/releases/4.28.0/package/dist/sf-core.js:719:16717)",
+      "code": "MISSING_VARIABLE_RESULT"
+    },
+    "serviceRawFile": "service: analytics-tracker\n\nuseDotenv: true\n\nplugins:\n  - serverless-offline\n\ncustom:\n  serverless-offline:\n    httpPort: 4001  # Different port from your main backend (4000)\n    noPrependStageInUrl: true\n\nprovider:\n  name: aws\n  runtime: nodejs24.x\n  stage: ${opt:stage, 'dev'}\n  region: us-east-1\n  environment:\n    # These will be overridden by your .env file\n    ALLOWED_BUCKETS: ${env:ALLOWED_BUCKETS}\n    CORS_ORIGIN: ${env:CORS_ORIGIN, '*'}\n\nfunctions:\n  track:\n    handler: lambda/index.handler\n    events:\n      - http:\n          path: track\n          method: post\n          cors: true\n      - http:\n          path: track\n          method: options\n          cors: true\n",
+    "command": [
+      "offline"
+    ],
+    "options": {},
+    "orgId": "c9d499bd-0cdc-4569-a584-d52fa0e5fefc",
+    "orgName": "naeemgitonga",
+    "userId": null,
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}

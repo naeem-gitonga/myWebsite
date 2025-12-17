@@ -57,3 +57,6 @@ backend/apis/calendly-user-info.json
 # CDK build artifacts
 backend/cdk/cdk.out
 backend/cdk/.env*
+
+
+/backend/sql

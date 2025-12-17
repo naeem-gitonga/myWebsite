@@ -1,0 +1,27 @@
+lambda_test:
+  stage: test
+  image: node:20.11.1
+  rules:
+    - changes:
+        - backend/analytics-tracker/**/*
+    - when: never
+  script:
+    - cd backend/analytics-tracker
+    - npm ci
+    - npm run test
+
+# lambda_deploy:
+#   stage: deploy
+#   image: node:20.11.1
+#   rules:
+#     - if: '$CI_COMMIT_BRANCH == "staging"'
+#       changes:
+#         - backend/analytics-tracker/**/*
+#     - if: '$CI_COMMIT_BRANCH == "master"'
+#       changes:
+#         - backend/analytics-tracker/**/*
+#     - when: never
+#   script:
+#     - cd backend/analytics-tracker
+#     - npm ci
+#     - npx cdk deploy --require-approval never MyAppAnalyticsTracker
