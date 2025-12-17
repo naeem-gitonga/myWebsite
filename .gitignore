@@ -32,6 +32,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 OPENGRAPH_SETUP.md
+PHOTO_CONVERSION.md
+IMAGE_COMPRESSION.md
 
 # local env files
 .env*.local
@@ -51,3 +53,7 @@ backend/apis/.webpack
 backend/apis/test-results
 backend/apis/calendly-event-info.json
 backend/apis/calendly-user-info.json
+
+# CDK build artifacts
+backend/cdk/cdk.out
+backend/cdk/.env*
