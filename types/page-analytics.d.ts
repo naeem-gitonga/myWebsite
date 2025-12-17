@@ -1,0 +1,3 @@
+type PageAnalyticsData = {
+  fromWebsite: string
+}
