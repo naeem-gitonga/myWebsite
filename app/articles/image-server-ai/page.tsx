@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
 import ImageServer from '@/components/Articles/ImageServer/ImageServer';
-import { getAbsoluteUrl, siteConfig } from '@/lib/siteConfig';
+import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
 export function generateMetadata(): Metadata {
   const title = "Image Server AI — GPU Inference in 55 Seconds";

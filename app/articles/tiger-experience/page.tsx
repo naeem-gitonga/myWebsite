@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
 import TigerExperience from '@/components/Articles/TigerExperience/TigerExperience';
-import { getAbsoluteUrl, siteConfig } from '@/lib/siteConfig';
+import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
 export function generateMetadata(): Metadata {
   const title = "My TI:GER Experience";
