@@ -11,7 +11,7 @@ stages:
 
 .common_setup: &common_setup
   - cd backend/analytics-tracker
-  - npm ci
+  - npm i
   - npm i -g aws-cdk typescript ts-node
 
 .assume_role: &assume_role
@@ -40,7 +40,7 @@ lambda_test:
   script:
     - export NODE_ENV=cicd
     - cd backend/analytics-tracker
-    - npm ci
+    - npm i
     - npm run test
 
 deploy_staging:
