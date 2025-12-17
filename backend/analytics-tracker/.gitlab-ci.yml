@@ -2,6 +2,8 @@ lambda_test:
   stage: test
   image: node:22.21.1
   rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
     - changes:
         - backend/analytics-tracker/**/*
     - when: never
