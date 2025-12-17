@@ -38,7 +38,7 @@ export default function TigerExperience(): JSX.Element {
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
-          <p className={altText}>From left-right: Aman Jonathan Prakash, Me, James &ldquo;Jimmy&rdquo; Storm, Rakim Hirji</p>
+          <p className={altText}>From left-right: Aman Jonathan Prakash, Me, Jimmy Strom, Rakim Hirji</p>
         </div>
         <p className={text}><strong>This isn&apos;t an endorsement of the program. This is my experience.</strong></p>
 
@@ -165,7 +165,7 @@ export default function TigerExperience(): JSX.Element {
         <p className={text}>
             In that company&apos;s case, an AI tool that helped to deliver content faster would have been the proper use 
             of its resources. Why? Because 100% of their revenue comes from the content that they create and up to 
-            65% of their revenue comes from their enterprise customers who ONLY consume the content. That&apos;s to say they 
+            65% of their revenue came from their enterprise customers who <em>only</em> consume the content. That&apos;s to say they 
             will never interact with their AI chatbot.
         </p>
 
