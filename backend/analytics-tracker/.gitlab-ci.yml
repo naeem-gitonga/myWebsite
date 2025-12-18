@@ -44,9 +44,9 @@ lambda_test:
     - npm run test
 
 deploy_staging:
-  image: 29.2.0-rc.1-cli
+  image: docker:29.2.0-rc.1-cli
   services:
-    - name: 29.2.0-rc.1-dind
+    - name: docker:29.2.0-rc.1-dind
   id_tokens:
     GITLAB_OIDC_TOKEN:
       aud: https://gitlab.com
@@ -68,9 +68,9 @@ deploy_staging:
     - npx cdk deploy AnalyticsTrackerStaging --require-approval never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
 
 deploy_production:
-  image: 29.2.0-rc.1-cli
+  image: docker:29.2.0-rc.1-cli
   services:
-    - name: 29.2.0-rc.1-dind
+    - name: docker:29.2.0-rc.1-dind
   id_tokens:
     GITLAB_OIDC_TOKEN:
       aud: https://gitlab.com
