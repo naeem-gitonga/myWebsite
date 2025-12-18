@@ -1,4 +1,5 @@
 import * as path from 'path';
+import { execSync } from 'child_process';
 import { Stack, StackProps, Duration, CfnOutput } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { Code, Runtime, Function } from 'aws-cdk-lib/aws-lambda';
@@ -95,13 +96,15 @@ export class AnalyticsTrackerStack extends Stack {
     const endpointType = config.endpointType || EndpointType.REGIONAL;
 
     // Create Lambda function
+    const lambdaPath = path.join(__dirname, '../../lambda');
+
     this.trackingFunction = new Function(this, 'AnalyticsTrackerFunction', {
       functionName: `${functionPrefix}-analytics-tracker`,
-      runtime: Runtime.NODEJS_24_X,
+      runtime: Runtime.NODEJS_22_X,
       handler: 'index.handler',
-      code: Code.fromAsset(path.join(__dirname, '../../lambda'), {
+      code: Code.fromAsset(lambdaPath, {
         bundling: {
-          image: Runtime.NODEJS_24_X.bundlingImage,
+          image: Runtime.NODEJS_20_X.bundlingImage,
           command: [
             'bash',
             '-c',
@@ -111,6 +114,22 @@ export class AnalyticsTrackerStack extends Stack {
             ].join(' && '),
           ],
           user: 'root',
+          local: {
+            tryBundle(outputDir: string) {
+              try {
+                execSync('which tsc', { stdio: 'pipe' });
+              } catch {
+                return false;
+              }
+
+              execSync(
+                `tsc ${path.join(lambdaPath, 'index.ts')} --outDir ${outputDir} --esModuleInterop --module commonjs --target es2020 --lib es2020`,
+                { stdio: 'inherit' }
+              );
+
+              return true;
+            },
+          },
         },
       }),
       timeout: Duration.seconds(lambdaTimeout),
