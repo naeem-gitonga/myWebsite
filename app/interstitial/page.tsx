@@ -1,6 +1,7 @@
 import styles from "./InterstitialPage.module.scss";
 import LoadingDots from "@/components/LoadingDots/LoadingDots";
-import Redirector from "./Redirector"; 
+import Redirector from "./Redirector";
+import AnalyticsTracker from "@/components/Analytics/AnalyticsTracker";
 import { Metadata } from "next";
 
 export function generateMetadata(): Metadata {
@@ -15,11 +16,13 @@ export default async function InterstitialPage(params: Params) {
   const searchParams = await params.searchParams;
   const url = searchParams?.url ?? "";
   const siteName = searchParams?.where ?? "the destination";
+  const from = searchParams?.fromWebsite ?? "direct";
 
   const isSafe = typeof url === "string" && /^(https?:)\/\//i.test(url);
 
   return (
     <div className={styles.page}>
+      <AnalyticsTracker fromWebsite={from} />
       <div id="particles-js" className={styles.hide} />
       <div className={styles.container}>
         <LoadingDots outerClassName={styles.loaderWrapper} />

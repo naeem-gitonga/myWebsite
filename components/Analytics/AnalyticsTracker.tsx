@@ -23,15 +23,32 @@ import { initializeAnalytics } from '@/utils/analytics';
  */
 type Props = {
   fromWebsite: string;
+  itemId?: string;
+};
+
+const STAGING_TAG = 'analytics-staging';
+const STAGING_HOSTS = ['localhost', 'staging.naeemgitonga.com', 'www.staging.naeemgitonga.com'];
+
+function getStagingTag(): string | undefined {
+  if (typeof window === 'undefined') return undefined;
+  const hostname = window.location.hostname.toLowerCase();
+  return STAGING_HOSTS.includes(hostname) ? STAGING_TAG : undefined;
 }
+
+function normalizeFromWebsite(value: string, stagingTag?: string): string {
+  const baseValue = value?.trim() || 'direct';
+  return stagingTag ? `${baseValue}|${stagingTag}` : baseValue;
+}
+
 export default function AnalyticsTracker(props: Props) {
   useEffect(() => {
-    // Initialize analytics tracking
-    const cleanup = initializeAnalytics({fromWebsite: props.fromWebsite});
-    // Cleanup on unmount
+    const stagingTag = getStagingTag();
+    const cleanup = initializeAnalytics({
+      fromWebsite: normalizeFromWebsite(props.fromWebsite, stagingTag),
+      itemId: props.itemId,
+    });
     return cleanup;
-  }, []);
+  }, [props.fromWebsite, props.itemId]);
 
-  // This component doesn't render anything
   return null;
 }

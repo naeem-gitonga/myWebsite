@@ -1,11 +1,8 @@
 import Footer from 'components/Footer/Footer';
 import '../globals.css';
 import MyWork from 'components/MyWork/MyWork';
+import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import { Metadata } from 'next';
-type Props = {
-  params: { item_id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
 
 // * example of static metadata
 export const metadata: Metadata = {
@@ -14,9 +11,12 @@ export const metadata: Metadata = {
     'Projects that Naeem Gitonga has created himself or with product teams. Some projects date back to 2017 and should demonstrate growth.',
 };
 
-export default function Work(): JSX.Element {
+export default async function Work(params: Params): Promise<JSX.Element> {
+  const searchParams = await params.searchParams;
+  const from = searchParams?.fromWebsite ?? "direct";
   return (
     <>
+      <AnalyticsTracker fromWebsite={from} />
       <MyWork />
       <Footer />
     </>

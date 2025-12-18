@@ -1,3 +1,4 @@
 type PageAnalyticsData = {
-  fromWebsite: string
+  fromWebsite: string;
+  itemId?: string;
 }
