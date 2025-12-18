@@ -1,6 +1,6 @@
 test_cdk:
   stage: test-cdk
-  image: node:20.11.1
+  image: node:24.12.0
   needs:
     - job: build_staging
       artifacts: true
