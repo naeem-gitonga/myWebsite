@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
 import CKA from '@/components/Articles/CKA/CKA';
+import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 
 export function generateMetadata(): Metadata {
   return {
@@ -11,9 +12,12 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function Article(): JSX.Element {
+export default async function Article(params: Params): Promise<JSX.Element> {
+  const searchParams = await params.searchParams;
+  const from = searchParams?.fromWebsite ?? "direct";
   return (
     <>
+      <AnalyticsTracker fromWebsite={from} />
       <CKA />
       <Footer />
     </>
