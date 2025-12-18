@@ -14,7 +14,6 @@ export interface AnalyticsEvent {
   referrer?: string;
   metadata?: Record<string, any>;
   bucket: string;
-  fromWebsite?: string
 }
 
 // Get or create session ID
@@ -67,7 +66,6 @@ export async function trackEvent(
     sessionId: getSessionId(),
     referrer: document.referrer || 'direct',
     metadata,
-    fromWebsite: metadata?.fromWebsite || 'unknown'
   };
 
   try {
@@ -118,7 +116,7 @@ export function setupScrollTracking(props: PageAnalyticsData): () => void {
       trackEvent('scroll_complete', {
         timeOnPage,
         scrollDepth: 100,
-        fromWebsite: props.fromWebsite
+        metadata: props
       });
     }
   };
