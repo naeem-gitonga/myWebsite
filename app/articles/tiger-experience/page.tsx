@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
 import TigerExperience from '@/components/Articles/TigerExperience/TigerExperience';
+import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
 export function generateMetadata(): Metadata {
   const title = "My TI:GER Experience";
-  const description = "This isn't an endorsement of the program. This is my experience-by Naeem Gitonga";
+  const description = "This isn't an endorsement of the program. This is my experience-by Naeem Gitonga.";
   const imageUrl = getAbsoluteUrl('/images/tiger-hero-og.jpg');
   const pageUrl = getAbsoluteUrl('/articles/tiger-experience');
 
@@ -40,9 +41,12 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function Article(): JSX.Element {
+export default async function Article(params: Params): Promise<JSX.Element> {
+  const searchParams = await params.searchParams;
+  const from = searchParams?.fromWebsite ?? "";
   return (
     <>
+      <AnalyticsTracker fromWebsite={from} />
       <TigerExperience />
       <Footer />
     </>

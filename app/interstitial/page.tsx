@@ -3,10 +3,6 @@ import LoadingDots from "@/components/LoadingDots/LoadingDots";
 import Redirector from "./Redirector"; 
 import { Metadata } from "next";
 
-type Props = {
-  searchParams?: Promise<{ url?: string; where?: string }>;
-};
-
 export function generateMetadata(): Metadata {
   return {
     title: "Interstitial page",
@@ -15,7 +11,7 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default async function InterstitialPage(params: Props) {
+export default async function InterstitialPage(params: Params) {
   const searchParams = await params.searchParams;
   const url = searchParams?.url ?? "";
   const siteName = searchParams?.where ?? "the destination";

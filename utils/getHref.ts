@@ -9,5 +9,6 @@ export default function getHref(redirectUrl: string): string {
     const [url, where] = redirectUrl.split('?where=');
     href = `/interstitial?url=${url}&siteName=${where}`;
   }
+
   return href;
 }
