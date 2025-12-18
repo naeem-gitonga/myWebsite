@@ -1,0 +1,50 @@
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1rem;
+}
+
+.text {
+  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #000;
+  letter-spacing: 0.1em;
+  text-align: center;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  animation: typing 1.5s steps(10) infinite alternate;
+}
+
+.text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.25em;
+  background: #000;
+  animation: blink 0.8s steps(2) infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
