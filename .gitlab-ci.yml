@@ -1,9 +1,8 @@
 include:
   - '/backend/apis/.gitlab-ci.yml'
   - '/backend/cdk/.gitlab-ci.yml'
-  - '/backend/analytics-tracker/.gitlab-ci.yml'
 
-image: node:20.11.1
+image: node:24.12.0
 
 stages:
   - test
