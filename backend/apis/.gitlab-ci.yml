@@ -62,23 +62,23 @@ build_staging:
   stage: build
   environment: staging
   rules:
+    - changes:
+        - app/**/*
+        - components/**/*
+        - hooks/**/*
+        - pages/**/*
+        - utils/**/*
+        - next.config.js
+        - package.json
+        - vercel.json
+        - .gitlab-ci.yml
+      when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
     - if: '$CI_COMMIT_BRANCH == "staging"'
       changes:
         - backend/apis/**/*
         - backend/cdk/**/*
-    - changes:
-        - $PWD/app/**/*
-        - $PWD/components/**/*
-        - $PWD/hooks/**/*
-        - $PWD/pages/**/*
-        - $PWD/utils/**/*
-        - $PWD/next.config.js
-        - $PWD/package.json
-        - $PWD/vercel.json
-        - $PWD/.gitlab-ci.yml
-      when: never
   artifacts:
     expose_as: 'backend-build-staging'
     name: 'backend-build-staging'
@@ -112,16 +112,16 @@ deploy_staging_backend:
   environment: staging
   rules:
     - changes:
-        - $PWD/app/**/*
-        - $PWD/components/**/*
-        - $PWD/hooks/**/*
-        - $PWD/pages/**/*
-        - $PWD/utils/**/*
-        - $PWD/next.config.js
-        - $PWD/package.json
-        - $PWD/vercel.json
-        - $PWD/.gitlab-ci.yml
-        - $PWD/.releaserc
+        - app/**/*
+        - components/**/*
+        - hooks/**/*
+        - pages/**/*
+        - utils/**/*
+        - next.config.js
+        - package.json
+        - vercel.json
+        - .gitlab-ci.yml
+        - .releaserc
       when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
@@ -155,9 +155,9 @@ deploy_staging_backend:
     - cdk deploy --require-approval=never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
 
 update_lambda_runtime:
-  rules:
-    - if: '$CI_COMMIT_BRANCH != "comment_this_rule_when_needed"'
-      when: never
+  # rules:
+  #   - if: '$CI_COMMIT_BRANCH != "comment_this_rule_when_needed"'
+  #     when: never
   id_tokens:
     GITLAB_OIDC_TOKEN:
       aud: https://gitlab.com
