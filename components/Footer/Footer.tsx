@@ -1,6 +1,6 @@
 import styles from './Footer.module.scss';
 
-export default function Footer(): JSX.Element {
+export default function Footer(): React.JSX.Element {
   const currentDate = new Date();
   const year = currentDate.getFullYear().toString();
   const formattedYear = year.padStart(4, '0');

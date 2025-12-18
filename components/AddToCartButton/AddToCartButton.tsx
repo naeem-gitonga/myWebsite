@@ -12,7 +12,7 @@ type AddToCartButtonProps = {
 };
 export default function AddToCartButton(
   props: AddToCartButtonProps
-): JSX.Element {
+): React.JSX.Element {
   const { className, product, addToCart } = props;
 
   const [lastItemClicked, setLastItemClicked] = useState<Product | null>(null);

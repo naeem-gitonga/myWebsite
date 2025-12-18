@@ -1,5 +1,5 @@
 // * Brought to you by font-awesome https://fontawesome.com/icons/cart-shopping?f=classic&s=solid
-export default function ShoppingCart(): JSX.Element {
+export default function ShoppingCart(): React.JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

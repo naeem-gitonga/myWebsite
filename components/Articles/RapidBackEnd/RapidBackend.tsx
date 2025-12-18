@@ -14,7 +14,7 @@ import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
-export default function RapidBackend(): JSX.Element {
+export default function RapidBackend(): React.JSX.Element {
   const { innerWrapper, imageWrapper, altText, text, anchorColor } = styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
   return (

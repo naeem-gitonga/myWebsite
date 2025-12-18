@@ -22,7 +22,7 @@ import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
 // * &ldquo; &rdquo; &apos;
-export default function MicroPartTwo(): JSX.Element {
+export default function MicroPartTwo(): React.JSX.Element {
   const { innerWrapper, pre, code, imageWrapper, altText, text, anchorColor } =
     styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;

@@ -16,7 +16,7 @@ import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import Price from '../Price/Price';
 import { imageLoader } from '@/utils/imageLoader';
 
-export default function Item(): JSX.Element {
+export default function Item(): React.JSX.Element {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       {' '}
@@ -25,7 +25,7 @@ export default function Item(): JSX.Element {
   );
 }
 
-function ItemContent(): JSX.Element {
+function ItemContent(): React.JSX.Element {
   const [addToCart] = useCart();
   const searchParams = useSearchParams();
   const router = useRouter();

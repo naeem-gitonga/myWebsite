@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Tooltip.module.css'; // assuming you have a Tooltip.css file
 
-export default function Tooltip({ children, text }: any): JSX.Element {
+export default function Tooltip({ children, text }: any): React.JSX.Element {
   const [showTooltip, setShowTooltip] = useState(false);
 
   const handleMouseOver = () => {

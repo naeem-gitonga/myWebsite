@@ -14,7 +14,7 @@ type ArticleTileProps = {
   noTarget?: boolean;
 };
 
-export default function ArticleTile(props: ArticleTileProps): JSX.Element {
+export default function ArticleTile(props: ArticleTileProps): React.JSX.Element {
   const {
     tileWrapper,
     title,

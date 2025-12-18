@@ -11,7 +11,7 @@ import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
-export default function JSNS(): JSX.Element {
+export default function JSNS(): React.JSX.Element {
   const {
     innerWrapper,
     imageWrapper,

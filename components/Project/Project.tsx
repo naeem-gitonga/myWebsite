@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 type ProjectProps = { project: ProjectObj };
 
-export default function Project(props: ProjectProps): JSX.Element {
+export default function Project(props: ProjectProps): React.JSX.Element {
   const { project } = props;
   const {
     padding10,

@@ -7,7 +7,7 @@ type ButtonProps = {
   className?: string | undefined;
 };
 
-export default function Button(props: ButtonProps): JSX.Element {
+export default function Button(props: ButtonProps): React.JSX.Element {
   const {} = styles;
   const { children, cb, className } = props;
   return (

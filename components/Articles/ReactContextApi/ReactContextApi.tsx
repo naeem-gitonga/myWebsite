@@ -12,7 +12,7 @@ import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
-export default function ReactContextApi(): JSX.Element {
+export default function ReactContextApi(): React.JSX.Element {
   const {
     innerWrapper,
     imageWrapper,

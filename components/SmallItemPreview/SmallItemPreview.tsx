@@ -15,7 +15,7 @@ type SmallItemPreviewProps = {
 
 export default function SmallItemPreview(
   props: SmallItemPreviewProps
-): JSX.Element {
+): React.JSX.Element {
   const { styles, item, addItem, removeItem, showCounter } = props;
   const {
     imageContainer,

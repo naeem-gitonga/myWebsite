@@ -1,7 +1,7 @@
 'use client';
 import Script from 'next/script';
 
-export default function GTM(props?: any): JSX.Element {
+export default function GTM(props?: any): React.JSX.Element {
   return (
     <>
         {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}

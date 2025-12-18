@@ -16,7 +16,7 @@ import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
-export default function AWSIAM(): JSX.Element {
+export default function AWSIAM(): React.JSX.Element {
   const { innerWrapper, imageWrapper, altText, text, code, noDots, smaller } =
     styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;

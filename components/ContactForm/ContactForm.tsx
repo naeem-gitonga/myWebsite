@@ -3,7 +3,7 @@ import styles from './ContactForm.module.scss';
 import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import PageHeader from '../PageHeader/PageHeader';
 
-export default function ContactForm(): JSX.Element {
+export default function ContactForm(): React.JSX.Element {
   const { contactWrapper, contactForm, input, form, message, submit, label } =
     styles;
   return (

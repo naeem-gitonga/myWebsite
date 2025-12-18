@@ -1,4 +1,4 @@
-export default function Github(): JSX.Element {
+export default function Github(): React.JSX.Element {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

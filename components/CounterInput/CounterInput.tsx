@@ -7,7 +7,7 @@ type CounterInputProps = {
   removeItem: (b: number) => void;
   style?: string;
 };
-export default function CounterInput(props: CounterInputProps): JSX.Element {
+export default function CounterInput(props: CounterInputProps): React.JSX.Element {
   const { addItem, removeItem, item, style } = props;
   const { quantity, id } = item;
   const decrement = () => {

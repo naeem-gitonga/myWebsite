@@ -4,7 +4,7 @@ type Price = {
   promotion: number;
   strike: string;
 };
-export default function Price(props: Price): JSX.Element {
+export default function Price(props: Price): React.JSX.Element {
   const { priceStyle, promotion, strike, price } = props;
 
   return (

@@ -13,7 +13,7 @@ import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
-export default function SamLambdaMongoDB(): JSX.Element {
+export default function SamLambdaMongoDB(): React.JSX.Element {
   const {
     innerWrapper,
     imageWrapper,

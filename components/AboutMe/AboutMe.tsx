@@ -12,7 +12,7 @@ import awsDevOpsProLogo from '@/components/pictures/aws-devops-pro.png';
 import gtLogo from '@/components/pictures/gt-logo.png';
 import uncwLogo from '@/components/pictures/uncw-logo.png';
 
-export default function AboutMe(): JSX.Element {
+export default function AboutMe(): React.JSX.Element {
   const {
     aboutMe,
     headshot,
