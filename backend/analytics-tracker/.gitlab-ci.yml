@@ -62,6 +62,7 @@ deploy_staging:
     - *common_setup
     - *assume_role
     - echo "CI_ENVIRONMENT_NAME=$CI_ENVIRONMENT_NAME"
+    - echo "NODE_ENV=$NODE_ENV"
     - npx cdk deploy AnalyticsTrackerStaging --require-approval never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
 
 deploy_production:
@@ -79,6 +80,7 @@ deploy_production:
     - when: never
   script:
     - *install_aws
+    - unset NODE_ENV
     - *common_setup
     - *assume_role
     - echo "CI_ENVIRONMENT_NAME=$CI_ENVIRONMENT_NAME"
