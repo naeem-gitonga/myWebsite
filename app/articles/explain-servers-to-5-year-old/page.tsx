@@ -13,7 +13,7 @@ export function generateMetadata(): Metadata {
 
 export default async function Article(params: Params): Promise<JSX.Element> {
   const searchParams = await params.searchParams;
-  const from = searchParams?.fromWebsite ?? "";
+  const from = searchParams?.fromWebsite ?? "direct";
   return (
     <>
       <AnalyticsTracker fromWebsite={from} />
