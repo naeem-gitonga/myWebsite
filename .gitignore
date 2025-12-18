@@ -61,3 +61,4 @@ backend/cdk/.env*
 
 /backend/sql
 backend/.serverless
+.claude

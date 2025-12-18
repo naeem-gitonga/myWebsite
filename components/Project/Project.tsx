@@ -3,10 +3,11 @@ import { Project as ProjectObj } from './projects';
 import styles from './Project.module.scss';
 import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type ProjectProps = { project: ProjectObj };
 
-export default function Project(props: ProjectProps): React.JSX.Element {
+export default function Project(props: ProjectProps) {
   const { project } = props;
   const {
     padding10,
@@ -22,11 +23,18 @@ export default function Project(props: ProjectProps): React.JSX.Element {
   } = styles;
   return (
     <div className={imageWrapper}>
-      <img
+      <Image
+        width={350}
+        height={350}
         className={projectImage}
         src={project.projectImg}
         alt={`app screenshot ${project.projectStack}`}
+        loading="lazy"
+        unoptimized
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDAwUBAAAAAAAAAAAAAQIDAAQRBRIhBhMiMUFR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQACAwEAAAAAAAAAAAAAAAABAgADESH/2gAMAwEAAhEDEQA/ANL1C4u7W+kW3upYIm2lY0cgKMDjA+VVpSlTksZiWz//2Q=="
       />
+     
       <div className={overlay}>
         <div className={padding10}>
           <h2 className={`${title} ${text}`}>{project.title}</h2>
