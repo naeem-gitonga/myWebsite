@@ -23,11 +23,15 @@ import { initializeAnalytics } from '@/utils/analytics';
  */
 type Props = {
   fromWebsite: string;
+  itemId?: string;
 }
 export default function AnalyticsTracker(props: Props) {
   useEffect(() => {
     // Initialize analytics tracking
-    const cleanup = initializeAnalytics({fromWebsite: props.fromWebsite});
+    const cleanup = initializeAnalytics({
+      fromWebsite: props.fromWebsite,
+      itemId: props.itemId,
+    });
     // Cleanup on unmount
     return cleanup;
   }, []);

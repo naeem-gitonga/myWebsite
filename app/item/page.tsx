@@ -31,9 +31,10 @@ export async function generateMetadata(
 export default async function Item(params: Params): Promise<JSX.Element> {
   const searchParams = await params.searchParams;
   const from = searchParams?.fromWebsite ?? "direct";
+  const itemId = searchParams?.item_id as string | undefined;
   return (
     <>
-      <AnalyticsTracker fromWebsite={from} />
+      <AnalyticsTracker fromWebsite={from} itemId={itemId} />
       <ItemView />
       <Footer />
     </>

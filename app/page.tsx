@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 import Header from 'components/Header/Header';
@@ -40,31 +40,33 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.root}>
-      <AnalyticsTracker fromWebsite={from} />
-      {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-00FHGBS0KW"
-        strategy="afterInteractive"
-      />
-      <Script
-        id="gtag-manager"
-        type="text/javascript"
-      >
-        {
-          `window.dataLayer = window.dataLayer || [];
-          function gtag(){ dataLayer.push(arguments)  }
-          gtag('js', new Date());
-          gtag('config', 'G-00FHGBS0KW');`
-          }
-      </Script>
-      <PromoBanner />
-      <div id="particles-js" className="particles" />
-      <Header setWhichSection={setWhichSection} />
-      <ShoppingCartIcon unsetPosition={false} fill="white" />
-      <Section />
-      <Footer />
-      <ReturnArrow />
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className={styles.root}>
+        <AnalyticsTracker fromWebsite={from} />
+        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-00FHGBS0KW"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-manager"
+          type="text/javascript"
+        >
+          {
+            `window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments)  }
+            gtag('js', new Date());
+            gtag('config', 'G-00FHGBS0KW');`
+            }
+        </Script>
+        <PromoBanner />
+        <div id="particles-js" className="particles" />
+        <Header setWhichSection={setWhichSection} />
+        <ShoppingCartIcon unsetPosition={false} fill="white" />
+        <Section />
+        <Footer />
+        <ReturnArrow />
+      </div>
+    </Suspense>
   );
 }
