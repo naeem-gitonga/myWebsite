@@ -240,7 +240,7 @@ export default function TigerExperience(): React.JSX.Element {
               'MBA',
               'Product Development',
               'Customer Discovery',
-              'business development'
+              'Business Development'
             ]}
           />
         </div>
