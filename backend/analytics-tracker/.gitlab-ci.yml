@@ -34,10 +34,11 @@ lambda_test:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
-    - if: '$CI_COMMIT_BRANCH == "staging"'
-      changes:
+    - changes:
         - backend/analytics-tracker/**/*
+      when: on_success
     - when: never
+    
   script:
     - export NODE_ENV=cicd
     - cd backend/analytics-tracker

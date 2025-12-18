@@ -138,6 +138,19 @@ export default function TigerExperience(): JSX.Element {
           The answer to the second question was they built an AI chatbot. 
         </p>
 
+         <div className={imageWrapper}>
+          <Image
+            alt="man sitting"
+            loader={imageLoader}
+            src="/images/me-listening-intently.jpg"
+            style={{ objectFit: 'contain', maxWidth: '75%' }}
+            fill
+          />
+          <p className={altText}>
+            Listening intently
+          </p>
+        </div>
+
         <p className={text}>
           Without blaming any one person you may see where things like economics, product knowledge, technical 
           expertise, market knowledge, finance, basic accounting, and plain old common sense come into play. 
