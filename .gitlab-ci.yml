@@ -1,9 +1,8 @@
 include:
   - '/backend/apis/.gitlab-ci.yml'
   - '/backend/cdk/.gitlab-ci.yml'
-  - '/backend/analytics-tracker/.gitlab-ci.yml'
 
-image: node:20.11.1
+image: node:24.12.0
 
 stages:
   - test
@@ -43,7 +42,7 @@ deploy_frontend_staging:
     - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/cGxMEW1fLT
 
 publish:
-  image: node:24.10
+  image: node:24.12.0
   stage: release
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
