@@ -54,6 +54,7 @@ publish:
     - changes: *back_end_changes
       when: never
   script:
+    - export GITLAB_TOKEN=$PROJECT_RELEASE_TOKEN
     - npm install @semantic-release/gitlab @semantic-release/commit-analyzer @semantic-release/release-notes-generator conventional-changelog-conventionalcommits
     - npx semantic-release@25
 

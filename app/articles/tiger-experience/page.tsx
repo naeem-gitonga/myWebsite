@@ -14,7 +14,7 @@ export function generateMetadata(): Metadata {
   return {
     title,
     description,
-    keywords:['Georgia Institute of Technology', 'TI:GER', 'business development', 'product development', 'strategy', 'customer discovery', 'MBA', 'Software Engineering'],
+    keywords:['Georgia Institute of Technology', 'TI:GER', 'Business Development', 'product development', 'strategy', 'customer discovery', 'MBA', 'Software Engineering'],
     openGraph: {
       title,
       description,
