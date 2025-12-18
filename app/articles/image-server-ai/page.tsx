@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
 import ImageServer from '@/components/Articles/ImageServer/ImageServer';
+import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
 export function generateMetadata(): Metadata {
@@ -40,9 +41,12 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function Article(): JSX.Element {
+export default async function Article(params: Params): Promise<JSX.Element> {
+  const searchParams = await params.searchParams;
+  const from = searchParams?.fromWebsite ?? "";
   return (
     <>
+      <AnalyticsTracker fromWebsite={from} />
       <ImageServer />
       <Footer />
     </>
