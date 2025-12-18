@@ -23,7 +23,7 @@ export default function HomePageWithLoader() {
     const timer = window.setTimeout(() => {
       window.sessionStorage.setItem(HOME_LOADER_FLAG, 'true');
       setShowHome(true);
-    }, 1500);
+    }, 1000);
 
     return () => window.clearTimeout(timer);
   }, []);
