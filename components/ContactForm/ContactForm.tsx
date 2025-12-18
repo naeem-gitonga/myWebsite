@@ -15,7 +15,7 @@ export default function ContactForm(): JSX.Element {
       <div className={contactForm}>
         <form
           className={form}
-          action="https://formspree.io/f/blackb8r@gmail.com"
+          action={process.env.NEXT_PUBLIC_FORM_URL}
           method="POST"
         >
           <label className={label} htmlFor="contact-form-name">
