@@ -47,8 +47,8 @@ publish:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
-    # - if: '$CI_COMMIT_BRANCH == "master"'
-    #   changes: *front_end_changes
+    - if: '$CI_COMMIT_BRANCH == "staging"'
+      changes: *front_end_changes
     - changes: *back_end_changes
       when: never
   script:
