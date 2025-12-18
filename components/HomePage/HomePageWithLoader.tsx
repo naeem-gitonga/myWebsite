@@ -4,11 +4,27 @@ import { Suspense, useEffect, useState } from 'react';
 import HomePageClient from './HomePageClient';
 import LoadingScreen from '@/components/LoadingScreen/LoadingScreen';
 
+const HOME_LOADER_FLAG = 'homePageLoaderShown';
+
+const hasSeenLoader = () => {
+  if (typeof window === 'undefined') return false;
+  return window.sessionStorage.getItem(HOME_LOADER_FLAG) === 'true';
+};
+
 export default function HomePageWithLoader() {
-  const [showHome, setShowHome] = useState(false);
+  const [showHome, setShowHome] = useState(() => hasSeenLoader());
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setShowHome(true), 1500);
+    if (hasSeenLoader()) {
+      setShowHome(true);
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      window.sessionStorage.setItem(HOME_LOADER_FLAG, 'true');
+      setShowHome(true);
+    }, 1500);
+
     return () => window.clearTimeout(timer);
   }, []);
 
