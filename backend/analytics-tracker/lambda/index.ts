@@ -70,7 +70,6 @@ interface AnalyticsEvent {
   sessionId: string;
   referrer?: string;
   metadata?: Record<string, any>;
-  fromWebsite?: string
 }
 
 interface DeviceInfo {
@@ -286,16 +285,15 @@ export const handler = async (
       viewport: body.viewport || { width: 0, height: 0 },
       referrer: body.referrer || event.headers?.referer || 'direct',
       userAgent,
-      fromWebsite: body.metadata?.fromWebsite,
       // Include any additional metadata
       ...(body.metadata || {}),
     };
 
     // Parse timestamp for S3 partitioning
-    const dt = new Date(clientTimestamp);
-    const year = dt.getUTCFullYear();
-    const month = String(dt.getUTCMonth() + 1).padStart(2, '0');
-    const day = String(dt.getUTCDate()).padStart(2, '0');
+    const ingestDate = new Date(); // already UTC-safe
+    const year = ingestDate.getUTCFullYear();
+    const month = String(ingestDate.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(ingestDate.getUTCDate()).padStart(2, '0');
 
     // Create S3 key with date partitioning
     const key = `analytics/year=${year}/month=${month}/day=${day}/${eventId}.json`;
