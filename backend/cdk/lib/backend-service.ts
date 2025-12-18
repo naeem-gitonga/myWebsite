@@ -79,7 +79,7 @@ export default class BackendService extends Construct {
       });
       const lambda = new Function(this, name, {
         functionName: nameLowerCased,
-        runtime: Runtime.NODEJS_18_X,
+        runtime: Runtime.NODEJS_22_X,
         handler: 'handler.paypal',
         environment: {
           ...(environment[nameWithoutStage] && environment[nameWithoutStage]),
