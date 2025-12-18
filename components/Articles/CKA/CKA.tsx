@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '../Articles.module.scss';
@@ -22,7 +22,7 @@ export default function CKA(): React.JSX.Element {
         <h1>Do I really need a CKA certification?</h1>
         <ArticleDateTime imageUrl={'expcka'} />
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Unsure"
             loader={imageLoader}
             src={seeTheLight}

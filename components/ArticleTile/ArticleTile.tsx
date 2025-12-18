@@ -1,5 +1,15 @@
-import styles from './ArticleTile.module.scss';
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
+
+import LazyImage from '@/components/LazyImage/LazyImage';
+import {
+  articleTileImageFallback,
+  articleTileImages,
+} from '@/utils/articleImages';
+
+import styles from './ArticleTile.module.scss';
 
 type ArticleTileProps = {
   article: {
@@ -15,6 +25,7 @@ type ArticleTileProps = {
 };
 
 export default function ArticleTile(props: ArticleTileProps): React.JSX.Element {
+  const [imageLoaded, setImageLoaded] = useState(false);
   const {
     tileWrapper,
     title,
@@ -23,6 +34,8 @@ export default function ArticleTile(props: ArticleTileProps): React.JSX.Element 
     publishedDate,
     infoWrapper,
     lengthInMinutes,
+    placeholderOverlay,
+    placeholderHidden,
   } = styles;
   const {
     article: {
@@ -37,13 +50,30 @@ export default function ArticleTile(props: ArticleTileProps): React.JSX.Element 
     noTarget,
   } = props;
 
+  const tileImageSrc =
+    articleTileImages[imageUrl] ?? articleTileImageFallback;
+  const overlayClasses = `${placeholderOverlay}${
+    imageLoaded ? ` ${placeholderHidden}` : ''
+  }`;
+
   return (
     <Link
       href={articleUrl}
       className={tileWrapper}
       target={noTarget ? '_self' : '_blank'}
     >
-      <div className={`${imageContainer} ${styles[imageUrl]}`} />
+      <div className={overlayClasses} aria-hidden="true" />
+      <div className={imageContainer}>
+        <LazyImage
+          alt={`Cover image for ${t}`}
+          src={tileImageSrc}
+          fill
+          sizes="(max-width: 768px) 100vw, 350px"
+          style={{ objectFit: 'cover' }}
+          onLoadingComplete={() => setImageLoaded(true)}
+          placeholder="empty"
+        />
+      </div>
       <div className={titleBox}>
         <h2 className={title}>{t}</h2>
         <div className={infoWrapper}>

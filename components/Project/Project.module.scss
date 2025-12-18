@@ -25,6 +25,23 @@
   opacity: 0;
   transition: 0.5s ease;
   background-color: rgba(0, 0, 0, 0.9);
+  z-index: 3;
+}
+
+.placeholderOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #e8e8e8 25%, #f3f3f3 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  z-index: 2;
+  pointer-events: none;
+  animation: placeholderShimmer 1.4s linear infinite;
+}
+
+.placeholderHidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 250ms ease, visibility 250ms ease;
 }
 
 .projectImage {
@@ -34,6 +51,15 @@
   height: 100%;
   object-fit: cover; /* this will make the image cover the entire area of the div */
   object-position: center;
+}
+
+@keyframes placeholderShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .title {

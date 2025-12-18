@@ -1,9 +1,12 @@
+'use client';
+
+import { useState } from 'react';
 import { projectStackMap } from '../StackItems/StackItems';
 import { Project as ProjectObj } from './projects';
 import styles from './Project.module.scss';
 import sharedStyles from '../SharedCss/SharedCss.module.scss';
 import Link from 'next/link';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 type ProjectProps = { project: ProjectObj };
 
@@ -20,21 +23,28 @@ export default function Project(props: ProjectProps) {
     text,
     title,
     projectStack,
+    placeholderOverlay,
+    placeholderHidden,
   } = styles;
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const placeholderClasses = `${placeholderOverlay}${
+    imageLoaded ? ` ${placeholderHidden}` : ''
+  }`;
+
   return (
     <div className={imageWrapper}>
-      <Image
+      <div className={placeholderClasses} aria-hidden="true" />
+      <LazyImage
         width={350}
         height={350}
         className={projectImage}
         src={project.projectImg}
         alt={`app screenshot ${project.projectStack}`}
-        loading="lazy"
         unoptimized
-        placeholder="blur"
-        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDAwUBAAAAAAAAAAAAAQIDAAQRBRIhBhMiMUFR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQACAwEAAAAAAAAAAAAAAAABAgADESH/2gAMAwEAAhEDEQA/ANL1C4u7W+kW3upYIm2lY0cgKMDjA+VVpSlTksZiWz//2Q=="
+        placeholder="empty"
+        onLoad={() => setImageLoaded(true)}
       />
-     
+
       <div className={overlay}>
         <div className={padding10}>
           <h2 className={`${title} ${text}`}>{project.title}</h2>

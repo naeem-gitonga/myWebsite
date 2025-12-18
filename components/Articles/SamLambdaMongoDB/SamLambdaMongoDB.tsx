@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '../Articles.module.scss';
@@ -51,7 +51,7 @@ export default function SamLambdaMongoDB(): React.JSX.Element {
         <p className={subtext}>Micro-service trials and tribulations</p>
         <ArticleDateTime imageUrl={'samgolambda'} />
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="AWS Sam, Golang gopher, and MongoDB logo"
             loader={imageLoader}
             src={samGoLambda}
@@ -598,7 +598,7 @@ export default function SamLambdaMongoDB(): React.JSX.Element {
         </figure>
 
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Github comment"
             loader={imageLoader}
             src={lambdaComment}

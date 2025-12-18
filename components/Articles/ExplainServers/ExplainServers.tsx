@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '../Articles.module.scss';
@@ -22,7 +22,7 @@ export default function ExplainServers(): React.JSX.Element {
         <h1>Explain Servers to a 5 Year Old</h1>
         <ArticleDateTime imageUrl={'explservers'} />
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Kids eating pizza and pasta"
             loader={imageLoader}
             src={seeTheLight}

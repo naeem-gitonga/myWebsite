@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '../Articles.module.scss';
@@ -22,7 +22,7 @@ export default function DefaultParameters(): React.JSX.Element {
         <h1>Are JavaScript&apos;s default parameters slowing me down?</h1>
         <ArticleDateTime imageUrl={'dontpanic'} />
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Dont panic"
             loader={imageLoader}
             src={dontPanic}
