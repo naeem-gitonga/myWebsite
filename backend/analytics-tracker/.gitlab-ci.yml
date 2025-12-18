@@ -3,8 +3,8 @@ stages:
   - deploy
 
 .install_aws: &install_aws
-  - apt update
-  - apt install -y jq
+  - apk update
+  - apk add jq curl unzip
   - curl -k "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   - unzip "awscliv2.zip"
   - ./aws/install
