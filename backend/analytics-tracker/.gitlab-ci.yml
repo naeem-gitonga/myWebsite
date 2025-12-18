@@ -12,6 +12,7 @@ stages:
 .common_setup: &common_setup
   - cd backend/analytics-tracker
   - npm i
+  - npm i --save-dev @types/node
   - npm i -g aws-cdk typescript ts-node
 
 .assume_role: &assume_role
@@ -60,6 +61,7 @@ deploy_staging:
     - *install_aws
     - *common_setup
     - *assume_role
+    - echo "CI_ENVIRONMENT_NAME=$CI_ENVIRONMENT_NAME"
     - npx cdk deploy AnalyticsTrackerStaging --require-approval never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
 
 deploy_production:
@@ -79,4 +81,5 @@ deploy_production:
     - *install_aws
     - *common_setup
     - *assume_role
+    - echo "CI_ENVIRONMENT_NAME=$CI_ENVIRONMENT_NAME"
     - npx cdk deploy AnalyticsTrackerProd --require-approval never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
