@@ -104,7 +104,7 @@ export class AnalyticsTrackerStack extends Stack {
       handler: 'index.handler',
       code: Code.fromAsset(lambdaPath, {
         bundling: {
-          image: Runtime.NODEJS_20_X.bundlingImage,
+          image: Runtime.NODEJS_22_X.bundlingImage,
           command: [
             'bash',
             '-c',
