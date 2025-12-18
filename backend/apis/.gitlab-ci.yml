@@ -78,6 +78,7 @@ build_staging:
         - $PWD/package.json
         - $PWD/vercel.json
         - $PWD/.gitlab-ci.yml
+        - backend/analytics-tracker/**/*
       when: never
   artifacts:
     expose_as: 'backend-build-staging'
@@ -122,6 +123,7 @@ deploy_staging_backend:
         - $PWD/vercel.json
         - $PWD/.gitlab-ci.yml
         - $PWD/.releaserc
+        - backend/analytics-tracker/**/*
       when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
@@ -189,6 +191,7 @@ build_production:
         - $PWD/package.json
         - $PWD/vercel.json
         - $PWD/.gitlab-ci.yml
+        - backend/analytics-tracker/**/*
       when: never
   artifacts:
     expose_as: 'backend-build-production'
@@ -235,6 +238,7 @@ deploy_production_backend:
         - $PWD/package.json
         - $PWD/vercel.json
         - $PWD/.gitlab-ci.yml
+        - backend/analytics-tracker/**/*
       when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
