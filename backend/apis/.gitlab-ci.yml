@@ -155,9 +155,9 @@ deploy_staging_backend:
     - cdk deploy --require-approval=never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
 
 update_lambda_runtime:
-  # rules:
-  #   - if: '$CI_COMMIT_BRANCH != "comment_this_rule_when_needed"'
-  #     when: never
+  rules:
+    - if: '$CI_COMMIT_BRANCH != "comment_this_rule_when_needed"'
+      when: never
   id_tokens:
     GITLAB_OIDC_TOKEN:
       aud: https://gitlab.com
