@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 import Header from 'components/Header/Header';
 import AboutMe from 'components/AboutMe/AboutMe';
@@ -12,8 +13,12 @@ import ArticleTileView from 'components/ArticleTileView/ArticleTileView';
 import ShoppingCartIcon from 'components/ShoppingCartIcon/ShoppingCartIcon';
 import particlesParams from 'utils/particlesParams.json';
 import PromoBanner from '@/components/PromoBanner/PromoBanner';
+import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 
 export default function Home() {
+  const searchParams = useSearchParams();
+  const from = searchParams?.get('fromWebsite') ?? 'direct';
+
   useInfoLog();
   useEffect(() => {
     if (window.particlesJS) {
@@ -36,6 +41,7 @@ export default function Home() {
 
   return (
     <div className={styles.root}>
+      <AnalyticsTracker fromWebsite={from} />
       {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-00FHGBS0KW"

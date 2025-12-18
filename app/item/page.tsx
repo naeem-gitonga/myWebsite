@@ -1,6 +1,7 @@
 import Footer from 'components/Footer/Footer';
 import '../globals.css';
 import ItemView from '@/components/ItemView/ItemView';
+import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { products } from '../../utils/products';
 import { truncateStringWithEllipsis } from '@/utils/truncateString';
@@ -27,9 +28,12 @@ export async function generateMetadata(
   };
 }
 
-export default function Item(): JSX.Element {
+export default async function Item(params: Params): Promise<JSX.Element> {
+  const searchParams = await params.searchParams;
+  const from = searchParams?.fromWebsite ?? "direct";
   return (
     <>
+      <AnalyticsTracker fromWebsite={from} />
       <ItemView />
       <Footer />
     </>
