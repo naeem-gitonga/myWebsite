@@ -165,6 +165,23 @@ function isAllowedBucket(bucket: string): boolean {
   });
 }
 
+function getYmdInTimeZone(date: Date, timeZone: string) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+
+  const get = (type: string) => parts.find(p => p.type === type)?.value;
+  const year = get("year");
+  const month = get("month");
+  const day = get("day");
+
+  if (!year || !month || !day) throw new Error("Failed to compute date parts");
+  return { year, month, day };
+}
+
 /**
  * Main Lambda handler
  */
@@ -290,10 +307,9 @@ export const handler = async (
     };
 
     // Parse timestamp for S3 partitioning
-    const ingestDate = new Date(); // already UTC-safe
-    const year = ingestDate.getUTCFullYear();
-    const month = String(ingestDate.getUTCMonth() + 1).padStart(2, '0');
-    const day = String(ingestDate.getUTCDate()).padStart(2, '0');
+    const partitionDate = new Date();
+    const { year, month, day } = getYmdInTimeZone(partitionDate, "America/New_York");
+
 
     // Create S3 key with date partitioning
     const key = `analytics/year=${year}/month=${month}/day=${day}/${eventId}.json`;
@@ -336,3 +352,4 @@ export const handler = async (
     };
   }
 };
+
