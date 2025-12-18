@@ -114,9 +114,9 @@ export function setupScrollTracking(props: PageAnalyticsData): () => void {
       const timeOnPage = Math.round((Date.now() - pageLoadTime) / 1000);
 
       trackEvent('scroll_complete', {
+        ...props,
         timeOnPage,
         scrollDepth: 100,
-        metadata: props
       });
     }
   };
