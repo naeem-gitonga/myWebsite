@@ -7,7 +7,7 @@ type HeaderProps = {
   setWhichSection: any;
 };
 
-export default function Header(props: HeaderProps): JSX.Element {
+export default function Header(props: HeaderProps): React.JSX.Element {
   const { setWhichSection } = props;
   const showShop = process.env.NEXT_PUBLIC_SHOW_SHOP == 'true';
   return (

@@ -14,7 +14,7 @@ import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 import Link from 'next/link';
 
-export default function SamLambdaMongoDB(): JSX.Element {
+export default function SamLambdaMongoDB(): React.JSX.Element {
   const {
     innerWrapper,
     imageWrapper,

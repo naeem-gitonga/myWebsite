@@ -1,7 +1,7 @@
 import styles from './Donate.module.scss';
 import srcImage from '../pictures/sharable-wallet-addr.png';
 
-export default function Donate(): JSX.Element {
+export default function Donate(): React.JSX.Element {
   const {
     donateSection,
     donate,

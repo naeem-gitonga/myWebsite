@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './PaymentResponseMessage.module.scss';
 
-export default function PaymentResponse(): JSX.Element {
+export default function PaymentResponse(): React.JSX.Element {
   const { firstP, lastP } = styles;
   return (
     <div>

@@ -1,7 +1,7 @@
 type HomeProps = {
   fill: string;
 };
-export default function Home(props: HomeProps): JSX.Element {
+export default function Home(props: HomeProps): React.JSX.Element {
   const { fill } = props;
   return (
     <svg

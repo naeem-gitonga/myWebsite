@@ -10,7 +10,7 @@ import useCart from '@/hooks/useCart';
 import useModal from '@/hooks/useModal';
 import { products } from '../../utils/products';
 
-export default function ShopView(): JSX.Element {
+export default function ShopView(): React.JSX.Element {
   const [, setLastItemClicked] = useState<Product | null>(null);
   const [, setModalOpen] = useModal();
   const [addToCart] = useCart();

@@ -1,5 +1,5 @@
 type XMarkProps = { fill: string };
-export default function XMark(props: XMarkProps): JSX.Element {
+export default function XMark(props: XMarkProps): React.JSX.Element {
   const { fill } = props;
   return (
     <svg

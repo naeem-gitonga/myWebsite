@@ -13,7 +13,7 @@ type itemTileProps = {
   setLastItemClicked: Dispatch<SetStateAction<Product | null>>;
 };
 
-export default function ItemTile(props: itemTileProps): JSX.Element {
+export default function ItemTile(props: itemTileProps): React.JSX.Element {
   const {
     tileWrapper,
     title,

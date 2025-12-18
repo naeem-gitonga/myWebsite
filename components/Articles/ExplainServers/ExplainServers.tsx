@@ -11,7 +11,7 @@ import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
-export default function ExplainServers(): JSX.Element {
+export default function ExplainServers(): React.JSX.Element {
   const { innerWrapper, imageWrapper, altText, text, code, pre } = styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
   // * &rdquo; &ldquo; &apos;

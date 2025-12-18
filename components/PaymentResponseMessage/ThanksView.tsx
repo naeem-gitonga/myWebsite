@@ -15,7 +15,7 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function ThanksView(): JSX.Element {
+export default function ThanksView(): React.JSX.Element {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       {' '}
@@ -24,7 +24,7 @@ export default function ThanksView(): JSX.Element {
   );
 }
 
-function ThanksContent(): JSX.Element {
+function ThanksContent(): React.JSX.Element {
   const searchParams = useSearchParams();
 
   const referenceId = searchParams?.get('referenceId');

@@ -3,7 +3,7 @@ import styles from './ReturnArrow.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
-export default function ReturnArrow(): JSX.Element {
+export default function ReturnArrow(): React.JSX.Element {
   const { upArrowLink, arrowBox, fas } = styles;
   useEffect(() => {
     const windowScroll = window.pageYOffset;

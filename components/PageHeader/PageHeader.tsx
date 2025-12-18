@@ -6,7 +6,7 @@ import ShoppingCartIcon from '../ShoppingCartIcon/ShoppingCartIcon';
 import Shop from '../Icons/Shop';
 
 type PageHeaderProps = { headerName: string; hideLinks: boolean };
-export default function PageHeader(props: PageHeaderProps): JSX.Element {
+export default function PageHeader(props: PageHeaderProps): React.JSX.Element {
   const { headerName, hideLinks } = props;
   const { homeSize, shopSize, threeItemWrapper } = styles;
   const { sectionHeader2, headerWrapper } = sharedStyles;

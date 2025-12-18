@@ -22,7 +22,7 @@ import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 import Link from 'next/link';
 
-export default function GitlabToGithubMirrors(): JSX.Element {
+export default function GitlabToGithubMirrors(): React.JSX.Element {
   const { innerWrapper, imageWrapper, altText, text, code, pre } = styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
   // * &rdquo; &ldquo; &apos;

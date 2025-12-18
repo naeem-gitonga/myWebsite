@@ -10,7 +10,7 @@ type ArticleTileViewProps = { sharedHeader: boolean };
 
 export default function ArticleTileView(
   props: ArticleTileViewProps
-): JSX.Element {
+): React.JSX.Element {
   const { sharedHeader } = props;
   const { viewWrapper, articlesWrapper } = styles;
   const { sectionHeader } = sharedStyles;

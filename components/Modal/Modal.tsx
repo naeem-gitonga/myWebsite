@@ -9,7 +9,7 @@ type ModalProps = {
   children: unknown;
   setModalOpen: () => void;
 };
-export default function Modal(props: ModalProps): JSX.Element {
+export default function Modal(props: ModalProps): React.JSX.Element {
   const { isOpen, children, setModalOpen, hideClose } = props;
   const { modalWrapper, container, closeButton, closeButtonOutterWrapper } =
     styles;
@@ -27,7 +27,7 @@ export default function Modal(props: ModalProps): JSX.Element {
             </div>
           )}
         </div>
-        {children as JSX.Element}
+        {children as React.JSX.Element}
       </div>
     </div>
   );

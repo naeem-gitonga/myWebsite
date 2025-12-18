@@ -37,7 +37,7 @@ type StackItemProps = {
   className: string;
 };
 
-function StackItem(props: StackItemProps): JSX.Element {
+function StackItem(props: StackItemProps): React.JSX.Element {
   const { text, className } = props;
   return (
     <Tooltip text={text}>
@@ -47,7 +47,7 @@ function StackItem(props: StackItemProps): JSX.Element {
 }
 
 type ProjectMapType = {
-  [key in ProjectName]: JSX.Element[];
+  [key in ProjectName]: React.JSX.Element[];
 };
 
 const defaultStack = [

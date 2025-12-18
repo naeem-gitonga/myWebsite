@@ -9,7 +9,7 @@ import CartItem from '@/types/cart-item';
 type ShoppingCartIconProps = { unsetPosition: boolean; fill: string };
 export default function ShoppingCartIcon(
   props: ShoppingCartIconProps
-): JSX.Element {
+): React.JSX.Element {
   const {
     cartLink,
     cartBox,

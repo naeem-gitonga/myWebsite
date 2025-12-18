@@ -15,7 +15,7 @@ import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
 // * &rdquo; &ldquo; &apos;
-export default function MicroPartOne(): JSX.Element {
+export default function MicroPartOne(): React.JSX.Element {
   const { innerWrapper, pre, code, imageWrapper, altText, text, anchorColor } =
     styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;

@@ -5,7 +5,7 @@ import { Project as ProjectObj, projects } from '../Project/projects';
 import Project from '../Project/Project';
 import PageHeader from '../PageHeader/PageHeader';
 
-export default function MyWork(): JSX.Element {
+export default function MyWork(): React.JSX.Element {
   const { viewWrapper } = sharedStyles;
   const { disclaimer, zeroMarginBottom, workWrapper } = styles;
   return (

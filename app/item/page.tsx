@@ -28,7 +28,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function Item(params: Params): Promise<JSX.Element> {
+export default async function Item(params: Params): Promise<React.JSX.Element> {
   const searchParams = await params.searchParams;
   const from = searchParams?.fromWebsite ?? "direct";
   const itemId = searchParams?.item_id as string | undefined;

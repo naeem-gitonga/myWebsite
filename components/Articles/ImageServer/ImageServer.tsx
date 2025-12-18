@@ -19,7 +19,7 @@ import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 import Link from 'next/link';
 
-export default function ImageServer(): JSX.Element {
+export default function ImageServer(): React.JSX.Element {
   const {
     innerWrapper,
     imageWrapper,

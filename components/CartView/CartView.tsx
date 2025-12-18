@@ -21,7 +21,7 @@ import styles from './CartView.module.scss';
 import Link from 'next/link';
 import roundToTwoDecimalPlaces from '@/utils/roundTonearestTwoDecimal';
 
-export default function CartVeiw(): JSX.Element {
+export default function CartVeiw(): React.JSX.Element {
   const {
     buttonsWrapper,
     cartWrapper,
