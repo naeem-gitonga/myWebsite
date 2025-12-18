@@ -3,8 +3,8 @@ stages:
   - deploy
 
 .install_aws: &install_aws
-  - apk update
-  - apk add jq curl unzip
+  - apt update
+  - apt install -y jq curl unzip
   - curl -k "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   - unzip "awscliv2.zip"
   - ./aws/install
@@ -44,9 +44,6 @@ lambda_test:
     - npm run test
 
 deploy_staging:
-  image: docker:29.2.0-rc.1-cli
-  services:
-    - name: docker:29.2.0-rc.1-dind
   id_tokens:
     GITLAB_OIDC_TOKEN:
       aud: https://gitlab.com
@@ -59,8 +56,6 @@ deploy_staging:
       changes:
         - backend/analytics-tracker/**/*
     - when: never
-  before_script:
-    - apk add --update nodejs npm
   script:
     - *install_aws
     - *common_setup
@@ -68,9 +63,6 @@ deploy_staging:
     - npx cdk deploy AnalyticsTrackerStaging --require-approval never --role-arn ${INFRASTRUCTURE_ROLE_ARN}
 
 deploy_production:
-  image: docker:29.2.0-rc.1-cli
-  services:
-    - name: docker:29.2.0-rc.1-dind
   id_tokens:
     GITLAB_OIDC_TOKEN:
       aud: https://gitlab.com
@@ -83,8 +75,6 @@ deploy_production:
       changes:
         - backend/analytics-tracker/**/*
     - when: never
-  before_script:
-    - apk add --update nodejs npm
   script:
     - *install_aws
     - *common_setup
