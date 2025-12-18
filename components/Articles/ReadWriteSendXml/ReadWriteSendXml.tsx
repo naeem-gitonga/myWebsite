@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import articleStyles from '../Articles.module.scss';
@@ -43,7 +43,7 @@ export default function SamLambdaMongoDB(): React.JSX.Element {
       <div className={`${width75} ${innerWrapper}`}>
         <ArticleDateTime imageUrl={'xml'} />
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Naeem Gitonga sitting at computer"
             loader={imageLoader}
             src={computerGenius}

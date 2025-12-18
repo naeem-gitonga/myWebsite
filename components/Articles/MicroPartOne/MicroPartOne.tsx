@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '../Articles.module.scss';
@@ -26,7 +26,7 @@ export default function MicroPartOne(): React.JSX.Element {
         <h1>Micro Services Part I: Node, Docker, and Docker Compose</h1>
         <ArticleDateTime imageUrl="mspt1" />
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Node.js and Docker logo"
             loader={imageLoader}
             src={nodeDocker}
@@ -103,7 +103,7 @@ export default function MicroPartOne(): React.JSX.Element {
 
         <p className={text}>You should see this in your browser:</p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Browser image of app running locally"
             loader={imageLoader}
             src={stillWorks}
@@ -134,7 +134,7 @@ export default function MicroPartOne(): React.JSX.Element {
           something like this:
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="View of CLI, terminal"
             loader={imageLoader}
             src={terminalView}

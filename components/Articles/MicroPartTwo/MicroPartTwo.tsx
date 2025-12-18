@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '../Articles.module.scss';
@@ -33,7 +33,7 @@ export default function MicroPartTwo(): React.JSX.Element {
         <h1>Micro Services Part I: Node, Docker, and Docker Compose</h1>
         <ArticleDateTime imageUrl="mspt2" />
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="AWS EC2, Ubuntu logos"
             loader={imageLoader}
             src={ubuntuEC2}
@@ -46,7 +46,7 @@ export default function MicroPartTwo(): React.JSX.Element {
           in your EC2 dashboard if you see something like this:
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="AWS EC2 dashboard view"
             loader={imageLoader}
             src={ec2Dashboard}
@@ -63,7 +63,7 @@ export default function MicroPartTwo(): React.JSX.Element {
           eligible for the free tier. 😉
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="AWS EC2 launch instance view"
             loader={imageLoader}
             src={launchInstance}
@@ -94,7 +94,7 @@ export default function MicroPartTwo(): React.JSX.Element {
           let&apos;s stick with it.
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="AWS EC2 "
             loader={imageLoader}
             src={t2Micro}
@@ -125,7 +125,7 @@ export default function MicroPartTwo(): React.JSX.Element {
           something like this when you finish.
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="AWS EC2 Configure security group"
             loader={imageLoader}
             src={securityGroup}
@@ -156,7 +156,7 @@ export default function MicroPartTwo(): React.JSX.Element {
           <code className={code}>node-test</code>.
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="node-test.pem file GIF"
             loader={imageLoader}
             src={nodeTestPem}
@@ -186,7 +186,7 @@ export default function MicroPartTwo(): React.JSX.Element {
           &ldquo;Instances&rdquo; and it should show up.
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="AWS EC2 dashboard instance running"
             loader={imageLoader}
             src={instanceRunning}
@@ -211,7 +211,7 @@ export default function MicroPartTwo(): React.JSX.Element {
         </p>
 
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="GIF Showing AWS EC2 connecting"
             loader={imageLoader}
             src={connecting}
@@ -236,7 +236,7 @@ export default function MicroPartTwo(): React.JSX.Element {
         </p>
 
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="GIF Showing Ubuntu terminal connecting"
             loader={imageLoader}
             src={ubuntuTerminal}
@@ -300,7 +300,7 @@ export default function MicroPartTwo(): React.JSX.Element {
         </p>
 
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="AWS EC2 running Ubuntu terminal"
             loader={imageLoader}
             src={itWorks}

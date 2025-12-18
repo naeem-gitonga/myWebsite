@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import articleStyles from '../Articles.module.scss';
@@ -40,7 +40,7 @@ export default function ImageServer(): React.JSX.Element {
         <h1>Image Server AI — GPU Inference in 55 Seconds</h1>
         <ArticleDateTime imageUrl={'aiimage'} />
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Profile of AI robot"
             loader={imageLoader}
             src={aiimage}
@@ -128,7 +128,7 @@ export default function ImageServer(): React.JSX.Element {
         </p>
 
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="DGX dashboard during inference"
             loader={imageLoader}
             src={dashboard1}
@@ -145,7 +145,7 @@ export default function ImageServer(): React.JSX.Element {
         </p>
 
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Running free -h command in terminal during inference"
             loader={imageLoader}
             src={freeh2}
@@ -161,7 +161,7 @@ export default function ImageServer(): React.JSX.Element {
         </p>
 
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="DGX dashboard after inference"
             loader={imageLoader}
             src={dashboard2}
@@ -171,7 +171,7 @@ export default function ImageServer(): React.JSX.Element {
           <p className={altText}>Dashboard showing low memory usage</p>
         </div>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Running free -h command in terminal after inference"
             loader={imageLoader}
             src={freeh1}
@@ -219,7 +219,7 @@ export default function ImageServer(): React.JSX.Element {
           sent the same request one immediately after the other. See the results below.
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Terminal instance with load results"
             loader={imageLoader}
             src={terminalwindow}

@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '../Articles.module.scss';
@@ -33,7 +33,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
         <h1>Gitlab to Github Mirrors (PUSH)</h1>
         <ArticleDateTime imageUrl={'gitlabmirror'} />
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Woman in mirror"
             loader={imageLoader}
             src={girlInMirror}
@@ -92,7 +92,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
         </p>
         
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Github Settings"
             loader={imageLoader}
             src={githubDemoOne}
@@ -123,7 +123,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           Next, in Gitlab, go to Settings &rarr; Mirroring repositories
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Gitlab Settings"
             loader={imageLoader}
             src={gitlabDemoOne}
@@ -145,7 +145,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           The following textarea will appear. 
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Dropdown input host keys manually"
             loader={imageLoader}
             src={inputHostKeysManually}
@@ -176,7 +176,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
         </p>
         
          <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Dropdown input host keys manually with input"
             loader={imageLoader}
             src={inputHostkeysManually2}
@@ -193,7 +193,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
         </p>
 
          <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Username updated"
             loader={imageLoader}
             src={updatedUsername}
@@ -215,7 +215,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
         </p>
 
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Dropdown input host keys manually with input"
             loader={imageLoader}
             src={mirrorSetupAlmostDone}
@@ -243,7 +243,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           Then, click on Deploy keys and Add deploy key.
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Github deploy key settings"
             loader={imageLoader}
             src={addDeployKey1}
@@ -260,7 +260,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
         </p>
 
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Github add deploy key"
             loader={imageLoader}
             src={addDeployKey2}
@@ -275,7 +275,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
         </p>
 
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Start mirroring"
             loader={imageLoader}
             src={clickReplay}

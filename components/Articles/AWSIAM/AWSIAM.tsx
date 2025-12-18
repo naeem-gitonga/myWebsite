@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '../Articles.module.scss';
@@ -28,7 +28,7 @@ export default function AWSIAM(): React.JSX.Element {
         <h1>AWS IAM — Quick Dive/Quick Guide</h1>
         <ArticleDateTime imageUrl={'awsiam'} />
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="IAM logo"
             loader={imageLoader}
             src={iamLogo}
@@ -155,7 +155,7 @@ export default function AWSIAM(): React.JSX.Element {
           ARNs.
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="ARN Breakdown"
             loader={imageLoader}
             src={iamOne}
@@ -174,7 +174,7 @@ export default function AWSIAM(): React.JSX.Element {
           objects. Let&apos;s examine it more closely.
         </p>
         <div className={`${imageWrapper} ${smaller}`}>
-          <Image
+          <LazyImage
             alt="IAM Policy One"
             loader={imageLoader}
             src={iamTwo}
@@ -233,7 +233,7 @@ export default function AWSIAM(): React.JSX.Element {
             </p>
           </li>
           <div className={imageWrapper}>
-            <Image
+            <LazyImage
               alt="IAM Policy Two"
               loader={imageLoader}
               src={iamThree}
@@ -255,7 +255,7 @@ export default function AWSIAM(): React.JSX.Element {
         </p>
 
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="IAM Trust Policy"
             loader={imageLoader}
             src={iamFour}

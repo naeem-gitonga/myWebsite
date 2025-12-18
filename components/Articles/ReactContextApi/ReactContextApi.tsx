@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '../Articles.module.scss';
@@ -34,7 +34,7 @@ export default function ReactContextApi(): React.JSX.Element {
       <PageHeader headerName="article" hideLinks={false} />
       <div className={`${width75} ${innerWrapper}`}>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="React"
             loader={imageLoader}
             src={seeTheLight}
@@ -204,7 +204,7 @@ export default function ReactContextApi(): React.JSX.Element {
           our history.
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="React"
             loader={imageLoader}
             src={reactGif}

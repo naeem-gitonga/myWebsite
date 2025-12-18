@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 import Link from 'next/link';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
@@ -27,7 +27,7 @@ export default function TigerExperience(): React.JSX.Element {
         <h1>My TI:GER Experience</h1>
         <ArticleDateTime imageUrl={'tigergroup'} />
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="hero image"
             loader={imageLoader}
             src="/images/tiger-hero.jpg" 
@@ -59,7 +59,7 @@ export default function TigerExperience(): React.JSX.Element {
           semester we would get to know one another and build a business from an idea. 
         </p>
        <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="group of four guys"
             loader={imageLoader}
             src="/images/tiger-group.jpg" 
@@ -139,7 +139,7 @@ export default function TigerExperience(): React.JSX.Element {
         </p>
 
          <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="man sitting"
             loader={imageLoader}
             src="/images/me-listening-intently.jpg"
@@ -218,7 +218,7 @@ export default function TigerExperience(): React.JSX.Element {
           <strong>Thank you TI:GER!</strong>
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="pic of many people"
             loader={imageLoader}
             src="/images/tiger-class-photo.jpg"

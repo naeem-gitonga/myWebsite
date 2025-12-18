@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '../Articles.module.scss';
@@ -22,7 +22,7 @@ export default function RapidBackend(): React.JSX.Element {
       <PageHeader headerName="article" hideLinks={false} />
       <div className={`${width75} ${innerWrapper}`}>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="See the light"
             loader={imageLoader}
             src={seeTheLight}
@@ -62,7 +62,7 @@ export default function RapidBackend(): React.JSX.Element {
           let&apos;s refer to a diagram borrowed from cloudflare.com:
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Architectural diagram"
             loader={imageLoader}
             src={serviceArchitecture}
@@ -106,7 +106,7 @@ export default function RapidBackend(): React.JSX.Element {
           deployment processes and adding to the overall overhead.
         </p>
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             alt="Rapid Back-End logo"
             loader={imageLoader}
             src={rapidBackEndLogo}
