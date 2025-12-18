@@ -1,4 +1,4 @@
-import { handler } from './index';
+import { handler } from '../index';
 import { APIGatewayProxyEvent } from 'aws-lambda';
 
 // Mock the S3 client

@@ -7,7 +7,7 @@ import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
 export function generateMetadata(): Metadata {
   const title = "My TI:GER Experience";
-  const description = "This isn't an endorsement of the program. This is my experience-by Naeem Gitonga";
+  const description = "This isn't an endorsement of the program. This is my experience-by Naeem Gitonga.";
   const imageUrl = getAbsoluteUrl('/images/tiger-hero-og.jpg');
   const pageUrl = getAbsoluteUrl('/articles/tiger-experience');
 
