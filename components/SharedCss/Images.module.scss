@@ -2,15 +2,15 @@ $pictures-url: '/images/';
 
 .pylcover {
   background-size: cover;
-  background-image: url('#{pictures-url}pyl-front-cover.webp');
+  background-image: url('#{$pictures-url}pyl-front-cover.webp');
 }
 
 .rapidbackend {
   background-size: cover;
-  background-image: url('#{pictures-url}rbe-cover.webp');
+  background-image: url('#{$pictures-url}rbe-cover.webp');
 }
 
 .consult {
   background-size: cover;
-  background-image: url('#{pictures-url}consultation.webp');
+  background-image: url('#{$pictures-url}consultation.webp');
 }
