@@ -6,11 +6,11 @@ import styles from '../Articles.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import iamLogo from '@/components/pictures/iam.png';
-import iamOne from '@/components/pictures/iam-1.png';
-import iamTwo from '@/components/pictures/iam-2.png';
-import iamThree from '@/components/pictures/iam-3.png';
-import iamFour from '@/components/pictures/iam-4.png';
+;
+;
+;
+;
+;
 
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
@@ -31,7 +31,7 @@ export default function AWSIAM(): React.JSX.Element {
           <LazyImage
             alt="IAM logo"
             loader={imageLoader}
-            src={iamLogo}
+            src="/images/iam.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
@@ -158,7 +158,7 @@ export default function AWSIAM(): React.JSX.Element {
           <LazyImage
             alt="ARN Breakdown"
             loader={imageLoader}
-            src={iamOne}
+            src="/images/iam-1.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
@@ -177,7 +177,7 @@ export default function AWSIAM(): React.JSX.Element {
           <LazyImage
             alt="IAM Policy One"
             loader={imageLoader}
-            src={iamTwo}
+            src="/images/iam-2.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
@@ -236,7 +236,7 @@ export default function AWSIAM(): React.JSX.Element {
             <LazyImage
               alt="IAM Policy Two"
               loader={imageLoader}
-              src={iamThree}
+              src="/images/iam-3.webp"
               style={{ objectFit: 'contain', maxWidth: '75%' }}
               fill
             />
@@ -258,7 +258,7 @@ export default function AWSIAM(): React.JSX.Element {
           <LazyImage
             alt="IAM Trust Policy"
             loader={imageLoader}
-            src={iamFour}
+            src="/images/iam-4.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
