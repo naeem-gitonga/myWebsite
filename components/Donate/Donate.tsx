@@ -1,5 +1,5 @@
 import styles from './Donate.module.scss';
-import srcImage from '../pictures/sharable-wallet-addr.png';
+;
 
 export default function Donate(): React.JSX.Element {
   const {
@@ -25,7 +25,7 @@ export default function Donate(): React.JSX.Element {
           <img
             alt="QR code for my Bitcoin wallet"
             className={qRCode}
-            src={srcImage.src}
+            src={"/images/sharable-wallet-addr.webp"}
           />
         </div>
         <p className={aboutDonate}>1JyK59AjgcYtv3h8vyGK4L6evwFqZhkDe7</p>

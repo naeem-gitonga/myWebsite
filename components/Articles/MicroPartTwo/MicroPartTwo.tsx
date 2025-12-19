@@ -6,17 +6,16 @@ import styles from '../Articles.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import ubuntuEC2 from '../../pictures/ec2-linux.png';
-import ec2Dashboard from '../../pictures/ec2-dashboard.png';
-import launchInstance from '../../pictures/launch-instance.png';
-import t2Micro from '../../pictures/t2-micro.png';
-import instanceRunning from '../../pictures/node-test.png';
+;
+;
+;
+;
+;
 import nodeTestPem from '../../pictures/node-test.gif';
-import securityGroup from '../../pictures/security-group.png';
+;
 import connecting from '../../pictures/connect-instructions.gif';
 import ubuntuTerminal from '../../pictures/ubuntu-terminal.gif';
 import itWorks from '../../pictures/ec2-it-works.gif';
-import Link from 'next/link';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
@@ -36,7 +35,7 @@ export default function MicroPartTwo(): React.JSX.Element {
           <LazyImage
             alt="AWS EC2, Ubuntu logos"
             loader={imageLoader}
-            src={ubuntuEC2}
+            src="/images/ec2-linux.webp"
             style={{ objectFit: 'contain', maxWidth: '50%' }}
             fill
           />
@@ -49,7 +48,7 @@ export default function MicroPartTwo(): React.JSX.Element {
           <LazyImage
             alt="AWS EC2 dashboard view"
             loader={imageLoader}
-            src={ec2Dashboard}
+            src="/images/ec2-dashboard.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -66,7 +65,7 @@ export default function MicroPartTwo(): React.JSX.Element {
           <LazyImage
             alt="AWS EC2 launch instance view"
             loader={imageLoader}
-            src={launchInstance}
+            src="/images/launch-instance.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -97,7 +96,7 @@ export default function MicroPartTwo(): React.JSX.Element {
           <LazyImage
             alt="AWS EC2 "
             loader={imageLoader}
-            src={t2Micro}
+            src="/images/t2-micro.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -128,7 +127,7 @@ export default function MicroPartTwo(): React.JSX.Element {
           <LazyImage
             alt="AWS EC2 Configure security group"
             loader={imageLoader}
-            src={securityGroup}
+            src="/images/security-group.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -189,7 +188,7 @@ export default function MicroPartTwo(): React.JSX.Element {
           <LazyImage
             alt="AWS EC2 dashboard instance running"
             loader={imageLoader}
-            src={instanceRunning}
+            src="/images/node-test.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />

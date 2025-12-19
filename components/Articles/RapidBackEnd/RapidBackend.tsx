@@ -6,9 +6,9 @@ import styles from '../Articles.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import seeTheLight from '../../pictures/see-the-light.jpg';
-import serviceArchitecture from '../../pictures/architecture-breakdown.png';
-import rapidBackEndLogo from '../../pictures/rapidbackend.png';
+;
+;
+;
 import Link from 'next/link';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
@@ -25,7 +25,7 @@ export default function RapidBackend(): React.JSX.Element {
           <LazyImage
             alt="See the light"
             loader={imageLoader}
-            src={seeTheLight}
+            src="/images/see-the-light.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
@@ -65,7 +65,7 @@ export default function RapidBackend(): React.JSX.Element {
           <LazyImage
             alt="Architectural diagram"
             loader={imageLoader}
-            src={serviceArchitecture}
+            src="/images/architecture-breakdown.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
@@ -109,7 +109,7 @@ export default function RapidBackend(): React.JSX.Element {
           <LazyImage
             alt="Rapid Back-End logo"
             loader={imageLoader}
-            src={rapidBackEndLogo}
+            src="/images/rapidbackend.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />

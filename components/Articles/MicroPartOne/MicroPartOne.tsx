@@ -6,9 +6,9 @@ import styles from '../Articles.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import nodeDocker from '../../pictures/docker-node.png';
-import stillWorks from '../../pictures/still-works.png';
-import terminalView from '../../pictures/terminal-view.png';
+;
+;
+;
 import Link from 'next/link';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
@@ -29,7 +29,7 @@ export default function MicroPartOne(): React.JSX.Element {
           <LazyImage
             alt="Node.js and Docker logo"
             loader={imageLoader}
-            src={nodeDocker}
+            src="/images/docker-node.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -106,7 +106,7 @@ export default function MicroPartOne(): React.JSX.Element {
           <LazyImage
             alt="Browser image of app running locally"
             loader={imageLoader}
-            src={stillWorks}
+            src="/images/still-works.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -137,7 +137,7 @@ export default function MicroPartOne(): React.JSX.Element {
           <LazyImage
             alt="View of CLI, terminal"
             loader={imageLoader}
-            src={terminalView}
+            src="/images/terminal-view.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />

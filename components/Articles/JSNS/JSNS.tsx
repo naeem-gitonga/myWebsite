@@ -6,7 +6,7 @@ import styles from '../Articles.module.scss';
 import sharedStyles from '@/components/SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import newSexy from '../../pictures/js-new.png';
+;
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
@@ -31,7 +31,7 @@ export default function JSNS(): React.JSX.Element {
           <LazyImage
             alt="Teaching student"
             loader={imageLoader}
-            src={newSexy}
+            src="/images/js-new.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />

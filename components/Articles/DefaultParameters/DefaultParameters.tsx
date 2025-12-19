@@ -6,7 +6,7 @@ import styles from '../Articles.module.scss';
 import sharedStyles from '@/components/SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import dontPanic from '../../pictures/dont-panic.png';
+;
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
@@ -25,7 +25,7 @@ export default function DefaultParameters(): React.JSX.Element {
           <LazyImage
             alt="Dont panic"
             loader={imageLoader}
-            src={dontPanic}
+            src="/images/dont-panic.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
