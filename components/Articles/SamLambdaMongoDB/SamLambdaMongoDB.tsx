@@ -6,9 +6,6 @@ import styles from '../Articles.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import samGoLambda from '../../pictures/SAM-Golang-MongoDB.png';
-import lambdaComment from '../../pictures/go-lambda-comment.png';
-
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
@@ -54,7 +51,7 @@ export default function SamLambdaMongoDB(): React.JSX.Element {
           <LazyImage
             alt="AWS Sam, Golang gopher, and MongoDB logo"
             loader={imageLoader}
-            src={samGoLambda}
+            src="/images/SAM-Golang-MongoDB.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -601,7 +598,7 @@ export default function SamLambdaMongoDB(): React.JSX.Element {
           <LazyImage
             alt="Github comment"
             loader={imageLoader}
-            src={lambdaComment}
+            src="/images/go-lambda-comment.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />

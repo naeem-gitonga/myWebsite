@@ -6,16 +6,16 @@ import styles from '../Articles.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import girlInMirror from '../../pictures/gitlab-mirror.png';
-import githubDemoOne from '../../pictures/github-demo-1.png';
-import gitlabDemoOne from '../../pictures/gitlab-demo-1.png';
-import inputHostKeysManually from '../../pictures/host-keys-manually.png';
-import inputHostkeysManually2 from '../../pictures/host-keys-manually-2.png';
-import mirrorSetupAlmostDone from '../../pictures/mirror-setup-almost-done.png';
-import updatedUsername from '../../pictures/update-username.png';
-import addDeployKey1 from '../../pictures/add-deploy-key-1.png';
-import addDeployKey2 from '../../pictures/add-deploy-key-2.png';
-import clickReplay from '../../pictures/click-replay.png';
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
 
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
@@ -36,7 +36,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           <LazyImage
             alt="Woman in mirror"
             loader={imageLoader}
-            src={girlInMirror}
+            src="/images/gitlab-mirror.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
@@ -95,7 +95,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           <LazyImage
             alt="Github Settings"
             loader={imageLoader}
-            src={githubDemoOne}
+            src="/images/github-demo-1.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -126,7 +126,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           <LazyImage
             alt="Gitlab Settings"
             loader={imageLoader}
-            src={gitlabDemoOne}
+            src="/images/gitlab-demo-1.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -148,7 +148,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           <LazyImage
             alt="Dropdown input host keys manually"
             loader={imageLoader}
-            src={inputHostKeysManually}
+            src="/images/host-keys-manually.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -179,7 +179,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           <LazyImage
             alt="Dropdown input host keys manually with input"
             loader={imageLoader}
-            src={inputHostkeysManually2}
+            src="/images/host-keys-manually-2.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -196,7 +196,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           <LazyImage
             alt="Username updated"
             loader={imageLoader}
-            src={updatedUsername}
+            src="/images/update-username.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -218,7 +218,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           <LazyImage
             alt="Dropdown input host keys manually with input"
             loader={imageLoader}
-            src={mirrorSetupAlmostDone}
+            src="/images/mirror-setup-almost-done.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -246,7 +246,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           <LazyImage
             alt="Github deploy key settings"
             loader={imageLoader}
-            src={addDeployKey1}
+            src="/images/add-deploy-key-1.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -263,7 +263,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           <LazyImage
             alt="Github add deploy key"
             loader={imageLoader}
-            src={addDeployKey2}
+            src="/images/add-deploy-key-2.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -278,7 +278,7 @@ export default function GitlabToGithubMirrors(): React.JSX.Element {
           <LazyImage
             alt="Start mirroring"
             loader={imageLoader}
-            src={clickReplay}
+            src="/images/click-replay.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />

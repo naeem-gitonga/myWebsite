@@ -6,7 +6,7 @@ import styles from '../Articles.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import seeTheLight from '../../pictures/react.png';
+;
 import reactGif from '../../pictures/react_context.gif';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
@@ -37,7 +37,7 @@ export default function ReactContextApi(): React.JSX.Element {
           <LazyImage
             alt="React"
             loader={imageLoader}
-            src={seeTheLight}
+            src="/images/react.webp"
             style={{ objectFit: 'contain', maxWidth: '25%' }}
             fill
           />

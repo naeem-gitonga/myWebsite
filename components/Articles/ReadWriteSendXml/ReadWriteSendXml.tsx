@@ -7,7 +7,7 @@ import styles from './ReadWriteSendXml.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import computerGenius from '../../pictures/computer-genius.png';
+;
 
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
@@ -46,7 +46,7 @@ export default function SamLambdaMongoDB(): React.JSX.Element {
           <LazyImage
             alt="Naeem Gitonga sitting at computer"
             loader={imageLoader}
-            src={computerGenius}
+            src="/images/computer-genius.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
