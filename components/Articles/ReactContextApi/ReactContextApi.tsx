@@ -6,8 +6,7 @@ import styles from '../Articles.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-;
-import reactGif from '../../../public/images/react_context.gif';
+const reactGif = '/images/react_context.gif';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';

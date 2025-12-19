@@ -1,4 +1,4 @@
-import consultation from '../components/pictures/consultation.png';
+const consultation = '/images/consultation.webp';
 export const products = [
   {
     id: 1,
