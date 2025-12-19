@@ -56,7 +56,7 @@
     position: unset !important;
     height: 200px !important;
     @media only screen and (max-width: 720px) {
-      max-width: 100% !important;
+      height: 150px !important;
     }
   }
   .altText {
