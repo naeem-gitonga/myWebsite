@@ -7,13 +7,6 @@ import styles from './ImageServer.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import aiimage from '../../pictures/ai-generated-image.png';
-import dashboard1 from '../../pictures/during-inference.png';
-import dashboard2 from '../../pictures/after-inference.png';
-import freeh1 from '../../pictures/after-inference-2.png';
-import freeh2 from '../../pictures/during-inference-2.png';
-import terminalwindow from '../../pictures/memory-profiling.png'
-
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
@@ -43,7 +36,7 @@ export default function ImageServer(): React.JSX.Element {
           <LazyImage
             alt="Profile of AI robot"
             loader={imageLoader}
-            src={aiimage}
+            src="/images/ai-generated-image.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
@@ -131,7 +124,7 @@ export default function ImageServer(): React.JSX.Element {
           <LazyImage
             alt="DGX dashboard during inference"
             loader={imageLoader}
-            src={dashboard1}
+            src="/images/during-inference.webp"
             style={{ objectFit: 'contain', maxWidth: '50%' }}
             fill
           />
@@ -148,9 +141,10 @@ export default function ImageServer(): React.JSX.Element {
           <LazyImage
             alt="Running free -h command in terminal during inference"
             loader={imageLoader}
-            src={freeh2}
+            src="/images/during-inference-2.webp"
+            width={1154}
+            height={120}
             style={{ objectFit: 'contain', maxWidth: '100%' }}
-            fill
           />
           <p className={altText}>High memory usage during inference</p>
         </div>
@@ -164,7 +158,7 @@ export default function ImageServer(): React.JSX.Element {
           <LazyImage
             alt="DGX dashboard after inference"
             loader={imageLoader}
-            src={dashboard2}
+            src="/images/after-inference.webp"
             style={{ objectFit: 'contain', maxWidth: '50%' }}
             fill
           />
@@ -174,7 +168,7 @@ export default function ImageServer(): React.JSX.Element {
           <LazyImage
             alt="Running free -h command in terminal after inference"
             loader={imageLoader}
-            src={freeh1}
+            src="/images/after-inference-2.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
@@ -222,7 +216,7 @@ export default function ImageServer(): React.JSX.Element {
           <LazyImage
             alt="Terminal instance with load results"
             loader={imageLoader}
-            src={terminalwindow}
+            src="/images/memory-profiling.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />

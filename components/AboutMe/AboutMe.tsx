@@ -48,15 +48,17 @@ export default function AboutMe(): React.JSX.Element {
             alt="Certified Kubernetes Administrator (CKA) logo"
             loader={imageLoader}
             src="/images/cka.webp"
+            width={300}
+            height={293}
             style={{ objectFit: 'contain', maxWidth: '75%' }}
-            fill
           />
           <Image
             alt="AWS DevOps Professional logo"
             loader={imageLoader}
             src="/images/aws-devops-pro.webp"
+            width={300}
+            height={300}
             style={{ objectFit: 'contain', maxWidth: '75%' }}
-            fill
           />
         </div>
         <h2 className={subhead}>More about me</h2>
@@ -102,18 +104,20 @@ export default function AboutMe(): React.JSX.Element {
             alt="Georgia Tech Logo"
             loader={imageLoader}
             src="/images/gt-logo.webp"
+            width={1296}
+            height={1296}
             style={{ objectFit: 'contain', maxWidth: '75%' }}
-            fill
           />
           <p className={altText}>
             Scheller MBA, TI&#x3a;GER &apos;26
           </p>
           <Image
-            alt="AWS DevOps Professional logo"
+            alt="UNCW logo"
             loader={imageLoader}
             src="/images/uncw-logo.webp"
-            style={{ objectFit: 'contain', maxWidth: '75%' }}
-            fill
+            width={250}
+            height={137}
+            style={{ objectFit: 'contain'}}
           />
           <p className={altText}>UNCW Spanish, University Honors &apos;11</p>
         </div>
