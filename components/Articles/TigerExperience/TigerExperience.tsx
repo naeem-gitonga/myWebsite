@@ -30,9 +30,10 @@ export default function TigerExperience(): React.JSX.Element {
           <LazyImage
             alt="hero image"
             loader={imageLoader}
-            src="/images/tiger-hero.jpg" 
+            src="/images/tiger-hero.jpg"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
+            loading="eager"
           />
           <p className={altText}>From graduation ceremony</p>
         </div>
