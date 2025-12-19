@@ -6,11 +6,11 @@ import { imageLoader } from '@/utils/imageLoader';
 import PageHeader from '../PageHeader/PageHeader';
 import styles from './AboutMe.module.scss';
 
-import ckaLogo from '@/components/pictures/cka.png';
-import awsDevOpsProLogo from '@/components/pictures/aws-devops-pro.png';
+;
+;
 
-import gtLogo from '@/components/pictures/gt-logo.png';
-import uncwLogo from '@/components/pictures/uncw-logo.png';
+;
+;
 
 export default function AboutMe(): React.JSX.Element {
   const {
@@ -47,14 +47,14 @@ export default function AboutMe(): React.JSX.Element {
           <Image
             alt="Certified Kubernetes Administrator (CKA) logo"
             loader={imageLoader}
-            src={ckaLogo}
+            src="/images/cka.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
           <Image
             alt="AWS DevOps Professional logo"
             loader={imageLoader}
-            src={awsDevOpsProLogo}
+            src="/images/aws-devops-pro.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
@@ -101,7 +101,7 @@ export default function AboutMe(): React.JSX.Element {
           <Image
             alt="Georgia Tech Logo"
             loader={imageLoader}
-            src={gtLogo}
+            src="/images/gt-logo.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
@@ -111,7 +111,7 @@ export default function AboutMe(): React.JSX.Element {
           <Image
             alt="AWS DevOps Professional logo"
             loader={imageLoader}
-            src={uncwLogo}
+            src="/images/uncw-logo.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />

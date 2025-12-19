@@ -30,9 +30,12 @@ export default function TigerExperience(): React.JSX.Element {
           <LazyImage
             alt="hero image"
             loader={imageLoader}
-            src="/images/tiger-hero.jpg" 
+            src="/images/tiger-hero.webp"
+            width={1920}
+            height={1280}
             style={{ objectFit: 'contain', maxWidth: '75%' }}
-            fill
+            loading="eager"
+            fetchPriority="high"
           />
           <p className={altText}>From graduation ceremony</p>
         </div>
@@ -62,7 +65,7 @@ export default function TigerExperience(): React.JSX.Element {
           <LazyImage
             alt="group of four guys"
             loader={imageLoader}
-            src="/images/tiger-group.jpg" 
+            src="/images/tiger-group.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
@@ -142,7 +145,7 @@ export default function TigerExperience(): React.JSX.Element {
           <LazyImage
             alt="man sitting"
             loader={imageLoader}
-            src="/images/me-listening-intently.jpg"
+            src="/images/me-listening-intently.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
@@ -221,7 +224,7 @@ export default function TigerExperience(): React.JSX.Element {
           <LazyImage
             alt="pic of many people"
             loader={imageLoader}
-            src="/images/tiger-class-photo.jpg"
+            src="/images/tiger-class-photo.webp"
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             fill
           />
