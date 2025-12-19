@@ -328,7 +328,7 @@ export default function MicroPartOne(): React.JSX.Element {
         <h2>Next</h2>
         <p className={text}>
           In my next post, that will be available on{' '}
-          <Link href="/articles/microservices-part-2">March 17, 2019</Link>, I
+          <Link href="/articles/microservices-part-2">March 16, 2019</Link>, I
           will be demonstrating how to deploy this app on AWS using EC2.
         </p>
         <p className={text}>

@@ -120,8 +120,7 @@ export default function DefaultParameters(): React.JSX.Element {
           explicitly returning the value we want. There isn&apos;t anything
           implied as in the case of <code className={code}>withDefault</code>.
           Another benefit of going with withoutDefault is that we&apos;re not
-          running code unnecessarily. In
-          <code className={code}>withDefault</code> we are still performing, to
+          running code unnecessarily. In <code className={code}>withDefault</code> we are still performing, to
           some extent, every operation just to return an empty string — time
           waster! Now imagine that you have an application of 10K, 20K, 120K
           lines of code. If your pattern is to always resort to a default param

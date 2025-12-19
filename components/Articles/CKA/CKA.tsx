@@ -25,7 +25,7 @@ export default function CKA(): React.JSX.Element {
           <LazyImage
             alt="Unsure"
             loader={imageLoader}
-            src="/images/cka.webp"
+            src="/images/girl-shrugging.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
