@@ -6,7 +6,7 @@ import styles from '../Articles.module.scss';
 import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
 
-import seeTheLight from '../../pictures/cka.jpg';
+;
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
@@ -25,7 +25,7 @@ export default function CKA(): React.JSX.Element {
           <LazyImage
             alt="Unsure"
             loader={imageLoader}
-            src={seeTheLight}
+            src="/images/cka.webp"
             style={{ objectFit: 'contain', maxWidth: '75%' }}
             fill
           />
