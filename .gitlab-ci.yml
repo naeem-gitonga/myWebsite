@@ -29,6 +29,19 @@ stages:
   - backend/cdk/**/*
   - README.md
 
+test_frontend:
+  stage: test
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes: *front_end_changes
+    - if: '$CI_COMMIT_BRANCH == "staging"'
+      changes: *front_end_changes
+    - changes: *back_end_changes
+      when: never
+  script:
+    - npm ci
+    - npm test -- --runInBand
+
 deploy_frontend_staging:
   stage: deploy
   rules:

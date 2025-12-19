@@ -47,7 +47,7 @@ export default function AboutMe(): React.JSX.Element {
           <Image
             alt="Certified Kubernetes Administrator (CKA) logo"
             loader={imageLoader}
-            src="/images/cka.webp"
+            src="/images/girl-shrugging.webp"
             width={300}
             height={293}
             style={{ objectFit: 'contain', maxWidth: '75%' }}
