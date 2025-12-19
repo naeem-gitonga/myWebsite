@@ -63,3 +63,4 @@ backend/cdk/.env*
 backend/.serverless
 /.claude
 MIGRATION_PLAN.md
+/pictures

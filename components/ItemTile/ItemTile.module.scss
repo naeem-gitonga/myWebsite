@@ -1,3 +1,5 @@
+$pictures-url: '/images/';
+
 .tileWrapper {
   width: 350px;
   border-radius: 20px;
@@ -53,12 +55,12 @@
 
 .pylcover {
   background-size: cover;
-  background-image: url('../pictures/pyl-front-cover.jpg');
+  background-image: url('#{$pictures-url}pyl-front-cover.webp');
 }
 
 .rapidbackend {
   background-size: cover;
-  background-image: url('../pictures/rbe-cover.jpg');
+  background-image: url('#{$pictures-url}rbe-cover.webp');
 }
 
 .addToCartButton {
