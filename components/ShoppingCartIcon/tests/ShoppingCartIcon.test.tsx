@@ -1,12 +1,6 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import SmallItemPreview from '../SmallItemPreview/SmallItemPreview';
-import ShoppingCartIcon from '../ShoppingCartIcon/ShoppingCartIcon';
+import { render, screen, waitFor } from '@testing-library/react';
+import ShoppingCartIcon from '../ShoppingCartIcon';
 import type CartItem from '@/types/cart-item';
-
-jest.mock('../CounterInput/CounterInput', () => ({
-  __esModule: true,
-  default: () => <div data-testid="counter-input" />,
-}));
 
 jest.mock('@fortawesome/react-fontawesome', () => ({
   __esModule: true,
@@ -44,31 +38,12 @@ const item: CartItem = {
   quantity: 2,
 };
 
-describe('shop widgets', () => {
+describe('ShoppingCartIcon', () => {
   const originalEnv = process.env;
 
   afterEach(() => {
     process.env = originalEnv;
     localStorage.clear();
-  });
-
-  it('renders small item preview and optional counter', () => {
-    const styles = {
-      imageContainer: 'imageContainer',
-      itemDescription: 'itemDescription',
-      smallItemPreviewWrapper: 'smallItemPreviewWrapper',
-      imageWrapper: 'imageWrapper',
-      quantity: 'quantity',
-    };
-
-    const { rerender } = render(
-      <SmallItemPreview styles={styles} item={item} showCounter />
-    );
-    expect(screen.getByText('Test')).toBeInTheDocument();
-    expect(screen.getByTestId('counter-input')).toBeInTheDocument();
-
-    rerender(<SmallItemPreview styles={styles} item={item} showCounter={false} />);
-    expect(screen.queryByTestId('counter-input')).toBeNull();
   });
 
   it('hides cart icon when shop is disabled', () => {

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import PaymentResponseMessage from '../PaymentResponseMessage/PaymentResponseMessage';
-import ThanksView from '../PaymentResponseMessage/ThanksView';
+import PaymentResponseMessage from '../PaymentResponseMessage';
+import ThanksView from '../ThanksView';
 
 const mockUseSearchParams = jest.fn();
 
@@ -15,14 +15,14 @@ jest.mock('next/link', () => ({
   ),
 }));
 
-jest.mock('../PageHeader/PageHeader', () => ({
+jest.mock('../../PageHeader/PageHeader', () => ({
   __esModule: true,
   default: ({ headerName }: { headerName: string }) => (
     <div data-testid="page-header">{headerName}</div>
   ),
 }));
 
-describe('payment response messages', () => {
+describe('PaymentResponseMessage', () => {
   it('renders payment failure message', () => {
     render(<PaymentResponseMessage />);
     expect(

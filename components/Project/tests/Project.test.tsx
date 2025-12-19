@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { projectStackMap } from '../StackItems/StackItems';
-import Project from '../Project/Project';
-import type { Project as ProjectType } from '../Project/projects';
+import Project from '../Project';
+import type { Project as ProjectType } from '../projects';
 
 jest.mock('next/link', () => ({
   __esModule: true,
@@ -12,7 +11,7 @@ jest.mock('next/link', () => ({
   ),
 }));
 
-jest.mock('../LazyImage/LazyImage', () => ({
+jest.mock('../../LazyImage/LazyImage', () => ({
   __esModule: true,
   default: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
     const { unoptimized, ...rest } = props as React.ImgHTMLAttributes<HTMLImageElement> & {
@@ -22,16 +21,7 @@ jest.mock('../LazyImage/LazyImage', () => ({
   },
 }));
 
-describe('project stack and card', () => {
-  it('renders a stack item tooltip', () => {
-    const { container } = render(<div>{projectStackMap.imageserver[0]}</div>);
-    const tooltip = container.querySelector('.tooltipContainer') as HTMLElement;
-    fireEvent.mouseOver(tooltip);
-    expect(screen.getByText('Python')).toBeInTheDocument();
-    fireEvent.mouseOut(tooltip);
-    expect(screen.queryByText('Python')).toBeNull();
-  });
-
+describe('Project', () => {
   it('renders project links and handles image load', () => {
     const project: ProjectType = {
       projectImg: '/images/test.webp',
