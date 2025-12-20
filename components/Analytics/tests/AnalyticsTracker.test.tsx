@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import AnalyticsTracker from '../AnalyticsTracker';
+import AnalyticsTracker, { getStagingTag } from '../AnalyticsTracker';
 
 // Mock the analytics utility
 const mockInitializeAnalytics = jest.fn(() => jest.fn());
@@ -53,5 +53,31 @@ describe('AnalyticsTracker', () => {
     expect(mockInitializeAnalytics).toHaveBeenCalledWith(
       expect.objectContaining({ fromWebsite: 'direct' })
     );
+  });
+
+  it('does not append staging tag on non-staging host', () => {
+    Object.defineProperty(window, 'location', {
+      value: { hostname: 'example.com' },
+      writable: true,
+    });
+    render(<AnalyticsTracker fromWebsite="referral" />);
+    expect(mockInitializeAnalytics).toHaveBeenCalledWith(
+      expect.objectContaining({ fromWebsite: 'referral' })
+    );
+  });
+
+  it('handles window undefined in staging check', () => {
+    const originalWindow = (global as any).window;
+    Object.defineProperty(global, 'window', {
+      value: undefined,
+      configurable: true,
+    });
+
+    expect(getStagingTag()).toBeUndefined();
+
+    Object.defineProperty(global, 'window', {
+      value: originalWindow,
+      configurable: true,
+    });
   });
 });
