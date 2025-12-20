@@ -107,6 +107,11 @@ describe('CartView', () => {
       [{ reference_id: '1-0', amount: { currency_code: 'USD', value: 10 } }],
       20,
     ]);
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mockLoadPaypal.mockImplementation(({ onSuccess, onError }: { onSuccess: (data: any) => void; onError: (err: any) => void }) => {
+      onSuccess({ id: 'order-1' });
+      onError({ code: 'ERR' });
+    });
 
     render(<CartView />);
 
@@ -115,5 +120,7 @@ describe('CartView', () => {
       expect(mockLoadPaypal).toHaveBeenCalled();
       expect(screen.getByText('Subtotal:')).toBeInTheDocument();
     });
+    expect(mockCallInternal).toHaveBeenCalled();
+    expect(errorSpy).toHaveBeenCalled();
   });
 });

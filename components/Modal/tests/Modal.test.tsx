@@ -15,4 +15,13 @@ describe('Modal', () => {
     fireEvent.click(icon?.parentElement as HTMLElement);
     expect(onClose).toHaveBeenCalled();
   });
+
+  it('renders nothing when closed', () => {
+    const { container } = render(
+      <Modal isOpen={false} hideClose={false} setModalOpen={jest.fn()}>
+        <div>content</div>
+      </Modal>
+    );
+    expect(container.firstChild).toBeNull();
+  });
 });

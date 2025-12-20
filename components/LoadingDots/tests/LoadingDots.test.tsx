@@ -8,4 +8,9 @@ describe('LoadingDots', () => {
     );
     expect(container.querySelectorAll('div').length).toBeGreaterThan(1);
   });
+
+  it('renders without outer class name', () => {
+    const { container } = render(<LoadingDots />);
+    expect(container.querySelectorAll('div').length).toBeGreaterThan(1);
+  });
 });

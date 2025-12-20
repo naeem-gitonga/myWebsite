@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import PaymentResponseMessage from '../PaymentResponseMessage';
-import ThanksView from '../ThanksView';
+import ThanksView, { generateMetadata } from '../ThanksView';
 
 const mockUseSearchParams = jest.fn();
 
@@ -50,5 +50,10 @@ describe('PaymentResponseMessage', () => {
       screen.getByText(/unsuccessful at sending/i)
     ).toBeInTheDocument();
     expect(screen.getByText('order-2')).toBeInTheDocument();
+  });
+
+  it('generates metadata', () => {
+    const metadata = generateMetadata();
+    expect(metadata.title).toBe('Thank you!');
   });
 });

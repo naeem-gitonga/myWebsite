@@ -6,7 +6,7 @@ import LoadingScreen from '@/components/LoadingScreen/LoadingScreen';
 
 const HOME_LOADER_FLAG = 'homePageLoaderShown';
 
-const hasSeenLoader = () => {
+export const hasSeenLoader = () => {
   if (typeof window === 'undefined') return false;
   return window.sessionStorage.getItem(HOME_LOADER_FLAG) === 'true';
 };

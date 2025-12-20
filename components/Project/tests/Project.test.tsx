@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import Project from '../Project';
-import type { Project as ProjectType } from '../projects';
+import { projects, type Project as ProjectType } from '../projects';
 
 jest.mock('next/link', () => ({
   __esModule: true,
@@ -41,5 +41,9 @@ describe('Project', () => {
     expect(screen.getByText('Test Project')).toBeInTheDocument();
     expect(screen.getByText('Live site')).toHaveAttribute('href', '/test');
     expect(screen.getByText('Source code')).toHaveAttribute('href', '/github');
+  });
+
+  it('exports projects list', () => {
+    expect(projects.length).toBeGreaterThan(0);
   });
 });

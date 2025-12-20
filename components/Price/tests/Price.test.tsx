@@ -9,4 +9,12 @@ describe('Price', () => {
     expect(container.textContent).toContain('$10');
     expect(container.textContent).toContain('$5');
   });
+
+  it('renders only base price when no promotion', () => {
+    const { container } = render(
+      <Price price={10} promotion={0} priceStyle="price" strike="strike" />
+    );
+    expect(container.textContent).toContain('$10');
+    expect(container.textContent).not.toContain('$0');
+  });
 });

@@ -48,4 +48,17 @@ describe('SmallItemPreview', () => {
     );
     expect(screen.queryByTestId('counter-input')).toBeNull();
   });
+
+  it('shows promotion price when provided', () => {
+    const styles = {
+      imageContainer: 'imageContainer',
+      itemDescription: 'itemDescription',
+      smallItemPreviewWrapper: 'smallItemPreviewWrapper',
+      imageWrapper: 'imageWrapper',
+      quantity: 'quantity',
+    };
+    const promoItem = { ...item, promotion: 5 };
+    render(<SmallItemPreview styles={styles} item={promoItem} showCounter={false} />);
+    expect(screen.getByText('$5')).toBeInTheDocument();
+  });
 });

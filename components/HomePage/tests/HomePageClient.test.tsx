@@ -17,7 +17,11 @@ jest.mock('next/script', () => ({
 jest.mock('../../Header/Header', () => ({
   __esModule: true,
   default: ({ setWhichSection }: { setWhichSection: (value: string) => void }) => (
-    <button onClick={() => setWhichSection('aboutMe')}>set section</button>
+    <div>
+      <button onClick={() => setWhichSection('aboutMe')}>set about</button>
+      <button onClick={() => setWhichSection('donate')}>set donate</button>
+      <button onClick={() => setWhichSection('articles')}>set articles</button>
+    </div>
   ),
 }));
 
@@ -72,8 +76,17 @@ describe('HomePageClient', () => {
     (window as any).particlesJS = jest.fn();
 
     render(<HomePageClient />);
-    fireEvent.click(screen.getByText('set section'));
+    fireEvent.click(screen.getByText('set about'));
     expect(screen.getByTestId('about-me')).toBeInTheDocument();
     expect(screen.getByTestId('analytics-tracker')).toBeInTheDocument();
+  });
+
+  it('renders donate and articles sections', () => {
+    mockUseSearchParams.mockReturnValue(new URLSearchParams('fromWebsite=ref'));
+    render(<HomePageClient />);
+    fireEvent.click(screen.getByText('set donate'));
+    expect(screen.getByTestId('donate')).toBeInTheDocument();
+    fireEvent.click(screen.getByText('set articles'));
+    expect(screen.getByTestId('articles')).toBeInTheDocument();
   });
 });

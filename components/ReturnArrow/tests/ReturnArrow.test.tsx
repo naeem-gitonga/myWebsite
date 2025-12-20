@@ -15,4 +15,15 @@ describe('ReturnArrow', () => {
     expect(window.scrollTo).toHaveBeenCalled();
     jest.useRealTimers();
   });
+
+  it('toggles visibility on scroll', () => {
+    const { container } = render(<ReturnArrow />);
+    const arrow = container.querySelector('#arrow') as HTMLElement;
+    Object.defineProperty(window, 'pageYOffset', { value: 0, writable: true });
+    window.dispatchEvent(new Event('scroll'));
+    expect(arrow.style.display).toBe('none');
+    Object.defineProperty(window, 'pageYOffset', { value: 600, writable: true });
+    window.dispatchEvent(new Event('scroll'));
+    expect(arrow.style.display).toBe('initial');
+  });
 });

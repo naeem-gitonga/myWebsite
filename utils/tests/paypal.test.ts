@@ -147,4 +147,22 @@ describe('paypal utils', () => {
     expect(result).toBeNull();
     expect(errorSpy).toHaveBeenCalled();
   });
+
+  it('handles render errors when initializing buttons', async () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const render = jest.fn().mockRejectedValue(new Error('render fail'));
+    const buttons = jest.fn().mockReturnValue({ render });
+    (loadScript as jest.Mock).mockResolvedValue({ Buttons: buttons });
+
+    await loadPaypal({
+      setShowLoadingDots: jest.fn(),
+      onSuccess: jest.fn(),
+      onError: jest.fn(),
+      purchaseUnits: [{ reference_id: '1-0', amount: { currency_code: 'USD', value: 10 } }],
+      clearCart: jest.fn(),
+      cart: [cartItem],
+    });
+
+    expect(errorSpy).toHaveBeenCalled();
+  });
 });

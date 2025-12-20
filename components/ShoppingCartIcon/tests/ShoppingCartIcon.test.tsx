@@ -65,4 +65,13 @@ describe('ShoppingCartIcon', () => {
       expect(screen.getByText('2')).toBeInTheDocument();
     });
   });
+
+  it('renders without count when cart is empty', async () => {
+    process.env = { ...originalEnv, NEXT_PUBLIC_SHOW_SHOP: 'true' };
+    render(<ShoppingCartIcon unsetPosition={false} fill="black" />);
+    await waitFor(() => {
+      expect(screen.getByRole('link')).toHaveAttribute('href', '/cart');
+    });
+    expect(screen.queryByText('0')).toBeNull();
+  });
 });

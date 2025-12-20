@@ -76,6 +76,17 @@ describe('analytics', () => {
     jest.useRealTimers();
   });
 
+  it('handles fetch errors gracefully', async () => {
+    process.env.NODE_ENV = 'production';
+    process.env.NEXT_PUBLIC_ANALYTICS_API_URL = 'https://example.com';
+    const debugSpy = jest.spyOn(console, 'debug').mockImplementation(() => {});
+    global.fetch = jest.fn().mockRejectedValue(new Error('boom'));
+
+    await analytics.trackEvent('page_view', { foo: 'bar' });
+
+    expect(debugSpy).toHaveBeenCalled();
+  });
+
   it('tracks scroll completion once and returns cleanup', () => {
     process.env.NODE_ENV = 'production';
     process.env.NEXT_PUBLIC_ANALYTICS_API_URL = 'https://example.com';
