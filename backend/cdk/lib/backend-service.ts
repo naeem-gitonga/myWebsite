@@ -77,6 +77,9 @@ export default class BackendService extends Construct {
         nameWithoutStage,
         NODE_ENV: process.env.NODE_ENV,
       });
+      const assetPath =
+        process.env.ARTIFACT_PATH ??
+        path.join(__dirname, '../../apis/.serverless/jngpaypal.zip');
       const lambda = new Function(this, name, {
         functionName: nameLowerCased,
         runtime: Runtime.NODEJS_22_X,
@@ -87,7 +90,7 @@ export default class BackendService extends Construct {
         },
         timeout: Duration.minutes(10),
         code: Code.fromAsset(
-          path.join(__dirname, '../../apis/.serverless/jngpaypal.zip') // * change this filename once you change the service prop in /backend/serverless.yml
+          assetPath // * change this filename once you change the service prop in /backend/serverless.yml
         ),
       });
 

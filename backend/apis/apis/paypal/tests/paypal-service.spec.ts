@@ -1,6 +1,11 @@
+/** @jest-environment node */
 import { APIGatewayEvent } from 'aws-lambda';
-
 import PaypalService from '../paypal-service';
+
+jest.mock('@sendgrid/mail', () => ({
+  setApiKey: jest.fn(),
+  send: jest.fn(),
+}));
 
 describe('LambdaA service tests', () => {
   beforeAll(async () => {

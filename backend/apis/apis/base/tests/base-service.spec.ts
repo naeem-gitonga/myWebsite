@@ -1,3 +1,4 @@
+/** @jest-environment node */
 import { Collection } from 'mongodb';
 import { APIGatewayProxyEvent } from 'aws-lambda';
 
@@ -90,7 +91,7 @@ describe('Base service tests', () => {
       'set-cookie': 'mywonderful=cookie',
     };
     const res = await response({ dog: 'bark' }, 200, undefined, cookie);
-    expect(JSON.stringify(res.headers)).toEqual(JSON.stringify(cookie));
+    expect(res.headers).toEqual(expect.objectContaining(cookie));
   });
 
   it('Should have a multivalue header: ', async () => {

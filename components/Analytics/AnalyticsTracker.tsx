@@ -29,7 +29,7 @@ type Props = {
 const STAGING_TAG = 'analytics-staging';
 const STAGING_HOSTS = ['localhost', 'staging.naeemgitonga.com', 'www.staging.naeemgitonga.com'];
 
-function getStagingTag(): string | undefined {
+export function getStagingTag(): string | undefined {
   if (typeof window === 'undefined') return undefined;
   const hostname = window.location.hostname.toLowerCase();
   return STAGING_HOSTS.includes(hostname) ? STAGING_TAG : undefined;
