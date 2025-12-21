@@ -43,6 +43,23 @@ describe('Project', () => {
     expect(screen.getByText('Source code')).toHaveAttribute('href', '/github');
   });
 
+  it('defaults project link text and target when not provided', () => {
+    const project: ProjectType = {
+      projectImg: '/images/test.webp',
+      title: 'Test Project',
+      projectDes: 'Desc',
+      projectStack: 'polls',
+      projectLink: '/test',
+      gitHubLink: '/github',
+    };
+
+    render(<Project project={project} />);
+
+    const liveLink = screen.getByText('Live site');
+    expect(liveLink).toHaveAttribute('href', '/test');
+    expect(liveLink).toHaveAttribute('target', '_blank');
+  });
+
   it('exports projects list', () => {
     expect(projects.length).toBeGreaterThan(0);
   });
