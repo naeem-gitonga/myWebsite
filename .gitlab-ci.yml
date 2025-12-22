@@ -33,7 +33,7 @@ test_frontend:
   stage: test
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      changes: *front_end_changes
+      when: never
     - if: '$CI_COMMIT_BRANCH == "staging"'
       changes: *front_end_changes
     - changes: *back_end_changes
