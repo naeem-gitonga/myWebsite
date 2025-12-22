@@ -45,8 +45,8 @@ describe('utils', () => {
   });
 
   it('exposes article images and metadata', () => {
-    expect(articleTileImages.expcka).toBe('/images/girl-shrugging.webp');
-    expect(articles[0].title).toBe('My TI:GER Experience');
+    expect(articleTileImages.reactcontext).toBe('/images/react-context.webp');
+    expect(articles[articles.length - 1].title).toBe('React Context-Api and Lazy-loading');
   });
 });
 
