@@ -4,6 +4,7 @@ import Tooltip from '../Tooltip/Tooltip';
 
 const {
   awssam,
+  bash,
   docker,
   express,
   redux,
@@ -168,5 +169,9 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="Lambda" className={lambda} key="lambda" />,
     <StackItem text="Serverless" className={serverless} key="serverless" />,
     <StackItem text="Jest" className={jestLogo} key="jest" />,
+  ],
+  shutdownsync: [
+    <StackItem text="Go" className={go} key="go" />,
+    <StackItem text="Bash" className={bash} key="bash" />,
   ],
 };

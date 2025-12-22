@@ -15,7 +15,8 @@ export type ProjectName =
   | 'arithmetik'
   | 'ngwebsite'
   | 'rapidbackend'
-  | 'imageserver';
+  | 'imageserver'
+  | 'shutdownsync';
 
 export type Project = {
   projectImg: string;
@@ -29,6 +30,18 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: 'Shutdown Sync*',
+    projectImg: '/images/octopus-working.webp',
+    projectDes:
+      'A weekend deep dive into macOS development with launchd, SIGTERM, and shell scripts to sync remote machine shutdown.',
+    projectStack: 'shutdownsync',
+    projectLink: '/articles/shutdown-sync',
+    target: '_self',
+    linkText: 'Learn more',
+    gitHubLink:
+      '/interstitial?url=https://github.com/naeem-gitonga/shutdown-sync&where=Github'
+  },
   {
     title: 'Image Server*',
     projectImg:

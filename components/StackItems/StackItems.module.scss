@@ -122,3 +122,7 @@ $pictures-url: '/images/';
 .cuda {
   @include background('cuda');
 }
+
+.bash {
+  @include background('bash');
+}
