@@ -1,5 +1,13 @@
 export const articles: Article[] = [
   {
+    title: 'Shutdown Sync',
+    imageUrl: 'shutdownsync',
+    lengthInMinutes: 5,
+    publishedDate: 'Dec 22, 2025',
+    articleUrl: '/articles/shutdown-sync',
+    noTarget: true,
+  },
+  {
     title: 'My TI:GER Experience',
     imageUrl: 'tigergroup',
     lengthInMinutes: 5,
