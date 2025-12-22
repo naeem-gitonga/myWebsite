@@ -10,4 +10,16 @@ describe('StackItems', () => {
     fireEvent.mouseOut(tooltip);
     expect(screen.queryByText('Python')).toBeNull();
   });
+
+  it('renders shutdownsync stack items with Go and Bash', () => {
+    const { container } = render(<div>{projectStackMap.shutdownsync}</div>);
+    const tooltips = container.querySelectorAll('.tooltipContainer');
+
+    fireEvent.mouseOver(tooltips[0]);
+    expect(screen.getByText('Go')).toBeInTheDocument();
+    fireEvent.mouseOut(tooltips[0]);
+
+    fireEvent.mouseOver(tooltips[1]);
+    expect(screen.getByText('Bash')).toBeInTheDocument();
+  });
 });
