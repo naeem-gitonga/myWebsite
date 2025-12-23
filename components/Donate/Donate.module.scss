@@ -1,16 +1,18 @@
-.donateSection {
-  max-width: 560px;
+.donateWrapper {
+  padding: 10px;
   height: 100vh;
   margin: auto;
-  text-align: center;
 }
 
 .donateContainer {
   padding: 15px;
+  text-align: center;
 }
 
 .aboutDonate {
   font-size: 1.09em;
+  max-width: 600px;
+  margin: auto;
 }
 
 .qRCode {

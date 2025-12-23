@@ -12,9 +12,9 @@ jest.mock('next/link', () => ({
 
 jest.mock('../../LazyImage/LazyImage', () => ({
   __esModule: true,
-  default: ({ onLoadingComplete, ...props }: React.ImgHTMLAttributes<HTMLImageElement> & { onLoadingComplete?: () => void }) => {
-    if (onLoadingComplete) {
-      onLoadingComplete();
+  default: ({ onLoad, ...props }: React.ImgHTMLAttributes<HTMLImageElement> & { onLoad?: () => void }) => {
+    if (onLoad) {
+      onLoad();
     }
     return <img data-testid="lazy-image" {...props} />;
   },

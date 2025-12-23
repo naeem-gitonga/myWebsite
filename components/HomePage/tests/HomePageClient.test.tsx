@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import HomePageClient from '../HomePageClient';
 
 const mockUseSearchParams = jest.fn();
@@ -16,13 +16,7 @@ jest.mock('next/script', () => ({
 
 jest.mock('../../Header/Header', () => ({
   __esModule: true,
-  default: ({ setWhichSection }: { setWhichSection: (value: string) => void }) => (
-    <div>
-      <button onClick={() => setWhichSection('aboutMe')}>set about</button>
-      <button onClick={() => setWhichSection('donate')}>set donate</button>
-      <button onClick={() => setWhichSection('articles')}>set articles</button>
-    </div>
-  ),
+  default: () => <div data-testid="header" />,
 }));
 
 jest.mock('../../AboutMe/AboutMe', () => ({
@@ -71,22 +65,25 @@ jest.mock('../../../hooks/useInfoLog', () => ({
 }));
 
 describe('HomePageClient', () => {
-  it('renders home page client and switches section', () => {
+  it('renders home page client with all components', () => {
     mockUseSearchParams.mockReturnValue(new URLSearchParams('fromWebsite=ref'));
     (window as any).particlesJS = jest.fn();
 
     render(<HomePageClient />);
-    fireEvent.click(screen.getByText('set about'));
-    expect(screen.getByTestId('about-me')).toBeInTheDocument();
+    expect(screen.getByTestId('header')).toBeInTheDocument();
+    expect(screen.getByTestId('footer')).toBeInTheDocument();
     expect(screen.getByTestId('analytics-tracker')).toBeInTheDocument();
+    expect(screen.getByTestId('promo-banner')).toBeInTheDocument();
+    expect(screen.getByTestId('cart-icon')).toBeInTheDocument();
+    expect(screen.getByTestId('return-arrow')).toBeInTheDocument();
   });
 
-  it('renders donate and articles sections', () => {
-    mockUseSearchParams.mockReturnValue(new URLSearchParams('fromWebsite=ref'));
+  it('initializes particles.js when available', () => {
+    mockUseSearchParams.mockReturnValue(new URLSearchParams(''));
+    const mockParticlesJS = jest.fn();
+    (window as any).particlesJS = mockParticlesJS;
+
     render(<HomePageClient />);
-    fireEvent.click(screen.getByText('set donate'));
-    expect(screen.getByTestId('donate')).toBeInTheDocument();
-    fireEvent.click(screen.getByText('set articles'));
-    expect(screen.getByTestId('articles')).toBeInTheDocument();
+    expect(mockParticlesJS).toHaveBeenCalledWith('particles-js', expect.any(Object));
   });
 });

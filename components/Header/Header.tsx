@@ -1,62 +1,29 @@
-import Link from 'next/link';
-import Envelope from 'components/Icons/Envelope';
-import Bitcoin from 'components/Icons/Bitcoin';
 import styles from './Header.module.scss';
+import Button from 'components/Button/Button';
+import Modal from 'components/Modal/Modal';
+import useModal from 'hooks/useModal';
+import StartMenu from 'components/StartMenu/StartMenu';
 
-type HeaderProps = {
-  setWhichSection: any;
-};
+export default function Header(): React.JSX.Element {
+  const [isModalOpen, setModalOpen] = useModal();
 
-export default function Header(props: HeaderProps): React.JSX.Element {
-  const { setWhichSection } = props;
-  const showShop = process.env.NEXT_PUBLIC_SHOW_SHOP == 'true';
   return (
     <div id="header">
       <div className={styles.wrapper}>
         <header>
           <div id="top-div" className={styles['main-nav']}>
             <h1 className={styles.myName}>Naeem Gitonga</h1>
-            <ul className={styles.firstUl}>
-              <li id="aboutMe-link">
-                <Link className={styles.firstUlLink} href="/about">
-                  aboutMe
-                </Link>
-              </li>
-              <li id="work-link">
-                <Link href="/work" className={styles.firstUlLink}>
-                  myWork
-                </Link>
-              </li>
-              <li id="articles-link">
-                <Link href="/articles" className={styles.firstUlLink}>
-                  myArticles
-                </Link>
-              </li>
-              {showShop && (
-                <li id="shop-link">
-                  <Link href="/shop" className={styles.firstUlLink}>
-                    shop
-                  </Link>
-                </li>
-              )}
-            </ul>
-            <div className={styles.links}>
-              <Link href="/contact">
-                <Envelope />
-              </Link>
-
-              <Link
-                id="donate-link"
-                href="#donate"
-                rel="noreferrer"
-                onClick={() => setWhichSection('donate')}
-              >
-                <Bitcoin />
-              </Link>
+            <div className={styles.startButtonWrapper}>
+              <Button cb={setModalOpen} className={styles.startButton}>
+                START
+              </Button>
             </div>
           </div>
         </header>
       </div>
+      <Modal isOpen={isModalOpen} setModalOpen={setModalOpen} hideClose={false}>
+        <StartMenu onClose={setModalOpen} />
+      </Modal>
     </div>
   );
 }

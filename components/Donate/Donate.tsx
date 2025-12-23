@@ -1,9 +1,10 @@
+import PageHeader from '../PageHeader/PageHeader';
 import styles from './Donate.module.scss';
 ;
 
 export default function Donate(): React.JSX.Element {
   const {
-    donateSection,
+    donateWrapper,
     donate,
     aboutDonate,
     btcQRCode,
@@ -11,16 +12,17 @@ export default function Donate(): React.JSX.Element {
     donateContainer,
   } = styles;
   return (
-    <section className={`${donateSection} animated`} id="donate">
+    <div id="donate" className={donateWrapper}>
+      <PageHeader headerName="donate" hideLinks={false} />
       <div
         className={donateContainer}
         data-address="1JyK59AjgcYtv3h8vyGK4L6evwFqZhkDe7"
       >
-        <h1 className={donate}>Donate Me Bitcoin</h1>
         <p className={aboutDonate}>
           Everyone has some sort of digital tin cup... here&apos;s mine. So if
           you find value in anything here, put something in the pot.
         </p>
+        <h1 className={donate}>Donate Me Bitcoin</h1>
         <div className={btcQRCode}>
           <img
             alt="QR code for my Bitcoin wallet"
@@ -30,6 +32,6 @@ export default function Donate(): React.JSX.Element {
         </div>
         <p className={aboutDonate}>1JyK59AjgcYtv3h8vyGK4L6evwFqZhkDe7</p>
       </div>
-    </section>
+    </div>
   );
 }

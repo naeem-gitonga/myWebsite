@@ -62,7 +62,7 @@ export default function HomePageClient() {
       </Script>
       <PromoBanner />
       <div id="particles-js" className="particles" />
-      <Header setWhichSection={setWhichSection} />
+      <Header />
       <ShoppingCartIcon unsetPosition={false} fill="white" />
       <Section />
       <Footer />

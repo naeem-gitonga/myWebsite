@@ -10,35 +10,31 @@ jest.mock('next/link', () => ({
   ),
 }));
 
+jest.mock('../../Modal/Modal', () => ({
+  __esModule: true,
+  default: ({
+    isOpen,
+    children,
+  }: {
+    isOpen: boolean;
+    children: React.ReactNode;
+  }) => (isOpen ? <div data-testid="modal">{children}</div> : null),
+}));
+
+jest.mock('../../StartMenu/StartMenu', () => ({
+  __esModule: true,
+  default: () => <div data-testid="start-menu" />,
+}));
+
 describe('Header', () => {
-  const originalEnv = process.env;
+  it('renders header and opens the start menu', () => {
+    render(<Header />);
 
-  beforeEach(() => {
-    process.env = { ...originalEnv };
-  });
+    expect(screen.getByText('Naeem Gitonga')).toBeInTheDocument();
+    const startButton = screen.getByText('START');
+    fireEvent.click(startButton);
 
-  afterAll(() => {
-    process.env = originalEnv;
-  });
-
-  it('renders header links and handles donate click', () => {
-    process.env.NEXT_PUBLIC_SHOW_SHOP = 'true';
-    const setWhichSection = jest.fn();
-    render(<Header setWhichSection={setWhichSection} />);
-
-    expect(screen.getByText('aboutMe')).toBeInTheDocument();
-    expect(screen.getByText('myWork')).toBeInTheDocument();
-    expect(screen.getByText('myArticles')).toBeInTheDocument();
-    expect(screen.getByText('shop')).toBeInTheDocument();
-
-    const donateLink = document.querySelector('#donate-link') as HTMLElement;
-    fireEvent.click(donateLink);
-    expect(setWhichSection).toHaveBeenCalledWith('donate');
-  });
-
-  it('hides shop link when disabled', () => {
-    process.env.NEXT_PUBLIC_SHOW_SHOP = 'false';
-    render(<Header setWhichSection={jest.fn()} />);
-    expect(screen.queryByText('shop')).toBeNull();
+    expect(screen.getByTestId('modal')).toBeInTheDocument();
+    expect(screen.getByTestId('start-menu')).toBeInTheDocument();
   });
 });
