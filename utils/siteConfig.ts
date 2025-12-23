@@ -1,11 +1,11 @@
 import { buildEnvConfig } from './envConfig';
 
-const envConfig = buildEnvConfig();
+const { SITE_URL } = buildEnvConfig();
 
 // Site configuration for Open Graph and metadata
 export const siteConfig = {
   // Base URL changes based on environment
-  baseUrl: envConfig.SITE_URL,
+  baseUrl: SITE_URL,
   siteName: 'Naeem Gitonga',
   author: 'Naeem Gitonga',
 };
