@@ -79,3 +79,18 @@
     z-index: 101;
   }
 }
+
+@media (max-height: 400px) {
+  .container {
+    overflow-y: auto;
+    max-height: 100vh;
+    justify-content: flex-start;
+    padding-top: 60px;
+  }
+
+  .closeButtonOutterWrapper {
+    position: absolute;
+    top: 45px;
+    right: 10px;
+  }
+}
