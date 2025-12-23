@@ -1,6 +1,6 @@
 export const articles: Article[] = [
   {
-    title: 'Shutdown Sync',
+    title: 'Shutdown Sync (macOS development, Go)',
     imageUrl: 'shutdownsync',
     lengthInMinutes: 5,
     publishedDate: 'Dec 22, 2025',

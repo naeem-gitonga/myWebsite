@@ -1,7 +1,11 @@
+import { buildEnvConfig } from './envConfig';
+
+const { SITE_URL } = buildEnvConfig();
+
 // Site configuration for Open Graph and metadata
 export const siteConfig = {
   // Base URL changes based on environment
-  baseUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.naeemgitonga.com',
+  baseUrl: SITE_URL,
   siteName: 'Naeem Gitonga',
   author: 'Naeem Gitonga',
 };
