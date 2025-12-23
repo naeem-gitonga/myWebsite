@@ -6,12 +6,6 @@ import { imageLoader } from '@/utils/imageLoader';
 import PageHeader from '../PageHeader/PageHeader';
 import styles from './AboutMe.module.scss';
 
-;
-;
-
-;
-;
-
 export default function AboutMe(): React.JSX.Element {
   const {
     aboutMe,
