@@ -70,7 +70,7 @@ export default function ArticleTile(props: ArticleTileProps): React.JSX.Element 
           fill
           sizes="(max-width: 768px) 100vw, 350px"
           style={{ objectFit: 'cover' }}
-          onLoadingComplete={() => setImageLoaded(true)}
+          onLoad={() => setImageLoaded(true)}
           placeholder="empty"
         />
       </div>
