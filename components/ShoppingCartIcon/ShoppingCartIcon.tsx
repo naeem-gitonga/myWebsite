@@ -5,6 +5,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { itemCountUpdated } from '@/hooks/useCart';
 import CartItem from '@/types/cart-item';
+import useEnvConfig from '@/hooks/useEnvConfig';
 
 type ShoppingCartIconProps = { unsetPosition: boolean; fill: string };
 export default function ShoppingCartIcon(
@@ -29,6 +30,7 @@ export default function ShoppingCartIcon(
     numOfItemsStyles = numOfItems2;
   }
   const [itemCount, setItemCount] = useState(0);
+  const envConfig = useEnvConfig();
   useEffect(() => {
     const savedCart = window.localStorage.getItem('cart-jng');
     const parsedCart = savedCart ? JSON.parse(savedCart) : [];
@@ -51,7 +53,7 @@ export default function ShoppingCartIcon(
     };
   }, [countUpdatedSubscription]);
 
-  const showShop = process.env.NEXT_PUBLIC_SHOW_SHOP == 'true';
+  const showShop = envConfig.SHOW_SHOP == 'true';
   if (!showShop) {
     return <></>;
   }

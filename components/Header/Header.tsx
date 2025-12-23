@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Envelope from 'components/Icons/Envelope';
 import Bitcoin from 'components/Icons/Bitcoin';
 import styles from './Header.module.scss';
+import useEnvConfig from '@/hooks/useEnvConfig';
 
 type HeaderProps = {
   setWhichSection: any;
@@ -9,7 +10,9 @@ type HeaderProps = {
 
 export default function Header(props: HeaderProps): React.JSX.Element {
   const { setWhichSection } = props;
-  const showShop = process.env.NEXT_PUBLIC_SHOW_SHOP == 'true';
+  const envConfig = useEnvConfig();
+  console.log('HEADER LOG' ,envConfig)
+  const showShop = envConfig.SHOW_SHOP == 'true';
   return (
     <div id="header">
       <div className={styles.wrapper}>
