@@ -16,7 +16,8 @@ export type ProjectName =
   | 'ngwebsite'
   | 'rapidbackend'
   | 'imageserver'
-  | 'shutdownsync';
+  | 'shutdownsync'
+  | 'analyticstracker';
 
 export type Project = {
   projectImg: string;
@@ -30,6 +31,15 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: 'Analytics Tracker*',
+    projectImg: '/images/analytics-tracker.webp',
+    projectDes:
+      'Serverless analytics pipeline using Lambda, Athena, and S3 for tracking and querying website metrics.',
+    projectStack: 'analyticstracker',
+    gitHubLink:
+      '/interstitial?url=https://gitlab.com/naeemgitonga/analytics-tracker&where=Gitlab'
+  },
   {
     title: 'Shutdown Sync*',
     projectImg: '/images/octopus-working.webp',

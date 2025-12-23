@@ -126,3 +126,7 @@ $pictures-url: '/images/';
 .bash {
   @include background('bash');
 }
+
+.athena {
+  @include background('athena');
+}

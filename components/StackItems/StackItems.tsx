@@ -3,6 +3,7 @@ import styles from './StackItems.module.scss';
 import Tooltip from '../Tooltip/Tooltip';
 
 const {
+  athena,
   awssam,
   bash,
   docker,
@@ -173,5 +174,11 @@ export const projectStackMap: ProjectMapType = {
   shutdownsync: [
     <StackItem text="Go" className={go} key="go" />,
     <StackItem text="Bash" className={bash} key="bash" />,
+  ],
+  analyticstracker: [
+    <StackItem text="TypeScript" className={typescript} key="typescript" />,
+    <StackItem text="Athena" className={athena} key="athena" />,
+    <StackItem text="Jest" className={jestLogo} key="jest" />,
+    <StackItem text="Lambda" className={lambda} key="lambda" />,
   ],
 };
