@@ -3,6 +3,7 @@
  * Sends events to the analytics Lambda function
  */
 
+import { getEnvConfig } from './envConfig';
 
 export interface AnalyticsEvent {
   eventType: 'page_view' | 'scroll_complete';
@@ -38,8 +39,10 @@ export async function trackEvent(
   eventType: AnalyticsEvent['eventType'],
   metadata?: Record<string, any>
 ): Promise<void> {
+  const { NODE_ENV, ENABLE_ANALYTICS, ANALYTICS_API_URL } = getEnvConfig();
+
   // Don't track in development unless explicitly enabled
-  if (process.env.NODE_ENV === 'development' && !process.env.NEXT_PUBLIC_ENABLE_ANALYTICS) {
+  if (NODE_ENV === 'development' && !ENABLE_ANALYTICS) {
     console.log('[Analytics]', eventType, metadata);
     return;
   }
@@ -47,8 +50,7 @@ export async function trackEvent(
   // Don't track on server side
   if (typeof window === 'undefined') return;
 
-  const apiUrl = process.env.NEXT_PUBLIC_ANALYTICS_API_URL;
-  if (!apiUrl) {
+  if (!ANALYTICS_API_URL) {
     console.warn('[Analytics] API URL not configured');
     return;
   }
@@ -69,7 +71,7 @@ export async function trackEvent(
   };
 
   try {
-    await fetch(`${apiUrl}/track`, {
+    await fetch(`${ANALYTICS_API_URL}/track`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

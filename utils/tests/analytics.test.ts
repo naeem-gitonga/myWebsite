@@ -1,26 +1,27 @@
 import * as analytics from '@/utils/analytics';
+import { resetEnvConfig, setEnvConfigForTests } from '@/utils/envConfig';
 
 const props: PageAnalyticsData = { fromWebsite: 'test-site', itemId: '123' };
 
 describe('analytics', () => {
-  const originalEnv = process.env;
   const originalFetch = global.fetch;
 
   beforeEach(() => {
-    jest.resetModules();
-    process.env = { ...originalEnv };
     sessionStorage.clear();
     jest.restoreAllMocks();
+    resetEnvConfig();
   });
 
   afterAll(() => {
-    process.env = originalEnv;
     global.fetch = originalFetch;
   });
 
   it('logs in development when analytics is disabled', async () => {
-    process.env.NODE_ENV = 'development';
-    delete process.env.NEXT_PUBLIC_ENABLE_ANALYTICS;
+    setEnvConfigForTests({
+      NODE_ENV: 'development',
+      ENABLE_ANALYTICS: false,
+      ANALYTICS_API_URL: undefined,
+    });
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
     global.fetch = jest.fn();
@@ -32,8 +33,11 @@ describe('analytics', () => {
   });
 
   it('warns when API URL is missing', async () => {
-    process.env.NODE_ENV = 'production';
-    delete process.env.NEXT_PUBLIC_ANALYTICS_API_URL;
+    setEnvConfigForTests({
+      NODE_ENV: 'production',
+      ENABLE_ANALYTICS: false,
+      ANALYTICS_API_URL: undefined,
+    });
 
     const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
     global.fetch = jest.fn();
@@ -46,8 +50,11 @@ describe('analytics', () => {
 
   it('posts a well-formed event when configured', async () => {
     jest.useFakeTimers().setSystemTime(new Date('2025-01-01T00:00:00.000Z'));
-    process.env.NODE_ENV = 'production';
-    process.env.NEXT_PUBLIC_ANALYTICS_API_URL = 'https://example.com';
+    setEnvConfigForTests({
+      NODE_ENV: 'production',
+      ENABLE_ANALYTICS: false,
+      ANALYTICS_API_URL: 'https://example.com',
+    });
 
     window.history.pushState({}, '', '/test-page');
     Object.defineProperty(window, 'innerWidth', { value: 1280, writable: true });
@@ -77,8 +84,11 @@ describe('analytics', () => {
   });
 
   it('handles fetch errors gracefully', async () => {
-    process.env.NODE_ENV = 'production';
-    process.env.NEXT_PUBLIC_ANALYTICS_API_URL = 'https://example.com';
+    setEnvConfigForTests({
+      NODE_ENV: 'production',
+      ENABLE_ANALYTICS: false,
+      ANALYTICS_API_URL: 'https://example.com',
+    });
     const debugSpy = jest.spyOn(console, 'debug').mockImplementation(() => {});
     global.fetch = jest.fn().mockRejectedValue(new Error('boom'));
 
@@ -88,8 +98,11 @@ describe('analytics', () => {
   });
 
   it('tracks scroll completion once and returns cleanup', () => {
-    process.env.NODE_ENV = 'production';
-    process.env.NEXT_PUBLIC_ANALYTICS_API_URL = 'https://example.com';
+    setEnvConfigForTests({
+      NODE_ENV: 'production',
+      ENABLE_ANALYTICS: false,
+      ANALYTICS_API_URL: 'https://example.com',
+    });
 
     const addSpy = jest.spyOn(window, 'addEventListener');
     const removeSpy = jest.spyOn(window, 'removeEventListener');
@@ -120,8 +133,11 @@ describe('analytics', () => {
   });
 
   it('wires trackPageView and setupScrollTracking via initializeAnalytics', () => {
-    process.env.NODE_ENV = 'production';
-    process.env.NEXT_PUBLIC_ANALYTICS_API_URL = 'https://example.com';
+    setEnvConfigForTests({
+      NODE_ENV: 'production',
+      ENABLE_ANALYTICS: false,
+      ANALYTICS_API_URL: 'https://example.com',
+    });
 
     const fetchSpy = jest.fn().mockResolvedValue({});
     global.fetch = fetchSpy;
@@ -138,5 +154,40 @@ describe('analytics', () => {
     cleanup();
     expect(removeSpy).toHaveBeenCalledWith('scroll', expect.any(Function));
     expect(removeSpy).toHaveBeenCalledWith('resize', expect.any(Function));
+  });
+
+  describe('SSR handling', () => {
+    const originalWindow = global.window;
+
+    afterEach(() => {
+      global.window = originalWindow;
+    });
+
+    it('trackEvent returns early when window is undefined', async () => {
+      // @ts-expect-error - simulating SSR
+      delete global.window;
+      setEnvConfigForTests({
+        NODE_ENV: 'production',
+        ENABLE_ANALYTICS: false,
+        ANALYTICS_API_URL: 'https://example.com',
+      });
+
+      const fetchSpy = jest.fn();
+      global.fetch = fetchSpy;
+
+      await analytics.trackEvent('page_view', { foo: 'bar' });
+
+      expect(fetchSpy).not.toHaveBeenCalled();
+    });
+
+    it('setupScrollTracking returns no-op cleanup when window is undefined', () => {
+      // @ts-expect-error - simulating SSR
+      delete global.window;
+
+      const cleanup = analytics.setupScrollTracking(props);
+
+      expect(typeof cleanup).toBe('function');
+      expect(cleanup()).toBeUndefined();
+    });
   });
 });
