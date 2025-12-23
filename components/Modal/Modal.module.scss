@@ -5,30 +5,77 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #8a8a8aa8;
-
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 .container {
-  max-height: 300px;
-  max-width: 300px;
+  min-width: 280px;
   background-color: white;
+  padding: 20px;
+  border-radius: 8px;
   position: relative;
-  padding: 10px;
 }
 
 .closeButtonOutterWrapper {
-  float: right;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .closeButton {
-  position: relative;
-  top: 0;
-  right: 0;
   width: 30px;
   height: 30px;
+  cursor: pointer;
+}
+
+.slideIn {
+  animation: slideInFromLeft 0.3s ease-out forwards;
+}
+
+.slideOut {
+  animation: slideOutToLeft 0.3s ease-in forwards;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (max-width: 480px) {
+  .modalWrapper {
+    padding: 0;
+  }
+
+  .container {
+    width: 100vw;
+    height: 100vh;
+    min-width: unset;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 50px;
+  }
+
+  .closeButtonOutterWrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 101;
+  }
 }

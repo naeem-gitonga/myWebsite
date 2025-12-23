@@ -39,38 +39,32 @@
   margin-bottom: 20px;
 }
 
-.links {
+.startButtonWrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.startButton {
+  padding: 16px 48px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(40, 40, 40, 0.8);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  letter-spacing: 2px;
+}
+
+.startButton:hover {
+  background-color: rgba(60, 60, 60, 0.9);
 }
 
 @media (min-width: 720px) {
-  .firstUl li {
-    display: inline;
-    list-style: none;
-    text-decoration: none;
-    text-align: center;
-    margin: 0 20px 0 20px;
-  }
-
   .main-nav {
     margin: auto;
     width: auto;
-  }
-}
-
-@media only screen and (max-width: 720px) {
-  .firstUl,
-  .links {
-    list-style: none;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    max-width: 300px;
-    margin: auto;
-    margin-bottom: 20px;
-  }
-  .firstUl li,
-  .links a {
-    margin: 10px;
   }
 }
