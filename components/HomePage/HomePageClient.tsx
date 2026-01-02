@@ -27,7 +27,7 @@ export default function HomePageClient() {
     }
   }, []);
 
-  const [whichSection, setWhichSection] = useState('');
+  const [whichSection, setWhichSection] = useState(''); //todo: remove this because most of it ain't working
   const Section = (): React.JSX.Element | null => {
     switch (whichSection) {
       case 'aboutMe':
