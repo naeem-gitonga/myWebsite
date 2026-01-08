@@ -5,11 +5,13 @@ import Link from 'next/link';
 import { imageLoader } from '@/utils/imageLoader';
 import PageHeader from '../PageHeader/PageHeader';
 import styles from './AboutMe.module.scss';
+import IdleLoopHero from '@/components/IdleLoopHero/IdleLoopHero';
 
 export default function AboutMe(): React.JSX.Element {
   const {
     aboutMe,
-    headshot,
+    idleLoop,
+    idleLoopInner,
     about,
     textCenter,
     aboutMeWrapper,
@@ -21,11 +23,9 @@ export default function AboutMe(): React.JSX.Element {
     <div id="aboutMe" className={aboutMeWrapper}>
       <PageHeader headerName="aboutMe" hideLinks={false} />
       <div className={textCenter}>
-        <div
-          id="standard"
-          data-alt="Naeem Gitonga headshot"
-          className={headshot}
-        />
+        <div className={idleLoop}>
+          <IdleLoopHero className={idleLoopInner} preload="auto" />
+        </div>
       </div>
       <div className={aboutMe}>
         <p className={about}>
