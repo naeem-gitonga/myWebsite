@@ -1,5 +1,13 @@
 export const articles: Article[] = [
   {
+    title: 'Regulated Compute: Chasing H100s for a Real-Time Avatar',
+    imageUrl: 'regulatedcompute',
+    lengthInMinutes: 4,
+    publishedDate: 'Jan 8, 2026',
+    articleUrl: '/articles/regulated-compute',
+    noTarget: true,
+  },
+  {
     title: 'Shutdown Sync (macOS development, Go)',
     imageUrl: 'shutdownsync',
     lengthInMinutes: 5,

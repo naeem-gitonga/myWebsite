@@ -3,6 +3,7 @@ const products = require('../utils/products')['products'];
 function generateSiteMap(prefix) {
   const articleEntries = [
     'shutdown-sync',
+    'regulated-compute',
     'tiger-experience',
     'image-server-ai',
     'default-parameters',
