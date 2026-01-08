@@ -127,7 +127,17 @@ export default function RegulatedCompute(): React.JSX.Element {
           error message:
         </p>
 
-        <p className={text}>[image will be place here this is placeholder text]</p>
+        <div className={imageWrapper}>
+          <LazyImage
+            alt="Terraform apply error response for a large instance"
+            loader={imageLoader}
+            src="/images/regulated-compute-terraform-error.webp"
+            width={798}
+            height={171}
+            style={{ objectFit: 'contain', maxWidth: '75%' }}
+          />
+          <p className={altText}>Terraform error after requesting a large instance</p>
+        </div>
 
         <p className={text}>
           Just reading that you would assume that well, I can just come back another time and try
