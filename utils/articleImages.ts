@@ -13,7 +13,8 @@ export const articleTileImages: Record<string, string> = {
   mspt2: '/images/ec2-linux.webp',
   mspt1: '/images/docker-node.webp',
   reactcontext: '/images/react-context.webp',
-  shutdownsync: '/images/octopus-working.webp'
+  shutdownsync: '/images/octopus-working.webp',
+  regulatedcompute: '/images/frustrated-man.webp'
 };
 
 export const articleTileImageFallback = articleTileImages.reactcontext;
