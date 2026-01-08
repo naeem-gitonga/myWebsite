@@ -82,3 +82,12 @@
     }
   }
 }
+
+.fullWidthImage {
+  max-width: 900px;
+  width: 100%;
+  img {
+    height: auto !important;
+    max-width: 100% !important;
+  }
+}

@@ -57,12 +57,13 @@ export default function AboutMe(): React.JSX.Element {
         </div>
         <h2 className={subhead}>More about me</h2>
         <p className={about}>
-          I build enterprise web applications. I teach software engineering,
-          DevOps, and mentor collegues students in coding a boot camp with GTNG
-          Foundation, where the focus is the JavaScript MERN stack, AWS and a
+          I build enterprise applications. I practice software engineering,
+          DevOps, MLOps, AI/ML, Business Development & Strategy, and mentor collegues students.
+          I used to teach coding in a boot camp that I started with GTNG
+          Foundation, where the focus was the JavaScript MERN stack, AWS and a
           few other technologies. Outside of coding, I do more art. Yeah
-          that&apos;s right--programming a computer, building apps and websites
-          is an art!
+          that&apos;s right—programming a computer, building apps and websites
+          is an art! I am also into General Aviation—real fly boy!
         </p>
         <p className={about}>
           Formerly I was working as a Senior MLOps engineer. I am an evening
@@ -121,6 +122,16 @@ export default function AboutMe(): React.JSX.Element {
           two. Or, reach out to me on LinkedIn I will be sure to follow up.
           Enjoy and thanks for dropping by!
         </p>
+        <div className={`${imageWrapper} ${styles.fullWidthImage}`}>
+          <Image
+            alt="Flying a Cessna in the cockpit"
+            loader={imageLoader}
+            src="/images/me-flying-cessna.webp"
+            width={1200}
+            height={900}
+          />
+          <p className={altText}>Me flying a Cessna around Stone Mountain, GA</p>
+        </div>
       </div>
     </div>
   );
