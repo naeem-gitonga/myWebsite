@@ -14,3 +14,8 @@ $pictures-url: '/images/';
   background-size: cover;
   background-image: url('#{$pictures-url}consultation.webp');
 }
+
+.dontpaytokens {
+  background-size: cover;
+  background-image: url('#{$pictures-url}ai-generated-image.webp');
+}

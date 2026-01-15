@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
-import DontPayForTokens from '@/components/DontPayForTokens/DontPayForTokens';
+import DontPayForTokens from '@/components/DontPayForTokens/DontPayForTokensFull';
 import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
