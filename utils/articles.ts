@@ -1,5 +1,13 @@
 export const articles: Article[] = [
   {
+    title: "I Don't Pay For Tokens",
+    imageUrl: 'dontpaytokens',
+    lengthInMinutes: 10,
+    publishedDate: 'Feb 20, 2026',
+    articleUrl: '/articles/i-dont-pay-for-tokens',
+    noTarget: true,
+  },
+  {
     title: 'Regulated Compute: Chasing H100s for a Real-Time Avatar',
     imageUrl: 'regulatedcompute',
     lengthInMinutes: 4,
