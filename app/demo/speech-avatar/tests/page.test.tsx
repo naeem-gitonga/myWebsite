@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
-import Demo, { metadata } from '../page';
+import Demo, { generateMetadata } from '../page';
 
 jest.mock('@/components/SpeechAvatar/SpeechAvatar', () => ({
   __esModule: true,
@@ -61,9 +61,10 @@ describe('demo page', () => {
   });
 
   it('has correct metadata', () => {
-    expect(metadata.title).toBe('Demo');
+    const metadata = generateMetadata();
+    expect(metadata.title).toBe('Speech Avatar Demo');
     expect(metadata.description).toBe(
-      'Speech avatar demo showcasing video presentation.'
+      '"Real-time" Conversational Speech Avatar demo running on H100 x 8 GPU.'
     );
   });
 });
