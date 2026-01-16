@@ -72,7 +72,7 @@ export const products = [
       "<p>This article breaks down what it actually takes to <strong>build AI</strong> instead of calling someone else&apos;s API. You&apos;ll see why compute replaces token billing, how GPU architecture choices (A6000 vs A100 vs H100) change your development strategy, and what multi-service orchestration looks like when you run Whisper, Llama, F5-TTS, and a 14B avatar model on shared hardware.</p><p>I walk through the real engineering decisions: CUDA memory contention, tensor parallelism across multiple GPUs, NVSwitch/Fabric Manager pitfalls, and the cost model that emerges when you own the models and the infrastructure. If you care about AI systems, GPUs, and the tradeoffs behind production-grade inference, this is the deep dive you want.</p>",
     s3Url: 'https://gtng-articles.s3.amazonaws.com/dont-pay-for-tokens.pdf',
     emailTemplateHtml:
-      '<p style="color: black">Thanks for purchasing <strong>I Don&apos;t Pay For Tokens</strong>. Your receipt is attached, and we&apos;ll reach out with access details shortly.</p>',
+      '<p style="color: black">Thanks for purchasing <strong>I Don&apos;t Pay For Tokens</strong>. Your download link is time sensitive. You have <strong style="color: red">3 DAYS</strong> from the time of purchase to download the article before this link is invalidated.</p><a href="\'05\'">Download I Don&apos;t Pay For Tokens (PDF)</a>',
     imageUrl: 'dontpaytokens',
     productUrl: '/item?item_id=5',
     price: 5,
