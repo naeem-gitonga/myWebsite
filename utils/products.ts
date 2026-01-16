@@ -87,7 +87,7 @@ export const products = [
     calendlyLink: false,
     previewLink: '',
     imageUrlItemView: '/images/dont-pay-for-tokens.webp',
-    pageLength: 8
+    pageLength: '8'
   },
   {
     id: 4,
