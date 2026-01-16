@@ -21,6 +21,7 @@ export const products = [
       'https://jahanaeemgitongawebsite.s3.amazonaws.com/program_your_life_preview.pdf',
     imageUrlItemView:
       'https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/pyl-front-cover.jpg',
+    pageLength: ''
   },
   {
     id: 3,
@@ -43,6 +44,7 @@ export const products = [
       'https://jahanaeemgitongawebsite.s3.amazonaws.com/program_your_life_preview.pdf',
     imageUrlItemView:
       'https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/pyl-front-cover.jpg',
+    pageLength: ''
   },
   {
     id: 2,
@@ -64,6 +66,7 @@ export const products = [
       'https://jahanaeemgitongawebsite.s3.amazonaws.com/rapid-back-end-intro-ch-1.pdf',
     imageUrlItemView:
       'https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/rbe-cover.jpg',
+    pageLength: ''
   },
   {
     id: 5,
@@ -84,6 +87,7 @@ export const products = [
     calendlyLink: false,
     previewLink: '',
     imageUrlItemView: '/images/dont-pay-for-tokens.webp',
+    pageLength: 8
   },
   {
     id: 4,
@@ -102,5 +106,6 @@ export const products = [
     calendlyLink: true,
     previewLink: '',
     imageUrlItemView: consultation,
+    pageLength: ''
   },
 ];

@@ -65,6 +65,7 @@ function ItemContent(): React.JSX.Element {
     isbn,
     publishedOn,
     previewLink,
+    pageLength,
   } = product;
 
   const image = (
@@ -100,6 +101,11 @@ function ItemContent(): React.JSX.Element {
       {publishedOn && (
         <p>
           <strong>Published Date:</strong> {publishedOn}
+        </p>
+      )}
+      {pageLength && (
+        <p>
+          <strong>Page Length:</strong> {pageLength}
         </p>
       )}
       <div dangerouslySetInnerHTML={{ __html: dsc }} />
