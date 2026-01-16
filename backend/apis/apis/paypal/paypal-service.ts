@@ -120,7 +120,8 @@ export default class PaypalService extends BaseService<Order> {
           process.env.WHICH_ROUTE === 'production'
             ? email
             : 'jngincorporated@gmail.com',
-        from: this.senderEmailAddress,
+        from: 'no-reply@gtng.tech',
+        replyTo: this.senderEmailAddress,
         subject: `Naeem Gitonga - Order ${orderId}`,
         html: customerTemplate(links, orderId, firstName),
       });
@@ -128,7 +129,7 @@ export default class PaypalService extends BaseService<Order> {
       console.log('Email sent successfully!');
     } catch (e) {
       console.log(`${ServerErrors.failedToSendBook} for order ${orderId}`, e);
-
+      console.log(e.response.body)
       await this.addOrder(orderId, user, null, links, false);
       this.sendToDeadLetterQueue(this.event, ServerErrors.failedToSendBook);
 

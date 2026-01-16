@@ -21,6 +21,7 @@ export const products = [
       'https://jahanaeemgitongawebsite.s3.amazonaws.com/program_your_life_preview.pdf',
     imageUrlItemView:
       'https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/pyl-front-cover.jpg',
+    pageLength: ''
   },
   {
     id: 3,
@@ -43,6 +44,7 @@ export const products = [
       'https://jahanaeemgitongawebsite.s3.amazonaws.com/program_your_life_preview.pdf',
     imageUrlItemView:
       'https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/pyl-front-cover.jpg',
+    pageLength: ''
   },
   {
     id: 2,
@@ -64,6 +66,28 @@ export const products = [
       'https://jahanaeemgitongawebsite.s3.amazonaws.com/rapid-back-end-intro-ch-1.pdf',
     imageUrlItemView:
       'https://jahanaeemgitongawebsite.s3.amazonaws.com/pix/rbe-cover.jpg',
+    pageLength: ''
+  },
+  {
+    id: 5,
+    title: "I Don't Pay For Tokens (Article)",
+    description:
+      "<p>This article breaks down what it actually takes to <strong>build AI</strong> instead of calling someone else&apos;s API. You&apos;ll see why compute replaces token billing, how GPU architecture choices (A6000 vs A100 vs H100) change your development strategy, and what multi-service orchestration looks like when you run Whisper, Llama, F5-TTS, and a 14B avatar model on shared hardware.</p><p>I walk through the real engineering decisions: CUDA memory contention, tensor parallelism across multiple GPUs, NVSwitch/Fabric Manager pitfalls, and the cost model that emerges when you own the models and the infrastructure. If you care about AI systems, GPUs, and the tradeoffs behind production-grade inference, this is the deep dive you want.</p>",
+    s3Url: 'https://gtng-articles.s3.amazonaws.com/dont-pay-for-tokens.pdf',
+    emailTemplateHtml:
+      '<p style="color: black">Thanks for purchasing <strong>I Don&apos;t Pay For Tokens</strong>. Your download link is time sensitive. You have <strong style="color: red">3 DAYS</strong> from the time of purchase to download the article before this link is invalidated.</p><a href="\'05\'">Download I Don&apos;t Pay For Tokens (PDF)</a>',
+    imageUrl: 'dontpaytokens',
+    productUrl: '/item?item_id=5',
+    price: 5,
+    isbn: '',
+    promotion: 0,
+    emailTemplate: '05',
+    publishedOn: 'Jan 16, 2025',
+    show: true,
+    calendlyLink: false,
+    previewLink: '',
+    imageUrlItemView: '/images/dont-pay-for-tokens.webp',
+    pageLength: '8'
   },
   {
     id: 4,
@@ -82,5 +106,6 @@ export const products = [
     calendlyLink: true,
     previewLink: '',
     imageUrlItemView: consultation,
+    pageLength: ''
   },
 ];

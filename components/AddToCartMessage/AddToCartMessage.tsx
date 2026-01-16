@@ -31,9 +31,9 @@ export default function AddToCartMessage(props: AddToCartMessageProps) {
         <Link onClick={setModalOpen} href="/cart">
           Go to cart
         </Link>
-         <p className={psuedoLink} onClick={setModalOpen}>
+        <Link className={psuedoLink} onClick={setModalOpen} href="/shop">
           Continue Shopping
-        </p>
+        </Link>
       </div>
     </div>
   );

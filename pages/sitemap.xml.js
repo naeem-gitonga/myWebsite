@@ -11,6 +11,7 @@ function generateSiteMap(prefix) {
     'explain-servers-to-5-year-old',
     'gitlab-to-github-mirrors',
     'i-am',
+    'dont-pay-for-tokens',
     'js-new-sexy',
     'rapidbackend',
     'react-context-api',

@@ -15,5 +15,6 @@ export type Product = {
     calendlyLink: boolean;
     previewLink: string;
     imageUrlItemView: string | StaticImport;
+    pageLength: string;
   };
   
