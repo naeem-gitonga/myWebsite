@@ -1,5 +1,5 @@
 .header {
-  margin: 0 0 20px;
+  margin: 20px 0 20px;
 }
 
 .continueCheckLinksWrapper {
@@ -8,7 +8,8 @@
   a,
   p {
     text-decoration: none;
-    color: grey;
+    color: black;
+    font-weight: bold;
   }
   .psuedoLink {
     margin: 0;

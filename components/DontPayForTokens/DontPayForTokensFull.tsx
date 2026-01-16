@@ -1,11 +1,8 @@
 'use client';
-import LazyImage from '@/components/LazyImage/LazyImage';
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '@/components/Articles/Articles.module.scss';
 import sharedStyles from '@/components/SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
-import Link from 'next/link';
-import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 
@@ -33,14 +30,20 @@ export default function DontPayForTokens(): React.JSX.Element {
         <p className={subtext}>The Difference Between Using AI and Building AI</p>
         <ArticleDateTime imageUrl={'dontpaytokens'} />
         <div className={imageWrapper}>
-          <LazyImage
-            alt="AI generated portrait"
-            loader={imageLoader}
-            src="/images/ai-generated-image.webp"
-            style={{ objectFit: 'contain', maxWidth: '75%' }}
-            fill
+          <video
+            src="https://d2j3yisnywcb30.cloudfront.net/pix/dont-pay.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            controls
+            controlsList="nodownload noplaybackrate"
+            disablePictureInPicture
+            onContextMenu={(event) => event.preventDefault()}
+            style={{ maxWidth: '75%' }}
           />
-          <p className={altText}>AI generated image</p>
+          <p className={altText}>AI generated video</p>
         </div>
         <h2>A Conversation That Revealed a Knowledge Gap</h2>
         <p className={text}>

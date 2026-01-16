@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
-import DontPayForTokens from '@/components/DontPayForTokens/DontPayForTokensFull';
+import DontPayForTokens from '@/components/DontPayForTokens/DontPayForTokens';
 import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
@@ -9,8 +9,8 @@ export function generateMetadata(): Metadata {
   const title = "I Don't Pay For Tokens";
   const description =
     'The difference between using AI and building AI, and why compute costs replace token costs.';
-  const imageUrl = getAbsoluteUrl('/images/ai-generated-image-og.jpg');
-  const pageUrl = getAbsoluteUrl('/articles/i-dont-pay-for-tokens');
+  const imageUrl = getAbsoluteUrl('/images/dont-pay-for-tokens-og.webp');
+  const pageUrl = getAbsoluteUrl('/articles/dont-pay-for-tokens');
 
   return {
     title,
@@ -27,7 +27,7 @@ export function generateMetadata(): Metadata {
           width: 1200,
           height: 627,
           alt: title,
-          type: 'image/jpeg',
+          type: 'image/webp',
         },
       ],
       type: 'article',

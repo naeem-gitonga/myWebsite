@@ -83,7 +83,7 @@ export const products = [
     show: true,
     calendlyLink: false,
     previewLink: '',
-    imageUrlItemView: '/images/ai-generated-image.webp',
+    imageUrlItemView: '/images/dont-pay-for-tokens.webp',
   },
   {
     id: 4,
