@@ -7,7 +7,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:dev": "jest --watchAll",
-    "serve:local": "sls offline start --noPrependStageInUrl --reloadHandler",
+    "serve:local": "AWS_PROFILE=naeem sls offline start --noPrependStageInUrl --reloadHandler",
     "start": "serverless offline",
     "why:test:dev": "echo \"cause you can't have a watch flag in a CI/CD pipeline... it will block the pipeline\"",
     "coverage": "jest --collect-coverage",
