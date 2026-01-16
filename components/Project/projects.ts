@@ -17,7 +17,8 @@ export type ProjectName =
   | 'rapidbackend'
   | 'imageserver'
   | 'shutdownsync'
-  | 'analyticstracker';
+  | 'analyticstracker'
+  | 'speechavatar';
 
 export type Project = {
   projectImg: string;
@@ -31,6 +32,16 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: 'Speech Avatar Demo*',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/careers_u_demo_compressed.mp4',
+    projectDes:
+      'AI-powered speech avatar demonstration showcasing video presentation capabilities.',
+    projectStack: 'speechavatar',
+    projectLink: '/demo/speech-avatar',
+    target: '_self',
+    linkText: 'View demo',
+  },
   {
     title: 'Analytics Tracker*',
     projectImg: '/images/analytics-tracker.webp',

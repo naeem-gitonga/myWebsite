@@ -181,4 +181,9 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="Jest" className={jestLogo} key="jest" />,
     <StackItem text="Lambda" className={lambda} key="lambda" />,
   ],
+  speechavatar: [
+    <StackItem text="React" className={react} key="react" />,
+    <StackItem text="NextJs" className={nextjs} key="nextjs" />,
+    <StackItem text="TypeScript" className={typescript} key="typescript" />,
+  ],
 };

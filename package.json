@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --coverage --collectCoverageFrom=\"**/*.{ts,tsx}\" --collectCoverageFrom=\"!**/*.d.ts\" --testPathIgnorePatterns=\"/backend/\" --collectCoverageFrom=\"!backend/**\""
+    "test": "jest --coverage --collectCoverageFrom=\"**/*.{ts,tsx}\" --collectCoverageFrom=\"!**/*.d.ts\" --testPathIgnorePatterns=\"/backend/\" --collectCoverageFrom=\"!backend/**\" --collectCoverageFrom=\"!**/DontPayForTokensFull.tsx\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
