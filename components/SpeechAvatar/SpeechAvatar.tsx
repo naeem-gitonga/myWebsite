@@ -18,11 +18,13 @@ export default function SpeechAvatar({
       <h1>&ldquo;Real-time&rdquo; Conversational Speech Avatar</h1>
       <div className={imageWrapper}>
         <video
+          autoPlay
+          muted
           controls
           controlsList="nodownload noplaybackrate"
           disablePictureInPicture
           playsInline
-          preload="metadata"
+          preload="auto"
           onContextMenu={(event) => event.preventDefault()}
           aria-label="Speech avatar demo video"
           style={{ maxWidth: '100%' }}
