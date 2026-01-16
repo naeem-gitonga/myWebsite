@@ -34,7 +34,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: 'Speech Avatar Demo*',
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/careers_u_demo_compressed.mp4',
+    projectImg: '/images/idle-loop.gif',
     projectDes:
       'AI-powered speech avatar demonstration showcasing video presentation capabilities.',
     projectStack: 'speechavatar',

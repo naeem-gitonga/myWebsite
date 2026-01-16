@@ -70,6 +70,16 @@ export default function SpeechAvatar({
         <li className={text}>Multi-GPU tensor parallelism across 5 GPUs</li>
       </ul>
 
+      <p className={text}><strong>WebSockets</strong></p>
+      <ul>
+        <li className={text}>Live video stream delivery to the client</li>
+      </ul>
+
+      <p className={text}><strong>gRPC</strong></p>
+      <ul>
+        <li className={text}>Inter-service communication between Speech-to-Text, Gateway, Audio-to-Talking-Video, and Text-to-Speech services</li>
+      </ul>
+
     </div>
   );
 }

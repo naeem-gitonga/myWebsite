@@ -32,6 +32,8 @@ const {
   python,
   pytorch,
   cuda,
+  websockets,
+  grpc,
 } = styles;
 
 type StackItemProps = {
@@ -182,8 +184,11 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="Lambda" className={lambda} key="lambda" />,
   ],
   speechavatar: [
-    <StackItem text="React" className={react} key="react" />,
-    <StackItem text="NextJs" className={nextjs} key="nextjs" />,
+    <StackItem text="PyTorch" className={pytorch} key="pytorch" />,
+    <StackItem text="WebSockets" className={websockets} key="websockets" />,
     <StackItem text="TypeScript" className={typescript} key="typescript" />,
+    <StackItem text="CUDA" className={cuda} key="cuda" />,
+    <StackItem text="gRPC" className={grpc} key="grpc" />,
+    <StackItem text="NextJs" className={nextjs} key="nextjs" />,
   ],
 };
