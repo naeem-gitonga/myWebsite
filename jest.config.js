@@ -19,6 +19,10 @@ const customJestConfig = {
       '!**/node_modules/**',
       '!**/.next/**',
     ],
+  coveragePathIgnorePatterns: [
+      '/node_modules/',
+      'DontPayForTokensFull.tsx',
+    ],
   testMatch: ['**/**/tests/**/*.test.ts', '**/**/tests/**/*.test.tsx'],
   moduleDirectories: ['node_modules', '<rootDir>/'],
 };

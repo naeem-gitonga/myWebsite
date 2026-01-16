@@ -130,3 +130,11 @@ $pictures-url: '/images/';
 .athena {
   @include background('athena');
 }
+
+.websockets {
+  @include background('websockets-logo');
+}
+
+.grpc {
+  @include background('grpc-logo');
+}

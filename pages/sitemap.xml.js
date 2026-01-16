@@ -60,6 +60,10 @@ function generateSiteMap(prefix) {
        <loc>https://${prefix}naeemgitonga.com/shop</loc>
        <changefreq>yearly</changefreq>
      </url>
+     <url>
+       <loc>https://${prefix}naeemgitonga.com/demo/speech-avatar</loc>
+       <changefreq>monthly</changefreq>
+     </url>
       ${articleEntries.join('')}
       ${productsEntries.join('')}
    </urlset>
