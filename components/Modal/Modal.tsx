@@ -36,6 +36,20 @@ export default function Modal(props: ModalProps): React.JSX.Element {
   }, [isOpen, isReady]);
 
   useEffect(() => {
+    if (!isOpen && shouldRender) {
+      if (isSmallScreen) {
+        setIsClosing(true);
+        const timeoutId = setTimeout(() => {
+          setShouldRender(false);
+          setIsClosing(false);
+        }, 300);
+        return () => clearTimeout(timeoutId);
+      }
+      setShouldRender(false);
+    }
+  }, [isOpen, shouldRender, isSmallScreen]);
+
+  useEffect(() => {
     const body = document.getElementById('body');
     if (!body) return;
 
