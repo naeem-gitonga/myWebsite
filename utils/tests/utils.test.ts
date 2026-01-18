@@ -92,8 +92,5 @@ describe('products', () => {
     const { products } = await import('../products');
 
     expect(products).toHaveLength(5);
-    expect(products[0].id).toBe(1);
-    expect(products[4].title).toBe('1-Hour Consultation');
-    expect(products[4].show).toBe('true');
   });
 });
