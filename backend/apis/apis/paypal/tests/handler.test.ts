@@ -41,7 +41,7 @@ describe('paypal handler', () => {
     }) as any);
     responseMock.mockReturnValue({ statusCode: 200 });
 
-    const result = await paypal(event, context);
+    const result = await paypal(event, context, jest.fn());
 
     expect(context.callbackWaitsForEmptyEventLoop).toBe(false);
     expect(sendEmail).toHaveBeenCalled();
@@ -63,7 +63,7 @@ describe('paypal handler', () => {
     }) as any);
     responseMock.mockReturnValue({ statusCode: 500 });
 
-    const result = await paypal(event, context);
+    const result = await paypal(event, context, jest.fn());
 
     expect(responseMock).toHaveBeenCalledWith(
       ServerErrors.ItBroke,
@@ -91,7 +91,7 @@ describe('paypal handler', () => {
     }) as any);
     responseMock.mockReturnValue({ statusCode: 200 });
 
-    const result = await paypal(event, context);
+    const result = await paypal(event, context, jest.fn());
 
     expect(result).toEqual({ statusCode: 200 });
   });

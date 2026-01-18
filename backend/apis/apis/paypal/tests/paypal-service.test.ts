@@ -288,7 +288,7 @@ describe('PaypalService', () => {
     const dlqSpy = jest
       .spyOn(service, 'sendToDeadLetterQueue')
       .mockResolvedValue(undefined);
-    sendgridSendMock.mockRejectedValue(new Error('send failed'));
+    sendgridSendMock.mockRejectedValue({ response: { body: 'send failed' } });
 
     await expect(service.sendEmail()).rejects.toThrow('Payment processed');
     expect(dlqSpy).toHaveBeenCalledWith(
