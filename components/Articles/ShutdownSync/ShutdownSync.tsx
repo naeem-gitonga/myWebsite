@@ -175,7 +175,7 @@ wait $!`}
           me will figure out how to win the race against macOS&apos;s shutdown sequence.
         </p>
         <p className={text}>
-          <strong>**This article was principally written by an AI agent, using context from a coding session with small additions written portions by me (Naeem).</strong>
+          <strong>**This article was principally written by an AI agent, using context from a coding session with small additions, written portions by me (Naeem).</strong>
         </p>
         <div className={minus10LeftMargin}>
           <Tags
