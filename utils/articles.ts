@@ -1,5 +1,13 @@
 export const articles: Article[] = [
   {
+    title: "Harnessing AI: Layer Cake and Platform Shift",
+    imageUrl: 'harnessai',
+    lengthInMinutes: 4,
+    publishedDate: 'Jan 23, 2026',
+    articleUrl: '/articles/harness-ai',
+    noTarget: true,
+  },
+  {
     title: "I Don't Pay For Tokens",
     imageUrl: 'dontpaytokens',
     lengthInMinutes: 10,
