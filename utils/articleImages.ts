@@ -1,4 +1,5 @@
 export const articleTileImages: Record<string, string> = {
+  harnessai: '/images/jensen-fink.webp',
   dontpaytokens: '/images/dont-pay-for-tokens.webp',
   tigergroup: '/images/tiger-hero.webp',
   aiimage: '/images/ai-generated-image.webp',
