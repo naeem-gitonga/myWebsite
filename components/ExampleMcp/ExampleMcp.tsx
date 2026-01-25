@@ -138,12 +138,13 @@ export default function ExampleMcp(): React.JSX.Element {
         <p className={text}>
           The rest is foundational, fundamental coding and DevOps best
           practices, maybe. In this example we show how to use the Example MCP with
-          Claude. Stay tuned as I build more AI systems. To view the repo for Example 
+          Claude. Stay tuned as I build more AI systems. Go view the repo for Example 
           MCP click <Link href="/interstitial?url=https://github.com/naeem-gitonga/example-mcp/tree/master&where=GitHub">here</Link>.
+          Try it for yourself.
         </p>
         
         <p className={text}>
-          Thanks for dropping by!
+          Thanks for dropping by! Make sure to repost.
         </p>
 
         <div className={minus10LeftMargin}>
