@@ -10,6 +10,10 @@
   margin: 0 6px;
   width: 31px;
   height: 30px;
+
+  @media (max-width: 399px) {
+    display: none;
+  }
 }
 
 .menuSize {
