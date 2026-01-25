@@ -1,5 +1,13 @@
 export const articles: Article[] = [
   {
+    title: "Example MCP",
+    imageUrl: 'examplemcp',
+    lengthInMinutes: 4,
+    publishedDate: 'Jan 24, 2026',
+    articleUrl: '/articles/example-mcp',
+    noTarget: true,
+  },
+  {
     title: "Harnessing AI: Layer Cake and Platform Shift",
     imageUrl: 'harnessai',
     lengthInMinutes: 4,
