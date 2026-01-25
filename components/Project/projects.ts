@@ -18,7 +18,8 @@ export type ProjectName =
   | 'imageserver'
   | 'shutdownsync'
   | 'analyticstracker'
-  | 'speechavatar';
+  | 'speechavatar'
+  | 'examplemcp';
 
 export type Project = {
   projectImg: string;
@@ -32,6 +33,18 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: 'Example MCP*',
+    projectImg: '/images/example-mcp.webp',
+    projectDes:
+      'Example MCP server that summarizes the README.md files (locally and on public repos).',
+    projectStack: 'examplemcp',
+    projectLink: '/articles/example-mcp',
+    target: '_self',
+    linkText: 'Learn more',
+    gitHubLink:
+      '/interstitial?url=https://github.com/naeem-gitonga/example-mcp&where=GitHub'
+  },
   {
     title: 'Speech Avatar Demo*',
     projectImg: '/images/idle-loop.gif',
@@ -49,7 +62,7 @@ export const projects: Project[] = [
       'Serverless analytics pipeline using Lambda, Athena, and S3 for tracking and querying website metrics.',
     projectStack: 'analyticstracker',
     gitHubLink:
-      '/interstitial?url=https://gitlab.com/naeemgitonga/analytics-tracker&where=Gitlab'
+      '/interstitial?url=https://gitlab.com/naeemgitonga/analytics-tracker&where=GitLab'
   },
   {
     title: 'Shutdown Sync*',
@@ -61,7 +74,7 @@ export const projects: Project[] = [
     target: '_self',
     linkText: 'Learn more',
     gitHubLink:
-      '/interstitial?url=https://github.com/naeem-gitonga/shutdown-sync&where=Github'
+      '/interstitial?url=https://github.com/naeem-gitonga/shutdown-sync&where=GitHub'
   },
   {
     title: 'Image Server*',
@@ -74,7 +87,7 @@ export const projects: Project[] = [
     target: '_self',
     linkText: 'Learn more',
     gitHubLink:
-      '/interstitial?url=https://gitlab.com/naeemgitonga/image-server&where=Gitlab'
+      '/interstitial?url=https://gitlab.com/naeemgitonga/image-server&where=GitLab'
   },
   {
     title: 'Rapid Back-End*',
@@ -94,7 +107,7 @@ export const projects: Project[] = [
       'Re-written using NextJS from vanilla JS, some jQuery, and HTML.',
     projectStack: 'ngwebsite',
     gitHubLink:
-      '/interstitial?url=https://www.gitlab.com/naeemgitonga/myWebsite&where=Gitlab',
+      '/interstitial?url=https://www.gitlab.com/naeemgitonga/myWebsite&where=GitLab',
   },
   {
     title: 'Pluralsight**',
@@ -147,7 +160,7 @@ export const projects: Project[] = [
     projectDes: 'Custom web app. Go and vent your frustrations today.',
     projectStack: 'aah',
     gitHubLink:
-      '/interstitial?url=https://github.com/naeem-gitonga/first-golang-app&where=Github',
+      '/interstitial?url=https://github.com/naeem-gitonga/first-golang-app&where=GitHub',
   },
 
   {
@@ -156,7 +169,7 @@ export const projects: Project[] = [
     projectDes: 'Custom single-page website.',
     projectStack: 'gab',
     gitHubLink:
-      '/interstitial?url=https://github.com/naeem-gitonga/zalina-test&where=Github',
+      '/interstitial?url=https://github.com/naeem-gitonga/zalina-test&where=GitHub',
   },
   {
     title: 'Connex*',
@@ -183,7 +196,7 @@ export const projects: Project[] = [
     projectStack: 'gtng',
     projectLink: '/interstitial?url=https://www.gtng.tech/&where=GTNG, Inc.',
     gitHubLink:
-      '/interstitial?url=https://github.com/naeem-gitonga/gtng&where=Github',
+      '/interstitial?url=https://github.com/naeem-gitonga/gtng&where=GitHub',
   },
   {
     title: 'Arithmetik*',
@@ -193,7 +206,7 @@ export const projects: Project[] = [
     projectLink:
       '/interstitial?url=https://www.npmjs.com/package/arithmetik&where=NPM',
     gitHubLink:
-      '/interstitial?url=https://github.com/naeem-gitonga/arithmetik&where=Github',
+      '/interstitial?url=https://github.com/naeem-gitonga/arithmetik&where=GitHub',
   },
   {
     title: 'Learningo!*',
@@ -202,6 +215,6 @@ export const projects: Project[] = [
       'MVP for app that allows users to learn the topic of their choosing.',
     projectStack: 'learningo',
     gitHubLink:
-      '/interstitial?url=https://github.com/naeem-gitonga/learningo&where=Github',
+      '/interstitial?url=https://github.com/naeem-gitonga/learningo&where=GitHub',
   },
 ];
