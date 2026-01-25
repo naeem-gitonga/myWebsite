@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
-import DontPayForTokens from '@/components/DontPayForTokens/DontPayForTokens';
+import ExampleMcp from '@/components/ExampleMcp/ExampleMcp';
 import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
@@ -48,7 +48,7 @@ export default async function Article(params: Params): Promise<React.JSX.Element
   return (
     <>
       <AnalyticsTracker fromWebsite={from} />
-      <DontPayForTokens />
+      <ExampleMcp />
       <Footer />
     </>
   );

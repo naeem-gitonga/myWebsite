@@ -2,7 +2,7 @@ export const articles: Article[] = [
   {
     title: "Example MCP",
     imageUrl: 'examplemcp',
-    lengthInMinutes: 4,
+    lengthInMinutes: 3,
     publishedDate: 'Jan 24, 2026',
     articleUrl: '/articles/example-mcp',
     noTarget: true,
