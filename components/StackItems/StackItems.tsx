@@ -34,6 +34,7 @@ const {
   cuda,
   websockets,
   grpc,
+  mcp
 } = styles;
 
 type StackItemProps = {
@@ -190,5 +191,10 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="CUDA" className={cuda} key="cuda" />,
     <StackItem text="gRPC" className={grpc} key="grpc" />,
     <StackItem text="NextJs" className={nextjs} key="nextjs" />,
+  ],
+  examplemcp: [
+    <StackItem text="MCP" className={mcp} key="mcp" />,
+    <StackItem text="TypeScript" className={typescript} key="typescript" />,
+    <StackItem text="Jest" className={jestLogo} key="jest" />,
   ],
 };

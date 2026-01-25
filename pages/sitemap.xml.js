@@ -19,6 +19,7 @@ function generateSiteMap(prefix) {
     'read-write-send-xml',
     'microservices-part-1',
     'microservices-part-2',
+    'example-mcp',
   ].map((file) => {
     return `
       <url>
