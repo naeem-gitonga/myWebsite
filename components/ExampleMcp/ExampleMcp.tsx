@@ -139,7 +139,7 @@ export default function ExampleMcp(): React.JSX.Element {
           The rest is foundational, fundamental coding and DevOps best
           practices, maybe. In this example we show how to use the Example MCP with
           Claude. Stay tuned as I build more AI systems. Go view the repo for Example 
-          MCP click <Link href="/interstitial?url=https://github.com/naeem-gitonga/example-mcp/tree/master&where=GitHub">here</Link>.
+          MCP; click <Link href="/interstitial?url=https://github.com/naeem-gitonga/example-mcp/tree/master&where=GitHub">here</Link>.
           Try it for yourself.
         </p>
         
