@@ -38,6 +38,7 @@ export default function ExampleMcp(): React.JSX.Element {
         </div>
 
         <h2>What is MCP?</h2>
+
         <p className={text}>
           So, have you ever heard of MCPs? Well if you&apos;re anywhere near the
           technology, specifically AI, it&apos;s all the rage. MCP stands for
