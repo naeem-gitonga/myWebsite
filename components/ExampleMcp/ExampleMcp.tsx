@@ -136,8 +136,15 @@ export default function ExampleMcp(): React.JSX.Element {
           engineering.
         </p>
         <p className={text}>
+          It is important to mention that this example is an example of 
+          Retrieval&#45;Augmented Generation &#40;RAG&#41;. While this is not
+          Embedding&#45;based RAG it still is retreiving information and from 
+          what is retreived we get a modified output. We&apos;ll cover embedding in 
+          our next article.
+        </p>
+        <p className={text}>
           The rest is foundational, fundamental coding and DevOps best
-          practices, maybe. In this example we show how to use the Example MCP with
+          practices, mostly. In this example we show how to use the Example MCP with
           Claude. Stay tuned as I build more AI systems. Go view the repo for Example 
           MCP; click <Link href="/interstitial?url=https://github.com/naeem-gitonga/example-mcp/tree/master&where=GitHub">here</Link>.
           Try it for yourself.
@@ -156,6 +163,7 @@ export default function ExampleMcp(): React.JSX.Element {
               'Claude',
               'LLM',
               'JSON-RPC',
+              'RAG'
             ]}
           />
         </div>
