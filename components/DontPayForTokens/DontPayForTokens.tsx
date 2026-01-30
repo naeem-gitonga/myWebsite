@@ -2,7 +2,6 @@
 import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '@/components/Articles/Articles.module.scss';
 import sharedStyles from '@/components/SharedCss/SharedCss.module.scss';
-import Tags from '@/components/Tags/Tags';
 import Link from 'next/link';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
