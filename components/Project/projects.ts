@@ -40,7 +40,7 @@ export const projects: Project[] = [
     projectDes:
       'Embedding-based RAG with a local, serverless-style architecture designed for easy AWS parity.',
     projectStack: 'examplerag',
-    // projectLink: '/articles/example-rag',
+    projectLink: '/articles/example-rag',
     target: '_self',
     linkText: 'Learn more',
     gitHubLink:
