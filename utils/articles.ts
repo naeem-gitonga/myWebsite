@@ -1,5 +1,13 @@
 export const articles: Article[] = [
   {
+    title: 'Embedding‑Based RAG, Locally: A Serverless‑Style Architecture You Can Ship',
+    imageUrl: 'examplerag',
+    lengthInMinutes: 8,
+    publishedDate: 'Jan 29, 2026',
+    articleUrl: '/articles/example-rag',
+    noTarget: true,
+  },
+  {
     title: "Example MCP",
     imageUrl: 'examplemcp',
     lengthInMinutes: 3,

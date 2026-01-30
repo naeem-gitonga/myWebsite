@@ -137,11 +137,12 @@ export default function ExampleMcp(): React.JSX.Element {
           engineering.
         </p>
         <p className={text}>
-          It is important to mention that this example is an example of 
+          It is important to mention that this example is an example of a piece of 
           Retrieval&#45;Augmented Generation &#40;RAG&#41;. While this is not
           Embedding&#45;based RAG it still is retreiving information and from 
-          what is retreived we get a modified output. We&apos;ll cover embedding in 
-          our next article.
+          what is retreived we would get a modified output from our LLM. We&apos;ll 
+          cover embedding in our next article with a full example, using an LLM and 
+          an embedding model. So stay tuned!
         </p>
         <p className={text}>
           The rest is foundational, fundamental coding and DevOps best

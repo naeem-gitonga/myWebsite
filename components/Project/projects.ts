@@ -19,7 +19,8 @@ export type ProjectName =
   | 'shutdownsync'
   | 'analyticstracker'
   | 'speechavatar'
-  | 'examplemcp';
+  | 'examplemcp'
+  | 'examplerag';
 
 export type Project = {
   projectImg: string;
@@ -33,6 +34,18 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: 'Example RAG*',
+    projectImg: '/images/example-rag-tile.webp',
+    projectDes:
+      'Embedding-based RAG with a local, serverless-style architecture designed for easy AWS parity.',
+    projectStack: 'examplerag',
+    // projectLink: '/articles/example-rag',
+    target: '_self',
+    linkText: 'Learn more',
+    gitHubLink:
+      '/interstitial?url=https://github.com/naeem-gitonga/example-rag&where=GitHub'
+  },
   {
     title: 'Example MCP*',
     projectImg: '/images/example-mcp.webp',
