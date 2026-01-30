@@ -197,4 +197,11 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="TypeScript" className={typescript} key="typescript" />,
     <StackItem text="Jest" className={jestLogo} key="jest" />,
   ],
+  examplerag: [
+    <StackItem text="TypeScript" className={typescript} key="typescript" />,
+    <StackItem text="Python" className={python} key="python" />,
+    <StackItem text="Docker" className={docker} key="docker" />,
+    <StackItem text="WebSockets" className={websockets} key="websockets" />,
+    <StackItem text="Lambda" className={lambda} key="lambda" />,
+  ],
 };
