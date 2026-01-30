@@ -7,6 +7,7 @@ import Tags from '@/components/Tags/Tags';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
+import ExampleRagServiceTable from '@/components/Articles/ExampleRag/ExampleRagServiceTable';
 
 export default function ExampleRag(): React.JSX.Element {
   const {
@@ -22,7 +23,7 @@ export default function ExampleRag(): React.JSX.Element {
     gatedWrapper,
   } = styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
-  
+  // * &rdquo; &ldquo; &apos;
   return (
     <div id="example-rag" className={`${tenPadding}`}>
       <PageHeader headerName="article" hideLinks={false} />
@@ -40,11 +41,11 @@ export default function ExampleRag(): React.JSX.Element {
             loading="eager"
             fetchPriority="high"
           />
-          <p className={altText}>Local AWS‑style RAG architecture.</p>
+          <p className={altText}>Local AWS&#45;style RAG architecture.</p>
         </div>
 
         <p className={text}>
-          Retrieval&#45;Augmented Generation (RAG) is only as good as the retrieval it does. In practice,
+          Retrieval&#45;Augmented Generation &#40;RAG&#41; is only as good as the retrieval it does. In practice,
           that means building a clean ingestion pipeline, predictable query behavior, and a
           generation path that uses the retrieved context without leaking architecture complexity
           into the rest of your system. This article shows a practical, embedding&#45;based RAG design
@@ -53,9 +54,10 @@ export default function ExampleRag(): React.JSX.Element {
 
         <h2>Why I built a local AWS&#45;style RAG</h2>
         <p className={text}>
-          I was inspired by AWS&apos;s serverless RAG reference architecture and wanted to build the same
+          I was inspired by AWS&apos;s serverless RAG architecture and wanted to build the same
           idea locally so I could iterate fast, keep feedback loops tight, and still deploy to AWS
-          later with minimal refactoring. That AWS article is the spark for this project:
+          later with minimal refactoring. The AWS article that is the inspiration for this project
+          is below:
         </p>
 
         <pre className={pre}>
@@ -67,27 +69,10 @@ export default function ExampleRag(): React.JSX.Element {
         <p className={text}>
           The goal is local parity with cloud services: the same request shapes, the same separation
           of responsibilities, and the same operational boundaries. In this example 
-          we have complete system that should easily be deployable to AWS when the user is ready.
+          we have a complete system that &ldquo;should&rdquo;  easily be deployable to AWS when the user is ready.
         </p>
-        {process.env.NODE_ENV !== 'development' ? (
-          <div className={gatedWrapper}>
-            <div className={gatedContent}>
-              <p className={text}>
-                The goal is local parity with cloud services: the same request shapes, the same separation
-                of responsibilities, and the same operational boundaries. In this example 
-                we have complete system that should easily be deployable to AWS when the user is ready.
-              </p>
-            </div>
-            <div className={gatedOverlay}>
-              <div className={gatedOverlayInner}>
-              <p className={text}>Work in progress... Comming Soon!</p>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <>
-            <h2>Embedding‑based RAG in one loop</h2>
-        <p className={text}>Here’s the core loop we’re designing for:</p>
+        <h2>Embedding&#45;based RAG in one loop</h2>
+        <p className={text}>Here&apos;s the core loop were designing for:</p>
         <ul className={text}>
           <li className={text}>
             <strong>Ingest</strong>: turn documents into embeddings and store them in a vector
@@ -101,63 +86,55 @@ export default function ExampleRag(): React.JSX.Element {
           </li>
         </ul>
 
-        <h2>End‑to‑end architecture (local AWS‑style)</h2>
+        <h2>End&#45;to&#45;end architecture &#40;local AWS&#45;style&#41;</h2>
         <p className={text}>
-          The system is organized as a set of small services with clear boundaries:
+          The system is organized as a set of small services with clear boundaries. Each services maps
+          directly to an AWS  service:
         </p>
-        <ul className={text}>
-          <li className={text}>
-            <strong>Web app</strong> for uploads and chat.
-          </li>
-          <li className={text}>
-            <strong>Gateway</strong> that holds WebSocket connections and invokes “Lambda” services.
-          </li>
-          <li className={text}>
-            <strong>Ingestion</strong> service for processing documents and storing embeddings.
-          </li>
-          <li className={text}>
-            <strong>Chat</strong> service for RAG retrieval and message persistence.
-          </li>
-          <li className={text}>
-            <strong>Embedding</strong> service for turning text into vectors.
-          </li>
-          <li className={text}>
-            <strong>LLM</strong> service for response generation.
-          </li>
-          <li className={text}>
-            <strong>LanceDB</strong> for vector storage, backed by <strong>MinIO</strong> (S3‑style
-            storage).
-          </li>
-        </ul>
+
+        <ExampleRagServiceTable />
 
         <p className={text}>
-          This mirrors how you’d wire API Gateway, Lambda, S3, and an LLM endpoint in AWS — but every
-          component runs locally so you can iterate quickly and keep architecture drift low.
+          You can see the 1:1 mapping of each service — but every
+          component runs locally so we can iterate quickly and keep architecture drift low.
         </p>
 
         <h2>Ingestion flow (practical walkthrough)</h2>
         <p className={text}>
           Documents are ingested through the gateway, embedded, and stored in LanceDB:
         </p>
-        <ul className={text}>
+        <ol className={text}>
           <li className={text}>Client sends a document over WebSocket.</li>
           <li className={text}>Gateway invokes the ingestion service.</li>
           <li className={text}>Ingestion calls the embedding service.</li>
           <li className={text}>Embeddings are stored in LanceDB.</li>
-        </ul>
+        </ol>
 
-        <h2>Query + chat flow (RAG with generation)</h2>
+        <h2>Query + chat flow &#40;RAG with generation&#41;</h2>
         <p className={text}>
           The chat flow pulls context from the vector store and then passes it to the LLM:
         </p>
-        <ul className={text}>
+        <ol className={text}>
           <li className={text}>Client sends a user query.</li>
           <li className={text}>Chat service embeds the query and retrieves similar entries.</li>
           <li className={text}>Gateway streams tokens from the LLM back to the client.</li>
           <li className={text}>Assistant response is saved with its RAG context.</li>
-        </ul>
+        </ol>
+
+        <p className={text}>
+          And that&apos;s the core RAG loop: ingest documents, retrieve relevant context, and generate
+          grounded responses. Much easier said than done. So let&apos;s take a look at how we tune the 
+          system to give us the most relevant results.
+        </p>
 
         <h2>RAG thresholding (relevance control)</h2>
+        <p className={text}>
+          One of the most relavant sub-topics in an embedding-based RAG system is relevance control.
+          At first, when using the app I would get back results that were not related at all to 
+          my query. After looking into it, I discovered that I needed to perform thresholding on the
+          results returned from the vector search.
+        </p>
+
         <p className={text}>
           A top‑K vector search always returns “something,” even when it’s irrelevant. To keep
           answers grounded, I add a similarity threshold and filter out matches that are too far
@@ -492,8 +469,6 @@ Relevant journal entries:
         <div className={minus10LeftMargin}>
           <Tags tags={['RAG', 'Embedding', 'AI', 'LLM', 'Machine Learning', 'serverless']} />
         </div>
-          </>
-        )}
       </div>
       <ReturnArrow />
     </div>

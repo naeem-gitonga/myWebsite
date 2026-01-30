@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
-import ExampleMcp from '@/components/ExampleMcp/ExampleMcp';
+import ExampleMcp from '@/components/Articles/ExampleMcp/ExampleMcp';
 import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
