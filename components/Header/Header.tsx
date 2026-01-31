@@ -15,7 +15,7 @@ export default function Header(): React.JSX.Element {
             <h1 className={styles.myName}>Naeem Gitonga</h1>
             <div className={styles.startButtonWrapper}>
               <Button cb={setModalOpen} className={styles.startButton}>
-                START
+                ENTER
               </Button>
             </div>
           </div>

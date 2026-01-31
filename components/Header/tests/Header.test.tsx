@@ -31,8 +31,8 @@ describe('Header', () => {
     render(<Header />);
 
     expect(screen.getByText('Naeem Gitonga')).toBeInTheDocument();
-    const startButton = screen.getByText('START');
-    fireEvent.click(startButton);
+    const enterButton = screen.getByText('ENTER');
+    fireEvent.click(enterButton);
 
     expect(screen.getByTestId('modal')).toBeInTheDocument();
     expect(screen.getByTestId('start-menu')).toBeInTheDocument();
