@@ -8,6 +8,7 @@ import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 import ExampleRagServiceTable from '@/components/Articles/ExampleRag/ExampleRagServiceTable';
+import Link from 'next/link';
 
 export default function ExampleRag(): React.JSX.Element {
   const {
@@ -72,7 +73,7 @@ export default function ExampleRag(): React.JSX.Element {
           we have a complete system that &ldquo;should&rdquo;  easily be deployable to AWS when the user is ready.
         </p>
         <h2>Embedding&#45;based RAG in one loop</h2>
-        <p className={text}>Here&apos;s the core loop were designing for:</p>
+        <p className={text}>Here&apos;s the core loop we&apos;re designing for:</p>
         <ul className={text}>
           <li className={text}>
             <strong>Ingest</strong>: turn documents into embeddings and store them in a vector
@@ -88,7 +89,7 @@ export default function ExampleRag(): React.JSX.Element {
 
         <h2>End&#45;to&#45;end architecture &#40;local AWS&#45;style&#41;</h2>
         <p className={text}>
-          The system is organized as a set of small services with clear boundaries. Each services maps
+          The system is organized as a set of small services with clear boundaries. Each service maps
           directly to an AWS  service:
         </p>
 
@@ -129,8 +130,8 @@ export default function ExampleRag(): React.JSX.Element {
 
         <h2>RAG thresholding &#40;relevance control&#41;</h2>
         <p className={text}>
-          One of the most relavant sub-topics in an embedding-based RAG system is relevance control.
-          At first, when using the app I would get back results that were not related at to 
+          One of the most relevant sub-topics in an embedding-based RAG system is relevance control.
+          At first, when using the app I would get back results that were not related at all to 
           my query. After looking into it, I discovered that I needed to perform thresholding on the
           results returned from the vector search.
         </p>
@@ -138,8 +139,8 @@ export default function ExampleRag(): React.JSX.Element {
         <p className={text}>
           A <strong>Top&#45;K</strong> vector search could return something, even when it&apos;s irrelevant. To keep
           answers grounded, I added a similarity threshold and filter out matches that are too far
-          away in embedding space. Top&#45;K seeks to limit token selection to the <em>k</em>{' '}
-          most probable next words during text generation.
+          away in embedding space. Top&#45;K retrieval returns the K vectors closest to the query embedding,{' '}
+          regardless of how similar they actually are..
         </p>
 
         <pre className={pre}>
@@ -155,7 +156,7 @@ return results.filter((result) => result.score <= maxDistance);`}
 
         <p className={text}>
           <strong>Cosine distance</strong> is an important term in machine learning embeddings.
-          To put it plainly, it gives us a simple numeric guardrail. I needed to to 
+          To put it plainly, it gives us a simple numeric guardrail. I needed to 
           tune this value to get relevant results for my use case. The range is 0 &#40;identical&#41; to 2 
           &#40;opposite&#41;. I ended up picking a value of 1.2.
           Why? It just worked well for the entries that I made. And that's where the art of RAG 
@@ -256,7 +257,7 @@ return results.filter((result) => result.score <= maxDistance);`}
 {`function buildSystemPrompt(ragContext: RagContext[]): string {
   if (ragContext.length === 0) {
     return \`You are a helpful assistant.
-      The user is asking a question, but no relevant entries 
+      The user is asking a question, but no relevant documents 
       were found. Respond helpfully and suggest they might 
       want to add more entries or rephrase their 
       question.
@@ -337,7 +338,7 @@ return results.filter((result) => result.score <= maxDistance);`}
         </table>
 
         <p className={text}>
-          <strong>Without a system prompt</strong>, the LLM would be not know it was an 
+          <strong>Without a system prompt</strong>, the LLM would not know it was an 
           assistant and would not have any context about or knowledge of:
         </p>
         <ul className={text}>
@@ -415,6 +416,10 @@ return results.filter((result) => result.score <= maxDistance);`}
           The follow&#45;up article will cover the cloud deployment details — swapping local services
           for AWS Lambda, S3, and API Gateway, and the small changes required to run at scale. The
           point of this build is that those changes stay contained, not architectural.
+        </p>
+        <p className={text}>
+          You can find the full source code for this project on GitHub: 
+          {' '}<Link href="/interstitial?url=https://github.com/naeem-gitonga/example-rag&where=GitHub">here</Link>.
         </p>
 
         <div className={minus10LeftMargin}>
