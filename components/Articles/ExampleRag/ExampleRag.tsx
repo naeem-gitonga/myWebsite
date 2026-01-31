@@ -7,6 +7,8 @@ import Tags from '@/components/Tags/Tags';
 import { imageLoader } from '@/utils/imageLoader';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
+import ExampleRagServiceTable from '@/components/Articles/ExampleRag/ExampleRagServiceTable';
+import Link from 'next/link';
 
 export default function ExampleRag(): React.JSX.Element {
   const {
@@ -22,7 +24,7 @@ export default function ExampleRag(): React.JSX.Element {
     gatedWrapper,
   } = styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
-  
+  // * &rdquo; &ldquo; &apos;
   return (
     <div id="example-rag" className={`${tenPadding}`}>
       <PageHeader headerName="article" hideLinks={false} />
@@ -40,11 +42,11 @@ export default function ExampleRag(): React.JSX.Element {
             loading="eager"
             fetchPriority="high"
           />
-          <p className={altText}>Local AWS‑style RAG architecture.</p>
+          <p className={altText}>Local AWS&#45;style RAG architecture.</p>
         </div>
 
         <p className={text}>
-          Retrieval&#45;Augmented Generation (RAG) is only as good as the retrieval it does. In practice,
+          Retrieval&#45;Augmented Generation &#40;RAG&#41; is only as good as the retrieval it does. In practice,
           that means building a clean ingestion pipeline, predictable query behavior, and a
           generation path that uses the retrieved context without leaking architecture complexity
           into the rest of your system. This article shows a practical, embedding&#45;based RAG design
@@ -53,9 +55,10 @@ export default function ExampleRag(): React.JSX.Element {
 
         <h2>Why I built a local AWS&#45;style RAG</h2>
         <p className={text}>
-          I was inspired by AWS&apos;s serverless RAG reference architecture and wanted to build the same
+          I was inspired by AWS&apos;s serverless RAG architecture and wanted to build the same
           idea locally so I could iterate fast, keep feedback loops tight, and still deploy to AWS
-          later with minimal refactoring. That AWS article is the spark for this project:
+          later with minimal refactoring. The AWS article that is the inspiration for this project
+          is below:
         </p>
 
         <pre className={pre}>
@@ -67,27 +70,10 @@ export default function ExampleRag(): React.JSX.Element {
         <p className={text}>
           The goal is local parity with cloud services: the same request shapes, the same separation
           of responsibilities, and the same operational boundaries. In this example 
-          we have complete system that should easily be deployable to AWS when the user is ready.
+          we have a complete system that &ldquo;should&rdquo;  easily be deployable to AWS when the user is ready.
         </p>
-        {process.env.NODE_ENV !== 'development' ? (
-          <div className={gatedWrapper}>
-            <div className={gatedContent}>
-              <p className={text}>
-                The goal is local parity with cloud services: the same request shapes, the same separation
-                of responsibilities, and the same operational boundaries. In this example 
-                we have complete system that should easily be deployable to AWS when the user is ready.
-              </p>
-            </div>
-            <div className={gatedOverlay}>
-              <div className={gatedOverlayInner}>
-              <p className={text}>Work in progress... Comming Soon!</p>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <>
-            <h2>Embedding‑based RAG in one loop</h2>
-        <p className={text}>Here’s the core loop we’re designing for:</p>
+        <h2>Embedding&#45;based RAG in one loop</h2>
+        <p className={text}>Here&apos;s the core loop we&apos;re designing for:</p>
         <ul className={text}>
           <li className={text}>
             <strong>Ingest</strong>: turn documents into embeddings and store them in a vector
@@ -101,67 +87,60 @@ export default function ExampleRag(): React.JSX.Element {
           </li>
         </ul>
 
-        <h2>End‑to‑end architecture (local AWS‑style)</h2>
+        <h2>End&#45;to&#45;end architecture &#40;local AWS&#45;style&#41;</h2>
         <p className={text}>
-          The system is organized as a set of small services with clear boundaries:
+          The system is organized as a set of small services with clear boundaries. Each service maps
+          directly to an AWS  service:
         </p>
-        <ul className={text}>
-          <li className={text}>
-            <strong>Web app</strong> for uploads and chat.
-          </li>
-          <li className={text}>
-            <strong>Gateway</strong> that holds WebSocket connections and invokes “Lambda” services.
-          </li>
-          <li className={text}>
-            <strong>Ingestion</strong> service for processing documents and storing embeddings.
-          </li>
-          <li className={text}>
-            <strong>Chat</strong> service for RAG retrieval and message persistence.
-          </li>
-          <li className={text}>
-            <strong>Embedding</strong> service for turning text into vectors.
-          </li>
-          <li className={text}>
-            <strong>LLM</strong> service for response generation.
-          </li>
-          <li className={text}>
-            <strong>LanceDB</strong> for vector storage, backed by <strong>MinIO</strong> (S3‑style
-            storage).
-          </li>
-        </ul>
+
+        <ExampleRagServiceTable />
 
         <p className={text}>
-          This mirrors how you’d wire API Gateway, Lambda, S3, and an LLM endpoint in AWS — but every
-          component runs locally so you can iterate quickly and keep architecture drift low.
+          You can see the 1:1 mapping of each service — but every
+          component runs locally so we can iterate quickly and keep architecture drift low.
         </p>
 
         <h2>Ingestion flow (practical walkthrough)</h2>
         <p className={text}>
           Documents are ingested through the gateway, embedded, and stored in LanceDB:
         </p>
-        <ul className={text}>
+        <ol className={text}>
           <li className={text}>Client sends a document over WebSocket.</li>
           <li className={text}>Gateway invokes the ingestion service.</li>
           <li className={text}>Ingestion calls the embedding service.</li>
           <li className={text}>Embeddings are stored in LanceDB.</li>
-        </ul>
+        </ol>
 
-        <h2>Query + chat flow (RAG with generation)</h2>
+        <h2>Query + chat flow</h2>
         <p className={text}>
           The chat flow pulls context from the vector store and then passes it to the LLM:
         </p>
-        <ul className={text}>
+        <ol className={text}>
           <li className={text}>Client sends a user query.</li>
           <li className={text}>Chat service embeds the query and retrieves similar entries.</li>
           <li className={text}>Gateway streams tokens from the LLM back to the client.</li>
           <li className={text}>Assistant response is saved with its RAG context.</li>
-        </ul>
+        </ol>
 
-        <h2>RAG thresholding (relevance control)</h2>
         <p className={text}>
-          A top‑K vector search always returns “something,” even when it’s irrelevant. To keep
-          answers grounded, I add a similarity threshold and filter out matches that are too far
-          away in embedding space.
+          And that&apos;s the core RAG loop: ingest documents, retrieve relevant context, and generate
+          grounded responses. Much easier said than done. So let&apos;s take a look at how we tune the 
+          system to give us the most relevant results.
+        </p>
+
+        <h2>RAG thresholding &#40;relevance control&#41;</h2>
+        <p className={text}>
+          One of the most relevant sub-topics in an embedding-based RAG system is relevance control.
+          At first, when using the app I would get back results that were not related at all to 
+          my query. After looking into it, I discovered that I needed to perform thresholding on the
+          results returned from the vector search.
+        </p>
+
+        <p className={text}>
+          A <strong>Top&#45;K</strong> vector search could return something, even when it&apos;s irrelevant. To keep
+          answers grounded, I added a similarity threshold and filter out matches that are too far
+          away in embedding space. Top&#45;K retrieval returns the K vectors closest to the query embedding,{' '}
+          regardless of how similar they actually are..
         </p>
 
         <pre className={pre}>
@@ -176,86 +155,16 @@ return results.filter((result) => result.score <= maxDistance);`}
         </pre>
 
         <p className={text}>
-          Cosine distance gives you a simple numeric guardrail: lower is more similar, and a default
-          threshold like <code>0.8</code> removes loosely related matches without being overly
-          aggressive. Tune this with real data — a tight threshold improves precision, while a
-          looser one improves recall.
+          <strong>Cosine distance</strong> is an important term in machine learning embeddings.
+          To put it plainly, it gives us a simple numeric guardrail. I needed to 
+          tune this value to get relevant results for my use case. The range is 0 &#40;identical&#41; to 2 
+          &#40;opposite&#41;. I ended up picking a value of 1.2.
+          Why? It just worked well for the entries that I made. And that's where the art of RAG 
+          comes in and also the need for MLOps so that you can monitor the performance 
+          of your RAG system over time.
         </p>
 
-        <h2>Why this local serverless style works</h2>
-        <p className={text}>
-          The biggest advantage is production parity. Each “Lambda” has a single responsibility,
-          storage goes through S3‑style interfaces, and the gateway owns WebSocket state — exactly
-          how a cloud deployment would be structured. That keeps your local architecture honest and
-          makes the eventual cloud migration much smaller.
-        </p>
-
-        <h2>What’s next</h2>
-        <p className={text}>
-          The follow‑up article will cover the cloud deployment details — swapping local services
-          for AWS Lambda, S3, and API Gateway, and the small changes required to run at scale. The
-          point of this build is that those changes stay contained, not architectural.
-        </p>
-
-        <h2>Top‑K vector search (implementation details)</h2>
-        <p className={text}>
-          The vector store is LanceDB (<code>@lancedb/lancedb</code>), and retrieval happens in
-          <code>searchSimilar()</code> in <code>shared/src/db/operations.ts</code>. The Top‑K value is
-          controlled by the <code>limit</code> parameter:
-        </p>
-
-        <pre className={pre}>
-          <code className={code}>
-{`const results = await table
-  .search(queryVector)
-  .limit(limit)  // <-- Top-K parameter
-  .toArray();`}
-          </code>
-        </pre>
-
-        <p className={text}>Top‑K values used in this project:</p>
-        <ul className={text}>
-          <li className={text}>
-            <strong>General queries:</strong> K = 5 (default, configurable via <code>limit</code>)
-          </li>
-          <li className={text}>
-            <strong>RAG context retrieval:</strong> K = 3 (hardcoded in the chat service)
-          </li>
-        </ul>
-
-        <p className={text}>
-          After Top‑K retrieval, results are filtered by a distance threshold to remove semantically
-          dissimilar matches:
-        </p>
-
-        <pre className={pre}>
-          <code className={code}>
-            {`.filter((result) => result.score <= maxDistance)`}
-          </code>
-        </pre>
-
-        <p className={text}>
-          So the pipeline is: retrieve Top‑K results → filter by distance score → return relevant
-          matches.
-        </p>
-
-        <h2>Similarity threshold, cosine distance, and the system prompt</h2>
-        <p className={text}>
-          The RAG search uses a similarity score threshold to filter out irrelevant results. This
-          prevents the system from returning unrelated journal entries when the user's query doesn't
-          match any content.
-        </p>
-
-        <p className={text}>
-          <strong>Configuration</strong> (<code>shared/src/db/operations.ts</code> called by
-          <code>chat/src/services/chat.service.ts</code>):
-        </p>
-
-        <pre className={pre}>
-          <code className={code}>{`searchSimilar(table, queryVector, limit, maxDistance = 1.2)`}</code>
-        </pre>
-
-        <table className={styles.table}>
+         <table className={styles.table}>
           <thead>
             <tr>
               <th>Parameter</th>
@@ -272,75 +181,71 @@ return results.filter((result) => result.score <= maxDistance);`}
           </tbody>
         </table>
 
+        <h2>Top&#45;K vector search &#40;implementation details&#41;</h2>
         <p className={text}>
-          <strong>How it works:</strong>
+          For this app, the vector store that we use is LanceDB and retrieval happens in
+          <code className={code}>searchSimilar()</code> in <code className={code}>shared/src/db/operations.ts</code>. 
+          The Top&#45;K value is controlled by the <code className={code}>limit</code> parameter:
         </p>
+
+        <p className={text}>Top&#45;K values used in this project:</p>
         <ul className={text}>
-          <li className={text}>LanceDB returns results with a <code>_distance</code> field (cosine distance)</li>
-          <li className={text}>Distance ranges from 0 (identical) to 2 (opposite vectors)</li>
-          <li className={text}>Results with distance &gt; <code>maxDistance</code> are filtered out</li>
-          <li className={text}>If no results pass the threshold, RAG context is empty</li>
+          <li className={text}>
+            <strong>General queries:</strong> K &#61; 5 &#40;default, configurable via <code>limit</code>&#41;
+          </li>
+          <li className={text}>
+            <strong>RAG context retrieval:</strong> K &#61; 3 &#40;hardcoded in the chat service&#41;
+          </li>
         </ul>
 
         <p className={text}>
-          <strong>Tuning guidance:</strong>
+          After Top&#45;K retrieval, results are filtered by a distance threshold to remove semantically
+          dissimilar matches:
         </p>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Threshold</th>
-              <th>Behavior</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>0.5</td>
-              <td>Strict - only highly relevant results</td>
-            </tr>
-            <tr>
-              <td>0.8</td>
-              <td>Moderate - may miss semantically related but differently phrased content</td>
-            </tr>
-            <tr>
-              <td>1.2</td>
-              <td>Balanced (default) - catches related content with different phrasing</td>
-            </tr>
-            <tr>
-              <td>1.5+</td>
-              <td>Very permissive - rarely filters anything</td>
-            </tr>
-          </tbody>
-        </table>
+
+        <pre className={pre}>
+          <code className={code}>
+            {`.filter((result) => result.score <= maxDistance)`}
+          </code>
+        </pre>
 
         <p className={text}>
-          <strong>Example:</strong>
+          So the pipeline is: retrieve Top&#45;K results &rarr; filter by distance score &rarr; return relevant
+          matches.
         </p>
-        <ul className={text}>
-          <li className={text}>
-            User asks "hey" → no journal entries about greetings → high distance scores → filtered out
-          </li>
-          <li className={text}>
-            User asks "how was my trip to Paris?" → journal entry about Paris trip → low distance → included
-          </li>
-        </ul>
+
+        <h2>Similarity threshold, cosine distance, and the system prompt</h2>
+        <p className={text}>
+          The RAG search uses a similarity score threshold to filter out irrelevant results. This
+          prevents the system from returning unrelated entries when the user's query doesn't
+          match any content.
+        </p>
+
+        <p className={text}>
+          <strong>Configuration</strong> <code className={code}>shared/src/db/operations.ts</code> called by{' '}
+          <code className={code}>chat/src/services/chat.service.ts</code>:
+        </p>
+
+        <pre className={pre}>
+          <code className={code}>{`searchSimilar(table, queryVector, limit, maxDistance = 1.2)`}</code>
+        </pre>
 
         <p className={text}>
           <strong>Why this matters:</strong> Without a threshold, vector search always returns the top
-          N results regardless of relevance. A query like "hey" would return whatever entries happen
-          to be least dissimilar, even if they're completely unrelated (e.g., an entry about gold).
+          N results regardless of relevance. A query like &rdquo;hey&ldquo; would return whatever entries happen
+          to be least dissimilar, even if they're completely unrelated.
           The threshold ensures only genuinely relevant context is passed to the LLM.
         </p>
-
-        <h3>System Prompt</h3>
+        <h2>From prompt to response</h2>
         <p className={text}>
           The <strong>system prompt</strong> is the instruction set that tells the LLM who it is, how
-          to behave, and what context it has available. It's the primary mechanism for customizing
+          to behave, and what context it has available. It&apos;s the primary mechanism for customizing
           LLM behavior without retraining the model.
         </p>
 
         <p className={text}>
-          <strong>Location:</strong> <code>chat/src/services/chat.service.ts</code> →{' '}
-          <code>buildSystemPrompt()</code>
+          <strong>Location:</strong> <code className={code}>chat/src/services/chat.service.ts</code> &rarr;{' '}
+          <code className={code}>buildSystemPrompt()</code>
         </p>
 
         <p className={text}>
@@ -351,22 +256,27 @@ return results.filter((result) => result.score <= maxDistance);`}
           <code className={code}>
 {`function buildSystemPrompt(ragContext: RagContext[]): string {
   if (ragContext.length === 0) {
-    return \`You are a helpful assistant for a personal journal application.
-The user is asking a question, but no relevant journal entries were found.
-Respond helpfully and suggest they might want to add more journal entries or rephrase their question.\`;
+    return \`You are a helpful assistant.
+      The user is asking a question, but no relevant documents 
+      were found. Respond helpfully and suggest they might 
+      want to add more entries or rephrase their 
+      question.
+    \`;
   }
 
   const contextEntries = ragContext
     .map((ctx) => \`[\${ctx.entry_date}] \${ctx.text_snippet}\`)
     .join("\\n\\n");
 
-  return \`You are a helpful assistant for a personal journal application.
-Use the following journal entries to answer the user's question.
-Be conversational and reference specific details from the entries when relevant.
-If the entries don't contain enough information to answer, say so honestly.
+  return \`You are a helpful assistant. Use the following 
+    entries to answer the user's question. Be conversational and 
+    reference specific details from the entries when relevant.
+    If the entries don't contain enough information to answer, 
+    say so honestly.
 
-Relevant journal entries:
-\${contextEntries}\`;
+    Relevant entries:
+    \${contextEntries}
+  \`;
 }`}
           </code>
         </pre>
@@ -377,7 +287,7 @@ Relevant journal entries:
 
         <p className={text}>
           The system prompt is sent to the LLM as the first message in the conversation, before the
-          user's message:
+          user&apos;s message:
         </p>
 
         <pre className={pre}>
@@ -385,11 +295,10 @@ Relevant journal entries:
 {`Messages sent to LLM:
 ┌─────────────────────────────────────────────────────────────┐
 │ role: "system"                                              │
-│ content: "You are a helpful assistant for a personal        │
-│          journal application. Use the following journal     │
+│ content: "You are a helpful assistant. Use the following.   │
 │          entries to answer the user's question...           │
 │                                                             │
-│          Relevant journal entries:                          │
+│          Relevant entries:                                  │
 │          [2026-01-27] the price of gold is $5,220.50..."    │
 ├─────────────────────────────────────────────────────────────┤
 │ role: "user"                                                │
@@ -411,15 +320,15 @@ Relevant journal entries:
           <tbody>
             <tr>
               <td><strong>Identity</strong></td>
-              <td>"You are a helpful assistant for a personal journal application" tells the LLM its role and domain</td>
+              <td>&rdquo;You are a helpful assistant for a personal application&ldquo; tells the LLM its role and domain</td>
             </tr>
             <tr>
               <td><strong>Behavior</strong></td>
-              <td>"Be conversational and reference specific details" shapes response style</td>
+              <td>&rdquo;Be conversational and reference specific details&ldquo; shapes response style</td>
             </tr>
             <tr>
               <td><strong>Boundaries</strong></td>
-              <td>"If the entries don't contain enough information, say so honestly" prevents hallucination</td>
+              <td>&rdquo;If the entries don't contain enough information, say so honestly&ldquo; prevents hallucination</td>
             </tr>
             <tr>
               <td><strong>Context injection</strong></td>
@@ -429,14 +338,19 @@ Relevant journal entries:
         </table>
 
         <p className={text}>
-          <strong>Without a system prompt</strong>, the LLM would be a generic assistant with no
-          knowledge of:
+          <strong>Without a system prompt</strong>, the LLM would not know it was an 
+          assistant and would not have any context about or knowledge of:
         </p>
         <ul className={text}>
-          <li className={text}>Its purpose (journaling)</li>
-          <li className={text}>The user's data (journal entries)</li>
-          <li className={text}>How to respond (conversational, honest about limitations)</li>
+          <li className={text}>Its purpose</li>
+          <li className={text}>The user's data</li>
+          <li className={text}>How to respond &#40;conversational, honest about limitations&#41;</li>
         </ul>
+
+        <p className={text}>
+          This would leave it prone to hallucinations and other undesired behaviors. Remember,
+          this is still a computer so, garbage in, garbage out.
+        </p>
 
         <p className={text}>
           <strong>Customization examples:</strong>
@@ -451,19 +365,19 @@ Relevant journal entries:
           <tbody>
             <tr>
               <td>More formal tone</td>
-              <td>"Respond in a professional, formal tone"</td>
+              <td>&rdquo;Respond in a professional, formal tone&ldquo;</td>
             </tr>
             <tr>
               <td>Therapy-style</td>
-              <td>"You are a supportive listener. Ask reflective questions about the user's feelings"</td>
+              <td>&rdquo;You are a supportive listener. Ask reflective questions about the user's feelings&ldquo;</td>
             </tr>
             <tr>
               <td>Data analysis</td>
-              <td>"Analyze patterns across journal entries. Look for trends in mood, topics, and frequency"</td>
+              <td>&rdquo;Analyze patterns across entries. Look for trends in mood, topics, and frequency&ldquo;</td>
             </tr>
             <tr>
               <td>Strict factual</td>
-              <td>"Only answer questions that can be directly answered from the journal entries. Never speculate"</td>
+              <td>&rdquo;Only answer questions that can be directly answered from the entries. Never speculate&ldquo;</td>
             </tr>
           </tbody>
         </table>
@@ -485,15 +399,32 @@ Relevant journal entries:
 
         <p className={text}>
           The LLM doesn't have direct database access—it only sees what's included in the prompt.
-          This is both a limitation (context window size) and a feature (you control exactly what
-          the LLM knows).
+          This is both a limitation &#40;context window size&#41; and a feature &#40;you control exactly what
+          the LLM knows&#41;.
+        </p>
+
+        <h2>Why this local serverless style works</h2>
+        <p className={text}>
+          The biggest advantage is production parity. Each &rdquo;Lambda&ldquo; has a single responsibility,
+          storage goes through S3&#45;style interfaces, and the gateway owns WebSocket state — exactly
+          how a cloud deployment would be structured. That keeps your local architecture honest and
+          makes the eventual cloud migration much smaller.
+        </p>
+
+        <h2>What&apos;s next</h2>
+        <p className={text}>
+          The follow&#45;up article will cover the cloud deployment details — swapping local services
+          for AWS Lambda, S3, and API Gateway, and the small changes required to run at scale. The
+          point of this build is that those changes stay contained, not architectural.
+        </p>
+        <p className={text}>
+          You can find the full source code for this project on GitHub: 
+          {' '}<Link href="/interstitial?url=https://github.com/naeem-gitonga/example-rag&where=GitHub">here</Link>.
         </p>
 
         <div className={minus10LeftMargin}>
           <Tags tags={['RAG', 'Embedding', 'AI', 'LLM', 'Machine Learning', 'serverless']} />
         </div>
-          </>
-        )}
       </div>
       <ReturnArrow />
     </div>

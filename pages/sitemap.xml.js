@@ -20,6 +20,7 @@ function generateSiteMap(prefix) {
     'microservices-part-1',
     'microservices-part-2',
     'example-mcp',
+    'example-rag',
   ].map((file) => {
     return `
       <url>
