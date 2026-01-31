@@ -110,7 +110,7 @@ export default function ExampleRag(): React.JSX.Element {
           <li className={text}>Embeddings are stored in LanceDB.</li>
         </ol>
 
-        <h2>Query + chat flow &#40;RAG with generation&#41;</h2>
+        <h2>Query + chat flow</h2>
         <p className={text}>
           The chat flow pulls context from the vector store and then passes it to the LLM:
         </p>
@@ -137,8 +137,8 @@ export default function ExampleRag(): React.JSX.Element {
 
         <p className={text}>
           A <strong>Top&#45;K</strong> vector search could return something, even when it&apos;s irrelevant. To keep
-          answers grounded, I add a similarity threshold and filter out matches that are too far
-          away in embedding space. Top&#45;K seeks to limits token selection to the <em>k</em>{' '}
+          answers grounded, I added a similarity threshold and filter out matches that are too far
+          away in embedding space. Top&#45;K seeks to limit token selection to the <em>k</em>{' '}
           most probable next words during text generation.
         </p>
 
@@ -180,7 +180,7 @@ return results.filter((result) => result.score <= maxDistance);`}
           </tbody>
         </table>
 
-        <h2>Top&#45;K vector search (implementation details)</h2>
+        <h2>Top&#45;K vector search &#40;implementation details&#41;</h2>
         <p className={text}>
           For this app, the vector store that we use is LanceDB and retrieval happens in
           <code className={code}>searchSimilar()</code> in <code className={code}>shared/src/db/operations.ts</code>. 
@@ -364,19 +364,19 @@ return results.filter((result) => result.score <= maxDistance);`}
           <tbody>
             <tr>
               <td>More formal tone</td>
-              <td>"Respond in a professional, formal tone"</td>
+              <td>&rdquo;Respond in a professional, formal tone&ldquo;</td>
             </tr>
             <tr>
               <td>Therapy-style</td>
-              <td>"You are a supportive listener. Ask reflective questions about the user's feelings"</td>
+              <td>&rdquo;You are a supportive listener. Ask reflective questions about the user's feelings&ldquo;</td>
             </tr>
             <tr>
               <td>Data analysis</td>
-              <td>"Analyze patterns across journal entries. Look for trends in mood, topics, and frequency"</td>
+              <td>&rdquo;Analyze patterns across entries. Look for trends in mood, topics, and frequency&ldquo;</td>
             </tr>
             <tr>
               <td>Strict factual</td>
-              <td>"Only answer questions that can be directly answered from the journal entries. Never speculate"</td>
+              <td>&rdquo;Only answer questions that can be directly answered from the entries. Never speculate&ldquo;</td>
             </tr>
           </tbody>
         </table>
@@ -398,21 +398,21 @@ return results.filter((result) => result.score <= maxDistance);`}
 
         <p className={text}>
           The LLM doesn't have direct database access—it only sees what's included in the prompt.
-          This is both a limitation (context window size) and a feature (you control exactly what
-          the LLM knows).
+          This is both a limitation &#40;context window size&#41; and a feature &#40;you control exactly what
+          the LLM knows&#41;.
         </p>
 
         <h2>Why this local serverless style works</h2>
         <p className={text}>
-          The biggest advantage is production parity. Each “Lambda” has a single responsibility,
-          storage goes through S3‑style interfaces, and the gateway owns WebSocket state — exactly
+          The biggest advantage is production parity. Each &rdquo;Lambda&ldquo; has a single responsibility,
+          storage goes through S3&#45;style interfaces, and the gateway owns WebSocket state — exactly
           how a cloud deployment would be structured. That keeps your local architecture honest and
           makes the eventual cloud migration much smaller.
         </p>
 
-        <h2>What’s next</h2>
+        <h2>What&apos;s next</h2>
         <p className={text}>
-          The follow‑up article will cover the cloud deployment details — swapping local services
+          The follow&#45;up article will cover the cloud deployment details — swapping local services
           for AWS Lambda, S3, and API Gateway, and the small changes required to run at scale. The
           point of this build is that those changes stay contained, not architectural.
         </p>
