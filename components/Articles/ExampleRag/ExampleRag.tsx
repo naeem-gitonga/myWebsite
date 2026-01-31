@@ -127,16 +127,16 @@ export default function ExampleRag(): React.JSX.Element {
           system to give us the most relevant results.
         </p>
 
-        <h2>RAG thresholding (relevance control)</h2>
+        <h2>RAG thresholding &#40;relevance control&#41;</h2>
         <p className={text}>
           One of the most relavant sub-topics in an embedding-based RAG system is relevance control.
-          At first, when using the app I would get back results that were not related at all to 
+          At first, when using the app I would get back results that were not related at to 
           my query. After looking into it, I discovered that I needed to perform thresholding on the
           results returned from the vector search.
         </p>
 
         <p className={text}>
-          A top‑K vector search always returns “something,” even when it’s irrelevant. To keep
+          A <strong>top&#45;K</strong> vector search always returns “something,” even when it&apos;s irrelevant. To keep
           answers grounded, I add a similarity threshold and filter out matches that are too far
           away in embedding space.
         </p>
@@ -159,21 +159,6 @@ return results.filter((result) => result.score <= maxDistance);`}
           looser one improves recall.
         </p>
 
-        <h2>Why this local serverless style works</h2>
-        <p className={text}>
-          The biggest advantage is production parity. Each “Lambda” has a single responsibility,
-          storage goes through S3‑style interfaces, and the gateway owns WebSocket state — exactly
-          how a cloud deployment would be structured. That keeps your local architecture honest and
-          makes the eventual cloud migration much smaller.
-        </p>
-
-        <h2>What’s next</h2>
-        <p className={text}>
-          The follow‑up article will cover the cloud deployment details — swapping local services
-          for AWS Lambda, S3, and API Gateway, and the small changes required to run at scale. The
-          point of this build is that those changes stay contained, not architectural.
-        </p>
-
         <h2>Top‑K vector search (implementation details)</h2>
         <p className={text}>
           The vector store is LanceDB (<code>@lancedb/lancedb</code>), and retrieval happens in
@@ -181,14 +166,6 @@ return results.filter((result) => result.score <= maxDistance);`}
           controlled by the <code>limit</code> parameter:
         </p>
 
-        <pre className={pre}>
-          <code className={code}>
-{`const results = await table
-  .search(queryVector)
-  .limit(limit)  // <-- Top-K parameter
-  .toArray();`}
-          </code>
-        </pre>
 
         <p className={text}>Top‑K values used in this project:</p>
         <ul className={text}>
@@ -464,6 +441,21 @@ Relevant journal entries:
           The LLM doesn't have direct database access—it only sees what's included in the prompt.
           This is both a limitation (context window size) and a feature (you control exactly what
           the LLM knows).
+        </p>
+
+        <h2>Why this local serverless style works</h2>
+        <p className={text}>
+          The biggest advantage is production parity. Each “Lambda” has a single responsibility,
+          storage goes through S3‑style interfaces, and the gateway owns WebSocket state — exactly
+          how a cloud deployment would be structured. That keeps your local architecture honest and
+          makes the eventual cloud migration much smaller.
+        </p>
+
+        <h2>What’s next</h2>
+        <p className={text}>
+          The follow‑up article will cover the cloud deployment details — swapping local services
+          for AWS Lambda, S3, and API Gateway, and the small changes required to run at scale. The
+          point of this build is that those changes stay contained, not architectural.
         </p>
 
         <div className={minus10LeftMargin}>
