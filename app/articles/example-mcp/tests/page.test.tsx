@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Article, { generateMetadata } from '../page';
 
-jest.mock('@/components/ExampleMcp/ExampleMcp', () => ({
+jest.mock('@/components/Articles/ExampleMcp/ExampleMcp', () => ({
   __esModule: true,
   default: () => <div data-testid="example-mcp" />,
 }));
