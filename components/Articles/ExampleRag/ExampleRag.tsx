@@ -18,10 +18,6 @@ export default function ExampleRag(): React.JSX.Element {
     text,
     pre,
     code,
-    gatedOverlay,
-    gatedOverlayInner,
-    gatedContent,
-    gatedWrapper,
   } = styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
   // * &rdquo; &ldquo; &apos;
@@ -42,7 +38,7 @@ export default function ExampleRag(): React.JSX.Element {
             loading="eager"
             fetchPriority="high"
           />
-          <p className={altText}>Local AWS&#45;style RAG architecture.</p>
+          <p className={altText}>Example RAG architecture.</p>
         </div>
 
         <p className={text}>
