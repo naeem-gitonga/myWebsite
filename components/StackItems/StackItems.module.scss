@@ -39,6 +39,10 @@ $pictures-url: '/images/';
   @include background('dynamodb');
 }
 
+.lancedb {
+  @include background('lancedb-logo');
+}
+
 .mongo {
   @include background('mongodb');
 }
@@ -99,8 +103,24 @@ $pictures-url: '/images/';
   @include background('lambda');
 }
 
+.bedrock {
+  @include background('bedrock-logo');
+}
+
 .apigateway {
   @include background('apigateway');
+}
+
+.eventbridge {
+  @include background('eventbridge-logo');
+}
+
+.route53 {
+  @include background('route53-logo');
+}
+
+.s3 {
+  @include background('s3-logo');
 }
 
 .jwt {

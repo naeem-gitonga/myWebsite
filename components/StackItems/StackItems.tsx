@@ -34,7 +34,12 @@ const {
   cuda,
   websockets,
   grpc,
-  mcp
+  mcp,
+  bedrock,
+  eventbridge,
+  route53,
+  s3,
+  lancedb
 } = styles;
 
 type StackItemProps = {
@@ -203,5 +208,16 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="Docker" className={docker} key="docker" />,
     <StackItem text="WebSockets" className={websockets} key="websockets" />,
     <StackItem text="Lambda" className={lambda} key="lambda" />,
+  ],
+  toliveai: [
+    <StackItem text="Bedrock" className={bedrock} key="bedrock" />,
+    <StackItem text="Lambda" className={lambda} key="lambda" />,
+    <StackItem text="LanceDB" className={lancedb} key="lancedb" />,
+    <StackItem text="MongoDB" className={mongo} key="mongodb" />,
+    <StackItem text="API Gateway" className={apigateway} key="apigateway" />,
+    <StackItem text="EventBridge" className={eventbridge} key="eventbridge" />,
+    <StackItem text="Route 53" className={route53} key="route53" />,
+    <StackItem text="S3" className={s3} key="s3" />,
+    <StackItem text="Next.js" className={nextjs} key="nextjs" />,
   ],
 };

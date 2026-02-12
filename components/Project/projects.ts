@@ -20,7 +20,8 @@ export type ProjectName =
   | 'analyticstracker'
   | 'speechavatar'
   | 'examplemcp'
-  | 'examplerag';
+  | 'examplerag'
+  | 'toliveai';
 
 export type Project = {
   projectImg: string;
@@ -28,12 +29,28 @@ export type Project = {
   projectDes: string;
   projectStack: ProjectName;
   projectLink?: string;
+  secondaryLink?: string;
   gitHubLink?: string;
   target?: string;
+  secondaryTarget?: string;
   linkText?: string;
+  secondaryLinkText?: string;
 };
 
 export const projects: Project[] = [
+  {
+    title: 'ToLive AI*',
+    projectImg: '/images/tolive-architectural-diagram.webp',
+    projectDes:
+      'Your personal AI that knows you.',
+    projectStack: 'toliveai',
+    projectLink: '/articles/tolive-ai',
+    target: '_self',
+    linkText: 'Learn more',
+    secondaryLink: 'https://tolive.ai',
+    secondaryTarget: '_blank',
+    secondaryLinkText: 'Visit site',
+  },
   {
     title: 'Example RAG*',
     projectImg: '/images/example-rag-tile.webp',
