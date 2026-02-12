@@ -18,7 +18,8 @@ export const articleTileImages: Record<string, string> = {
   reactcontext: '/images/react-context.webp',
   shutdownsync: '/images/octopus-working.webp',
   regulatedcompute: '/images/frustrated-man.webp',
-  examplemcp: '/images/example-mcp.webp'
+  examplemcp: '/images/example-mcp.webp',
+  toliveai: '/images/tolive-architectural-diagram.webp'
 };
 
 export const articleTileImageFallback = articleTileImages.reactcontext;

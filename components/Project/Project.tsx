@@ -68,6 +68,17 @@ export default function Project(props: ProjectProps) {
                 </Link>
               </li>
             )}
+            {project.secondaryLink && (
+              <li>
+                <Link
+                  className={`${proLink} ${text}`}
+                  href={project.secondaryLink}
+                  target={project.secondaryTarget || '_blank'}
+                >
+                  {project.secondaryLinkText || 'Live site'}
+                </Link>
+              </li>
+            )}
             {project.gitHubLink && (
               <li>
                 <Link

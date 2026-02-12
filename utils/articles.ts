@@ -1,5 +1,13 @@
 export const articles: Article[] = [
   {
+    title: 'ToLive AI',
+    imageUrl: 'toliveai',
+    lengthInMinutes: 2,
+    publishedDate: 'Feb 12, 2026',
+    articleUrl: '/articles/tolive-ai',
+    noTarget: true,
+  },
+  {
     title: 'Embedding‑Based RAG, Locally: A Serverless‑Style Architecture You Can Ship',
     imageUrl: 'examplerag',
     lengthInMinutes: 10,

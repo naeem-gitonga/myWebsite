@@ -21,6 +21,7 @@ function generateSiteMap(prefix) {
     'microservices-part-2',
     'example-mcp',
     'example-rag',
+    'tolive-ai',
   ].map((file) => {
     return `
       <url>
