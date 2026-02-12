@@ -38,7 +38,7 @@ export default function ToLiveAi(): React.JSX.Element {
         <p className={text}>Build your personal knowledge base now!</p>
         <p className={text}>
           Stack: Bedrock, Lambda, LanceDB, API Gateway, EventBridge, Route 53,
-          S3, and Next.js.
+          S3, MongoDB, Cognito, Stripe, and Next.js.
         </p>
         <p className={text}>
           <a href="https://tolive.ai" target="_blank" rel="noreferrer">
