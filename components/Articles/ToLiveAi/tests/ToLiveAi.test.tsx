@@ -3,8 +3,8 @@ import ToLiveAi from '../ToLiveAi';
 
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: ({ src, alt }: { src: string; alt: string }) => (
-    <img src={src} alt={alt} />
+  default: (props: { src: string; alt: string } & Record<string, any>) => (
+    <img {...props} />
   ),
 }));
 
