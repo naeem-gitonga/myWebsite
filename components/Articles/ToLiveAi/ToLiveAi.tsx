@@ -72,10 +72,10 @@ export default function ToLiveAi(): React.JSX.Element {
           bucket, and Journal S3 Bucket (LanceDB).
         </p>
         <p className={text}>
-          Currently two models: amazon.titan-embed-text-v2:0 and
-          anthropic.claude-3-haiku-20240307-v1:0.
+          Currently two models: <code className={code}>amazon.titan-embed-text-v2:0</code> and
+          <code className={code}>anthropic.claude-3-haiku-20240307-v1:0</code>.
         </p>
-        <p className={text}>We use AWS cognito for auth.</p>
+        <p className={text}>We use AWS Cognito for auth.</p>
         <p className={text}>
           We use Stripe to process payments and manage subscriptions.
         </p>
