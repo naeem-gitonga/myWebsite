@@ -418,6 +418,10 @@ return results.filter((result) => result.score <= maxDistance);`}
           {' '}<Link href="/interstitial?url=https://github.com/naeem-gitonga/example-rag&where=GitHub">here</Link>.
         </p>
 
+        <p className={text}>
+         Follow-up article <Link href="/articles/tolive-ai">here</Link>.
+        </p>
+
         <div className={minus10LeftMargin}>
           <Tags tags={['RAG', 'Embedding', 'AI', 'LLM', 'Machine Learning', 'serverless']} />
         </div>

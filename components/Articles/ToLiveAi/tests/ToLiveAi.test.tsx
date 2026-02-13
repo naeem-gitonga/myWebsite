@@ -35,12 +35,12 @@ describe('ToLiveAi', () => {
 
   it('renders the hero image', () => {
     render(<ToLiveAi />);
-    const heroImage = screen.getByAltText('ToLive AI architectural diagram');
+    const heroImage = screen.getByAltText('ToLive AI hero image');
 
     expect(heroImage).toBeInTheDocument();
     expect(heroImage).toHaveAttribute(
       'src',
-      '/images/tolive-architectural-diagram.webp'
+      '/images/tolive-ai-hero.webp'
     );
   });
 

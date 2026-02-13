@@ -162,7 +162,7 @@ pre.pre {
   .code {
     width: 100%;
     text-align: left;
-    text-wrap: wrap;
+    white-space: pre;
     padding: 20px;
     overflow-x: auto;
   }

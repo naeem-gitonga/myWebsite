@@ -2,7 +2,7 @@ export const articles: Article[] = [
   {
     title: 'ToLive AI',
     imageUrl: 'toliveai',
-    lengthInMinutes: 2,
+    lengthInMinutes: 14,
     publishedDate: 'Feb 12, 2026',
     articleUrl: '/articles/tolive-ai',
     noTarget: true,
