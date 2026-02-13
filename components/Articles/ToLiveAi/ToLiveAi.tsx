@@ -210,7 +210,7 @@ export default function ToLiveAi(): React.JSX.Element {
         <h2>EventBridge for Billing</h2>
         <p className={text}>
           We use EventBridge in place of webhooks to get payment notifications
-          on each user. Stripe allows us the means through EventBridge to be
+          on our users. Stripe allows us the means through EventBridge to be
           event driven in our billing service (super important). Our billing service
           gets notified and our records concerning payment get updated.
         </p>
@@ -218,7 +218,8 @@ export default function ToLiveAi(): React.JSX.Element {
         <p className={text}>
           I did my best to keep the internals of each service as simple and as
           uniform as possible. As I continue to add features, I can see this
-          becoming more distributed and event driven. There&apos;s already a lot
+          becoming more distributed and more cases for more event driven architecture. 
+          There&apos;s already a lot
           going on. And it runs smoothly, &ldquo;crisp&rdquo; as one early user put it.
         </p>
         <p className={text}>
@@ -230,10 +231,11 @@ export default function ToLiveAi(): React.JSX.Element {
 
         <h2>Infrastructure</h2>
         <p className={text}>
-          The Infrastructure is straight forward. We&apos;re using terraform and
-          terraform cloud. We have a staging workspace and a production workspace
-          all for the same account. This works as every resource follows the
-          same naming conventions. Here&apos;s how we named this v2 Websocket gateway:
+          We&apos;re using terraform and terraform cloud with GitLab and Vercel. 
+          We have a staging workspace and a production workspace
+          all for provisioning and deploying resources in the same account. 
+          This works as every resource follows the
+          same naming convention. Here&apos;s how we named this v2 Websocket gateway:
         </p>
         <pre className={pre}>
           <code className={code}>{
@@ -249,13 +251,21 @@ export default function ToLiveAi(): React.JSX.Element {
           resources from production.
         </p>
         <p className={text}>
-          We are using roles (OIDC) to run our Terraform cloud. Instead of
-          creating key pairs we make roles that can be easily managed and
-          assumed by those that need. I have a Run role that allows terraform to
+          We use roles (OIDC) to run our Terraform cloud. Instead of
+          creating and managing key pairs we make roles that can be easily managed and
+          assumed by those that need them. I have a Run role that allows terraform to
           perform OIDC and assume the actual role that will allow us to deploy
-          our resources. This &ldquo;deploy_role&rdquo; has a policy with all the necessary
+          our resources. This Deploy role has a policy with all the necessary
           statements allowing the creation of all the resources that we need.
           This is how you perform strict access controls and least privilege.
+        </p>
+
+        <p className={text}>
+          We do the same in GitLab where we build and deploy our Docker
+          images to our AWS account. This is a great pattern for operating 
+          at scale in large organizations. Ther is no need for endless
+          amounts of key pairs to babysit. Just roles and role assumptions, 
+          that makes the ops story so much more governable.
         </p>
         <p className={text}>
           TerraformCloudRole &ndash; has a trust policy for OIDC and its only
@@ -333,8 +343,10 @@ export default function ToLiveAi(): React.JSX.Element {
           <code className={code}>.gitlab-ci.yml</code> file:
         </p>
         <pre className={pre}>
-          <code className={code}>{`stages:
+          <code className={code}>{
+`stages:
   - services
+
 ingestion:
   stage: services
   trigger:
@@ -347,8 +359,17 @@ ingestion:
         - ingestion/**/*
         - shared/**/*
       when: manual
-    - when: never`}</code>
+    - when: never
+  `
+          }</code>
         </pre>
+        <p className={text}>
+          Whenever there is a MR and we push to the staging branch with changes to shared 
+          and/or ingestion a pipeline automatically runs. When we merge to master 
+          a pipeline is queued and we have to manually start the deploy job. This 
+          makes promotion to production deliberate and easily traceable. 
+          These are things that you want in a SOC II compliant environment.
+        </p>
         <p className={text}>The corresponding child pipelines are as follows:</p>
         <pre className={pre}>
           <code className={code}>{`include:
@@ -403,8 +424,8 @@ deploy_ingestion_staging:
     - build_ingestion`}</code>
         </pre>
         <p className={text}>
-          I&apos;m sure you notice that we don&apos;t build in production. Nope, we
-          promote the one artifact if it is doing what we want to do. This cuts
+          I&apos;m sure you notice that we don&apos;t build in production. That&apos;s correct, 
+          we promote the one artifact if it is doing what we want to do. This cuts
           down on wasted build minutes and avoids drift or any inconsistencies
           with the build.
         </p>
@@ -451,15 +472,15 @@ rollback_deployment:
           </code>
         </pre>
         <p className={text}>
-          A rollback strategy is all too important. That pipeline is service
+          A rollback strategy is vital. That pipeline is service
           agnostic. And should there be a need for an audit trail, we have
           auditable proof that we rolled back.
         </p>
 
         <p className={text}>
-          That&apos;s it for now. We&apos;re going to talk monitoring next. As we get
-          traffic we&apos;ll be seeing all the things happening. I&apos;ll also go deeper
-          on some of the other security aspects that we&apos;ve taken under
+          That&apos;s it for now. We&apos;re going to talk monitoring next. As we release and see
+          traffic we&apos;ll be seeing a lot of logs. I&apos;ll also go deeper
+          on some of the other security aspects that we&apos;ve taken into
           consideration as we are the custodians of our clients private
           documents. A lot to capture, yet the world wasn&apos;t built in a day.
           Until next time. Thanks for reading and &ldquo;always be building.&rdquo;
