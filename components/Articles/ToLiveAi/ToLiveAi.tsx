@@ -184,7 +184,7 @@ export default function ToLiveAi(): React.JSX.Element {
           cookies not sent = authorizer always got <code className={code}>401</code>.
         </p>
         <p className={text}>
-          The fix: Route53 was needed to create a custom domain
+          The fix? Route53 was needed to create a custom domain
           <code className={code}>ws.staging.tolive.ai</code> for the WebSocket API Gateway. With cookies set
           to <code className={code}>Domain=.staging.tolive.ai</code>, the browser sends them to both:
         </p>
@@ -193,7 +193,7 @@ export default function ToLiveAi(): React.JSX.Element {
           <li>ws.staging.tolive.ai (WebSocket)</li>
         </ul>
         <p className={text}>
-          Why Route53 specifically (not Vercel DNS): Adding NS records for
+          Why Route53 specifically (not Vercel DNS)? Adding NS records for
           <code className={code}>ws.staging.tolive.ai</code> in Vercel broke the 
           <code className={code}>*.tolive.ai wildcard</code>
           resolution. Route53 manages the ws. subdomain zone in isolation — only
