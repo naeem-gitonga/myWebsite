@@ -6,10 +6,10 @@ import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
 export function generateMetadata(): Metadata {
-  const title = 'ToLive AI';
+  const title = 'ToLive AI: Architecture and Infrastructure';
   const description =
-    'Your personal AI that knows you. Write your thoughts, upload documents, and chat with an AI grounded in your own words.';
-  const imageUrl = getAbsoluteUrl('/images/tolive-architectural-diagram-og.webp');
+    'Learn about the architecture and infrastructure behind ToLive AI, your personal AI that knows you--using RAG. ';
+  const imageUrl = getAbsoluteUrl('/images/tolive-ai-hero-og.webp');
   const pageUrl = getAbsoluteUrl('/articles/tolive-ai');
 
   return {
@@ -24,8 +24,8 @@ export function generateMetadata(): Metadata {
       images: [
         {
           url: imageUrl,
-          width: 720,
-          height: 783,
+          width: 1200,
+          height: 627,
           alt: title,
           type: 'image/webp',
         },

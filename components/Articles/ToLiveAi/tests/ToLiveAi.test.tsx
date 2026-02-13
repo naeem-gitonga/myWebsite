@@ -3,8 +3,8 @@ import ToLiveAi from '../ToLiveAi';
 
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: ({ src, alt }: { src: string; alt: string }) => (
-    <img src={src} alt={alt} />
+  default: (props: { src: string; alt: string } & Record<string, any>) => (
+    <img {...props} />
   ),
 }));
 
@@ -35,19 +35,19 @@ describe('ToLiveAi', () => {
 
   it('renders the hero image', () => {
     render(<ToLiveAi />);
-    const heroImage = screen.getByAltText('ToLive AI architectural diagram');
+    const heroImage = screen.getByTestId('tolive-hero-image');
 
     expect(heroImage).toBeInTheDocument();
-    expect(heroImage).toHaveAttribute(
-      'src',
-      '/images/tolive-architectural-diagram.webp'
-    );
+    expect(heroImage).toHaveAttribute('src', '/images/tolive-ai-hero.webp');
   });
 
   it('renders the CTA link', () => {
     render(<ToLiveAi />);
-    const link = screen.getByRole('link', { name: 'Click here' });
+    const link = screen.getByTestId('tolive-cta-link');
 
-    expect(link).toHaveAttribute('href', 'https://tolive.ai');
+    expect(link).toHaveAttribute(
+      'href',
+      '/interstitial?url=https://tolive.ai&where=ToLive AI'
+    );
   });
 });

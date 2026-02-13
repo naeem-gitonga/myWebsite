@@ -49,7 +49,6 @@ export const projects: Project[] = [
     linkText: 'Learn more',
     secondaryLink: 'https://tolive.ai',
     secondaryTarget: '_blank',
-    secondaryLinkText: 'Visit site',
   },
   {
     title: 'Example RAG*',

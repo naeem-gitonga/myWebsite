@@ -19,7 +19,7 @@ export const articleTileImages: Record<string, string> = {
   shutdownsync: '/images/octopus-working.webp',
   regulatedcompute: '/images/frustrated-man.webp',
   examplemcp: '/images/example-mcp.webp',
-  toliveai: '/images/tolive-architectural-diagram.webp'
+  toliveai: '/images/tolive-ai-hero.webp'
 };
 
 export const articleTileImageFallback = articleTileImages.reactcontext;
