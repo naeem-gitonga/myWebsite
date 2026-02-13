@@ -24,8 +24,8 @@ export function generateMetadata(): Metadata {
       images: [
         {
           url: imageUrl,
-          width: 1536,
-          height: 1024,
+          width: 1200,
+          height: 627,
           alt: title,
           type: 'image/webp',
         },
