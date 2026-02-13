@@ -1,6 +1,6 @@
 export const articles: Article[] = [
   {
-    title: 'ToLive AI',
+    title: 'ToLive AI: Architecture and Infrastructure',
     imageUrl: 'toliveai',
     lengthInMinutes: 14,
     publishedDate: 'Feb 12, 2026',

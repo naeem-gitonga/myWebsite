@@ -22,7 +22,7 @@ export default function ToLiveAi(): React.JSX.Element {
         <ArticleDateTime imageUrl="toliveai" />
         <div className={imageWrapper}>
           <LazyImage
-            alt="ToLive AI hero image"
+            alt="Embodiment of an AI personal assistant"
             loader={imageLoader}
             src="/images/tolive-ai-hero.webp"
             width={1536}
@@ -31,7 +31,7 @@ export default function ToLiveAi(): React.JSX.Element {
             loading="eager"
             fetchPriority="high"
           />
-          <p className={altText}>ToLive AI hero image</p>
+          <p className={altText}>ToLive AI personal assistant</p>
         </div>
 
         <p className={text}>

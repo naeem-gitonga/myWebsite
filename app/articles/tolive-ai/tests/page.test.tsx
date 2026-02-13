@@ -46,6 +46,6 @@ describe('tolive-ai page', () => {
   it('generates openGraph metadata', () => {
     const metadata = generateMetadata();
     expect(metadata.openGraph?.title).toBe('ToLive AI');
-    expect(metadata.openGraph?.type).toBe('article');
+    expect((metadata.openGraph as any)?.type).toBe('article');
   });
 });
