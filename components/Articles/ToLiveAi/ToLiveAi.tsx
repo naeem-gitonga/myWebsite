@@ -42,7 +42,60 @@ export default function ToLiveAi(): React.JSX.Element {
           has 18 moving parts.
         </p>
 
-        <ol className={text}>
+        <p className={text}>
+          The thought in this design was to make something scalable, resilient,
+          and secure.
+        </p>
+        <p className={text}>
+          Currently there are three separate data stores: MongoDB, Waitlist S3
+          bucket, and Journal S3 Bucket (LanceDB).
+        </p>
+        <p className={text}>
+          <strong>Two models</strong>: <code className={code}>amazon.titan-embed-text-v2:0</code> and
+          <code className={code}>anthropic.claude-3-haiku-20240307-v1:0</code>.
+        </p>
+        <p className={text}>AWS Cognito for auth.</p>
+        <p className={text}>
+          Stripe to process payments and manage subscriptions.
+        </p>
+        <h2>From where we were, to here we are</h2>
+        <div className={imageWrapper}>
+          <LazyImage
+            alt="Local RAG architecture diagram"
+            loader={imageLoader}
+            src="/images/example-rag-architecture.webp"
+            width={745}
+            height={512}
+            style={{ objectFit: 'contain', maxWidth: '100%' }}
+            loading="eager"
+            fetchPriority="high"
+          />
+          <p className={altText}>Example RAG architecture.</p>
+        </div>
+        <p className={text}>
+          If you haven&apos;t read the Example RAG article, I recommend you 
+          do so before reading the rest of this. It goes into the architecture of 
+          the local version of this app. The live version has a different architecture. 
+          The local version is meant for learning and rapid development. The live version 
+          is meant for scale. The architectural decisions that went into 
+          the live version were made with scalability, security, and resilience in mind. 
+          The local version keeps things as simple as possible, keeeping easy development in mind.
+        </p>
+        <p className={text}>Below is the architectural diagram for the live version of ToLive AI.</p>
+        <div className={imageWrapper}>
+          <LazyImage
+            alt="System diagram for ToLive AI"
+            loader={imageLoader}
+            src="/images/tolive-architectural-diagram.webp"
+            width={720}
+            height={783}
+            style={{ objectFit: 'contain', maxWidth: '75%' }}
+            loading="eager"
+            fetchPriority="high"
+          />
+          <p className={altText}>ToLive AI architectural diagram, as of Feb 12, 2026</p>
+        </div>
+         <ol className={text}>
           <li>Client (Next.js React web app)</li>
           <li>Stripe</li>
           <li>Route53</li>
@@ -63,78 +116,29 @@ export default function ToLiveAi(): React.JSX.Element {
           <li>Journal S3 Bucket (LanceDB)</li>
         </ol>
 
-        <p className={text}>
-          The thought in this design was to make something scalable, resilient,
-          and secure. All of the *services in orange are AWS Lambdas.
-        </p>
-        <p className={text}>
-          Currently there are three separate data stores: MongoDB, Waitlist S3
-          bucket, and Journal S3 Bucket (LanceDB).
-        </p>
-        <p className={text}>
-          Currently two models: <code className={code}>amazon.titan-embed-text-v2:0</code> and
-          <code className={code}>anthropic.claude-3-haiku-20240307-v1:0</code>.
-        </p>
-        <p className={text}>We use AWS Cognito for auth.</p>
-        <p className={text}>
-          We use Stripe to process payments and manage subscriptions.
-        </p>
-        <h2>From where we were, to where we are</h2>
-        <div className={imageWrapper}>
-          <LazyImage
-            alt="Local RAG architecture diagram"
-            loader={imageLoader}
-            src="/images/example-rag-architecture.webp"
-            width={745}
-            height={512}
-            style={{ objectFit: 'contain', maxWidth: '100%' }}
-            loading="eager"
-            fetchPriority="high"
-          />
-          <p className={altText}>Example RAG architecture.</p>
-        </div>
-        <p className={text}>
-          If you haven&apos;t read the Example RAG article, I recommend you 
-          do so before reading the rest of this. It goes into the architecture of 
-          the local version of this app. The live version has a different architecture. 
-          The local version is meant for learning and development. The live version 
-          is meant for production use. The architectural decisions that went into 
-          the live version were made with scalability, security, and resilience in mind. 
-          The local version was made with simplicity and ease of development in mind.
-        </p>
-        <p className={text}>Below is the architectural diagram for the live version of ToLive AI.</p>
-        <div className={imageWrapper}>
-          <LazyImage
-            alt="System diagram for ToLive AI"
-            loader={imageLoader}
-            src="/images/tolive-architectural-diagram.webp"
-            width={720}
-            height={783}
-            style={{ objectFit: 'contain', maxWidth: '75%' }}
-            loading="eager"
-            fetchPriority="high"
-          />
-          <p className={altText}>ToLive AI architectural diagram, as of Feb 12, 2026</p>
-        </div>
+        <p className={text}><strong>*</strong>All of the services in orange are AWS Lambdas.</p>
+
         <h2>Two Gateways, Different Jobs</h2>
         <p className={text}>
           We have two API Gateways. One is for holding the websocket connection
           and the second is for all of our REST APIs. I chose to go with a v1
           API. V2 is faster and cheaper and less feature rich. However, for the
           v1 API the cost per million requests, let&apos;s say that I get
-          100,000,000 requests, my bill only goes up $250. But by that point I&apos;m
-          going to be making so much money what&apos;s $250 versus the time to
-          refactor some application code. The cost was inconsequential. This was
-          just one of the architectural decisions that had to go into some of
+          100,000,000 requests, my bill only goes up $250. But by that point 
+          I&apos;ll likely be using the the other features so the future 
+          cost is inconsequential compared to the revenue we&apos;ll be earning 
+          at that point. Pluse I won&apos;t incur the OpEx of refactoring the infrastrucure. 
+          This was just one of the architectural decisions that had to go into some of
           the technical decisions in this deployed version.
         </p>
+
 
         <h2>WebSocket Authorizer Trade-offs</h2>
         <p className={text}>
           The authorizer lambda is needed for Websocket Gateways authentication
           verification. Websockets APIs don&apos;t support JWT authorizers, like our
           REST API. I could have used the same Authorizer for my other gateway
-          as well. But here lies another trade-off conversation.
+          as well. But here lies a trade-off conversation.
         </p>
         <p className={text}>Trade-offs:</p>
         <ul className={text}>
@@ -145,20 +149,21 @@ export default function ToLiveAi(): React.JSX.Element {
           <li>
             Con: Each service (ingestion, billing, waitlist) now owns auth
             responsibility. If the validation logic has a bug, it&apos;s a security
-            issue. Mitigated by sharing the same code (shared/src/auth.ts) that
-            the WebSocket authorizer uses.
+            issue. <strong>Mitigated by using the same code <code className={code}>shared/src/auth.ts</code> that
+            the WebSocket authorizer uses.</strong>
           </li>
           <li>
             Con: Each service Lambda cold start now fetches JSON Web Key Set
-            (JWKS) once (previously only the authorizer did this). Acceptable
+            (JWKS) once (previously only the authorizer did this). <strong>Acceptable
             because JWKS is cached at module level — it&apos;s a one-time cost per
-            cold start.
+            cold start (50-100ms).</strong>
           </li>
         </ul>
+        <h3>Why the WebSocket authorizer stayed</h3>
         <p className={text}>
-          Why the WebSocket authorizer stayed: After the $connect handshake,
+          After the <code className={code}>$connect</code> handshake,
           subsequent WebSocket frames don&apos;t carry HTTP headers. The authorizer
-          must populate requestContext.authorizer.principalId at connect time so
+          must populate <code className={code}>requestContext.authorizer.principalId</code> at connect time so
           later frames can identify the user. That&apos;s an API Gateway constraint
           you can&apos;t work around.
         </p>
@@ -166,8 +171,8 @@ export default function ToLiveAi(): React.JSX.Element {
           The two gateways have separate responsibilities because the request
           types they deal with are so different in behavior and form. The
           gateway is mostly a proxy. The Websocket gateway holds the actual
-          connection. Since the lambda is ephemeral it cannot be expected to
-          hold a long lived websocket connection. And that&apos;s why the v2 Websocket
+          connection. Since the lambdas are ephemeral, they cannot be expected to
+          hold a long-lived websocket connections. And that&apos;s why the v2 Websocket
           API Gateway is necessary.
         </p>
         <p className={text}>
@@ -178,25 +183,25 @@ export default function ToLiveAi(): React.JSX.Element {
 
         <h2>Why Route53 Was Needed</h2>
         <p className={text}>
-          The problem: Browsers don&apos;t send cookies across domains. Your auth
-          cookies were set for staging.tolive.ai, but the WebSocket endpoint was
+          <strong>The problem:</strong> Browsers don&apos;t send cookies across domains. Our auth
+          cookies were set for <code className={code}>tolive.ai</code>, but the WebSocket endpoint was
           at <code className={code}>a4o7rs1e05.execute-api.us-west-1.amazonaws.com</code>. Different domain =
           cookies not sent = authorizer always got <code className={code}>401</code>.
         </p>
         <p className={text}>
-          The fix? Route53 was needed to create a custom domain
-          <code className={code}>ws.staging.tolive.ai</code> for the WebSocket API Gateway. With cookies set
-          to <code className={code}>Domain=.staging.tolive.ai</code>, the browser sends them to both:
+          <strong>The fix:</strong>Route53 was needed to create a custom domain
+          <code className={code}>ws.tolive.ai</code> for the WebSocket API Gateway. With cookies set
+          to <code className={code}>Domain=.tolive.ai</code>, the browser sends them to both:
         </p>
         <ul className={text}>
-          <li>staging.tolive.ai (frontend)</li>
-          <li>ws.staging.tolive.ai (WebSocket)</li>
+          <li>tolive.ai (frontend)</li>
+          <li>ws.tolive.ai (WebSocket)</li>
         </ul>
         <p className={text}>
           Why Route53 specifically (not Vercel DNS)? Adding NS records for
-          <code className={code}>ws.staging.tolive.ai</code> in Vercel broke the 
+          <code className={code}>ws.tolive.ai</code> in Vercel broke the 
           <code className={code}>*.tolive.ai wildcard</code>
-          resolution. Route53 manages the ws. subdomain zone in isolation — only
+          resolution. Route53 manages the <code className={code}>ws.</code> subdomain zone in isolation — only
           NS delegation records are needed in Vercel, avoiding the wildcard
           issue. Also, AWS Certificate Manager (ACM) certificate DNS validation
           is simpler when the zone lives in Route53.
@@ -470,7 +475,7 @@ rollback_deployment:
           to be directed to the live ToLive AI app.
         </p>
         <div className={minus10LeftMargin}>
-          <Tags tags={['RAG', 'Embedding', 'AI', 'LLM', 'AWS Bedrock', 'Serverless']} />
+          <Tags tags={['RAG', 'Embedding', 'AI', 'LLM', 'AWS Bedrock', 'Serverless', 'MLOps']} />
         </div>
       </div>
       <ReturnArrow />
