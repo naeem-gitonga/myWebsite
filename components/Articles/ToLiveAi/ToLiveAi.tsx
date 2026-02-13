@@ -206,7 +206,7 @@ export default function ToLiveAi(): React.JSX.Element {
         <p className={text}>
           We use EventBridge in place of webhooks to get payment notifications
           on each user. Stripe allows us the means through EventBridge to be
-          event driven in our billing (super important). Our billing service
+          event driven in our billing service (super important). Our billing service
           gets notified and our records concerning payment get updated.
         </p>
 
