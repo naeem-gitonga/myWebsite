@@ -35,19 +35,19 @@ describe('ToLiveAi', () => {
 
   it('renders the hero image', () => {
     render(<ToLiveAi />);
-    const heroImage = screen.getByAltText('ToLive AI hero image');
+    const heroImage = screen.getByTestId('tolive-hero-image');
 
     expect(heroImage).toBeInTheDocument();
-    expect(heroImage).toHaveAttribute(
-      'src',
-      '/images/tolive-ai-hero.webp'
-    );
+    expect(heroImage).toHaveAttribute('src', '/images/tolive-ai-hero.webp');
   });
 
   it('renders the CTA link', () => {
     render(<ToLiveAi />);
-    const link = screen.getByRole('link', { name: 'Click here' });
+    const link = screen.getByTestId('tolive-cta-link');
 
-    expect(link).toHaveAttribute('href', 'https://tolive.ai');
+    expect(link).toHaveAttribute(
+      'href',
+      '/interstitial?url=https://tolive.ai&where=ToLive AI'
+    );
   });
 });

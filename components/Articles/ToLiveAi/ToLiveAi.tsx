@@ -30,6 +30,7 @@ export default function ToLiveAi(): React.JSX.Element {
             style={{ objectFit: 'contain', maxWidth: '100%' }}
             loading="eager"
             fetchPriority="high"
+            data-testid="tolive-hero-image"
           />
           <p className={altText}>ToLive AI personal assistant</p>
         </div>
@@ -459,7 +460,10 @@ rollback_deployment:
         </p>
 
         <p className={text}>
-          <Link href="/interstitial?url=https://tolive.ai&where=ToLive AI">
+          <Link
+            href="/interstitial?url=https://tolive.ai&where=ToLive AI"
+            data-testid="tolive-cta-link"
+          >
             Click here
           </Link>{' '}
           to be directed to the live ToLive AI app.
