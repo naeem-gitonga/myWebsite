@@ -423,7 +423,7 @@ return results.filter((result) => result.score <= maxDistance);`}
         </p>
 
         <div className={minus10LeftMargin}>
-          <Tags tags={['RAG', 'Embedding', 'AI', 'LLM', 'Machine Learning', 'serverless']} />
+          <Tags tags={['RAG', 'Embedding', 'AI', 'LLM', 'Machine Learning', 'Serverless']} />
         </div>
       </div>
       <ReturnArrow />

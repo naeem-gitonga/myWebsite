@@ -6,13 +6,14 @@ import sharedStyles from '../../SharedCss/SharedCss.module.scss';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
 import { imageLoader } from '@/utils/imageLoader';
+import Tags from '@/components/Tags/Tags';
+
 import Link from 'next/link';
 
-export default function ToLiveAi(): React.JSX.Element {
-  const { innerWrapper, text, altText, imageWrapper, subtext, pre, code } =
-    articleStyles;
-  const { tenPadding, width75 } = sharedStyles;
+const { innerWrapper, text, altText, imageWrapper, subtext, pre, code, minus10LeftMargin } = articleStyles;
+const { tenPadding, width75 } = sharedStyles;
 
+export default function ToLiveAi(): React.JSX.Element {
   return (
     <div id="tolive-ai" className={`${tenPadding}`}>
       <PageHeader headerName="article" hideLinks={false} />
@@ -468,6 +469,9 @@ rollback_deployment:
           </Link>{' '}
           to be directed to the live ToLive AI app.
         </p>
+        <div className={minus10LeftMargin}>
+          <Tags tags={['RAG', 'Embedding', 'AI', 'LLM', 'AWS Bedrock', 'Serverless']} />
+        </div>
       </div>
       <ReturnArrow />
     </div>
