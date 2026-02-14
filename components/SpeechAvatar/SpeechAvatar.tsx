@@ -1,5 +1,7 @@
 'use client';
 
+import LazyImage from '@/components/LazyImage/LazyImage';
+import { imageLoader } from '@/utils/imageLoader';
 import articleStyles from '../Articles/Articles.module.scss';
 import sharedStyles from '../SharedCss/SharedCss.module.scss';
 
@@ -10,7 +12,7 @@ type SpeechAvatarProps = {
 export default function SpeechAvatar({
   videoUrl = 'https://d2j3yisnywcb30.cloudfront.net/pix/careers_u_demo_compressed.mp4',
 }: SpeechAvatarProps): React.JSX.Element {
-  const { innerWrapper, imageWrapper, text } = articleStyles;
+  const { innerWrapper, imageWrapper, text, altText } = articleStyles;
   const { width75 } = sharedStyles;
 
   return (
@@ -81,6 +83,24 @@ export default function SpeechAvatar({
       <ul>
         <li className={text}>Inter-service communication between Speech-to-Text, Gateway, Audio-to-Talking-Video, and Text-to-Speech services</li>
       </ul>
+
+      <h2>Architecture</h2>
+      <p className={text}>
+        Here&apos;s a look at the architecture behind the speech avatar experience.
+      </p>
+      <div className={imageWrapper}>
+        <LazyImage
+          alt="Speech avatar architecture diagram"
+          loader={imageLoader}
+          src="/images/speech-avatar-architecture.webp"
+          width={630}
+          height={792}
+          style={{ objectFit: 'contain', maxWidth: '70%' }}
+          loading="eager"
+          fetchPriority="high"
+        />
+        <p className={altText}>Speech avatar architecture diagram.</p>
+      </div>
 
     </div>
   );
