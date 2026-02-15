@@ -8,9 +8,11 @@ type ModalProps = {
   isOpen: boolean;
   children: unknown;
   setModalOpen: () => void;
+  wrapperClassName?: string;
+  containerClassName?: string;
 };
 export default function Modal(props: ModalProps): React.JSX.Element {
-  const { isOpen, children, setModalOpen, hideClose } = props;
+  const { isOpen, children, setModalOpen, hideClose, wrapperClassName, containerClassName } = props;
   const { modalWrapper, container, closeButton, closeButtonOutterWrapper, slideIn, slideOut } =
     styles;
   const [isClosing, setIsClosing] = useState(false);
@@ -81,12 +83,16 @@ export default function Modal(props: ModalProps): React.JSX.Element {
     return <></>;
   }
 
-  const containerClass = isSmallScreen
+  const containerBaseClass = isSmallScreen
     ? `${container} ${isClosing ? slideOut : slideIn}`
     : container;
+  const containerClass = containerClassName
+    ? `${containerBaseClass} ${containerClassName}`
+    : containerBaseClass;
+  const wrapperClass = wrapperClassName ? `${modalWrapper} ${wrapperClassName}` : modalWrapper;
 
   return (
-    <div id="modal" className={modalWrapper}>
+    <div id="modal" className={wrapperClass}>
       {isSmallScreen && !hideClose && (
         <div className={closeButtonOutterWrapper}>
           <div className={closeButton} onClick={handleClose}>
