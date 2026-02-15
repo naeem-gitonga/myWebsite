@@ -5,7 +5,11 @@ import { useEffect, useState, type KeyboardEvent as ReactKeyboardEvent, type Mou
 import Modal from '@/components/Modal/Modal';
 import styles from '@/components/Modal/Modal.module.scss';
 
-export default function LazyImage({ loading = 'lazy', onClick, style, 'data-testid': dataTestId, ...props }: ImageProps) {
+type LazyImageProps = ImageProps & {
+  'data-testid'?: string;
+};
+
+export default function LazyImage({ loading = 'lazy', onClick, style, 'data-testid': dataTestId, ...props }: LazyImageProps) {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     if (!isOpen) {
