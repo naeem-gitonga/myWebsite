@@ -107,4 +107,25 @@ describe('Modal', () => {
     const modalContainer = container.querySelector('#modal > div:last-child');
     expect(modalContainer?.className).toContain('slideIn');
   });
+
+  it('applies wrapper and container class overrides when provided', async () => {
+    setWindowWidth(MEDIA_SM + 200);
+    const { container } = render(
+      <Modal
+        isOpen
+        hideClose={false}
+        setModalOpen={jest.fn()}
+        wrapperClassName="test-wrapper"
+        containerClassName="test-container"
+      >
+        <div>content</div>
+      </Modal>
+    );
+
+    await screen.findByText('content');
+    const modalWrapper = container.querySelector('#modal');
+    const modalContainer = container.querySelector('#modal > div:last-child');
+    expect(modalWrapper?.className).toContain('test-wrapper');
+    expect(modalContainer?.className).toContain('test-container');
+  });
 });

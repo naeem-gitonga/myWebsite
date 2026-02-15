@@ -6,6 +6,7 @@ import { imageLoader } from '@/utils/imageLoader';
 import PageHeader from '../PageHeader/PageHeader';
 import styles from './AboutMe.module.scss';
 import IdleLoopHero from '@/components/IdleLoopHero/IdleLoopHero';
+import LazyImage from '../LazyImage/LazyImage';
 
 export default function AboutMe(): React.JSX.Element {
   const {
@@ -123,7 +124,7 @@ export default function AboutMe(): React.JSX.Element {
           Enjoy and thanks for dropping by!
         </p>
         <div className={`${imageWrapper} ${styles.fullWidthImage}`}>
-          <Image
+          <LazyImage
             alt="Flying a Cessna in the cockpit"
             loader={imageLoader}
             src="/images/me-flying-cessna.webp"
