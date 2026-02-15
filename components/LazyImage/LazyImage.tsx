@@ -5,7 +5,7 @@ import { useEffect, useState, type KeyboardEvent as ReactKeyboardEvent, type Mou
 import Modal from '@/components/Modal/Modal';
 import styles from '@/components/Modal/Modal.module.scss';
 
-export default function LazyImage({ loading = 'lazy', onClick, style, ...props }: ImageProps) {
+export default function LazyImage({ loading = 'lazy', onClick, style, 'data-testid': dataTestId, ...props }: ImageProps) {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     if (!isOpen) {
@@ -52,7 +52,7 @@ export default function LazyImage({ loading = 'lazy', onClick, style, ...props }
         aria-label={props.alt ? `Open ${props.alt}` : 'Open image'}
         style={{ display: 'inline-block', cursor: 'zoom-in' }}
       >
-        <Image loading={loading} {...props} style={{ ...style }} />
+        <Image loading={loading} {...props} style={{ ...style }} data-testid={dataTestId || 'lazy-image-thumbnail'} />
       </span>
       <Modal
         isOpen={isOpen}
@@ -90,6 +90,7 @@ export default function LazyImage({ loading = 'lazy', onClick, style, ...props }
               sizes="(max-width: 900px) 100vw, 900px"
               loading="eager"
               style={{ objectFit: 'contain', objectPosition: 'center' }}
+              data-testid={dataTestId ? `${dataTestId}-modal` : 'lazy-image-modal'}
             />
           </div>
         </div>

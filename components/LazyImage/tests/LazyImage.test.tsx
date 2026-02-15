@@ -34,18 +34,20 @@ jest.mock('@/components/Modal/Modal', () => ({
 
 describe('LazyImage', () => {
   it('renders with default lazy loading', () => {
-    const { getByAltText } = render(
-      <LazyImage src="/image.png" alt="test" width={10} height={10} />
-    );
-    const img = getByAltText('test') as HTMLImageElement;
+    render(<LazyImage src="/image.png" alt="test" width={10} height={10} />);
+    const img = screen.getByTestId('lazy-image-thumbnail') as HTMLImageElement;
     expect(img.getAttribute('loading')).toBe('lazy');
   });
 
   it('opens the modal on click and renders the full-view image', () => {
     render(<LazyImage src="/image.png" alt="modal-test" width={10} height={10} />);
-    const img = screen.getByAltText('modal-test');
-    fireEvent.click(img);
-    expect(screen.getByTestId('modal')).toBeInTheDocument();
-    expect(screen.getByAltText('modal-test')).toBeInTheDocument();
+    const thumbnail = screen.getByTestId('lazy-image-thumbnail');
+    fireEvent.click(thumbnail);
+
+    const modal = screen.getByTestId('modal');
+    expect(modal).toBeInTheDocument();
+
+    const modalImage = screen.getByTestId('lazy-image-modal');
+    expect(modalImage).toBeInTheDocument();
   });
 });
