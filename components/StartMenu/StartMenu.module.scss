@@ -12,7 +12,9 @@
 }
 
 .menuLink {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 10px 20px;
   font-size: 1.2rem;
   color: #333;
@@ -23,4 +25,17 @@
   &:hover {
     background-color: #f0f0f0;
   }
+}
+
+.cartIcon {
+  position: relative;
+  a {
+    position: relative;
+    top: 2px;
+    left: 0px;
+  }
+}
+
+.contact {
+  font-weight: bold;
 }
