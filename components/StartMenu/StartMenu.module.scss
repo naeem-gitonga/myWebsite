@@ -28,9 +28,14 @@
 }
 
 .cartIcon {
-  width: 18px;
-  height: 18px;
+  position: relative;
+  a {
+    position: relative;
+    top: 2px;
+    left: 0px;
+  }
 }
+
 .contact {
   font-weight: bold;
 }

@@ -7,7 +7,7 @@ type StartMenuProps = {
   onClose: () => void;
 };
 
-const { menu, menuList, menuLink, contact } = styles;
+const { menu, menuList, menuLink, contact, cartIcon } = styles;
 
 export default function StartMenu({ onClose }: StartMenuProps): React.JSX.Element {
   const envConfig = useEnvConfig();
@@ -51,7 +51,7 @@ export default function StartMenu({ onClose }: StartMenuProps): React.JSX.Elemen
         <li>
           <Link href="/cart" onClick={onClose} className={menuLink}>
             cart
-            <ShoppingCartIcon unsetPosition={true} fill="black" />
+            <div className={cartIcon}><ShoppingCartIcon unsetPosition={true} fill="black" /></div>
           </Link>
         </li>
         <li>
