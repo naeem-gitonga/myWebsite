@@ -2,6 +2,12 @@ import {
   PolicyStatement,
 } from 'aws-cdk-lib/aws-iam';
 
+export const sesSendPermission = new PolicyStatement({
+  sid: 'SESSendEmail',
+  actions: ['ses:SendEmail', 'ses:SendRawEmail'],
+  resources: ['*'],
+});
+
 export const policyStatementJng = new PolicyStatement({
     sid: 'S3GetObjectJng',
     actions: ['s3:GetObject', 's3:PutObject', 's3:ListBucket'],

@@ -23,7 +23,7 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "types": ["node"],
+    "types": ["node", "jest"],
     "typeRoots": ["./node_modules/@types", "./node_modules/bcryptjs"]
   },
   "include": ["bin/**/*.ts", "lib/**/*.ts"],

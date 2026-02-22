@@ -28,6 +28,6 @@ describe('Test for constructs created', (): void => {
     const template = Template.fromStack(stack);
     // fs.writeFileSync('template.json', JSON.stringify(template), 'utf-8')
     template.hasResourceProperties('AWS::IAM::Role', {});
-    template.resourceCountIs('AWS::IAM::Role', 2);
+    template.resourceCountIs('AWS::IAM::Role', 3);
   });
 });

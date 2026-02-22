@@ -33,3 +33,8 @@ export enum PaypalRoutes {
   order = '/api/jngpaypal/order',
   orderstaging = '/api/jngpaypal-staging/order',
 }
+
+export enum ContactRoutes {
+  contact = '/api/ngcontact',
+  contactstaging = '/api/ngcontact-staging',
+}

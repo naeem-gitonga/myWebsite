@@ -18,7 +18,7 @@ import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { Duration, RemovalPolicy } from 'aws-cdk-lib';
 import { LogGroup } from 'aws-cdk-lib/aws-logs';
 import { Queue } from 'aws-cdk-lib/aws-sqs';
-import { policyStatementJng, policyStatementRb, s3Permission } from './iam-roles';
+import { policyStatementJng, policyStatementRb, s3Permission, sesSendPermission } from './iam-roles';
 
 export default class BackendService extends Construct {
   constructor(scope: Construct, id: string) {
@@ -104,6 +104,32 @@ export default class BackendService extends Construct {
       functions[nameLowerCased] = lambda;
     });
 
+    const removalPolicy = isProd ? RemovalPolicy.RETAIN : RemovalPolicy.DESTROY;
+
+    // * create contact lambda (shares the same zip artifact as paypal)
+    const contactFunctionName = `NgContact${isProd ? '' : '-staging'}`;
+    const contactFunctionNameLowercased = contactFunctionName.toLowerCase();
+
+    const contactLambda = new Function(this, contactFunctionName, {
+      functionName: contactFunctionNameLowercased,
+      runtime: Runtime.NODEJS_22_X,
+      handler: 'handler.contact',
+      environment: {
+        ORIGIN: process.env.ORIGIN as string,
+      },
+      timeout: Duration.minutes(1),
+      code: Code.fromAsset(
+        process.env.ARTIFACT_PATH ??
+          path.join(__dirname, '../../apis/.serverless/jngpaypal.zip')
+      ),
+    });
+    contactLambda.addToRolePolicy(sesSendPermission);
+
+    new LogGroup(this, 'ng-contact-log-group', {
+      logGroupName: `/aws/lambda/${contactFunctionNameLowercased}`,
+      removalPolicy,
+    });
+
     // const deployStage = process.env.DEPLOY_STAGE; //? I May bring this back to conditionally set the condition to use my IP Address
     let referrers = [
       'https://www.staging.naeemgitonga.com/*',
@@ -136,14 +162,16 @@ export default class BackendService extends Construct {
           effect: Effect.ALLOW,
           principals: [new StarPrincipal()],
           actions: ['execute-api:Invoke'],
-          resources: [`arn:aws:execute-api:*:*:*/prod/*/api/jngpaypal*`],
+          resources: [
+            `arn:aws:execute-api:*:*:*/prod/*/api/jngpaypal*`,
+            `arn:aws:execute-api:*:*:*/prod/POST/api/ngcontact${isProd ? '' : '-staging'}`,
+          ],
           conditions,
         }),
       ],
     });
 
     // * create log group for backend api gateway logs
-    const removalPolicy = isProd ? RemovalPolicy.RETAIN : RemovalPolicy.DESTROY;
     const prdLogGroup = new LogGroup(this, 'ng-backend-log-group', {
       removalPolicy,
       logGroupName: `ng-backend-log-group${isProd ? '' : '-staging'}`,
@@ -192,5 +220,9 @@ export default class BackendService extends Construct {
         ); // * now add all RESTful verbs
       });
     });
+
+    // * add contact route
+    const contactRoutes = basePath.addResource(contactFunctionNameLowercased);
+    contactRoutes.addMethod('POST', new LambdaIntegration(contactLambda));
   }
 }

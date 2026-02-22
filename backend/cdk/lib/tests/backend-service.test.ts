@@ -75,6 +75,7 @@ jest.mock('../iam-roles', () => ({
   policyStatementJng: { jng: true },
   policyStatementRb: { rb: true },
   s3Permission: { s3: true },
+  sesSendPermission: { ses: true },
 }));
 
 const { Construct } = jest.requireMock('constructs') as {
@@ -124,6 +125,8 @@ describe('BackendService', () => {
 
     expect(Code.fromAsset).toHaveBeenCalledWith('/tmp/fake.zip');
     expect(lambdaInstances[0].props.functionName).toBe('jngpaypal-staging');
+    expect(lambdaInstances[1].props.functionName).toBe('ngcontact-staging');
+    expect(lambdaInstances[1].props.handler).toBe('handler.contact');
     expect(LogGroup).toHaveBeenCalledWith(
       expect.anything(),
       'ng-backend-log-group',
@@ -139,6 +142,9 @@ describe('BackendService', () => {
       'https://staging.naeemgitonga.com/*',
       'https://staging.naeemgitonga.com/',
     ]);
+    expect(apiPolicy.resources).toContain(
+      'arn:aws:execute-api:*:*:*/prod/POST/api/ngcontact-staging'
+    );
   });
 
   it('configures production defaults', () => {
@@ -148,6 +154,7 @@ describe('BackendService', () => {
     new BackendService(scope, 'Service');
 
     expect(lambdaInstances[0].props.functionName).toBe('jngpaypal');
+    expect(lambdaInstances[1].props.functionName).toBe('ngcontact');
     expect(LogGroup).toHaveBeenCalledWith(
       expect.anything(),
       'ng-backend-log-group',
@@ -163,5 +170,8 @@ describe('BackendService', () => {
       'https://naeemgitonga.com/',
       'https://naeemgitonga.com/*',
     ]);
+    expect(apiPolicy.resources).toContain(
+      'arn:aws:execute-api:*:*:*/prod/POST/api/ngcontact'
+    );
   });
 });

@@ -36,8 +36,7 @@ test_frontend:
       when: never
     - if: '$CI_COMMIT_BRANCH == "staging"'
       changes: *front_end_changes
-    - changes: *back_end_changes
-      when: never
+    - when: never
   script:
     - npm ci
     - npm test -- --runInBand
@@ -49,8 +48,7 @@ deploy_frontend_staging:
       when: never
     - if: '$CI_COMMIT_BRANCH == "staging"'
       changes: *front_end_changes
-    - changes: *back_end_changes
-      when: never
+    - when: never
   script:
     - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/cGxMEW1fLT
 
@@ -62,8 +60,7 @@ publish:
       when: never
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes: *front_end_changes
-    - changes: *back_end_changes
-      when: never
+    - when: never
   script:
     - npm install @semantic-release/gitlab @semantic-release/commit-analyzer @semantic-release/release-notes-generator conventional-changelog-conventionalcommits
     - GITLAB_TOKEN=$PROJECT_RELEASE_TOKEN npx semantic-release@25
@@ -75,7 +72,6 @@ deploy_frontend_production:
       when: never
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes: *front_end_changes
-    - changes: *back_end_changes
-      when: never
+    - when: never
   script:
     - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/k4eiYJ4iju
