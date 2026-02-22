@@ -190,6 +190,8 @@ export default class BackendService extends Construct {
           stageName: '',
           metricsEnabled: true,
           loggingLevel: MethodLoggingLevel.INFO,
+          throttlingRateLimit: 2,
+          throttlingBurstLimit: 5,
           accessLogFormat: AccessLogFormat.jsonWithStandardFields(),
           accessLogDestination: new LogGroupLogDestination(prdLogGroup),
         },
