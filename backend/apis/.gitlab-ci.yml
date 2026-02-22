@@ -62,23 +62,13 @@ build_staging:
   stage: build
   environment: staging
   rules:
-    - changes:
-        - app/**/*
-        - components/**/*
-        - hooks/**/*
-        - pages/**/*
-        - utils/**/*
-        - next.config.js
-        - package.json
-        - vercel.json
-        - .gitlab-ci.yml
-      when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
     - if: '$CI_COMMIT_BRANCH == "staging"'
       changes:
         - backend/apis/**/*
         - backend/cdk/**/*
+    - when: never
   artifacts:
     expose_as: 'backend-build-staging'
     name: 'backend-build-staging'
@@ -111,24 +101,13 @@ deploy_staging_backend:
   stage: deploy
   environment: staging
   rules:
-    - changes:
-        - app/**/*
-        - components/**/*
-        - hooks/**/*
-        - pages/**/*
-        - utils/**/*
-        - next.config.js
-        - package.json
-        - vercel.json
-        - .gitlab-ci.yml
-        - .releaserc
-      when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
     - if: '$CI_COMMIT_BRANCH == "staging"'
       changes:
         - backend/apis/**/*
         - backend/cdk/**/*
+    - when: never
   dependencies:
     - build_staging
   script:
@@ -175,21 +154,13 @@ build_production:
   stage: build
   environment: production
   rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes:
         - backend/apis/**/*
         - backend/cdk/**/*
-    - changes:
-        - $PWD/app/**/*
-        - $PWD/components/**/*
-        - $PWD/hooks/**/*
-        - $PWD/pages/**/*
-        - $PWD/utils/**/*
-        - $PWD/next.config.js
-        - $PWD/package.json
-        - $PWD/vercel.json
-        - $PWD/.gitlab-ci.yml
-      when: never
+    - when: never
   artifacts:
     expose_as: 'backend-build-production'
     name: 'backend-build-production'
@@ -225,23 +196,13 @@ deploy_production_backend:
   stage: deploy
   environment: production
   rules:
-    - changes:
-        - $PWD/app/**/*
-        - $PWD/components/**/*
-        - $PWD/hooks/**/*
-        - $PWD/pages/**/*
-        - $PWD/utils/**/*
-        - $PWD/next.config.js
-        - $PWD/package.json
-        - $PWD/vercel.json
-        - $PWD/.gitlab-ci.yml
-      when: never
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
     - if: '$CI_COMMIT_BRANCH == "master"'
       changes:
         - backend/apis/**/*
         - backend/cdk/**/*
+    - when: never
   dependencies:
     - build_production
   script:

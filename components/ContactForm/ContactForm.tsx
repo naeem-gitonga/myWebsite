@@ -1,20 +1,56 @@
 'use client';
+// contact lambda
+import { useState, FormEvent } from 'react';
 import styles from './ContactForm.module.scss';
 import PageHeader from '../PageHeader/PageHeader';
+import useEnvConfig from '@/hooks/useEnvConfig';
+
+type Status = 'idle' | 'loading' | 'success' | 'error';
 
 export default function ContactForm(): React.JSX.Element {
   const { contactWrapper, contactForm, form, fieldGroup, input, message, submit, label } =
     styles;
 
+  const [status, setStatus] = useState<Status>('idle');
+  const envConfig = useEnvConfig();
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus('loading');
+    const formData = new FormData(e.currentTarget);
+    try {
+      const res = await fetch(envConfig.FORM_URL as string, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message'),
+        }),
+      });
+      if (!res.ok) throw new Error('Failed');
+      setStatus('success');
+    } catch {
+      setStatus('error');
+    }
+  }
+
+  if (status === 'success') {
+    return (
+      <div id="contact" className={contactWrapper}>
+        <PageHeader headerName="contactMe" hideLinks={false} />
+        <div className={contactForm}>
+          <p>Your message was sent! I&apos;ll be in touch.</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div id="contact" className={contactWrapper}>
       <PageHeader headerName="contactMe" hideLinks={false} />
       <div className={contactForm}>
-        <form
-          className={form}
-          action={process.env.NEXT_PUBLIC_FORM_URL}
-          method="POST"
-        >
+        <form className={form} onSubmit={handleSubmit}>
           <div className={fieldGroup}>
             <label className={label} htmlFor="contact-form-name">
               Your Name
@@ -36,7 +72,7 @@ export default function ContactForm(): React.JSX.Element {
             <input
               className={input}
               type="email"
-              name="_replyto"
+              name="email"
               id="contact-form-email"
               placeholder="grace@example.com"
               required
@@ -55,7 +91,14 @@ export default function ContactForm(): React.JSX.Element {
             />
           </div>
 
-          <input className={submit} type="submit" value="Send message" />
+          {status === 'error' && (<p>Something went wrong. Please try again.</p>)}
+
+          <input
+            className={submit}
+            type="submit"
+            value={status === 'loading' ? 'Sending...' : 'Send message'}
+            disabled={status === 'loading'}
+          />
         </form>
       </div>
     </div>

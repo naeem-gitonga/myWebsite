@@ -13,6 +13,7 @@ export type EnvConfig = {
   PAYPAL_API_URL: string | undefined;
 };
 
+// env config
 const DEFAULT_SITE_URL = 'https://www.naeemgitonga.com';
 
 let cachedConfig: EnvConfig | {};
