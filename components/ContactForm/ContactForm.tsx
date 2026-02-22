@@ -16,6 +16,7 @@ export default function ContactForm(): React.JSX.Element {
     setStatus('loading');
     const formData = new FormData(e.currentTarget);
     try {
+      console.log('Form URL: ', process.env.NEXT_PUBLIC_FORM_URL);
       const res = await fetch(process.env.NEXT_PUBLIC_FORM_URL as string, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
