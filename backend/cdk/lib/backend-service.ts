@@ -192,6 +192,12 @@ export default class BackendService extends Construct {
           loggingLevel: MethodLoggingLevel.INFO,
           accessLogFormat: AccessLogFormat.jsonWithStandardFields(),
           accessLogDestination: new LogGroupLogDestination(prdLogGroup),
+          methodOptions: {
+            [`~1api~1ngcontact${isProd ? '' : '-staging'}/POST`]: {
+              throttlingBurstLimit: 5,
+              throttlingRateLimit: 2,
+            },
+          },
         },
         policy: apiResourcePolicy,
         defaultCorsPreflightOptions: {
