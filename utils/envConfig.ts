@@ -26,7 +26,7 @@ export function buildEnvConfig(): EnvConfig {
     SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL,
     SHOW_SHOP: process.env.NEXT_PUBLIC_SHOW_SHOP,
     SHOW_CONSULT: process.env.NEXT_PUBLIC_SHOW_CONSULT,
-    FORM_URL: process.env.NEXT_PUBLIC_FORM_URL,
+    FORM_URL: process.env.FORM_URL,
     PROMO_BANNER_TEXT: process.env.NEXT_PUBLIC_PROMO_BANNER_TEXT,
     SHOW_PROMO_BANNER: process.env.NEXT_PUBLIC_SHOW_PROMO_BANNER,
     STAGE: process.env.NEXT_PUBLIC_STAGE,

@@ -32,7 +32,7 @@ describe('envConfig', () => {
       NEXT_PUBLIC_SITE_URL: 'https://example.com',
       NEXT_PUBLIC_SHOW_SHOP: 'true',
       NEXT_PUBLIC_SHOW_CONSULT: 'true',
-      NEXT_PUBLIC_FORM_URL: 'https://form.test',
+      FORM_URL: 'https://form.test',
       NEXT_PUBLIC_PROMO_BANNER_TEXT: 'hello',
       NEXT_PUBLIC_SHOW_PROMO_BANNER: 'true',
       NEXT_PUBLIC_STAGE: 'prod',
