@@ -12,11 +12,11 @@ export default function ContactForm(): React.JSX.Element {
     styles;
 
   const [status, setStatus] = useState<Status>('idle');
+  const envConfig = useEnvConfig();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus('loading');
-    const envConfig = useEnvConfig()
     const formData = new FormData(e.currentTarget);
     try {
       console.log('Form URL: ', envConfig.FORM_URL);

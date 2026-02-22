@@ -1,11 +1,21 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import ContactForm from '../ContactForm';
 
+const mockUseEnvConfig = jest.fn();
+
+jest.mock('@/hooks/useEnvConfig', () => ({
+  __esModule: true,
+  default: () => mockUseEnvConfig(),
+}));
+
 global.fetch = jest.fn();
+
+const MOCK_FORM_URL = 'https://example.execute-api.us-east-1.amazonaws.com/prod/api/ngcontact-staging';
 
 describe('ContactForm', () => {
   beforeEach(() => {
     (global.fetch as jest.Mock).mockReset();
+    mockUseEnvConfig.mockReturnValue({ FORM_URL: MOCK_FORM_URL });
   });
 
   it('renders all form fields', () => {
@@ -56,7 +66,7 @@ describe('ContactForm', () => {
 
     await waitFor(() => {
       const [url, options] = (global.fetch as jest.Mock).mock.calls[0];
-      expect(url).toBe(process.env.NEXT_PUBLIC_FORM_URL);
+      expect(url).toBe(MOCK_FORM_URL);
       expect(options.method).toBe('POST');
       expect(JSON.parse(options.body)).toEqual({
         name: 'Ada',
