@@ -1,7 +1,9 @@
 'use client';
+// contact lambda
 import { useState, FormEvent } from 'react';
 import styles from './ContactForm.module.scss';
 import PageHeader from '../PageHeader/PageHeader';
+import useEnvConfig from '@/hooks/useEnvConfig';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -14,10 +16,11 @@ export default function ContactForm(): React.JSX.Element {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus('loading');
+    const envConfig = useEnvConfig()
     const formData = new FormData(e.currentTarget);
     try {
-      console.log('Form URL: ', process.env.NEXT_PUBLIC_FORM_URL);
-      const res = await fetch(process.env.NEXT_PUBLIC_FORM_URL as string, {
+      console.log('Form URL: ', envConfig.FORM_URL);
+      const res = await fetch(envConfig.FORM_URL as string, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
