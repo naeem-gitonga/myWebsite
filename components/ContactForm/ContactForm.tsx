@@ -88,9 +88,7 @@ export default function ContactForm(): React.JSX.Element {
             />
           </div>
 
-          {status === 'error' && (
-            <p>Something went wrong. Please try again.</p>
-          )}
+          {status === 'error' && (<p>Something went wrong. Please try again.</p>)}
 
           <input
             className={submit}
