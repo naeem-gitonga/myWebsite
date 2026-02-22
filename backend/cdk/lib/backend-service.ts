@@ -162,14 +162,11 @@ export default class BackendService extends Construct {
           effect: Effect.ALLOW,
           principals: [new StarPrincipal()],
           actions: ['execute-api:Invoke'],
-          resources: [`arn:aws:execute-api:*:*:*/prod/*/api/jngpaypal*`],
+          resources: [
+            `arn:aws:execute-api:*:*:*/prod/*/api/jngpaypal*`,
+            `arn:aws:execute-api:*:*:*/prod/POST/api/ngcontact${isProd ? '' : '-staging'}`,
+          ],
           conditions,
-        }),
-        new PolicyStatement({
-          effect: Effect.ALLOW,
-          principals: [new StarPrincipal()],
-          actions: ['execute-api:Invoke'],
-          resources: [`arn:aws:execute-api:*:*:*/prod/POST/api/ngcontact${isProd ? '' : '-staging'}`],
         }),
       ],
     });
