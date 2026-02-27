@@ -22,11 +22,11 @@ export default function IdleLoopHero({
         muted
         playsInline
         preload={preload}
-        poster="/images/idle-loop-poster.webp"
+        poster="/images/idle-loop-poster-new.webp"
         aria-label="Idle loop animation"
       >
-        <source src="/videos/idle-loop.webm" type="video/webm" />
-        <source src="/videos/idle-loop.mp4" type="video/mp4" />
+        <source src="/videos/idle-loop-new.webm" type="video/webm" />
+        <source src="/videos/idle-loop-new.mp4" type="video/mp4" />
       </video>
     </div>
   );

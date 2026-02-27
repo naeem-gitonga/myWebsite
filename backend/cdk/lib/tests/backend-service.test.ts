@@ -135,15 +135,21 @@ describe('BackendService', () => {
         removalPolicy: 'destroy',
       })
     );
-    const apiPolicy = policyStatements.find((statement) => statement.conditions);
-    expect(apiPolicy.conditions.StringEquals['aws:Referer']).toEqual([
+    const paypalPolicy = policyStatements.find((statement) => statement.conditions);
+    expect(paypalPolicy.conditions.StringEquals['aws:Referer']).toEqual([
       'https://www.staging.naeemgitonga.com/*',
       'https://www.staging.naeemgitonga.com/',
       'https://staging.naeemgitonga.com/*',
       'https://staging.naeemgitonga.com/',
     ]);
-    expect(apiPolicy.resources).toContain(
-      'arn:aws:execute-api:*:*:*/prod/POST/api/ngcontact-staging'
+    expect(paypalPolicy.resources).toContain(
+      'arn:aws:execute-api:*:*:*/prod/*/api/jngpaypal*'
+    );
+    const contactPolicy = policyStatements.find(
+      (statement) => !statement.conditions && statement.resources?.some((r: string) => r.includes('ngcontact'))
+    );
+    expect(contactPolicy.resources).toContain(
+      'arn:aws:execute-api:*:*:*/prod/*/api/ngcontact-staging'
     );
   });
 
@@ -163,15 +169,21 @@ describe('BackendService', () => {
         removalPolicy: 'retain',
       })
     );
-    const apiPolicy = policyStatements.find((statement) => statement.conditions);
-    expect(apiPolicy.conditions.StringEquals['aws:Referer']).toEqual([
+    const paypalPolicy = policyStatements.find((statement) => statement.conditions);
+    expect(paypalPolicy.conditions.StringEquals['aws:Referer']).toEqual([
       'https://www.naeemgitonga.com/*',
       'https://www.naeemgitonga.com/',
       'https://naeemgitonga.com/',
       'https://naeemgitonga.com/*',
     ]);
-    expect(apiPolicy.resources).toContain(
-      'arn:aws:execute-api:*:*:*/prod/POST/api/ngcontact'
+    expect(paypalPolicy.resources).toContain(
+      'arn:aws:execute-api:*:*:*/prod/*/api/jngpaypal*'
+    );
+    const contactPolicy = policyStatements.find(
+      (statement) => !statement.conditions && statement.resources?.some((r: string) => r.includes('ngcontact'))
+    );
+    expect(contactPolicy.resources).toContain(
+      'arn:aws:execute-api:*:*:*/prod/*/api/ngcontact'
     );
   });
 });
