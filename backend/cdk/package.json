@@ -46,7 +46,7 @@
     },
     "dependencies": {
         "@babel/preset-typescript": "^7.28.5",
-        "aws-cdk-lib": "^2.232.2",
+        "aws-cdk-lib": "^2.240.0",
         "constructs": "^10.4.4",
         "dotenv": "^17.2.3",
         "source-map-support": "^0.5.21"
