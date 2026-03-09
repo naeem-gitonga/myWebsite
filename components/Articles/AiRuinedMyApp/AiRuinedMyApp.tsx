@@ -331,6 +331,30 @@ export default function AiRuinedMyApp(): React.JSX.Element {
           . It&apos;s waiting for you.
         </p>
 
+
+        <div className={imageWrapper}>
+          <video
+            autoPlay
+            muted
+            controls
+            loop
+            controlsList="nodownload noplaybackrate"
+            disablePictureInPicture
+            playsInline
+            preload="auto"
+            style={{ maxWidth: '400px', width: '100%', display: 'block' }}
+          >
+            <source src="/videos/cat-driving-dog-crazy.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p className={text}>
+            I figured, if you made it this far you deserve a laugh.
+            Don't be this guy above. Never let Claude drive.
+            Always keep your hands on the
+            wheel and your eyes on the road ahead.
+        </p>
+
         <div className={minus10LeftMargin}>
           <Tags
             tags={[
