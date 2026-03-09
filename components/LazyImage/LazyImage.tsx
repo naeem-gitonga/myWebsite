@@ -7,9 +7,10 @@ import styles from '@/components/Modal/Modal.module.scss';
 
 type LazyImageProps = ImageProps & {
   'data-testid'?: string;
+  disableZoom?: boolean;
 };
 
-export default function LazyImage({ loading = 'lazy', onClick, style, 'data-testid': dataTestId, ...props }: LazyImageProps) {
+export default function LazyImage({ loading = 'lazy', onClick, style, 'data-testid': dataTestId, disableZoom = false, ...props }: LazyImageProps) {
   const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     if (!isOpen) {
@@ -44,6 +45,10 @@ export default function LazyImage({ loading = 'lazy', onClick, style, 'data-test
   }
   if ('height' in modalImageProps) {
     delete (modalImageProps as { height?: number }).height;
+  }
+
+  if (disableZoom) {
+    return <Image loading={loading} {...props} style={{ ...style }} data-testid={dataTestId || 'lazy-image-thumbnail'} />;
   }
 
   return (

@@ -1,5 +1,13 @@
 export const articles: Article[] = [
   {
+    title: 'AI Ruined My App',
+    imageUrl: 'airuinedmyapp',
+    lengthInMinutes: 13,
+    publishedDate: 'Mar 9, 2026',
+    articleUrl: '/articles/ai-ruined-my-app',
+    noTarget: true,
+  },
+  {
     title: 'ToLive AI: Architecture and Infrastructure',
     imageUrl: 'toliveai',
     lengthInMinutes: 14,

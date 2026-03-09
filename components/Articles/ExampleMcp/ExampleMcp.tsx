@@ -15,7 +15,6 @@ export default function ExampleMcp(): React.JSX.Element {
     altText,
     text,
     code,
-    pre,
     subtext,
   } = styles;
   const { tenPadding, width75, minus10LeftMargin } = sharedStyles;
