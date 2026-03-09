@@ -72,6 +72,7 @@ export default function ArticleTile(props: ArticleTileProps): React.JSX.Element 
           style={{ objectFit: 'cover' }}
           onLoad={() => setImageLoaded(true)}
           placeholder="empty"
+          disableZoom
         />
       </div>
       <div className={titleBox}>
