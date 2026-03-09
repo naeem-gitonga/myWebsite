@@ -49,10 +49,10 @@ export default function AiRuinedMyApp(): React.JSX.Element {
         <p className={text}>
           What I mean when I say that I fell asleep at the wheel is a
           cautionary tale. AI is a tool. You can look at it as a riding lawn
-          mower (I love to do yard work). You can sit on the mower and let it
+          mower &#40;I love to do yard work&#41;. You can sit on the mower and let it
           rip. It&apos;ll run over everything in its path and try to cut
           everything in it. But there&apos;s a reason it has a steering wheel
-          or control arms (in the case of a zero turn).
+          or control arms &#40;in the case of a zero turn&#41;.
         </p>
 
         <h2>Building with AI</h2>
@@ -68,7 +68,7 @@ export default function AiRuinedMyApp(): React.JSX.Element {
           My pattern was broken with the new tooling. It took me a while to get
           to my go-to approach. Over the past couple of years, I&apos;ve been
           heads down at work, at home with my children, in a book, or a
-          late-night group meeting for B-School (completing my MBA at Tech). So,
+          late-night group meeting for B-School &#40;completing my MBA at Tech&#41;. So,
           I was still copying and pasting from Claude and ChatGPT. I tried
           Cursor but I didn&apos;t like it for whatever reason. I tried
           Copilot but I still didn&apos;t like that either. Enter Claude Code.
@@ -119,8 +119,8 @@ export default function AiRuinedMyApp(): React.JSX.Element {
         </p>
         <p className={text}>
           As I was building, I ignored how Claude was relating my data
-          (to process [&ldquo;join&rdquo; for SQL people] it based on a
-          &ldquo;primary&rdquo; and &ldquo;foreign&rdquo; key). That means I
+          &#40;to process &#91;&ldquo;join&rdquo; for SQL people&#93; it based on a
+          &ldquo;primary&rdquo; and &ldquo;foreign&rdquo; key&#41;. That means I
           ignored how things were being pulled together in queries. Another big
           mistake Claude would make was that it would do two queries and then in
           my TypeScript loop over it to aggregate it. This all should have been
@@ -135,7 +135,7 @@ export default function AiRuinedMyApp(): React.JSX.Element {
         </p>
         <p className={text}>
           And what are the query and in-app aggregation going to look like as
-          the app scales? Best case scenario, I&apos;m adding another O(n)
+          the app scales? Best case scenario, I&apos;m adding another O&#40;n&#41;
           operation to my code. No, it wasn&apos;t &ldquo;thinking&rdquo; like
           that. I had to instruct it based on how I knew it should go. Anyway,
           typically in MongoDB when you aggregate data you use the _id of the
@@ -217,7 +217,7 @@ export default function AiRuinedMyApp(): React.JSX.Element {
           . It&apos;s best to use the <code className={code}>_id</code> when you
           can because it comes with indexing already, thereby making it very
           efficient when querying. It&apos;s the primary key so to speak. And
-          when aggregating (or &ldquo;joining&rdquo;) it&apos;s perfect for
+          when aggregating &#40;or &ldquo;joining&rdquo;&#41; it&apos;s perfect for
           relating your documents across collections. But that&apos;s not what
           Claude did. It was my guidance and nearly having to scrap two
           weeks&apos; worth of work to use this pattern.
@@ -227,7 +227,7 @@ export default function AiRuinedMyApp(): React.JSX.Element {
         <p className={text}>
           Well Claude decided to use the <code className={code}>cognito_sub</code>
           {' '}property instead. The <code className={code}>cognito_sub</code> is the
-          identifier from AWS Cognito (what I use for authentication). Well
+          identifier from AWS Cognito &#40;what I use for authentication&#41;. Well
           it&apos;s not that bad, right? I thought it was blasphemous, not to be
           vain. But seriously, a string that is splattered all across documents
           causing me to need to create unnecessary indexes. And what if one day
@@ -254,9 +254,9 @@ export default function AiRuinedMyApp(): React.JSX.Element {
         </p>
         <p className={text}>
           And that&apos;s when I realized. Claude is a really good Junior
-          engineer. Hell, it may even be mid-level. It is like Rain Man (for
+          engineer. Hell, it may even be mid-level. It is like Rain Man &#40;for
           those of you that remember the Tom Cruise and Dustin Hoffman movie
-          from the late 80s). It can remember and fetch from context
+          from the late 80s&#41;. It can remember and fetch from context
           everything, rattle off numbers, come up with an algorithm in seconds
           that would take the best human engineer at least minutes to write. But
           let it run, and it&apos;ll soon hit a wall or fall flat on its
@@ -293,7 +293,7 @@ export default function AiRuinedMyApp(): React.JSX.Element {
         <p className={text}>
           Computers are still garbage in, garbage out even in probabilistic
           systems. Skilled engineers are going to be needed in charge of driving
-          these machines same as when driving a locomotive. The things to learn
+          these machines same as when driving a locomotive. The things to 
           focus on now may not be coding. It may be system design and
           architecture. Being an expert in the algorithms may not be as
           important as having the understanding of where they are applied. We
@@ -303,8 +303,8 @@ export default function AiRuinedMyApp(): React.JSX.Element {
           I&apos;ve shipped production Java while working at Honeywell back in
           2021 but none since then. Juniors need to learn design patterns; they
           need to learn how to structure a project and keep things DRY. The
-          hardest thing ever, they need to know how to name things (Claude
-          often sucks at that too).
+          hardest thing ever, they need to know how to name things &#40;Claude
+          often sucks at that too&#41;.
         </p>
 
         <h2>What&apos;s Next</h2>
@@ -314,14 +314,14 @@ export default function AiRuinedMyApp(): React.JSX.Element {
           there are some queries that should hit the database a little less
           often. There are areas that we can have quick wins in regarding
           optimization which would make the app scale better by reducing the
-          frequency of certain API calls, namely get sessions, get entries, get
+          frequency of certain API calls, namely get sessions, get entries, and get
           orgs. Maybe I&apos;ll make that my next article. And I still need to
           give you guys an update on the observability story. I&apos;m on a
           shoestring budget but I am using CloudWatch with AWS SNS for alerting.
         </p>
 
         <p className={text}>
-          Until next time stay tuned! Hit the{' '}
+          Until next time, stay tuned! Hit the{' '}
           <Link href="/contact">contact form</Link> with your thoughts. I want
           to know what you think about the subject. And make sure to subscribe
           to{' '}

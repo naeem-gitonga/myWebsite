@@ -34,6 +34,11 @@ jest.mock('next/link', () => ({
   default: ({ children, href }: any) => <a href={href}>{children}</a>,
 }));
 
+jest.mock('@/components/LazyImage/LazyImage', () => ({
+  __esModule: true,
+  default: ({ disableZoom, ...props }: any) => <img {...props} />,
+}));
+
 describe('AiRuinedMyApp component', () => {
   it('renders the article title', () => {
     render(<AiRuinedMyApp />);
