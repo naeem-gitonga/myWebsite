@@ -17,7 +17,7 @@ export interface AnalyticsEvent {
   bucket: string;
 }
 
-// Get or create session ID
+// Get or create session ID (temporary, per-session)
 function getSessionId(): string {
   if (typeof window === 'undefined') return 'ssr';
 
@@ -30,6 +30,32 @@ function getSessionId(): string {
   }
 
   return sessionId;
+}
+
+// Get or create persistent user ID (stored in cookie, 2 year expiry)
+function getUserId(): string {
+  if (typeof window === 'undefined') return 'ssr';
+
+  const COOKIE_NAME = 'analytics_user_id';
+
+  // Check if cookie exists
+  const cookies = document.cookie.split(';');
+  for (const cookie of cookies) {
+    const [name, value] = cookie.trim().split('=');
+    if (name === COOKIE_NAME && value) {
+      return decodeURIComponent(value);
+    }
+  }
+
+  // Create new user ID
+  const userId = `${Date.now()}-${Math.random().toString(36).substring(2, 15)}`;
+
+  // Set cookie with 2 year expiry
+  const expiryDate = new Date();
+  expiryDate.setFullYear(expiryDate.getFullYear() + 2);
+  document.cookie = `${COOKIE_NAME}=${encodeURIComponent(userId)}; expires=${expiryDate.toUTCString()}; path=/; Secure; SameSite=Lax`;
+
+  return userId;
 }
 
 /**
@@ -67,7 +93,10 @@ export async function trackEvent(
     },
     sessionId: getSessionId(),
     referrer: document.referrer || 'direct',
-    metadata,
+    metadata: {
+      ...metadata,
+      userId: getUserId(),
+    },
   };
 
   try {
