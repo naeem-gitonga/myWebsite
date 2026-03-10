@@ -3,10 +3,10 @@ import PageHeader from '@/components/PageHeader/PageHeader';
 import styles from '@/components/Articles/Articles.module.scss';
 import sharedStyles from '@/components/SharedCss/SharedCss.module.scss';
 import Tags from '@/components/Tags/Tags';
-import Image from 'next/image';
 import Link from 'next/link';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
+import LazyImage from '@/components/LazyImage/LazyImage';
 
 export default function AiRuinedMyApp(): React.JSX.Element {
   const {
@@ -27,12 +27,11 @@ export default function AiRuinedMyApp(): React.JSX.Element {
         <p className={subtext}>A cautionary tale about letting the machine drive</p>
         <ArticleDateTime imageUrl={'airuinedmyapp'} />
         <div className={imageWrapper}>
-          <Image
+          <LazyImage
             src="/images/ai-ruined-my-app.webp"
             alt="AI and Application Development"
             width={400}
             height={400}
-            priority
           />
           <p className={altText}>The road to production</p>
         </div>
@@ -274,8 +273,22 @@ export default function AiRuinedMyApp(): React.JSX.Element {
 
         <h2>Architecture in Production</h2>
         <p className={text}>
-          Here&apos;s what the current architecture of ToLive.ai looks like. I
-          was able to get to production on March 6, 2026. It was a successful
+          Here&apos;s what the current architecture of ToLive.ai looks like.
+        </p>
+
+        <div className={imageWrapper}>
+          <LazyImage
+            src="/images/mar-9-tolive-architecture.webp"
+            alt="ToLive.ai Architecture Diagram"
+            width={631}
+            height={799}
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
+          <p className={altText}>ToLive.ai Architecture Overview</p>
+        </div>
+
+        <p className={text}>
+          I was able to get to production on March 6, 2026. It was a successful
           launch and I continue to roll out new features. At the speed with
           which I can produce work, you may see new features daily.
         </p>
