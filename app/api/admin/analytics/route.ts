@@ -10,6 +10,7 @@ export async function GET(request: NextRequest) {
       device: searchParams.getAll('device'),
       eventtype: searchParams.getAll('eventtype'),
       fromwebsite: searchParams.getAll('fromwebsite'),
+      userid: searchParams.getAll('userid'),
       year: searchParams.get('year') ? parseInt(searchParams.get('year') || '0') : undefined,
       month: searchParams.get('month') ? parseInt(searchParams.get('month') || '0') : undefined,
       day: searchParams.get('day') ? parseInt(searchParams.get('day') || '0') : undefined,
@@ -17,13 +18,13 @@ export async function GET(request: NextRequest) {
 
     const whereClause = buildWhereClause(filters);
     const sql = `
-      SELECT timestamp, page, fromwebsite, sessionid, device, eventtype,
+      SELECT timestamp, page, fromwebsite, sessionid, userid, device, eventtype,
         COUNT(*) as views,
         COUNT(DISTINCT sessionid) as unique_visitors,
         COUNT(DISTINCT ip) as unique_ips
       FROM analytics_db.mypersonalwebsite_analytics
       WHERE 1=1 ${whereClause}
-      GROUP BY timestamp, page, fromwebsite, sessionid, device, eventtype
+      GROUP BY timestamp, page, fromwebsite, sessionid, userid, device, eventtype
       ORDER BY views DESC
       LIMIT 10000
     `;

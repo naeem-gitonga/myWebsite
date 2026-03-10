@@ -194,17 +194,18 @@ export async function runAthenaQuery(sql: string): Promise<AnalyticsRow[]> {
     if (results.length > 1) {
       for (let i = 1; i < results.length; i++) {
         const resultData = results[i].Data;
-        if (resultData && resultData.length === 9) {
+        if (resultData && resultData.length === 10) {
           rows.push({
             timestamp: resultData[0]?.VarCharValue || '',
             page: resultData[1]?.VarCharValue || '',
             fromwebsite: resultData[2]?.VarCharValue || '',
             sessionid: resultData[3]?.VarCharValue || '',
-            device: resultData[4]?.VarCharValue || '',
-            eventtype: resultData[5]?.VarCharValue || '',
-            views: resultData[6]?.VarCharValue || '0',
-            unique_visitors: resultData[7]?.VarCharValue || '0',
-            unique_ips: resultData[8]?.VarCharValue || '0',
+            userid: resultData[4]?.VarCharValue || '',
+            device: resultData[5]?.VarCharValue || '',
+            eventtype: resultData[6]?.VarCharValue || '',
+            views: resultData[7]?.VarCharValue || '0',
+            unique_visitors: resultData[8]?.VarCharValue || '0',
+            unique_ips: resultData[9]?.VarCharValue || '0',
           });
         }
       }
