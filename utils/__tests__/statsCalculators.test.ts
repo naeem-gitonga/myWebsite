@@ -1,59 +1,66 @@
-import { calculateStats, type AnalyticsRow } from '../chartDataTransformers';
+import { calculateStats } from '../statsCalculators';
+import type { AnalyticsRow } from '../chartDataTransformers';
 
 describe('statsCalculators', () => {
   const mockData: AnalyticsRow[] = [
     {
       timestamp: '2026-03-10T10:00:00Z',
       page: '/home',
+      userid: 'user1',
+      ip: '1.1.1.1',
       fromwebsite: 'google',
       sessionid: 'session1',
       device: 'mobile',
       eventtype: 'view',
-      views: '100',
-      unique_visitors: '50',
-      unique_ips: '45',
+      views: '1',
+      unique_visitors: '1',
+      unique_ips: '1',
     },
     {
       timestamp: '2026-03-10T11:00:00Z',
       page: '/blog',
+      userid: 'user2',
+      ip: '2.2.2.2',
       fromwebsite: 'direct',
       sessionid: 'session2',
       device: 'desktop',
       eventtype: 'click',
-      views: '200',
-      unique_visitors: '100',
-      unique_ips: '95',
+      views: '1',
+      unique_visitors: '1',
+      unique_ips: '1',
     },
     {
       timestamp: '2026-03-10T12:00:00Z',
       page: '/home',
+      userid: 'user1',
+      ip: '1.1.1.1',
       fromwebsite: 'google',
       sessionid: 'session1',
       device: 'desktop',
       eventtype: 'view',
-      views: '150',
-      unique_visitors: '75',
-      unique_ips: '70',
+      views: '1',
+      unique_visitors: '1',
+      unique_ips: '1',
     },
   ];
 
   describe('calculateStats', () => {
-    it('should calculate total views correctly', () => {
+    it('should calculate total views as row count', () => {
       const result = calculateStats(mockData);
 
-      expect(result.totalViews).toBe(450); // 100 + 200 + 150
+      expect(result.totalViews).toBe(3);
     });
 
-    it('should calculate total unique visitors correctly', () => {
+    it('should calculate total unique visitors by unique userid', () => {
       const result = calculateStats(mockData);
 
-      expect(result.totalUniqueVisitors).toBe(225); // 50 + 100 + 75
+      expect(result.totalUniqueVisitors).toBe(2); // user1, user2
     });
 
-    it('should calculate total unique IPs correctly', () => {
+    it('should calculate total unique IPs', () => {
       const result = calculateStats(mockData);
 
-      expect(result.totalUniqueIps).toBe(210); // 45 + 95 + 70
+      expect(result.totalUniqueIps).toBe(2); // 1.1.1.1, 2.2.2.2
     });
 
     it('should count unique sessions correctly', () => {
@@ -71,14 +78,13 @@ describe('statsCalculators', () => {
       expect(result.uniqueSessions).toBe(0);
     });
 
-    it('should handle missing metric values', () => {
+    it('should not count empty userid or ip as unique', () => {
       const dataWithMissing: AnalyticsRow[] = [
-        { ...mockData[0], views: '', unique_visitors: '', unique_ips: '' },
+        { ...mockData[0], userid: '', ip: '' },
       ];
 
       const result = calculateStats(dataWithMissing);
 
-      expect(result.totalViews).toBe(0);
       expect(result.totalUniqueVisitors).toBe(0);
       expect(result.totalUniqueIps).toBe(0);
     });

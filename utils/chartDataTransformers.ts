@@ -5,14 +5,15 @@
 export type AnalyticsRow = {
   timestamp: string;
   page: string;
+  userid: string;
+  ip?: string;
   fromwebsite: string;
   sessionid: string;
-  userid: string;
   device: string;
   eventtype: string;
-  views: string;
-  unique_visitors: string;
-  unique_ips: string;
+  views?: string;
+  unique_visitors?: string;
+  unique_ips?: string;
 };
 
 export type ChartData = {
@@ -105,7 +106,7 @@ export function buildLineData(data: AnalyticsRow[], selectedPage: string | null)
  * Get unique values from a field across all rows
  */
 export function getUniqueValues(data: AnalyticsRow[], field: keyof AnalyticsRow): string[] {
-  return Array.from(new Set(data.map((r) => r[field])));
+  return Array.from(new Set(data.map((r) => r[field]))).filter((v): v is string => v !== undefined);
 }
 
 /**
@@ -124,4 +125,26 @@ export function formatDevice(deviceStr: string): string {
   const browser = browserMatch ? browserMatch[1].trim() : 'unknown';
 
   return `${browser} | ${deviceType}`;
+}
+
+/**
+ * Convert UTC timestamp to EST (UTC-5)
+ * Input: 2026-03-11T02:32:24.592Z
+ * Output: 2026-03-10T21:32:24.592 EST
+ */
+export function formatTimestamp(utcTimestamp: string): string {
+  if (!utcTimestamp) return 'unknown';
+
+  try {
+    const date = new Date(utcTimestamp);
+    return date.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+      timeZone: 'America/New_York',
+      timeZoneName: 'short',
+    });
+  } catch {
+    return utcTimestamp;
+  }
 }

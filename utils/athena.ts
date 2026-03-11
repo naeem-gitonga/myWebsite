@@ -24,6 +24,7 @@ export type AnalyticsRow = {
   userid: string;
   device: string;
   eventtype: string;
+  ip: string;
   views: string;
   unique_visitors: string;
   unique_ips: string;
@@ -41,27 +42,17 @@ function sanitizeForSql(value: string): string {
 export function buildWhereClause(filters: AnalyticsFilters): string {
   const conditions: string[] = [];
 
-  // Date filters
-  if (filters.year || filters.month || filters.day) {
-    const year = filters.year || new Date().getFullYear();
-    const month = filters.month ? String(filters.month).padStart(2, '0') : null;
-    const day = filters.day ? String(filters.day).padStart(2, '0') : null;
-
-    if (day && month) {
-      const dateStr = `${year}-${month}-${day}`;
-      conditions.push(
-        `SUBSTR(CAST(timestamp AS VARCHAR), 1, 10) = '${dateStr}'`
-      );
-    } else if (month) {
-      const monthStr = String(month).padStart(2, '0');
-      conditions.push(
-        `SUBSTR(CAST(timestamp AS VARCHAR), 1, 7) = '${year}-${monthStr}'`
-      );
-    } else {
-      conditions.push(
-        `SUBSTR(CAST(timestamp AS VARCHAR), 1, 4) = '${year}'`
-      );
-    }
+  // Date filters (using partition columns)
+  if (filters.year) {
+    conditions.push(`year = '${filters.year}'`);
+  }
+  if (filters.month) {
+    const month = String(filters.month).padStart(2, '0');
+    conditions.push(`month = '${month}'`);
+  }
+  if (filters.day) {
+    const day = String(filters.day).padStart(2, '0');
+    conditions.push(`day = '${day}'`);
   }
 
   // Multi-value filters
@@ -194,18 +185,19 @@ export async function runAthenaQuery(sql: string): Promise<AnalyticsRow[]> {
     if (results.length > 1) {
       for (let i = 1; i < results.length; i++) {
         const resultData = results[i].Data;
-        if (resultData && resultData.length === 10) {
+        if (resultData && resultData.length === 11) {
           rows.push({
             timestamp: resultData[0]?.VarCharValue || '',
             page: resultData[1]?.VarCharValue || '',
-            fromwebsite: resultData[2]?.VarCharValue || '',
-            sessionid: resultData[3]?.VarCharValue || '',
-            userid: resultData[4]?.VarCharValue || '',
+            userid: resultData[2]?.VarCharValue || '',
+            fromwebsite: resultData[3]?.VarCharValue || '',
+            sessionid: resultData[4]?.VarCharValue || '',
             device: resultData[5]?.VarCharValue || '',
             eventtype: resultData[6]?.VarCharValue || '',
-            views: resultData[7]?.VarCharValue || '0',
-            unique_visitors: resultData[8]?.VarCharValue || '0',
-            unique_ips: resultData[9]?.VarCharValue || '0',
+            ip: resultData[7]?.VarCharValue || '',
+            views: resultData[8]?.VarCharValue || '1',
+            unique_visitors: resultData[9]?.VarCharValue || '1',
+            unique_ips: resultData[10]?.VarCharValue || '1',
           });
         }
       }

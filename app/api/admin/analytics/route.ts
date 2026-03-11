@@ -16,17 +16,20 @@ export async function GET(request: NextRequest) {
       day: searchParams.get('day') ? parseInt(searchParams.get('day') || '0') : undefined,
     };
 
-    const whereClause = buildWhereClause(filters);
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    const devFilter = isDevelopment ? "AND fromwebsite LIKE '%direct|analytics-staging%'" : '';
+
     const sql = `
-      SELECT timestamp, page, fromwebsite, sessionid, userid, device, eventtype,
-        COUNT(*) as views,
-        COUNT(DISTINCT sessionid) as unique_visitors,
-        COUNT(DISTINCT ip) as unique_ips
+      SELECT timestamp, page, userid, fromwebsite, sessionid, device, eventtype, ip,
+        1 as views,
+        1 as unique_visitors,
+        1 as unique_ips
       FROM analytics_db.mypersonalwebsite_analytics
-      WHERE 1=1 ${whereClause}
-      GROUP BY timestamp, page, fromwebsite, sessionid, userid, device, eventtype
-      ORDER BY views DESC
-      LIMIT 10000
+      WHERE 1=1
+        ${buildWhereClause(filters)}
+        ${devFilter}
+      ORDER BY timestamp DESC
+      LIMIT 500
     `;
 
     const rows = await runAthenaQuery(sql);

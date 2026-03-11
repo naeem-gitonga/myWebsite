@@ -14,7 +14,9 @@ describe('athena utilities', () => {
         day: 15,
       };
       const result = buildWhereClause(filters);
-      expect(result).toContain("SUBSTR(CAST(timestamp AS VARCHAR), 1, 10) = '2024-03-15'");
+      expect(result).toContain("year = '2024'");
+      expect(result).toContain("month = '03'");
+      expect(result).toContain("day = '15'");
     });
 
     it('builds date filter with year and month', () => {
@@ -23,7 +25,8 @@ describe('athena utilities', () => {
         month: 3,
       };
       const result = buildWhereClause(filters);
-      expect(result).toContain("SUBSTR(CAST(timestamp AS VARCHAR), 1, 7) = '2024-03'");
+      expect(result).toContain("year = '2024'");
+      expect(result).toContain("month = '03'");
     });
 
     it('builds date filter with year only', () => {
@@ -31,7 +34,7 @@ describe('athena utilities', () => {
         year: 2024,
       };
       const result = buildWhereClause(filters);
-      expect(result).toContain("SUBSTR(CAST(timestamp AS VARCHAR), 1, 4) = '2024'");
+      expect(result).toContain("year = '2024'");
     });
 
     it('builds page filter with single value', () => {
@@ -82,7 +85,7 @@ describe('athena utilities', () => {
       };
       const result = buildWhereClause(filters);
       expect(result).toContain('AND');
-      expect(result).toContain("SUBSTR(CAST(timestamp AS VARCHAR), 1, 4) = '2024'");
+      expect(result).toContain("year = '2024'");
       expect(result).toContain("page IN ('/home')");
       expect(result).toContain("device.device_type IN ('mobile')");
     });

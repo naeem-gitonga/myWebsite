@@ -1,10 +1,12 @@
-import { buildSankeyData, type AnalyticsRow } from '../chartDataTransformers';
+import { buildSankeyData } from '../sankeyUtils';
+import type { AnalyticsRow } from '../chartDataTransformers';
 
 describe('sankeyUtils', () => {
   const mockData: AnalyticsRow[] = [
     {
       timestamp: '2026-03-10T10:00:00Z',
       page: '/home',
+      userid: 'user1',
       fromwebsite: 'google',
       sessionid: 'session1',
       device: 'mobile',
@@ -16,6 +18,7 @@ describe('sankeyUtils', () => {
     {
       timestamp: '2026-03-10T11:00:00Z',
       page: '/blog',
+      userid: 'user2',
       fromwebsite: 'direct',
       sessionid: 'session2',
       device: 'desktop',
@@ -27,6 +30,7 @@ describe('sankeyUtils', () => {
     {
       timestamp: '2026-03-10T12:00:00Z',
       page: '/home',
+      userid: 'user1',
       fromwebsite: 'google',
       sessionid: 'session3',
       device: 'desktop',

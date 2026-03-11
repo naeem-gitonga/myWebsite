@@ -56,7 +56,7 @@ describe('analyticsApi', () => {
     });
 
     it('should fetch data with minimal filters', async () => {
-      const mockData = [];
+      const mockData: unknown[] = [];
 
       (global.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,

@@ -225,12 +225,13 @@
 
 .tableWrapper {
   overflow-x: auto;
+  min-width: 0;
 }
 
 .table {
-  width: 100%;
   border-collapse: collapse;
   font-size: 0.9rem;
+  width: 100%;
 
   thead {
     background-color: #f9f9f9;
@@ -244,6 +245,8 @@
     color: #333;
     cursor: pointer;
     user-select: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &.sortable:hover {
       background-color: #f0f0f0;
@@ -253,6 +256,8 @@
   td {
     padding: 0.75rem 1rem;
     border-bottom: 1px solid #eee;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   tbody tr:hover {
@@ -274,7 +279,7 @@
   font-family: monospace;
   font-size: 0.85rem;
   color: #666;
-  max-width: 120px;
+  max-width: 300px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -282,4 +287,29 @@
 
 .filterSelect {
   overflow: auto;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resizeHandle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  cursor: col-resize;
+  background: transparent;
+  user-select: none;
+  z-index: 10;
+
+  &:hover {
+    background-color: #667eea;
+  }
 }

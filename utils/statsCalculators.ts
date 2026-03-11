@@ -15,15 +15,16 @@ export type Stats = {
  * Calculate statistics from raw analytics data
  */
 export function calculateStats(data: AnalyticsRow[]): Stats {
-  const totalViews = data.reduce((sum, r) => sum + parseInt(r.views || '0'), 0);
-  const totalUniqueVisitors = data.reduce((sum, r) => sum + parseInt(r.unique_visitors || '0'), 0);
-  const totalUniqueIps = data.reduce((sum, r) => sum + parseInt(r.unique_ips || '0'), 0);
+  // For raw events, each row is one view
+  const totalViews = data.length;
+  const uniqueUserIds = new Set(data.map((r) => r.userid).filter(Boolean)).size;
   const uniqueSessions = new Set(data.map((r) => r.sessionid)).size;
+  const uniqueIPs = new Set(data.map((r) => r.ip).filter(Boolean)).size;
 
   return {
     totalViews,
-    totalUniqueVisitors,
-    totalUniqueIps,
+    totalUniqueVisitors: uniqueUserIds,
+    totalUniqueIps: uniqueIPs,
     uniqueSessions,
   };
 }

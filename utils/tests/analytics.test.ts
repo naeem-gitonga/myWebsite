@@ -77,7 +77,7 @@ describe('analytics', () => {
     expect(body.bucket).toBe('test-analytics-gtng');
     expect(body.referrer).toBe('direct');
     expect(body.metadata).toMatchObject({ foo: 'bar' });
-    expect(body.metadata.userId).toBeDefined();
+    expect(body.metadata.userid).toBeDefined();
     expect(body.viewport).toEqual({ width: 1280, height: 720 });
     expect(body.timestamp).toBe('2025-01-01T00:00:00.000Z');
 
@@ -151,7 +151,7 @@ describe('analytics', () => {
     const body = JSON.parse((options as RequestInit).body as string);
     expect(body.eventType).toBe('page_view');
     expect(body.metadata).toMatchObject(props);
-    expect(body.metadata.userId).toBeDefined();
+    expect(body.metadata.userid).toBeDefined();
 
     cleanup();
     expect(removeSpy).toHaveBeenCalledWith('scroll', expect.any(Function));

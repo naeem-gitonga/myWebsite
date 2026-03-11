@@ -12,6 +12,7 @@ describe('chartDataTransformers', () => {
     {
       timestamp: '2026-03-10T10:00:00Z',
       page: '/home',
+      userid: 'user1',
       fromwebsite: 'google',
       sessionid: 'session1',
       device: 'mobile',
@@ -23,6 +24,7 @@ describe('chartDataTransformers', () => {
     {
       timestamp: '2026-03-10T11:00:00Z',
       page: '/blog',
+      userid: 'user2',
       fromwebsite: 'direct',
       sessionid: 'session2',
       device: 'desktop',
@@ -34,6 +36,7 @@ describe('chartDataTransformers', () => {
     {
       timestamp: '2026-03-10T12:00:00Z',
       page: '/home',
+      userid: 'user3',
       fromwebsite: 'google',
       sessionid: 'session3',
       device: 'desktop',
