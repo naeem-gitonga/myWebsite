@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { AnalyticsRow } from '@/utils/chartDataTransformers';
+import { formatDevice } from '@/utils/chartDataTransformers';
 import styles from './AdminDashboard.module.scss';
 
 type Props = {
@@ -106,7 +107,7 @@ export function DataTable({ data, sortKey: initialSortKey = 'views', sortOrder: 
               <tr key={idx}>
                 {columns.map((key) => (
                   <td key={key} className={key === 'sessionid' ? styles.sessionId : ''}>
-                    {row[key as keyof AnalyticsRow]}
+                    {key === 'device' ? formatDevice(row[key as keyof AnalyticsRow] as string) : row[key as keyof AnalyticsRow]}
                   </td>
                 ))}
               </tr>

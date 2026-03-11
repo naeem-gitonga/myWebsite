@@ -95,7 +95,7 @@ export async function trackEvent(
     referrer: document.referrer || 'direct',
     metadata: {
       ...metadata,
-      userId: getUserId(),
+      userid: getUserId(),
     },
   };
 

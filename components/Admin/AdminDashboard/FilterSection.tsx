@@ -1,5 +1,6 @@
 'use client';
 
+import { formatDevice } from '@/utils/chartDataTransformers';
 import styles from './AdminDashboard.module.scss';
 
 type Props = {
@@ -117,7 +118,7 @@ export function FilterSection({
           >
             {uniqueDevices.map((d) => (
               <option key={d} value={d}>
-                {d}
+                {formatDevice(d)}
               </option>
             ))}
           </select>

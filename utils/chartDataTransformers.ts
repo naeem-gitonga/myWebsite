@@ -62,7 +62,7 @@ export function buildDeviceData(data: AnalyticsRow[]): ChartData[] {
   const deviceMap = new Map<string, number>();
 
   data.forEach((row) => {
-    const device = row.device || 'unknown';
+    const device = formatDevice(row.device || 'unknown');
     deviceMap.set(device, (deviceMap.get(device) || 0) + parseInt(row.views || '0'));
   });
 
@@ -106,4 +106,22 @@ export function buildLineData(data: AnalyticsRow[], selectedPage: string | null)
  */
 export function getUniqueValues(data: AnalyticsRow[], field: keyof AnalyticsRow): string[] {
   return Array.from(new Set(data.map((r) => r[field])));
+}
+
+/**
+ * Format device STRUCT as "browser | device"
+ * Input: {device_type=mobile, browser=Chrome}
+ * Output: Chrome | mobile
+ */
+export function formatDevice(deviceStr: string): string {
+  if (!deviceStr) return 'unknown';
+
+  // Try to parse STRUCT format: {device_type=mobile, browser=Chrome}
+  const deviceTypeMatch = deviceStr.match(/device_type=(\w+)/);
+  const browserMatch = deviceStr.match(/browser=([^,}]+)/);
+
+  const deviceType = deviceTypeMatch ? deviceTypeMatch[1] : 'unknown';
+  const browser = browserMatch ? browserMatch[1].trim() : 'unknown';
+
+  return `${browser} | ${deviceType}`;
 }
