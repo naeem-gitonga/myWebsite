@@ -16,8 +16,8 @@ export async function GET(request: NextRequest) {
       day: searchParams.get('day') ? parseInt(searchParams.get('day') || '0') : undefined,
     };
 
-    const isDevelopment = process.env.NODE_ENV === 'development';
-    const devFilter = isDevelopment ? "AND fromwebsite LIKE '%direct|analytics-staging%'" : '';
+    const isStaging = process.env.NODE_ENV === 'development' || process.env.NEXT_PUBLIC_STAGE === 'staging';
+    const devFilter = isStaging ? "AND fromwebsite LIKE '%direct|analytics-staging%'" : '';
 
     const sql = `
       SELECT timestamp, page, userid, fromwebsite, sessionid, device, eventtype, ip,
