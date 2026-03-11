@@ -53,12 +53,13 @@ describe('athena utilities', () => {
       expect(result).toContain("page IN ('/home', '/blog', '/contact')");
     });
 
-    it('builds device filter', () => {
+    it('builds device filter from struct format values', () => {
       const filters: AnalyticsFilters = {
-        device: ['mobile', 'desktop'],
+        device: ['{device_type=mobile, browser=Safari}', '{device_type=desktop, browser=Chrome}'],
       };
       const result = buildWhereClause(filters);
-      expect(result).toContain("device.device_type IN ('mobile', 'desktop')");
+      expect(result).toContain("device.device_type = 'mobile' AND device.browser = 'Safari'");
+      expect(result).toContain("device.device_type = 'desktop' AND device.browser = 'Chrome'");
     });
 
     it('builds eventtype filter', () => {
@@ -81,13 +82,13 @@ describe('athena utilities', () => {
       const filters: AnalyticsFilters = {
         year: 2024,
         page: ['/home'],
-        device: ['mobile'],
+        device: ['{device_type=mobile, browser=Chrome}'],
       };
       const result = buildWhereClause(filters);
       expect(result).toContain('AND');
       expect(result).toContain("year = '2024'");
       expect(result).toContain("page IN ('/home')");
-      expect(result).toContain("device.device_type IN ('mobile')");
+      expect(result).toContain("device.device_type = 'mobile' AND device.browser = 'Chrome'");
     });
 
     it('sanitizes filter values to prevent SQL injection', () => {
@@ -122,10 +123,10 @@ describe('athena utilities', () => {
     it('ignores undefined filter values', () => {
       const filters: AnalyticsFilters = {
         page: undefined,
-        device: ['mobile'],
+        device: ['{device_type=mobile, browser=Chrome}'],
       };
       const result = buildWhereClause(filters);
-      expect(result).toContain("device.device_type IN ('mobile')");
+      expect(result).toContain("device.device_type = 'mobile'");
       expect(result).not.toContain('page IN');
     });
   });

@@ -64,17 +64,27 @@ export function buildWhereClause(filters: AnalyticsFilters): string {
   }
 
   if (filters.device && filters.device.length > 0) {
-    // Device is a STRUCT - extract device_type from the serialized format
-    // Format: {device_type=mobile, browser=Chrome} -> extract 'mobile'
-    const deviceTypes = filters.device.map((d) => {
-      const match = d.match(/device_type=(\w+)/);
-      return match ? match[1] : d;
-    });
-    const uniqueTypes = Array.from(new Set(deviceTypes));
-    const devices = uniqueTypes
-      .map((d) => `'${sanitizeForSql(d)}'`)
-      .join(', ');
-    conditions.push(`device.device_type IN (${devices})`);
+    // Device is a STRUCT - extract both browser and device_type
+    // Format: {device_type=mobile, browser=Chrome}
+    const deviceConditions = filters.device.map((d) => {
+      const deviceTypeMatch = d.match(/device_type=(\w+)/);
+      const browserMatch = d.match(/browser=([^,}]+)/);
+      const deviceType = deviceTypeMatch ? sanitizeForSql(deviceTypeMatch[1].trim()) : null;
+      const browser = browserMatch ? sanitizeForSql(browserMatch[1].trim()) : null;
+
+      if (deviceType && browser) {
+        return `(device.device_type = '${deviceType}' AND device.browser = '${browser}')`;
+      } else if (deviceType) {
+        return `device.device_type = '${deviceType}'`;
+      } else if (browser) {
+        return `device.browser = '${browser}'`;
+      }
+      return null;
+    }).filter(Boolean);
+
+    if (deviceConditions.length > 0) {
+      conditions.push(`(${deviceConditions.join(' OR ')})`);
+    }
   }
 
   if (filters.eventtype && filters.eventtype.length > 0) {

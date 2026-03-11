@@ -82,27 +82,14 @@ export function useAnalyticsDashboard(): UseAnalyticsDashboardReturn {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Fetch data
-  const fetchData = useCallback(async () => {
+  const fetchWithFilters = useCallback(async (filters: AnalyticsFilters) => {
     setLoading(true);
     setError('');
 
     try {
-      const filters: AnalyticsFilters = {
-        year,
-        month,
-        day,
-        page: selectedPages,
-        device: selectedDevices,
-        eventtype: selectedEvents,
-        fromwebsite: selectedWebsites,
-        userid: selectedUserIds,
-      };
-
       const rows = await fetchAnalyticsData(filters);
       setData(rows);
 
-      // Auto-select first page if available
       const pages = getUniqueValues(rows, 'page');
       if (pages.length > 0 && !selectedPage) {
         setSelectedPage(pages[0]);
@@ -116,24 +103,51 @@ export function useAnalyticsDashboard(): UseAnalyticsDashboardReturn {
     } finally {
       setLoading(false);
     }
-  }, [year, month, day, selectedPages, selectedDevices, selectedEvents, selectedWebsites, selectedUserIds, selectedPage, router]);
+  }, [selectedPage, router]);
 
-  // Fetch on mount
+  const fetchData = useCallback(async () => {
+    await fetchWithFilters({
+      year,
+      month,
+      day,
+      page: selectedPages,
+      device: selectedDevices,
+      eventtype: selectedEvents,
+      fromwebsite: selectedWebsites,
+      userid: selectedUserIds,
+    });
+  }, [year, month, day, selectedPages, selectedDevices, selectedEvents, selectedWebsites, selectedUserIds, fetchWithFilters]);
+
   useEffect(() => {
     fetchData();
   }, []);
 
-  // Reset filters
   const resetFilters = useCallback(() => {
-    setYear(new Date().getFullYear());
-    setMonth(new Date().getMonth() + 1);
-    setDay(new Date().getDate());
+    const now = new Date();
+    const defaultYear = now.getFullYear();
+    const defaultMonth = now.getMonth() + 1;
+    const defaultDay = now.getDate();
+
+    setYear(defaultYear);
+    setMonth(defaultMonth);
+    setDay(defaultDay);
     setSelectedPages([]);
     setSelectedDevices([]);
     setSelectedEvents([]);
     setSelectedWebsites([]);
     setSelectedUserIds([]);
-  }, []);
+
+    fetchWithFilters({
+      year: defaultYear,
+      month: defaultMonth,
+      day: defaultDay,
+      page: [],
+      device: [],
+      eventtype: [],
+      fromwebsite: [],
+      userid: [],
+    });
+  }, [fetchWithFilters]);
 
   // Transform data
   const stats = calculateStats(data);
