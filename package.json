@@ -10,6 +10,7 @@
     "test": "jest --coverage --collectCoverageFrom=\"**/*.{ts,tsx}\" --collectCoverageFrom=\"!**/*.d.ts\" --testPathIgnorePatterns=\"/backend/\" --collectCoverageFrom=\"!backend/**\" --collectCoverageFrom=\"!**/DontPayForTokensFull.tsx\""
   },
   "dependencies": {
+    "@aws-sdk/client-athena": "^3.1005.0",
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@fortawesome/react-fontawesome": "^3.1.1",
@@ -23,6 +24,7 @@
     "next": "^16.0.10",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "recharts": "^3.8.0",
     "rxjs": "^7.8.2",
     "sass": "^1.97.0",
     "sharp": "^0.34.5",

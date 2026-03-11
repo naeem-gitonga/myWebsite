@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import AnalyticsTracker, { getStagingTag } from '../AnalyticsTracker';
 
 // Mock the analytics utility
-const mockInitializeAnalytics = jest.fn(() => jest.fn());
+const mockInitializeAnalytics = jest.fn((_props: unknown) => jest.fn());
 jest.mock('@/utils/analytics', () => ({
   initializeAnalytics: (props: { fromWebsite: string; itemId?: string }) =>
     mockInitializeAnalytics(props),

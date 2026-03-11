@@ -320,6 +320,12 @@ export default function AiRuinedMyApp(): React.JSX.Element {
           often sucks at that too&#41;.
         </p>
 
+        <p className={text}>
+          If you have taken anything away from this article, at least leave with
+          this. AI is a tool, not a driver. If you subsequently slow down,
+          that is better than starting over or creating a mountain of tech debt.
+        </p>
+
         <h2>What&apos;s Next</h2>
         <p className={text}>
           The next thing to do is to make some updates for scaling more
