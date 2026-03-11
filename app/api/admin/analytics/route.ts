@@ -18,15 +18,13 @@ export async function GET(request: NextRequest) {
 
     const whereClause = buildWhereClause(filters);
     const sql = `
-      SELECT timestamp, page, fromwebsite, sessionid,
-        json_extract_scalar(metadata, '$.userId') as userid, device, eventtype,
+      SELECT timestamp, page, fromwebsite, sessionid, userid, device, eventtype,
         COUNT(*) as views,
         COUNT(DISTINCT sessionid) as unique_visitors,
         COUNT(DISTINCT ip) as unique_ips
       FROM analytics_db.mypersonalwebsite_analytics
       WHERE 1=1 ${whereClause}
-      GROUP BY timestamp, page, fromwebsite, sessionid,
-        json_extract_scalar(metadata, '$.userId'), device, eventtype
+      GROUP BY timestamp, page, fromwebsite, sessionid, userid, device, eventtype
       ORDER BY views DESC
       LIMIT 10000
     `;
