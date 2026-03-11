@@ -98,6 +98,7 @@ export function FilterSection({
           <select
             id="pages-select"
             multiple
+            className={styles.filterSelect}
             value={selectedPages}
             onChange={(e) => onPagesChange(Array.from(e.target.selectedOptions, (op) => op.value))}
           >
@@ -113,6 +114,7 @@ export function FilterSection({
           <select
             id="devices-select"
             multiple
+            className={styles.filterSelect}
             value={selectedDevices}
             onChange={(e) => onDevicesChange(Array.from(e.target.selectedOptions, (op) => op.value))}
           >
@@ -128,6 +130,7 @@ export function FilterSection({
           <select
             id="events-select"
             multiple
+            className={styles.filterSelect}
             value={selectedEvents}
             onChange={(e) => onEventsChange(Array.from(e.target.selectedOptions, (op) => op.value))}
           >
@@ -143,6 +146,7 @@ export function FilterSection({
           <select
             id="websites-select"
             multiple
+            className={styles.filterSelect}
             value={selectedWebsites}
             onChange={(e) => onWebsitesChange(Array.from(e.target.selectedOptions, (op) => op.value))}
           >
@@ -158,6 +162,7 @@ export function FilterSection({
           <select
             id="users-select"
             multiple
+            className={styles.filterSelect}
             value={selectedUserIds}
             onChange={(e) => onUserIdsChange(Array.from(e.target.selectedOptions, (op) => op.value))}
           >
