@@ -104,7 +104,7 @@ export function buildWhereClause(filters: AnalyticsFilters): string {
     const userids = filters.userid
       .map((u) => `'${sanitizeForSql(u)}'`)
       .join(', ');
-    conditions.push(`metadata.userid IN (${userids})`);
+    conditions.push(`json_extract_scalar(metadata, '$.userId') IN (${userids})`);
   }
 
   if (conditions.length === 0) {
