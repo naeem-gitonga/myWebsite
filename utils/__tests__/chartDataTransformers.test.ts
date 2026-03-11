@@ -13,50 +13,53 @@ describe('chartDataTransformers', () => {
       timestamp: '2026-03-10T10:00:00Z',
       page: '/home',
       userid: 'user1',
+      ip: '1.1.1.1',
       fromwebsite: 'google',
       sessionid: 'session1',
       device: 'mobile',
       eventtype: 'view',
-      views: '100',
-      unique_visitors: '50',
-      unique_ips: '45',
+      views: '1',
+      unique_visitors: '1',
+      unique_ips: '1',
     },
     {
       timestamp: '2026-03-10T11:00:00Z',
       page: '/blog',
       userid: 'user2',
+      ip: '2.2.2.2',
       fromwebsite: 'direct',
       sessionid: 'session2',
       device: 'desktop',
       eventtype: 'click',
-      views: '200',
-      unique_visitors: '100',
-      unique_ips: '95',
+      views: '1',
+      unique_visitors: '1',
+      unique_ips: '1',
     },
     {
       timestamp: '2026-03-10T12:00:00Z',
       page: '/home',
-      userid: 'user3',
+      userid: 'user1',
+      ip: '1.1.1.1',
       fromwebsite: 'google',
       sessionid: 'session3',
       device: 'desktop',
       eventtype: 'view',
-      views: '150',
-      unique_visitors: '75',
-      unique_ips: '70',
+      views: '1',
+      unique_visitors: '1',
+      unique_ips: '1',
     },
   ];
 
   describe('buildPageData', () => {
-    it('should group data by page and aggregate metrics', () => {
+    it('should group data by page and count unique visitors and IPs', () => {
       const result = buildPageData(mockData);
 
       expect(result).toHaveLength(2);
       expect(result[0]).toEqual({
         page: '/home',
-        views: 250,
-        unique_visitors: 125,
-        unique_ips: 115,
+        views: 2,
+        unique_visitors: 1, // user1 appears twice
+        unique_ips: 1,      // 1.1.1.1 appears twice
       });
     });
 
@@ -78,8 +81,8 @@ describe('chartDataTransformers', () => {
       const result = buildDeviceData(mockData);
 
       expect(result).toHaveLength(2);
-      expect(result.some((d) => d.name === 'mobile' && d.value === 100)).toBe(true);
-      expect(result.some((d) => d.name === 'desktop' && d.value === 350)).toBe(true);
+      expect(result.some((d) => d.name === 'mobile' && d.value === 1)).toBe(true);
+      expect(result.some((d) => d.name === 'desktop' && d.value === 2)).toBe(true);
     });
 
     it('should handle missing device values', () => {
@@ -99,8 +102,8 @@ describe('chartDataTransformers', () => {
       const result = buildSourceData(mockData);
 
       expect(result).toHaveLength(2);
-      expect(result.some((s) => s.name === 'google' && s.views === 250)).toBe(true);
-      expect(result.some((s) => s.name === 'direct' && s.views === 200)).toBe(true);
+      expect(result.some((s) => s.name === 'google' && s.views === 2)).toBe(true);
+      expect(result.some((s) => s.name === 'direct' && s.views === 1)).toBe(true);
     });
 
     it('should sort by views descending', () => {
@@ -119,7 +122,7 @@ describe('chartDataTransformers', () => {
       expect(result).toHaveLength(2);
       expect(result[0]).toEqual({
         timestamp: '2026-03-10T10:00:00Z',
-        views: 100,
+        views: 1,
       });
     });
 

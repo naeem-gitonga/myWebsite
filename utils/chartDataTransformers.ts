@@ -53,7 +53,28 @@ function groupAndAggregate(
  * Build data for "Views by Page" chart
  */
 export function buildPageData(data: AnalyticsRow[]): ChartData[] {
-  return groupAndAggregate(data, 'page');
+  const map = new Map<string, { views: number; userids: Set<string>; ips: Set<string> }>();
+
+  data.forEach((row) => {
+    const page = row.page || 'unknown';
+    if (!map.has(page)) {
+      map.set(page, { views: 0, userids: new Set(), ips: new Set() });
+    }
+    const entry = map.get(page)!;
+    entry.views += 1;
+    if (row.userid) entry.userids.add(row.userid);
+    if (row.ip) entry.ips.add(row.ip);
+  });
+
+  const result: ChartData[] = Array.from(map.entries()).map(([page, counts]) => ({
+    page,
+    views: counts.views,
+    unique_visitors: counts.userids.size,
+    unique_ips: counts.ips.size,
+  }));
+
+  result.sort((a, b) => ((b.views as number) || 0) - ((a.views as number) || 0));
+  return result;
 }
 
 /**
