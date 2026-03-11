@@ -17,7 +17,9 @@ export async function GET(request: NextRequest) {
     };
 
     const isStaging = process.env.NODE_ENV === 'development' || process.env.NEXT_PUBLIC_STAGE === 'staging';
-    const devFilter = isStaging ? "AND fromwebsite LIKE '%direct|analytics-staging%'" : '';
+    const devFilter = isStaging
+      ? "AND fromwebsite LIKE '%analytics-staging%'"
+      : "AND fromwebsite NOT LIKE '%analytics-staging%'";
 
     const sql = `
       SELECT timestamp, page, userid, fromwebsite, sessionid, device, eventtype, ip,
