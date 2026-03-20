@@ -87,27 +87,57 @@ notify_subscribers:
   rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
       when: never
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: manual
     - if: '$CI_COMMIT_BRANCH == "master" && $CI_COMMIT_MESSAGE =~ /feat: new article /'
       when: on_success
+    - if: '$CI_COMMIT_BRANCH == "staging" && $CI_COMMIT_MESSAGE =~ /feat: new article /'
+      when: on_success
     - when: never
-  needs:
-    - job: deploy_frontend_production
+  needs: []
   script:
     - !reference [.install_aws, script]
     - !reference [.assume_role, script]
     - |
-      ARTICLE_TITLE=$(echo "$CI_COMMIT_MESSAGE" | grep -oP "(?<=feat: new article ')([^']+)")
-      ARTICLE_SLUG=$(echo "$ARTICLE_TITLE" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
-      ARTICLE_URL="${SITE_URL}/articles/${ARTICLE_SLUG}"
-      PAYLOAD=$(jq -n \
-        --arg title "$ARTICLE_TITLE" \
-        --arg url "$ARTICLE_URL" \
-        --arg description "A new article by Naeem Gitonga is live." \
-        '{"action":"notify","title":$title,"url":$url,"description":$description}')
-      FUNCTION_NAME="ngsubscriber"
-      aws lambda invoke \
-        --function-name "$FUNCTION_NAME" \
-        --payload "$(echo $PAYLOAD | base64 -w 0)" \
-        --cli-binary-format raw-in-base64-out \
-        /tmp/notify-response.json
-      cat /tmp/notify-response.json
+      # Use CI variable overrides (manual runs) or extract from the new article page
+      if [ -n "$NOTIFY_SLUG" ] && [ -n "$NOTIFY_TITLE" ] && [ -n "$NOTIFY_DESCRIPTION" ]; then
+        ARTICLE_SLUG="$NOTIFY_SLUG"
+        ARTICLE_TITLE="$NOTIFY_TITLE"
+        DESCRIPTION="$NOTIFY_DESCRIPTION"
+        ARTICLE_URL="${SITE_URL}/articles/${ARTICLE_SLUG}"
+      else
+        PAGE=$(git diff --name-only HEAD~1 HEAD | grep 'app/articles/.*/page.tsx' | head -1)
+        if [ -z "$PAGE" ]; then
+          echo "No new article page found in this commit. Skipping notify."
+          exit 0
+        fi
+        ARTICLE_SLUG=$(echo "$PAGE" | sed 's|app/articles/||;s|/page.tsx||')
+        ARTICLE_URL="${SITE_URL}/articles/${ARTICLE_SLUG}"
+        ARTICLE_TITLE=$(node -e "const c=require('fs').readFileSync('$PAGE','utf8');const m=c.match(/const title = [\"'\`](.+?)[\"'\`]/);process.stdout.write(m[1])")
+        DESCRIPTION=$(node -e "const c=require('fs').readFileSync('$PAGE','utf8');const m=c.match(/const description\s*=\s*[\r\n\s]*[\"'\`]([^\"'\`]+)[\"'\`]/s);process.stdout.write(m[1])")
+      fi
+
+      # On staging, restrict delivery to test email only
+      if [ "$CI_COMMIT_BRANCH" = "staging" ] || [ -n "$NOTIFY_TEST_EMAIL" ]; then
+        TEST_EMAIL="${NOTIFY_TEST_EMAIL:-jngincorporated@gmail.com}"
+        PAYLOAD=$(jq -n \
+          --arg title "$ARTICLE_TITLE" \
+          --arg url "$ARTICLE_URL" \
+          --arg description "$DESCRIPTION" \
+          --arg testEmail "$TEST_EMAIL" \
+          '{"title":$title,"url":$url,"description":$description,"testEmail":$testEmail}')
+      else
+        PAYLOAD=$(jq -n \
+          --arg title "$ARTICLE_TITLE" \
+          --arg url "$ARTICLE_URL" \
+          --arg description "$DESCRIPTION" \
+          '{"title":$title,"url":$url,"description":$description}')
+      fi
+
+      curl --fail --aws-sigv4 "aws:amz:us-east-1:execute-api" \
+        --user "${AWS_ACCESS_KEY_ID}:${AWS_SECRET_ACCESS_KEY}" \
+        -H "x-amz-security-token: ${AWS_SESSION_TOKEN}" \
+        -H "Content-Type: application/json" \
+        -X POST \
+        -d "$PAYLOAD" \
+        "${SUBSCRIBER_NOTIFY_URL}"

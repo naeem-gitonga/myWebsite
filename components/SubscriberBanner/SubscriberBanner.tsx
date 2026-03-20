@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import Script from 'next/script';
 import styles from './SubscriberBanner.module.scss';
 import useEnvConfig from '@/hooks/useEnvConfig';
+import useSubscriberSync from '@/hooks/useSubscriberSync';
 import {
   BannerState,
   STORAGE_KEY,
@@ -35,6 +36,8 @@ export default function SubscriberBanner({ subscribed }: Props): React.JSX.Eleme
       });
     }
   }
+
+  useSubscriberSync(setState, envConfig);
 
   useEffect(() => {
     if (subscribed) {
