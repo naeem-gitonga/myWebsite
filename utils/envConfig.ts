@@ -16,6 +16,8 @@ export type EnvConfig = {
   AWS_ATHENA_SECRET: string | undefined;
   AWS_REGION: string | undefined;
   ATHENA_OUTPUT_BUCKET: string | undefined;
+  SUBSCRIBER_API_URL: string | undefined;
+  TURNSTILE_SITE_KEY: string | undefined;
 };
 
 // env config
@@ -42,6 +44,8 @@ export function buildEnvConfig(): EnvConfig {
     AWS_ATHENA_SECRET: process.env.AWS_ATHENA_SECRET,
     AWS_REGION: process.env.AWS_REGION,
     ATHENA_OUTPUT_BUCKET: process.env.ATHENA_OUTPUT_BUCKET,
+    SUBSCRIBER_API_URL: process.env.NEXT_PUBLIC_SUBSCRIBER_API_URL,
+    TURNSTILE_SITE_KEY: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
   };
 }
 
