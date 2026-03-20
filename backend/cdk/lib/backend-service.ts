@@ -7,11 +7,9 @@ import {
   AccessLogFormat,
   LogGroupLogDestination,
   MethodLoggingLevel,
-  AuthorizationType,
 } from 'aws-cdk-lib/aws-apigateway';
 import {
   StarPrincipal,
-  ArnPrincipal,
   Effect,
   PolicyDocument,
   PolicyStatement,
@@ -224,12 +222,13 @@ export default class BackendService extends Construct {
           actions: ['execute-api:Invoke'],
           resources: [`arn:aws:execute-api:*:*:*/prod/*/api/${subscriberFunctionNameLowercased}/status`],
         }),
-        // /notify restricted to the CI pipeline's OIDC-assumed IAM role
+        // /notify restricted to site origin — called from the admin UI
         new PolicyStatement({
           effect: Effect.ALLOW,
-          principals: [new ArnPrincipal(process.env.CI_ROLE_ARN as string)],
+          principals: [new StarPrincipal()],
           actions: ['execute-api:Invoke'],
           resources: [`arn:aws:execute-api:*:*:*/prod/*/api/${subscriberFunctionNameLowercased}/notify`],
+          conditions,
         }),
       ],
     });
@@ -298,9 +297,7 @@ export default class BackendService extends Construct {
     const subscriberRoutes = basePath.addResource(subscriberFunctionNameLowercased);
     subscriberRoutes.addResource('join').addMethod('POST', new LambdaIntegration(subscriberLambda));
     subscriberRoutes.addResource('confirm').addMethod('GET', new LambdaIntegration(subscriberLambda));
-    subscriberRoutes.addResource('notify').addMethod('POST', new LambdaIntegration(subscriberLambda), {
-      authorizationType: AuthorizationType.IAM,
-    });
+    subscriberRoutes.addResource('notify').addMethod('POST', new LambdaIntegration(subscriberLambda));
     subscriberRoutes.addResource('status').addMethod('GET', new LambdaIntegration(subscriberLambda));
   }
 }

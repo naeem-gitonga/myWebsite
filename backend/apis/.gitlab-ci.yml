@@ -105,7 +105,6 @@ deploy_staging_backend:
       variables=(
         "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
         "CALENDLY_API_ACCESS_TOKEN=${CALENDLY_API_ACCESS_TOKEN}"
-        "CI_ROLE_ARN=${CI_ROLE_ARN}"
         "DB_NAME=${DB_NAME}"
         "NODE_ENV=staging"
         "ORIGIN=${ORIGIN}"
@@ -201,7 +200,6 @@ deploy_production_backend:
       variables=(
         "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
         "CALENDLY_API_ACCESS_TOKEN=${CALENDLY_API_ACCESS_TOKEN}"
-        "CI_ROLE_ARN=${CI_ROLE_ARN}"
         "DB_NAME=${DB_NAME}"
         "NODE_ENV=production"
         "ORIGIN=${ORIGIN}"
