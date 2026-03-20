@@ -15,7 +15,7 @@ import {
   PolicyStatement,
 } from 'aws-cdk-lib/aws-iam';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
-import { Duration, RemovalPolicy } from 'aws-cdk-lib';
+import { Duration, RemovalPolicy, SecretValue } from 'aws-cdk-lib';
 import { LogGroup } from 'aws-cdk-lib/aws-logs';
 import { Queue } from 'aws-cdk-lib/aws-sqs';
 import { policyStatementJng, policyStatementRb, s3Permission, sesSendPermission } from './iam-roles';
@@ -65,6 +65,13 @@ export default class BackendService extends Construct {
         WHICH_ROUTE: process.env.WHICH_ROUTE as string,
         CALENDLY_API_URL: process.env.CALENDLY_API_URL as string,
         CALENDLY_EVENT_URI: process.env.CALENDLY_EVENT_URI as string,
+      },
+      ngsubscriber: {
+        DB_CONNECTION: SecretValue.secretsManager('NG_DB_CONNECTION').unsafeUnwrap(),
+        DB_NAME: process.env.DB_NAME as string || 'ngdb',
+        TURNSTILE_SECRET_KEY: SecretValue.secretsManager('NG_TURNSTILE_SECRET_KEY').unsafeUnwrap(),
+        ORIGIN: process.env.ORIGIN as string,
+        SEND_GRID_API_KEY: process.env.SEND_GRID_API_KEY as string,
       },
     };
 
@@ -156,6 +163,28 @@ export default class BackendService extends Construct {
       //  },
     };
 
+    const subscriberFunctionName = `NgSubscriber${isProd ? '' : '-staging'}`;
+    const subscriberFunctionNameLowercased = subscriberFunctionName.toLowerCase();
+
+    const subscriberLambda = new Function(this, subscriberFunctionName, {
+      functionName: subscriberFunctionNameLowercased,
+      runtime: Runtime.NODEJS_22_X,
+      handler: 'handler.subscriber',
+      environment: {
+        ...environment.ngsubscriber,
+      },
+      timeout: Duration.minutes(1),
+      code: Code.fromAsset(
+        process.env.ARTIFACT_PATH ??
+          path.join(__dirname, '../../apis/.serverless/jngpaypal.zip')
+      ),
+    });
+
+    new LogGroup(this, 'ng-subscriber-log-group', {
+      logGroupName: `/aws/lambda/${subscriberFunctionNameLowercased}`,
+      removalPolicy,
+    });
+
     const apiResourcePolicy = new PolicyDocument({
       statements: [
         new PolicyStatement({
@@ -170,6 +199,36 @@ export default class BackendService extends Construct {
           principals: [new StarPrincipal()],
           actions: ['execute-api:Invoke'],
           resources: [`arn:aws:execute-api:*:*:*/prod/*/api/ngcontact${isProd ? '' : '-staging'}`],
+        }),
+        // /join restricted to site origin (same as paypal)
+        new PolicyStatement({
+          effect: Effect.ALLOW,
+          principals: [new StarPrincipal()],
+          actions: ['execute-api:Invoke'],
+          resources: [`arn:aws:execute-api:*:*:*/prod/*/api/${subscriberFunctionNameLowercased}/join`],
+          conditions,
+        }),
+        // /confirm is open — called server-side by Next.js confirm route
+        new PolicyStatement({
+          effect: Effect.ALLOW,
+          principals: [new StarPrincipal()],
+          actions: ['execute-api:Invoke'],
+          resources: [`arn:aws:execute-api:*:*:*/prod/*/api/${subscriberFunctionNameLowercased}/confirm`],
+        }),
+        // /status is open — called client-side to sync subscriber state
+        new PolicyStatement({
+          effect: Effect.ALLOW,
+          principals: [new StarPrincipal()],
+          actions: ['execute-api:Invoke'],
+          resources: [`arn:aws:execute-api:*:*:*/prod/*/api/${subscriberFunctionNameLowercased}/status`],
+        }),
+        // /notify restricted to site origin — called from the admin UI
+        new PolicyStatement({
+          effect: Effect.ALLOW,
+          principals: [new StarPrincipal()],
+          actions: ['execute-api:Invoke'],
+          resources: [`arn:aws:execute-api:*:*:*/prod/*/api/${subscriberFunctionNameLowercased}/notify`],
+          conditions,
         }),
       ],
     });
@@ -233,5 +292,12 @@ export default class BackendService extends Construct {
     // * add contact route
     const contactRoutes = basePath.addResource(contactFunctionNameLowercased);
     contactRoutes.addMethod('POST', new LambdaIntegration(contactLambda));
+
+    // * add subscriber routes
+    const subscriberRoutes = basePath.addResource(subscriberFunctionNameLowercased);
+    subscriberRoutes.addResource('join').addMethod('POST', new LambdaIntegration(subscriberLambda));
+    subscriberRoutes.addResource('confirm').addMethod('GET', new LambdaIntegration(subscriberLambda));
+    subscriberRoutes.addResource('notify').addMethod('POST', new LambdaIntegration(subscriberLambda));
+    subscriberRoutes.addResource('status').addMethod('GET', new LambdaIntegration(subscriberLambda));
   }
 }

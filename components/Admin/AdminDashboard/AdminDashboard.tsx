@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './AdminDashboard.module.scss';
 import { useAnalyticsDashboard } from '@/hooks/useAnalyticsDashboard';
@@ -11,9 +12,13 @@ import { TrafficByDeviceChart } from './TrafficByDeviceChart';
 import { TrafficBySourceChart } from './TrafficBySourceChart';
 import { UserJourneyChart } from './UserJourneyChart';
 import { DataTable } from './DataTable';
+import { NotificationsView } from './NotificationsView';
+
+type AdminTab = 'dashboard' | 'notifications';
 
 export default function AdminDashboard(): React.JSX.Element {
   const router = useRouter();
+  const [activeTab, setActiveTab] = useState<AdminTab>('dashboard');
   const dashboard = useAnalyticsDashboard();
 
   const handleLogout = async () => {
@@ -28,12 +33,30 @@ export default function AdminDashboard(): React.JSX.Element {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1>Analytics Dashboard</h1>
+        <h1>Admin</h1>
         <button onClick={handleLogout} className={styles.logoutBtn}>
           Logout
         </button>
       </div>
 
+      <nav className={styles.tabs}>
+        <button
+          className={`${styles.tab} ${activeTab === 'dashboard' ? styles.activeTab : ''}`}
+          onClick={() => setActiveTab('dashboard')}
+        >
+          Dashboard
+        </button>
+        <button
+          className={`${styles.tab} ${activeTab === 'notifications' ? styles.activeTab : ''}`}
+          onClick={() => setActiveTab('notifications')}
+        >
+          Notifications
+        </button>
+      </nav>
+
+      {activeTab === 'notifications' && <NotificationsView />}
+
+      {activeTab === 'dashboard' && <>
       <FilterSection
         year={dashboard.year}
         month={dashboard.month}
@@ -74,7 +97,7 @@ export default function AdminDashboard(): React.JSX.Element {
 
           <ViewsByPageChart data={dashboard.pageData} onPageSelect={dashboard.setSelectedPage} />
 
-          <ViewsTimelineChart data={dashboard.lineData} selectedPage={dashboard.selectedPage} />
+          <ViewsTimelineChart selectedPage={dashboard.selectedPage} />
 
           <TrafficByDeviceChart data={dashboard.deviceData} />
 
@@ -87,6 +110,7 @@ export default function AdminDashboard(): React.JSX.Element {
       ) : !dashboard.loading && !dashboard.error ? (
         <p className={styles.noData}>No data available</p>
       ) : null}
+      </>}
     </div>
   );
 }

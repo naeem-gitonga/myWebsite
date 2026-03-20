@@ -1,0 +1,42 @@
+plugins:
+  - serverless-webpack
+  - serverless-plugin-typescript
+  - serverless-prune-plugin
+  - serverless-offline
+service: ngsubscriber
+custom:
+  webpack:
+    webpackConfig: webpack.config.js
+provider:
+  name: aws
+  runtime: nodejs22.x
+package:
+  exclude:
+    - '*.sh'
+    - 'README.md'
+functions:
+  ngsubscriber:
+    handler: handler.subscriber
+    environment:
+      DB_CONNECTION: ${env:DB_CONNECTION, ''}
+      DB_NAME: ${env:DB_NAME, 'ngdb'}
+      TURNSTILE_SECRET_KEY: ${env:TURNSTILE_SECRET_KEY, ''}
+      ORIGIN: ${env:ORIGIN, 'http://localhost:3000'}
+      SEND_GRID_API_KEY: ${env:SEND_GRID_API_KEY, ''}
+    events:
+      - http:
+          path: ngsubscriber/join
+          method: post
+          cors: true
+      - http:
+          path: ngsubscriber/confirm
+          method: get
+          cors: true
+      - http:
+          path: ngsubscriber/notify
+          method: post
+          cors: true
+      - http:
+          path: ngsubscriber/status
+          method: get
+          cors: true

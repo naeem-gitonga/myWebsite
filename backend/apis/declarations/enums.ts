@@ -38,3 +38,14 @@ export enum ContactRoutes {
   contact = '/api/ngcontact',
   contactstaging = '/api/ngcontact-staging',
 }
+
+export enum SubscriberRoutes {
+  join = '/api/ngsubscriber/join',
+  joinstaging = '/api/ngsubscriber-staging/join',
+  confirm = '/api/ngsubscriber/confirm',
+  confirmstaging = '/api/ngsubscriber-staging/confirm',
+  notify = '/api/ngsubscriber/notify',
+  notifystaging = '/api/ngsubscriber-staging/notify',
+  status = '/api/ngsubscriber/status',
+  statusstaging = '/api/ngsubscriber-staging/status',
+}
