@@ -5,7 +5,10 @@ import * as analyticsApi from '@/utils/analyticsApi';
 import AdminDashboard from '../AdminDashboard';
 
 jest.mock('next/navigation');
-jest.mock('@/utils/analyticsApi');
+jest.mock('@/utils/analyticsApi', () => ({
+  fetchAnalyticsData: jest.fn(),
+  fetchTimelineData: jest.fn(),
+}));
 
 jest.mock('recharts', () => ({
   ...jest.requireActual('recharts'),
