@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import SubscriberBanner from '../SubscriberBanner';
 import {
   createHandleSubmit,
@@ -86,8 +86,46 @@ describe('SubscriberBanner component', () => {
     render(<SubscriberBanner />);
     expect(mockTurnstile.render).toHaveBeenCalledWith(
       expect.any(HTMLDivElement),
-      expect.objectContaining({ sitekey: 'dummy_site_key' })
+      expect.objectContaining({
+        sitekey: 'dummy_site_key',
+        callback: expect.any(Function),
+        'expired-callback': expect.any(Function),
+        'error-callback': expect.any(Function),
+      })
     );
+  });
+
+  it('removes the Turnstile widget from the DOM after verification callback fires', () => {
+    render(<SubscriberBanner />);
+    const turnstileEl = mockTurnstile.render.mock.calls[0][0] as HTMLElement;
+    expect(document.body.contains(turnstileEl)).toBe(true);
+
+    const { callback } = mockTurnstile.render.mock.calls[0][1];
+    act(() => { callback(); });
+
+    expect(document.body.contains(turnstileEl)).toBe(false);
+  });
+
+  it('renders a new Turnstile widget when the token expires', () => {
+    render(<SubscriberBanner />);
+    const { callback, 'expired-callback': expiredCallback } = mockTurnstile.render.mock.calls[0][1];
+
+    act(() => { callback(); });
+    act(() => { expiredCallback(); });
+
+    // verified flips back to false — a new div is rendered for Turnstile to mount into
+    expect(mockTurnstile.render.mock.calls.length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByRole('button', { name: 'Subscribe' }).closest('form')).toBeInTheDocument();
+  });
+
+  it('renders a new Turnstile widget on error callback', () => {
+    render(<SubscriberBanner />);
+    const { callback, 'error-callback': errorCallback } = mockTurnstile.render.mock.calls[0][1];
+
+    act(() => { callback(); });
+    act(() => { errorCallback(); });
+
+    expect(screen.getByRole('button', { name: 'Subscribe' }).closest('form')).toBeInTheDocument();
   });
 
   it('shows pending message when localStorage is "pending"', () => {

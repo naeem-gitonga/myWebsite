@@ -19,6 +19,7 @@ type Props = { subscribed?: boolean };
 export default function SubscriberBanner({ subscribed }: Props): React.JSX.Element {
   const [state, setState] = useState<BannerState>('form');
   const [loading, setLoading] = useState(false);
+  const [verified, setVerified] = useState(false);
   const turnstileRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
   const envConfig = useEnvConfig();
@@ -33,6 +34,9 @@ export default function SubscriberBanner({ subscribed }: Props): React.JSX.Eleme
       widgetIdRef.current = (window as any).turnstile.render(turnstileRef.current, {
         sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
         theme: 'auto',
+        callback: () => setVerified(true),
+        'expired-callback': () => setVerified(false),
+        'error-callback': () => setVerified(false),
       });
     }
   }
@@ -91,7 +95,7 @@ export default function SubscriberBanner({ subscribed }: Props): React.JSX.Eleme
               {loading ? 'Subscribing...' : 'Subscribe'}
             </button>
           </div>
-          <div ref={turnstileRef} />
+          {!verified && <div ref={turnstileRef} />}
           {state === 'error' && (
             <p className={error}>Something went wrong. Please try again.</p>
           )}
