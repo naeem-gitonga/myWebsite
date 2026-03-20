@@ -67,7 +67,10 @@ export default function AboutMe(): React.JSX.Element {
           is an art! I am also into General Aviation—real fly boy!
         </p>
         <p className={about}>
-          Formerly I was working as a Senior MLOps engineer. I am an evening
+          Currently, I am a Principal AI Engineer working for a startup called {' '}
+          <Link href="interstitial?url=https://tolive.ai&where=ToLive.ai">ToLive.ai</Link>.
+          Previously, I worked for four years at a company called Pluralsight. There, my last
+          role was as a Senior MLOps Engineer. And, I am an evening
           MBA student at Georgia Tech. I finish in May 2026.
         </p>
         <p className={about}>
@@ -86,7 +89,8 @@ export default function AboutMe(): React.JSX.Element {
             here
           </Link>{' '}
           exploring various technologies that I know or am learning. I
-          occasionally write articles, so stay tuned!
+          occasionally write articles, so stay make sure you subscribe, 
+          visit <Link href="/articles">articles</Link>!
         </p>
         <p className={about}>
           Here you will see some samples of my work. If you hover over the
