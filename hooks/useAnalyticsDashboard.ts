@@ -22,7 +22,6 @@ export interface UseAnalyticsDashboardReturn {
   data: AnalyticsRow[];
   stats: Stats;
   pageData: ChartData[];
-  lineData: ChartData[];
   deviceData: ChartData[];
   sourceData: ChartData[];
   sankeyData: SankeyData;
@@ -69,7 +68,7 @@ export function useAnalyticsDashboard(): UseAnalyticsDashboardReturn {
   // Filter state
   const [year, setYear] = useState<number>(new Date().getFullYear());
   const [month, setMonth] = useState<number>(new Date().getMonth() + 1);
-  const [day, setDay] = useState<number>(new Date().getDate());
+  const [day, setDay] = useState<number>(0);
   const [selectedPages, setSelectedPages] = useState<string[]>([]);
   const [selectedDevices, setSelectedDevices] = useState<string[]>([]);
   const [selectedEvents, setSelectedEvents] = useState<string[]>([]);
@@ -126,7 +125,7 @@ export function useAnalyticsDashboard(): UseAnalyticsDashboardReturn {
     const now = new Date();
     const defaultYear = now.getFullYear();
     const defaultMonth = now.getMonth() + 1;
-    const defaultDay = now.getDate();
+    const defaultDay = 0;
 
     setYear(defaultYear);
     setMonth(defaultMonth);
@@ -152,7 +151,6 @@ export function useAnalyticsDashboard(): UseAnalyticsDashboardReturn {
   // Transform data
   const stats = calculateStats(data);
   const pageData = buildPageData(data);
-  const lineData = buildLineData(data, selectedPage);
   const deviceData = buildDeviceData(data);
   const sourceData = buildSourceData(data);
   const sankeyData = buildSankeyData(data);
@@ -168,7 +166,6 @@ export function useAnalyticsDashboard(): UseAnalyticsDashboardReturn {
     data,
     stats,
     pageData,
-    lineData,
     deviceData,
     sourceData,
     sankeyData,

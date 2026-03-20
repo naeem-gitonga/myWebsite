@@ -141,6 +141,52 @@ async function pollQueryStatus(
   throw new Error('Query timeout: exceeded max polling attempts');
 }
 
+export async function runAthenaRawQuery(sql: string): Promise<Record<string, string>[]> {
+  const accessKeyId = process.env.AWS_ATHENA_KEY;
+  const secretAccessKey = process.env.AWS_ATHENA_SECRET;
+  const region = process.env.AWS_REGION ?? 'us-east-1';
+  const outputBucket = process.env.ATHENA_OUTPUT_BUCKET;
+
+  if (!accessKeyId || !secretAccessKey || !region || !outputBucket) {
+    throw new Error('Missing required AWS credentials or configuration');
+  }
+
+  const client = new AthenaClient({ region, credentials: { accessKeyId, secretAccessKey } });
+
+  try {
+    const startResponse = await client.send(
+      new StartQueryExecutionCommand({
+        QueryString: sql,
+        QueryExecutionContext: { Database: 'analytics_db' },
+        ResultConfiguration: { OutputLocation: outputBucket },
+      })
+    );
+
+    const queryExecutionId = startResponse.QueryExecutionId;
+    if (!queryExecutionId) throw new Error('No query execution ID returned');
+
+    await pollQueryStatus(client, queryExecutionId);
+
+    const resultsResponse = await client.send(
+      new GetQueryResultsCommand({ QueryExecutionId: queryExecutionId })
+    );
+
+    const results = resultsResponse.ResultSet?.Rows || [];
+    if (results.length < 2) return [];
+
+    const headers = results[0].Data?.map((d) => d.VarCharValue || '') ?? [];
+    return results.slice(1).map((row) => {
+      const record: Record<string, string> = {};
+      row.Data?.forEach((cell, i) => {
+        record[headers[i]] = cell.VarCharValue || '';
+      });
+      return record;
+    });
+  } finally {
+    client.destroy();
+  }
+}
+
 export async function runAthenaQuery(sql: string): Promise<AnalyticsRow[]> {
   const accessKeyId = process.env.AWS_ATHENA_KEY;
   const secretAccessKey = process.env.AWS_ATHENA_SECRET;

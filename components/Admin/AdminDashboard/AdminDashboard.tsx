@@ -97,7 +97,7 @@ export default function AdminDashboard(): React.JSX.Element {
 
           <ViewsByPageChart data={dashboard.pageData} onPageSelect={dashboard.setSelectedPage} />
 
-          <ViewsTimelineChart data={dashboard.lineData} selectedPage={dashboard.selectedPage} />
+          <ViewsTimelineChart selectedPage={dashboard.selectedPage} />
 
           <TrafficByDeviceChart data={dashboard.deviceData} />
 

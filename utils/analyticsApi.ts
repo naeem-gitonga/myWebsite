@@ -34,6 +34,12 @@ function buildQueryParams(filters: AnalyticsFilters): URLSearchParams {
   return params;
 }
 
+export type TimelineRow = {
+  timestamp: string;
+  page: string;
+  views: string;
+};
+
 /**
  * Fetch analytics data from API
  */
@@ -49,4 +55,20 @@ export async function fetchAnalyticsData(filters: AnalyticsFilters): Promise<Ana
   }
 
   return response.json();
+}
+
+/**
+ * Fetch timeline data (views per hour per page) from aggregated endpoint
+ */
+export async function fetchTimelineData(filters: AnalyticsFilters): Promise<TimelineRow[]> {
+  const params = buildQueryParams(filters);
+  const response = await fetch(`/api/admin/analytics/aggregated?${params.toString()}`);
+
+  if (!response.ok) {
+    if (response.status === 401) throw new Error('UNAUTHORIZED');
+    throw new Error(`Failed to fetch: ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return data.timeline ?? [];
 }
