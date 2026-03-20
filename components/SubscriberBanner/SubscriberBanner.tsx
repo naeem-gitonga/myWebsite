@@ -31,7 +31,7 @@ export default function SubscriberBanner({ subscribed }: Props): React.JSX.Eleme
   function renderTurnstile() {
     if (turnstileRef.current && typeof window !== 'undefined' && (window as any).turnstile && widgetIdRef.current === null) {
       widgetIdRef.current = (window as any).turnstile.render(turnstileRef.current, {
-        sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+        sitekey: envConfig.TURNSTILE_SITE_KEY,
         theme: 'auto',
       });
     }

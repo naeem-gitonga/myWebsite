@@ -59,8 +59,8 @@ const mockTurnstile = {
 describe('SubscriberBanner component', () => {
   beforeEach(() => {
     (global.fetch as jest.Mock).mockReset();
-    localStorageMock.getItem.mockClear();
-    localStorageMock.setItem.mockClear();
+    localStorageMock.getItem.mockReset();
+    localStorageMock.setItem.mockReset();
     localStorageMock.clear();
     mockTurnstile.render.mockClear();
     mockTurnstile.reset.mockClear();

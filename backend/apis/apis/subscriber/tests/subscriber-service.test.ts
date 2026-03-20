@@ -167,11 +167,10 @@ describe('SubscriberService.notify', () => {
     connect.mockResolvedValue(makeMockDb(collection));
     const { services, sendMail } = makeServices();
 
-    const service = new SubscriberService(null);
-    const result = await service.notify(
-      { action: 'notify', title: 'Test', url: 'https://example.com', description: 'Desc' },
-      services
+    const service = new SubscriberService(
+      makeApiEvent({ title: 'Test', url: 'https://example.com', description: 'Desc' })
     );
+    const result = await service.notify(services);
 
     expect(result.sent).toBe(0);
     expect(sendMail).not.toHaveBeenCalled();
@@ -188,11 +187,10 @@ describe('SubscriberService.notify', () => {
     connect.mockResolvedValue(makeMockDb(collection));
     const { services, sendMail } = makeServices();
 
-    const service = new SubscriberService(null);
-    const result = await service.notify(
-      { action: 'notify', title: 'My Article', url: 'https://example.com/article', description: 'Great read' },
-      services
+    const service = new SubscriberService(
+      makeApiEvent({ title: 'My Article', url: 'https://example.com/article', description: 'Great read' })
     );
+    const result = await service.notify(services);
 
     expect(result.sent).toBe(2);
     expect(sendMail).toHaveBeenCalledTimes(1);
@@ -203,6 +201,30 @@ describe('SubscriberService.notify', () => {
           expect.objectContaining({ to: [{ email: 'ada@example.com' }] }),
           expect.objectContaining({ to: [{ email: 'bob@example.com' }] }),
         ]),
+      })
+    );
+  });
+
+  it('sends only to testEmail when testEmail is provided', async () => {
+    const subscribers = [
+      { name: 'Ada', email: 'ada@example.com' },
+      { name: 'Bob', email: 'bob@example.com' },
+    ];
+    const collection = makeMockCollection({
+      find: jest.fn().mockReturnValue({ toArray: jest.fn().mockResolvedValue(subscribers) }),
+    });
+    connect.mockResolvedValue(makeMockDb(collection));
+    const { services, sendMail } = makeServices();
+
+    const service = new SubscriberService(
+      makeApiEvent({ title: 'My Article', url: 'https://example.com/article', description: 'Great read', testEmail: 'test@example.com' })
+    );
+    const result = await service.notify(services);
+
+    expect(result.sent).toBe(1);
+    expect(sendMail).toHaveBeenCalledWith(
+      expect.objectContaining({
+        personalizations: [expect.objectContaining({ to: [{ email: 'test@example.com' }] })],
       })
     );
   });

@@ -60,6 +60,7 @@ describe('AdminDashboard component', () => {
       push: mockPush,
     });
     (analyticsApi.fetchAnalyticsData as jest.Mock).mockResolvedValue(mockAnalyticsData);
+    (analyticsApi.fetchTimelineData as jest.Mock).mockResolvedValue([]);
   });
 
   it('renders dashboard header', async () => {
