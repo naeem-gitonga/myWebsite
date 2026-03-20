@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { fetchTimelineData, type TimelineRow, type AnalyticsFilters } from '@/utils/analyticsApi';
+import { fetchTimelineData, type AnalyticsFilters, type TimelineRow } from '@/utils/analyticsApi';
 import styles from './AdminDashboard.module.scss';
 
-type Range = 'this-month' | 'last-month' | 'this-year';
+type Range = 'this-week' | 'this-month' | 'last-month' | 'this-year';
 
 const RANGE_LABELS: Record<Range, string> = {
+  'this-week': 'This Week',
   'this-month': 'This Month',
   'last-month': 'Last Month',
   'this-year': 'This Year',
@@ -15,12 +16,21 @@ const RANGE_LABELS: Record<Range, string> = {
 
 const COLORS = ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#fa709a', '#43e97b', '#f5a623', '#d0021b'];
 
+function toISODate(d: Date): string {
+  return d.toISOString().slice(0, 10);
+}
+
 function getRangeFilters(range: Range): AnalyticsFilters {
   const now = new Date();
   const year = now.getFullYear();
   const month = now.getMonth() + 1;
 
   switch (range) {
+    case 'this-week': {
+      const from = new Date(now);
+      from.setDate(now.getDate() - 6);
+      return { fromDate: toISODate(from), toDate: toISODate(now) };
+    }
     case 'this-month':
       return { year, month };
     case 'last-month': {
@@ -45,10 +55,12 @@ export function ViewsTimelineChart({ selectedPage }: Props) {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
+
     fetchTimelineData(getRangeFilters(range))
       .then((data) => { if (!cancelled) setRows(data); })
       .catch(() => { if (!cancelled) setRows([]); })
       .finally(() => { if (!cancelled) setLoading(false); });
+
     return () => { cancelled = true; };
   }, [range]);
 

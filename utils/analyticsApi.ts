@@ -13,6 +13,8 @@ export interface AnalyticsFilters {
   eventtype?: string[];
   fromwebsite?: string[];
   userid?: string[];
+  fromDate?: string;
+  toDate?: string;
 }
 
 /**
@@ -30,6 +32,9 @@ function buildQueryParams(filters: AnalyticsFilters): URLSearchParams {
   filters.eventtype?.forEach((e) => params.append('eventtype', e));
   filters.fromwebsite?.forEach((w) => params.append('fromwebsite', w));
   filters.userid?.forEach((u) => params.append('userid', u));
+
+  if (filters.fromDate) params.append('fromDate', filters.fromDate);
+  if (filters.toDate) params.append('toDate', filters.toDate);
 
   return params;
 }

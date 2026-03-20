@@ -16,6 +16,9 @@ export async function GET(request: NextRequest) {
       day: searchParams.get('day') ? parseInt(searchParams.get('day') || '0') : undefined,
     };
 
+    const fromDate = searchParams.get('fromDate');
+    const toDate = searchParams.get('toDate');
+
     const isStaging = process.env.NODE_ENV === 'development' || process.env.NEXT_PUBLIC_STAGE === 'staging';
     const devFilter = isStaging
       ? "AND fromwebsite LIKE '%analytics-staging%'"
@@ -23,16 +26,22 @@ export async function GET(request: NextRequest) {
 
     const whereClause = buildWhereClause(filters);
 
+    // substr(timestamp, 1, 10) extracts 'YYYY-MM-DD' from ISO 8601 strings like '2026-03-20T14:32:00Z'
+    const dateRangeClause = fromDate && toDate
+      ? `AND substr(timestamp, 1, 10) >= '${fromDate}' AND substr(timestamp, 1, 10) <= '${toDate}'`
+      : '';
+
     const sql = `
       SELECT
-        date_format(from_iso8601_timestamp(timestamp), '%Y-%m-%d') AS timestamp,
+        substr(timestamp, 1, 10) AS timestamp,
         page,
         COUNT(*) AS views
       FROM analytics_db.mypersonalwebsite_analytics
       WHERE 1=1
         ${whereClause}
+        ${dateRangeClause}
         ${devFilter}
-      GROUP BY date_format(from_iso8601_timestamp(timestamp), '%Y-%m-%d'), page
+      GROUP BY substr(timestamp, 1, 10), page
       ORDER BY timestamp ASC
     `;
 
