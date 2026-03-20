@@ -1,3 +1,6 @@
+include:
+  - '/.gitlab-shared.yml'
+
 stages:
   - test
   - build
@@ -8,29 +11,11 @@ stages:
   - npm i
   - npm i -g aws-cdk typescript ts-node serverless dotenv
 
-.install_aws: &install_aws
-  - apt update
-  - apt install -y jq
-  - curl -k "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-  - unzip "awscliv2.zip"
-  - ./aws/install
-
 .common_install: &common_install
   - cd backend/apis
   - npm i 
   - npm i -g serverless dotenv
 
-.assume_role: &assume_role
-  - >
-    export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s"
-    $(aws sts assume-role-with-web-identity
-    --role-arn ${ROLE_ARN}
-    --role-session-name "GitLabRunner-${CI_PROJECT_ID}-${CI_PIPELINE_ID}"
-    --web-identity-token ${GITLAB_OIDC_TOKEN}
-    --duration-seconds 3600
-    --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]'
-    --output text))
-  - aws sts get-caller-identity
 
 image: node:24.12.0
 
@@ -111,15 +96,16 @@ deploy_staging_backend:
   dependencies:
     - build_staging
   script:
-    - *install_aws
+    - !reference [.install_aws, script]
     - *common_setup
-    - *assume_role
+    - !reference [.assume_role, script]
     - echo "Geronimo Deploy!"
     - npm i
     - |
       variables=(
         "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
         "CALENDLY_API_ACCESS_TOKEN=${CALENDLY_API_ACCESS_TOKEN}"
+        "DB_NAME=${DB_NAME}"
         "NODE_ENV=staging"
         "ORIGIN=${ORIGIN}"
         "SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}"
@@ -144,9 +130,9 @@ update_lambda_runtime:
   dependencies:
     - deploy_staging_backend
   script:
-    - *install_aws
+    - !reference [.install_aws, script]
     - *common_setup
-    - *assume_role
+    - !reference [.assume_role, script]
     - cd ..
     - sh apis/scripts/update-runtimes.sh
 
@@ -206,14 +192,15 @@ deploy_production_backend:
   dependencies:
     - build_production
   script:
-    - *install_aws
+    - !reference [.install_aws, script]
     - *common_setup
-    - *assume_role
+    - !reference [.assume_role, script]
     - npm i && npm i -g serverless
     - |
       variables=(
         "ACCESS_KEY_ID=${ACCESS_KEY_ID}"
         "CALENDLY_API_ACCESS_TOKEN=${CALENDLY_API_ACCESS_TOKEN}"
+        "DB_NAME=${DB_NAME}"
         "NODE_ENV=production"
         "ORIGIN=${ORIGIN}"
         "SECRET_ACCESS_KEY=${SECRET_ACCESS_KEY}"

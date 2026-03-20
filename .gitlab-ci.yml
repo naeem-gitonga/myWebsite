@@ -1,4 +1,5 @@
 include:
+  - '/.gitlab-shared.yml'
   - '/backend/apis/.gitlab-ci.yml'
   - '/backend/cdk/.gitlab-ci.yml'
 
@@ -10,6 +11,7 @@ stages:
   - test-cdk
   - release
   - deploy
+  - notify
 
 .front_end_changes: &front_end_changes
   - app/**/*
@@ -75,3 +77,37 @@ deploy_frontend_production:
     - when: never
   script:
     - curl -X POST https://api.vercel.com/v1/integrations/deploy/prj_XVrzM2eALvquKAUKMDAlgjSccy4B/k4eiYJ4iju
+
+notify_subscribers:
+  id_tokens:
+    GITLAB_OIDC_TOKEN:
+      aud: https://gitlab.com
+  stage: notify
+  image: node:24.12.0
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == "master" && $CI_COMMIT_MESSAGE =~ /feat: new article /'
+      when: on_success
+    - when: never
+  needs:
+    - job: deploy_frontend_production
+  script:
+    - !reference [.install_aws, script]
+    - !reference [.assume_role, script]
+    - |
+      ARTICLE_TITLE=$(echo "$CI_COMMIT_MESSAGE" | grep -oP "(?<=feat: new article ')([^']+)")
+      ARTICLE_SLUG=$(echo "$ARTICLE_TITLE" | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g' | sed 's/[^a-z0-9-]//g')
+      ARTICLE_URL="${SITE_URL}/articles/${ARTICLE_SLUG}"
+      PAYLOAD=$(jq -n \
+        --arg title "$ARTICLE_TITLE" \
+        --arg url "$ARTICLE_URL" \
+        --arg description "A new article by Naeem Gitonga is live." \
+        '{"action":"notify","title":$title,"url":$url,"description":$description}')
+      FUNCTION_NAME="ngsubscriber"
+      aws lambda invoke \
+        --function-name "$FUNCTION_NAME" \
+        --payload "$(echo $PAYLOAD | base64 -w 0)" \
+        --cli-binary-format raw-in-base64-out \
+        /tmp/notify-response.json
+      cat /tmp/notify-response.json
