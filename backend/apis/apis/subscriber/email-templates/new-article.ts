@@ -45,7 +45,7 @@ export function newArticleTemplate(title: string, url: string, description: stri
               <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 32px;">
                 <tr>
                   <td style="border-radius:8px;background-color:#111827;">
-                    <a href="${url}"
+                    <a href="${url}?fromWebsite=subscription-email-{{name}}"
                        style="display:inline-block;padding:14px 36px;font-size:16px;font-weight:700;color:#ffffff;text-decoration:none;border-radius:8px;">
                       Read the Article
                     </a>

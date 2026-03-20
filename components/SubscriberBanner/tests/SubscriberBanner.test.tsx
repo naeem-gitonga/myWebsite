@@ -65,9 +65,9 @@ describe('SubscriberBanner component', () => {
     mockTurnstile.render.mockClear();
     mockTurnstile.reset.mockClear();
     (window as any).turnstile = mockTurnstile;
+    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY = 'dummy_site_key';
     mockUseEnvConfig.mockReturnValue({
       SUBSCRIBER_API_URL: MOCK_API_URL,
-      TURNSTILE_SITE_KEY: 'dummy_site_key',
     });
   });
 

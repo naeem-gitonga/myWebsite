@@ -146,7 +146,7 @@ export default class SubscriberService extends BaseService<Subscriber> {
 
   async notify(
     services: SubscriberServices = defaultServices
-  ): Promise<{ message: string; sent: number }> {
+  ): Promise<{ sent: number }> {
     const { title, url, description, testEmail } = JSON.parse(this.event.body || '{}') as NotifyPayload;
 
     const { db } = await connect();
@@ -159,7 +159,7 @@ export default class SubscriberService extends BaseService<Subscriber> {
       : allSubscribers;
 
     if (subscribers.length === 0) {
-      return { message: 'No confirmed subscribers', sent: 0 };
+      return { sent: 0 };
     }
 
     const html = newArticleTemplate(title, url, description);
@@ -175,7 +175,7 @@ export default class SubscriberService extends BaseService<Subscriber> {
       })),
     } as sgMail.MailDataRequired);
 
-    return { message: 'Notifications sent', sent: subscribers.length };
+    return { sent: subscribers.length };
   }
 
   async status(): Promise<{ state: 'confirmed' | 'pending' | 'not_found' }> {

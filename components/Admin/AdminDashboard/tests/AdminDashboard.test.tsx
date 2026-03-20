@@ -5,6 +5,10 @@ import * as analyticsApi from '@/utils/analyticsApi';
 import AdminDashboard from '../AdminDashboard';
 
 jest.mock('next/navigation');
+jest.mock('@/hooks/useEnvConfig', () => ({
+  __esModule: true,
+  default: () => ({ SITE_URL: 'https://www.naeemgitonga.com' }),
+}));
 jest.mock('@/utils/analyticsApi', () => ({
   fetchAnalyticsData: jest.fn(),
   fetchTimelineData: jest.fn(),
@@ -66,14 +70,29 @@ describe('AdminDashboard component', () => {
     (analyticsApi.fetchTimelineData as jest.Mock).mockResolvedValue([]);
   });
 
-  it('renders dashboard header', async () => {
+  it('renders dashboard header and tab nav', async () => {
     render(<AdminDashboard />);
 
     await waitFor(() => {
-      expect(screen.getByRole('heading', { level: 1, name: /Analytics Dashboard/i })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { level: 1, name: /Admin/i })).toBeInTheDocument();
     });
 
     expect(screen.getByRole('button', { name: /Logout/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Dashboard/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Notifications/i })).toBeInTheDocument();
+  });
+
+  it('shows notifications view when Notifications tab is clicked', async () => {
+    render(<AdminDashboard />);
+
+    await waitFor(() => {
+      expect(screen.getByRole('button', { name: /Notifications/i })).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByRole('button', { name: /Notifications/i }));
+
+    expect(screen.getByText(/Select Article/i)).toBeInTheDocument();
+    expect(screen.getByText(/Compose Notification/i)).toBeInTheDocument();
   });
 
   it('renders filter section', async () => {

@@ -44,14 +44,14 @@ describe('subscriber handler', () => {
   });
 
   it('routes /notify to service.notify', async () => {
-    const notify = jest.fn().mockResolvedValue({ message: 'Notifications sent', sent: 3 });
+    const notify = jest.fn().mockResolvedValue({ sent: 3 });
     SubscriberServiceMock.mockImplementation(() => ({ join: jest.fn(), confirm: jest.fn(), notify, status: jest.fn(), mapRequestRouteToMethod: jest.fn().mockReturnValue('notify') } as any));
     responseMock.mockReturnValue({ statusCode: 200 });
 
     await subscriber(makeApiEvent('/api/ngsubscriber/notify'), context, callback);
 
     expect(notify).toHaveBeenCalled();
-    expect(responseMock).toHaveBeenCalledWith('Notifications sent', 200);
+    expect(responseMock).toHaveBeenCalledWith({ sent: 3 }, 200);
   });
 
   it('routes /status to service.status', async () => {
