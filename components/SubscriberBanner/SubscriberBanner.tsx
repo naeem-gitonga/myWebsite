@@ -25,7 +25,7 @@ export default function SubscriberBanner({ subscribed }: Props): React.JSX.Eleme
   const envConfig = useEnvConfig();
 
   const deps: SubscriberDeps = {
-    postSubscribe: makePostSubscribe(envConfig.SUBSCRIBER_API_URL as string),
+    postSubscribe: makePostSubscribe('/api/subscriber'),
     getAnalyticsUserId: defaultGetAnalyticsUserId,
   };
 

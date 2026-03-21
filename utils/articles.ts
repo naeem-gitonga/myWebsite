@@ -1,12 +1,12 @@
 export const articles: Article[] = [
-  {
-    title: 'Claude Died, RIP',
-    imageUrl: 'claudediedrip',
-    lengthInMinutes: 5,
-    publishedDate: 'Mar 20, 2026',
-    articleUrl: '/articles/claude-died-rip',
-    noTarget: true,
-  },
+  // {
+  //   title: 'Claude Died, RIP',
+  //   imageUrl: 'claudediedrip',
+  //   lengthInMinutes: 5,
+  //   publishedDate: 'Mar 20, 2026',
+  //   articleUrl: '/articles/claude-died-rip',
+  //   noTarget: true,
+  // },
   {
     title: 'AI Ruined My App',
     imageUrl: 'airuinedmyapp',
