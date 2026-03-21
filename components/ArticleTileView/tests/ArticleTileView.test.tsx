@@ -31,7 +31,7 @@ describe('ArticleTileView', () => {
     expect(screen.getByTestId('return-arrow')).toBeInTheDocument();
   });
 
-  it('renders articles tripled for infinite scroll loop', () => {
+  it('renders 3 copies of articles for infinite scroll loop', () => {
     render(<ArticleTileView sharedHeader />);
     expect(screen.getAllByTestId('article-tile')).toHaveLength(3);
   });

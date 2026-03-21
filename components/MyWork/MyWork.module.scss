@@ -52,6 +52,7 @@
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+  overflow-anchor: none;
   scrollbar-width: none;
   scroll-behavior: auto;
   overscroll-behavior: contain;
@@ -71,6 +72,7 @@
 
 .slotItem {
   backface-visibility: hidden;
+  will-change: transform, opacity;
 
   @supports (animation-timeline: view()) {
     animation: drumEnter linear both, drumExit linear forwards;
