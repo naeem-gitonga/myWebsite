@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
-import ClaudeDiedRip from '@/components/ClaudeDiedRip/ClaudeDiedRip';
+import ClaudeDiedRip from '@/components/Articles/ClaudeDiedRip/ClaudeDiedRip';
 import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
