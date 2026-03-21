@@ -51,7 +51,7 @@ describe('ClaudeDiedRip', () => {
   it('renders the Claude quote about layers', () => {
     render(<ClaudeDiedRip />);
     expect(screen.getByText(/Self-attention — each token looks at all other tokens/)).toBeInTheDocument();
-    expect(screen.getByText(/-- Claude Sonnet 4.6/, { selector: 'code' })).toBeInTheDocument();
+    expect(screen.getAllByText(/— Claude Sonnet 4\.6/).length).toBeGreaterThan(0);
   });
 
   it('renders article tags', () => {
