@@ -8,9 +8,11 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   }
 
   const body = await request.json();
+  const origin = request.headers.get('origin') ?? '';
+  const referer = origin ? `${origin}/` : '';
   const res = await fetch(`${apiUrl}/join`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'Referer': referer },
     body: JSON.stringify(body),
   });
 

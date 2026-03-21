@@ -40,7 +40,8 @@ export function createHandleSubmit(
   deps: SubscriberDeps,
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,
   setState: React.Dispatch<React.SetStateAction<BannerState>>,
-  widgetIdRef: React.RefObject<string | null>
+  widgetIdRef: React.RefObject<string | null>,
+  tokenRef: React.RefObject<string | null>
 ) {
   return async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,7 +51,7 @@ export function createHandleSubmit(
       await deps.postSubscribe({
         name: formData.get('name') as string,
         email: formData.get('email') as string,
-        turnstileToken: formData.get('cf-turnstile-response') as string,
+        turnstileToken: tokenRef.current ?? formData.get('cf-turnstile-response') as string,
         analyticsUserId: deps.getAnalyticsUserId(),
       });
       localStorage.setItem(STORAGE_KEY, 'pending');

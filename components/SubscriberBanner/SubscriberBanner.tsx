@@ -22,6 +22,7 @@ export default function SubscriberBanner({ subscribed }: Props): React.JSX.Eleme
   const [verified, setVerified] = useState(false);
   const turnstileRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
+  const tokenRef = useRef<string | null>(null);
   const envConfig = useEnvConfig();
 
   const deps: SubscriberDeps = {
@@ -34,9 +35,9 @@ export default function SubscriberBanner({ subscribed }: Props): React.JSX.Eleme
       widgetIdRef.current = (window as any).turnstile.render(turnstileRef.current, {
         sitekey: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
         theme: 'auto',
-        callback: () => setVerified(true),
-        'expired-callback': () => setVerified(false),
-        'error-callback': () => setVerified(false),
+        callback: (token: string) => { tokenRef.current = token; setVerified(true); },
+        'expired-callback': () => { tokenRef.current = null; setVerified(false); },
+        'error-callback': () => { tokenRef.current = null; setVerified(false); },
       });
     }
   }
@@ -75,7 +76,7 @@ export default function SubscriberBanner({ subscribed }: Props): React.JSX.Eleme
       />
       <div className={banner}>
         <p className={prompt}>Get notified when new articles drop.</p>
-        <form className={form} onSubmit={createHandleSubmit(deps, setLoading, setState, widgetIdRef)}>
+        <form className={form} onSubmit={createHandleSubmit(deps, setLoading, setState, widgetIdRef, tokenRef)}>
           <div className={fields}>
             <input
               className={input}

@@ -104,19 +104,41 @@ export default function ClaudeDiedRip(): React.JSX.Element {
         </p>
         <p className={text}>And guess what... I like it.</p>
 
+        <p className={text}>
+          Quantization has some drawbacks but in my case, they benefits 
+          outweigh the small reduction in percision. I quantized this to a 
+          Q4_K_M (Medium) model. This is a GGUF format and is kind of like the 
+          best all around quantization option. It should give the best performance
+          and have a greater percision Q4_K_S (Small), which is faster but comes
+          with a significant quality loss. So what does Q4_K_M mean?
+          <ul>
+            <li><strong>Q4</strong>: 4-bit quantization, which reduces the model 
+            size by a factor of 8 compared to FP16. Each weight is represented with 
+            4 bits instead of 16 bits</li>
+            <li><strong>K</strong>: Indicates grouped quantization with scale/zero point</li>
+            <li><strong>M</strong>: Medium quality quantization</li>
+          </ul>
+        </p>
+
         <h2>The Benchmark</h2>
         <p className={text}>
-          With the tool running, I started benchmarking it alongside Claude Code. I gave both the same prompt:
+          With the tool running, I started benchmarking it alongside Claude Code. I gave both 
+          the same prompt:
         </p>
         <blockquote className={blockquote}>
-          &ldquo;i want to package this application so that I can start the entire thing llama.cpp and the vscode-extension and the cli in with one command. I want to be able to install it and run it with one command. how do i do that? what is your plan for that?&rdquo;
+          &ldquo;i want to package this application so that I can start the entire thing llama.cpp 
+          and the vscode-extension and the cli in with one command. I want to be able to install it 
+          and run it with one command. how do i do that? what is your plan for that?&rdquo;
         </blockquote>
         <p className={text}>
           That prompt isn&apos;t well written; I&apos;m confused reading it back. But even with a bad
           prompt, Qwen3-Coder-Next had the better solution. And Claude said so himself:
         </p>
         <blockquote className={blockquote}>
-          &ldquo;Their model&apos;s plan is better than mine for one reason: making it a proper npm package with <code className={code}>npm install -g pair-programmer</code> and a <code className={code}>pair</code> command is the right distribution model for a CLI tool. My bash script approach works but isn&apos;t as clean.&rdquo;
+          &ldquo;Their model&apos;s plan is better than mine for one reason: making it 
+          a proper npm package with <code className={code}>npm install -g pair-programmer
+            </code> and a <code className={code}>pair</code> command is the right distribution 
+            model for a CLI tool. My bash script approach works but isn&apos;t as clean.&rdquo;
           <br/><br/>
           &mdash; Claude Sonnet 4.6
         </blockquote>
@@ -141,8 +163,9 @@ export default function ClaudeDiedRip(): React.JSX.Element {
         <p className={text}>
           So while I&apos;m not ready to cancel my Claude subscription just yet,
           I&apos;m definitely looking to cut out the middle man. And this is the 
-          path to doing it. My next step here is to use vLLM to serve the model. 
-          A friend of mine sent me a video about how fast it is, so I gotta try it. 
+          path to doing it. There is promise here, but I have a ways to go before 
+          throw Anthropic the peace sign. My next step here is to use vLLM to serve the model. 
+          A friend of mine sent me a video about how fast vLLM is, so I gotta try it. 
         </p>
         <div className={sharedStyles.minus10LeftMargin}>
           <Tags tags={['AI', 'AI ownership', 'quantization', 'local model hosting', 'local inference', 'llama.cpp', 'MoE', 'DGX Spark', 'CLI tools']} />
