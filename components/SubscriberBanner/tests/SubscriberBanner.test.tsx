@@ -229,6 +229,7 @@ describe('createHandleSubmit', () => {
   const setLoading = jest.fn();
   const setState = jest.fn();
   const widgetIdRef = { current: 'widget-id-123' };
+  const tokenRef = { current: null as string | null };
 
   let deps: SubscriberDeps;
 
@@ -253,7 +254,7 @@ describe('createHandleSubmit', () => {
   }
 
   it('calls postSubscribe with the correct payload', async () => {
-    const handler = createHandleSubmit(deps, setLoading, setState, widgetIdRef);
+    const handler = createHandleSubmit(deps, setLoading, setState, widgetIdRef, tokenRef);
     await handler(makeEvent({ name: 'Ada', email: 'ada@example.com', 'cf-turnstile-response': 'tok' }));
 
     expect(deps.postSubscribe).toHaveBeenCalledWith({
@@ -265,7 +266,7 @@ describe('createHandleSubmit', () => {
   });
 
   it('sets state to pending and saves localStorage on success', async () => {
-    const handler = createHandleSubmit(deps, setLoading, setState, widgetIdRef);
+    const handler = createHandleSubmit(deps, setLoading, setState, widgetIdRef, tokenRef);
     await handler(makeEvent());
 
     expect(setState).toHaveBeenCalledWith('pending');
@@ -276,7 +277,7 @@ describe('createHandleSubmit', () => {
     (deps.postSubscribe as jest.Mock).mockRejectedValue(new Error('network'));
     (window as any).turnstile = mockTurnstile;
 
-    const handler = createHandleSubmit(deps, setLoading, setState, widgetIdRef);
+    const handler = createHandleSubmit(deps, setLoading, setState, widgetIdRef, tokenRef);
     await handler(makeEvent());
 
     expect(setState).toHaveBeenCalledWith('error');
@@ -285,7 +286,7 @@ describe('createHandleSubmit', () => {
 
   it('always calls setLoading(false) in finally', async () => {
     (deps.postSubscribe as jest.Mock).mockRejectedValue(new Error('network'));
-    const handler = createHandleSubmit(deps, setLoading, setState, widgetIdRef);
+    const handler = createHandleSubmit(deps, setLoading, setState, widgetIdRef, tokenRef);
     await handler(makeEvent());
 
     expect(setLoading).toHaveBeenLastCalledWith(false);
