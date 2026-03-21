@@ -16,6 +16,7 @@ import {
 } from 'aws-cdk-lib/aws-iam';
 import { Bucket } from 'aws-cdk-lib/aws-s3';
 import { Duration, RemovalPolicy, SecretValue } from 'aws-cdk-lib';
+import { Vpc, Subnet } from 'aws-cdk-lib/aws-ec2';
 import { LogGroup } from 'aws-cdk-lib/aws-logs';
 import { Queue } from 'aws-cdk-lib/aws-sqs';
 import { policyStatementJng, policyStatementRb, s3Permission, sesSendPermission } from './iam-roles';
@@ -165,6 +166,12 @@ export default class BackendService extends Construct {
 
     const subscriberFunctionName = `NgSubscriber${isProd ? '' : '-staging'}`;
     const subscriberFunctionNameLowercased = subscriberFunctionName.toLowerCase();
+    // TODO when you get some money use ur own vpc and nat gateway not tolive.ai
+    const sharedVpc = Vpc.fromLookup(this, 'SharedVpc', { vpcId: 'vpc-06275c8a87d455e5a' });
+    const privateSubnets = [
+      Subnet.fromSubnetId(this, 'PrivateSubnet1', 'subnet-0660209b3be9931ca'),
+      Subnet.fromSubnetId(this, 'PrivateSubnet2', 'subnet-00683a3e9a358dd44'),
+    ];
 
     const subscriberLambda = new Function(this, subscriberFunctionName, {
       functionName: subscriberFunctionNameLowercased,
@@ -178,6 +185,8 @@ export default class BackendService extends Construct {
         process.env.ARTIFACT_PATH ??
           path.join(__dirname, '../../apis/.serverless/jngpaypal.zip')
       ),
+      vpc: sharedVpc,
+      vpcSubnets: { subnets: privateSubnets },
     });
 
     new LogGroup(this, 'ng-subscriber-log-group', {
