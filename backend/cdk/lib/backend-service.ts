@@ -73,6 +73,7 @@ export default class BackendService extends Construct {
         TURNSTILE_SECRET_KEY: SecretValue.secretsManager('NG_TURNSTILE_SECRET_KEY').unsafeUnwrap(),
         ORIGIN: process.env.ORIGIN as string,
         SEND_GRID_API_KEY: process.env.SEND_GRID_API_KEY as string,
+        WHICH_ROUTE: process.env.WHICH_ROUTE as string,
       },
     };
 
