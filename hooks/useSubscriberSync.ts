@@ -24,9 +24,6 @@ export default function useSubscriberSync(
   deps?: SubscriberSyncDeps
 ) {
   useEffect(() => {
-    const apiUrl = envConfig.SUBSCRIBER_API_URL;
-    if (!apiUrl) return;
-
     const getAnalyticsUserId = deps?.getAnalyticsUserId ?? (() =>
       document.cookie
         .split(';')
@@ -34,7 +31,7 @@ export default function useSubscriberSync(
         .find(([k]) => k === 'analytics_user_id')?.[1] ?? null
     );
 
-    const fetchStatus = deps?.fetchStatus ?? makeSubscriberStatusFetch(apiUrl);
+    const fetchStatus = deps?.fetchStatus ?? makeSubscriberStatusFetch('/api/subscriber');
 
     if (localStorage.getItem(STORAGE_KEY) === 'confirmed') return;
 
@@ -48,5 +45,5 @@ export default function useSubscriberSync(
         setState(state);
       })
       .catch(() => {}); // fail silently — don't disrupt the page
-  }, [envConfig.SUBSCRIBER_API_URL]);
+  }, []);
 }
