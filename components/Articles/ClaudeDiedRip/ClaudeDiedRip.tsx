@@ -1,13 +1,19 @@
 'use client';
 import PageHeader from '@/components/PageHeader/PageHeader';
+import articleStyles from '../Articles.module.scss';
 import styles from '@/components/Articles/Articles.module.scss';
 import sharedStyles from '@/components/SharedCss/SharedCss.module.scss';
 import ReturnArrow from '@/components/ReturnArrow/ReturnArrow';
 import Tags from '@/components/Tags/Tags';
 import { ArticleDateTime } from '@/components/ArticleDateTime/ArticleDateTime';
-
+import { imageLoader } from '@/utils/imageLoader';
+import LazyImage from '@/components/LazyImage/LazyImage';
+ const {
+    imageWrapper,
+    altText,
+  } = articleStyles;
 export default function ClaudeDiedRip(): React.JSX.Element {
-  const { innerWrapper, text, code, pre, subtext, blockquote } = styles;
+  const { innerWrapper, text, code, subtext, blockquote } = styles;
   const { tenPadding, width75 } = sharedStyles;
 
   return (
@@ -17,14 +23,23 @@ export default function ClaudeDiedRip(): React.JSX.Element {
         <h1>Claude Died, RIP</h1>
         <p className={subtext}>I built a coding CLI. Then it beat the original.</p>
         <ArticleDateTime imageUrl={'claudediedrip'} />
-
+        <div className={imageWrapper}>
+          <LazyImage
+            alt="WWF Undertaker with his signature hat and coat, staring menacingly into the camera"
+            loader={imageLoader}
+            src="/images/undertaker.webp"
+            style={{ objectFit: 'contain', maxWidth: '75%' }}
+            fill
+          />
+          <p className={altText}>Undertaker</p>
+        </div>
         <p className={text}>
           Well, it&apos;s not really dead. But local hosting is a real contender. Here&apos;s why.
           Today I started building my own Claude Code &mdash; a CLI tool that runs a local coding model.
           I&apos;m using Qwen3-Coder-Next. Before I could run it, I had to quantize the model.
           I took the long approach because I wanted to understand the process. I had quantized a model before,
-          but this time I pulled the llama.cpp repo, pulled all the dependencies, and built a script to run
-          the quantization commands. I ended up with a GGUF model.
+          but this time I pulled the llama.cpp repo, pulled all the dependencies, compiled it, 
+          and built a script to run the quantization commands. I ended up with a GGUF model.
         </p>
 
         <h2>What is llama.cpp?</h2>
@@ -105,6 +120,30 @@ export default function ClaudeDiedRip(): React.JSX.Element {
           <br/><br/>
           &mdash; Claude Sonnet 4.6
         </blockquote>
+        <div className={imageWrapper}>
+          <LazyImage
+            alt="Undertaker performing his signature leg drop move on an opponent in the ring"
+            loader={imageLoader}
+            src="/images/undertaker-legdrop.webp"
+            style={{ objectFit: 'contain', maxWidth: '100%' }}
+            fill
+          />
+          <p className={altText}>Undertaker leg drop! John Cena is through!</p>
+        </div>
+
+        <p className={text}>
+          The above image is a bit dramatic, but you get the picture. 
+          Small players like me can distrupt major industries going open source 
+          and keeping things in house. However, as long as Anthropic keeps creating 
+          frontier-foundational models, they likely don&apos;t have much to worry about. 
+        </p>
+
+        <p className={text}>
+          So while I&apos;m not ready to cancel my Claude subscription just yet,
+          I&apos;m definitely looking to cut out the middle man. And this is the 
+          path to doing it. My next step here is to use vLLM to serve the model. 
+          A friend of mine sent me a video about how fast it is, so I gotta try it. 
+        </p>
         <div className={sharedStyles.minus10LeftMargin}>
           <Tags tags={['AI', 'AI ownership', 'quantization', 'local model hosting', 'local inference', 'llama.cpp', 'MoE', 'DGX Spark', 'CLI tools']} />
         </div>
