@@ -28,6 +28,6 @@ describe('MyWork', () => {
     expect(screen.getByTestId('page-header')).toHaveTextContent('work');
     expect(screen.getByText('* I built it myself')).toBeInTheDocument();
     expect(screen.getByText('** I worked on it with a team')).toBeInTheDocument();
-    expect(screen.getAllByTestId('project')).toHaveLength(2);
+    expect(screen.getAllByTestId('project')).toHaveLength(6);
   });
 });

@@ -28,7 +28,11 @@ describe('ArticleTileView', () => {
   it('renders shared header', () => {
     render(<ArticleTileView sharedHeader />);
     expect(screen.getByTestId('page-header')).toHaveTextContent('myArticles');
-    expect(screen.getByTestId('article-tile')).toBeInTheDocument();
     expect(screen.getByTestId('return-arrow')).toBeInTheDocument();
+  });
+
+  it('renders 3 copies of articles for infinite scroll loop', () => {
+    render(<ArticleTileView sharedHeader />);
+    expect(screen.getAllByTestId('article-tile')).toHaveLength(3);
   });
 });

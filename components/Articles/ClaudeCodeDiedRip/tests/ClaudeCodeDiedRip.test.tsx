@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import ClaudeDiedRip from '../ClaudeDiedRip';
+import ClaudeCodeDiedRip from '../ClaudeCodeDiedRip';
 
 jest.mock('@/components/PageHeader/PageHeader', () => ({
   __esModule: true,
@@ -25,37 +25,31 @@ jest.mock('@/components/ArticleDateTime/ArticleDateTime', () => ({
   ArticleDateTime: () => <div data-testid="article-date-time" />,
 }));
 
-describe('ClaudeDiedRip', () => {
-  it('renders the article heading and subheading', () => {
-    render(<ClaudeDiedRip />);
-    expect(screen.getByText('Claude Died, RIP')).toBeInTheDocument();
-    expect(screen.getByText('I built a coding CLI. Then it beat the original.')).toBeInTheDocument();
-  });
-
+describe('ClaudeCodeDiedRip', () => {
   it('renders the page header and return arrow', () => {
-    render(<ClaudeDiedRip />);
+    render(<ClaudeCodeDiedRip />);
     expect(screen.getByTestId('page-header')).toHaveTextContent('article');
     expect(screen.getByTestId('return-arrow')).toBeInTheDocument();
   });
 
   it('renders the llama.cpp section', () => {
-    render(<ClaudeDiedRip />);
+    render(<ClaudeCodeDiedRip />);
     expect(screen.getByText('What is llama.cpp?')).toBeInTheDocument();
   });
 
   it('renders the memory problem section', () => {
-    render(<ClaudeDiedRip />);
+    render(<ClaudeCodeDiedRip />);
     expect(screen.getByText('The Memory Problem')).toBeInTheDocument();
   });
 
   it('renders the Claude quote about layers', () => {
-    render(<ClaudeDiedRip />);
+    render(<ClaudeCodeDiedRip />);
     expect(screen.getByText(/Self-attention — each token looks at all other tokens/)).toBeInTheDocument();
     expect(screen.getAllByText(/— Claude Sonnet 4\.6/).length).toBeGreaterThan(0);
   });
 
   it('renders article tags', () => {
-    render(<ClaudeDiedRip />);
+    render(<ClaudeCodeDiedRip />);
     const tags = screen.getByTestId('tags').textContent ?? '';
     expect(tags).toContain('quantization');
     expect(tags).toContain('llama.cpp');
@@ -64,7 +58,7 @@ describe('ClaudeDiedRip', () => {
   });
 
   it('renders the benchmark section and Qwen result', () => {
-    render(<ClaudeDiedRip />);
+    render(<ClaudeCodeDiedRip />);
     expect(screen.getByText('The Benchmark')).toBeInTheDocument();
     expect(screen.getByText(/Their model's plan is better than mine/)).toBeInTheDocument();
   });

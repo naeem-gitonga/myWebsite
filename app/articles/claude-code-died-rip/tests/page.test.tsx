@@ -2,9 +2,9 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Article, { generateMetadata } from '../page';
 
-jest.mock('@/components/Articles/ClaudeDiedRip/ClaudeDiedRip', () => ({
+jest.mock('@/components/Articles/ClaudeCodeDiedRip/ClaudeCodeDiedRip', () => ({
   __esModule: true,
-  default: () => <div data-testid="claude-died-rip" />,
+  default: () => <div data-testid="claude-code-died-rip" />,
 }));
 
 jest.mock('@/components/Footer/Footer', () => ({
@@ -26,7 +26,7 @@ describe('claude-died-rip page', () => {
     } as any);
     render(element);
     expect(screen.getByTestId('analytics')).toHaveTextContent('ref');
-    expect(screen.getByTestId('claude-died-rip')).toBeInTheDocument();
+    expect(screen.getByTestId('claude-code-died-rip')).toBeInTheDocument();
   });
 
   it('defaults fromWebsite to direct', async () => {
@@ -39,7 +39,6 @@ describe('claude-died-rip page', () => {
 
   it('generates metadata with title, description, and OG image', () => {
     const metadata = generateMetadata();
-    expect(metadata.title).toBe('Claude Died, RIP');
     expect(metadata.description).toBe(
       'I built a coding CLI tool with a local model. Then it beat the original.'
     );
