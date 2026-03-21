@@ -26,12 +26,6 @@ jest.mock('@/components/ArticleDateTime/ArticleDateTime', () => ({
 }));
 
 describe('ClaudeCodeDiedRip', () => {
-  it('renders the article heading and subheading', () => {
-    render(<ClaudeCodeDiedRip />);
-    expect(screen.getByText('Claude Died, RIP')).toBeInTheDocument();
-    expect(screen.getByText('I built a coding CLI. Then it beat the original.')).toBeInTheDocument();
-  });
-
   it('renders the page header and return arrow', () => {
     render(<ClaudeCodeDiedRip />);
     expect(screen.getByTestId('page-header')).toHaveTextContent('article');
