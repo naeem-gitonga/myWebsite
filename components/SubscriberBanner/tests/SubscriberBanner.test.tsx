@@ -178,7 +178,7 @@ describe('SubscriberBanner component', () => {
 
     await waitFor(() => {
       const [url, options] = (global.fetch as jest.Mock).mock.calls[0];
-      expect(url).toBe(`${MOCK_API_URL}/join`);
+      expect(url).toBe('/api/subscriber/join');
       expect(JSON.parse(options.body)).toEqual({
         name: 'Ada',
         email: 'ada@example.com',
