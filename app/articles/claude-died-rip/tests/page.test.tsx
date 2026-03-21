@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import Article, { generateMetadata } from '../page';
 
-jest.mock('@/components/ClaudeDiedRip/ClaudeDiedRip', () => ({
+jest.mock('@/components/Articles/ClaudeDiedRip/ClaudeDiedRip', () => ({
   __esModule: true,
   default: () => <div data-testid="claude-died-rip" />,
 }));
