@@ -104,19 +104,39 @@ export default function ClaudeDiedRip(): React.JSX.Element {
         </p>
         <p className={text}>And guess what... I like it.</p>
 
+        <p className={text}>
+          Quantization has some drawbacks but in my case, they benefits 
+          outweigh the small reduction in percision. I quantized this to a 
+          Q4_K_M (Medium) model. This is a GGUF format and is kind of like the 
+          best all around quantization option. It should give the best performance
+          and have a greater percision Q4_K_S (Small), which is faster but comes
+          with a significant quality loss. So what does Q4_K_M mean?
+          <ul>
+            <li><strong>Q4</strong>: 4-bit quantization, which reduces the model size by a factor of 8 compared to FP16. Each weight is represented with 4 bits instead of 16 bits.</li>
+            <li><strong>K</strong>: Indicates that the quantization is performed in a way that allows for efficient matrix multiplication, which is crucial for transformer models.</li>
+            <li><strong>M</strong>: Medium quality quantization. This option provides a good balance between model size reduction and maintaining model performance. It retains more precision than the Small (S) option, which is faster but has a significant quality loss.</li>
+          </ul>
+        </p>
+
         <h2>The Benchmark</h2>
         <p className={text}>
-          With the tool running, I started benchmarking it alongside Claude Code. I gave both the same prompt:
+          With the tool running, I started benchmarking it alongside Claude Code. I gave both 
+          the same prompt:
         </p>
         <blockquote className={blockquote}>
-          &ldquo;i want to package this application so that I can start the entire thing llama.cpp and the vscode-extension and the cli in with one command. I want to be able to install it and run it with one command. how do i do that? what is your plan for that?&rdquo;
+          &ldquo;i want to package this application so that I can start the entire thing llama.cpp 
+          and the vscode-extension and the cli in with one command. I want to be able to install it 
+          and run it with one command. how do i do that? what is your plan for that?&rdquo;
         </blockquote>
         <p className={text}>
           That prompt isn&apos;t well written; I&apos;m confused reading it back. But even with a bad
           prompt, Qwen3-Coder-Next had the better solution. And Claude said so himself:
         </p>
         <blockquote className={blockquote}>
-          &ldquo;Their model&apos;s plan is better than mine for one reason: making it a proper npm package with <code className={code}>npm install -g pair-programmer</code> and a <code className={code}>pair</code> command is the right distribution model for a CLI tool. My bash script approach works but isn&apos;t as clean.&rdquo;
+          &ldquo;Their model&apos;s plan is better than mine for one reason: making it 
+          a proper npm package with <code className={code}>npm install -g pair-programmer
+            </code> and a <code className={code}>pair</code> command is the right distribution 
+            model for a CLI tool. My bash script approach works but isn&apos;t as clean.&rdquo;
           <br/><br/>
           &mdash; Claude Sonnet 4.6
         </blockquote>
