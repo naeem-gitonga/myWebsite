@@ -3,6 +3,7 @@ import '../globals.css';
 import ArticleTileView from 'components/ArticleTileView/ArticleTileView';
 import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import { Metadata } from 'next';
+import styles from './page.module.scss';
 
 export function generateMetadata(): Metadata {
   return {
@@ -17,10 +18,10 @@ export default async function Blog(params: Params): Promise<React.JSX.Element> {
   const from = searchParams?.fromWebsite ?? "direct";
   const confirmed = searchParams?.subscribed === 'true';
   return (
-    <>
+    <div className={styles.pageLayout}>
       <AnalyticsTracker fromWebsite={from} />
       <ArticleTileView sharedHeader confirmed={confirmed} />
       <Footer />
-    </>
+    </div>
   );
 }

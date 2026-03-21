@@ -1,5 +1,53 @@
 .articlesWrapper {
   padding: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.slotWindow {
+  flex: 1;
+  min-height: 0;
+
+  @media (max-height: 800px) {
+    flex: none;
+    height: 400px;
+  }
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 8%,
+    black 20%,
+    black 80%,
+    rgba(0, 0, 0, 0.5) 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 8%,
+    black 20%,
+    black 80%,
+    rgba(0, 0, 0, 0.5) 92%,
+    transparent 100%
+  );
+}
+
+.slotScroll {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  scroll-behavior: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .viewWrapper {
@@ -7,7 +55,5 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin: auto;
   padding: 10px;
-  width: 80%;
 }
