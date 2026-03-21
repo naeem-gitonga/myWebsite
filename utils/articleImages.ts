@@ -20,7 +20,8 @@ export const articleTileImages: Record<string, string> = {
   regulatedcompute: '/images/frustrated-man.webp',
   examplemcp: '/images/example-mcp.webp',
   toliveai: '/images/tolive-ai-hero.webp',
-  airuinedmyapp: '/images/ai-ruined-my-app.webp'
+  airuinedmyapp: '/images/ai-ruined-my-app.webp',
+  claudediedrip: '/images/undertaker-chokeslam.webp'
 };
 
 export const articleTileImageFallback = articleTileImages.reactcontext;

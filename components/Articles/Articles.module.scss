@@ -168,6 +168,17 @@ pre.pre {
   }
 }
 
+.blockquote {
+  background-color: rgb(242, 242, 242);
+  border-left: 4px solid #ccc;
+  padding: 16px 20px;
+  margin: 1.5rem 0;
+  font-size: 15px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 .subtext {
   color: #6b6b6b;
   font-size: 22px;
