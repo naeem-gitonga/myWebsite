@@ -112,9 +112,11 @@ export default function ClaudeDiedRip(): React.JSX.Element {
           and have a greater percision Q4_K_S (Small), which is faster but comes
           with a significant quality loss. So what does Q4_K_M mean?
           <ul>
-            <li><strong>Q4</strong>: 4-bit quantization, which reduces the model size by a factor of 8 compared to FP16. Each weight is represented with 4 bits instead of 16 bits.</li>
-            <li><strong>K</strong>: Indicates that the quantization is performed in a way that allows for efficient matrix multiplication, which is crucial for transformer models.</li>
-            <li><strong>M</strong>: Medium quality quantization. This option provides a good balance between model size reduction and maintaining model performance. It retains more precision than the Small (S) option, which is faster but has a significant quality loss.</li>
+            <li><strong>Q4</strong>: 4-bit quantization, which reduces the model 
+            size by a factor of 8 compared to FP16. Each weight is represented with 
+            4 bits instead of 16 bits</li>
+            <li><strong>K</strong>: Indicates grouped quantization with scale/zero point</li>
+            <li><strong>M</strong>: Medium quality quantization</li>
           </ul>
         </p>
 
@@ -161,8 +163,9 @@ export default function ClaudeDiedRip(): React.JSX.Element {
         <p className={text}>
           So while I&apos;m not ready to cancel my Claude subscription just yet,
           I&apos;m definitely looking to cut out the middle man. And this is the 
-          path to doing it. My next step here is to use vLLM to serve the model. 
-          A friend of mine sent me a video about how fast it is, so I gotta try it. 
+          path to doing it. There is promise here, but I have a ways to go before 
+          throw Anthropic the peace sign. My next step here is to use vLLM to serve the model. 
+          A friend of mine sent me a video about how fast vLLM is, so I gotta try it. 
         </p>
         <div className={sharedStyles.minus10LeftMargin}>
           <Tags tags={['AI', 'AI ownership', 'quantization', 'local model hosting', 'local inference', 'llama.cpp', 'MoE', 'DGX Spark', 'CLI tools']} />
