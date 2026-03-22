@@ -8,7 +8,7 @@ import BaseService from '../base/base-service';
 import { SubscriberRoutes } from '../../declarations/enums';
 import { RouteMap } from '@declarations/routing';
 
-const FROM_EMAIL = 'noreply@naeemgitonga.com';
+const FROM_EMAIL = 'subscriber@naeemgitonga.com';
 
 export interface Subscriber {
   name: string;
