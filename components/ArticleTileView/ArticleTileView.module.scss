@@ -1,57 +1,8 @@
 .articlesWrapper {
   padding: 10px;
+  padding-bottom: 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
   min-height: 0;
-}
-
-.slotWindow {
-  flex: 1;
-  min-height: 0;
-
-
-  overflow: hidden;
-  width: 80%;
-  margin: 0 auto;
-
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.5) 8%,
-    black 20%,
-    black 80%,
-    rgba(0, 0, 0, 0.5) 92%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.5) 8%,
-    black 20%,
-    black 80%,
-    rgba(0, 0, 0, 0.5) 92%,
-    transparent 100%
-  );
-}
-
-.slotScroll {
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  overflow-anchor: none;
-  scrollbar-width: none;
-  scroll-behavior: auto;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-.viewWrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 10px;
 }
