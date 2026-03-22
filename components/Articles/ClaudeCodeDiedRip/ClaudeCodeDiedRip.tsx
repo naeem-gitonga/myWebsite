@@ -247,8 +247,16 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
         </p>
         <h2>Other Issues</h2>
         <p className={text}>
-          I noticed that when you first start the server, then you start the CLI
-          the first time you ask it to do something, it takes a long time. 
+          Being that this model is trained on who knows what data, and has it's own set of pre-baked
+          instructions, it&apos;s a constant challenge to get it to do some instructions. 
+          There&apos;s a lot of prompt engineering to improve the output. There&apos;s a lot of 
+          refining the system prompt. Maybe I just need to accept it&apos;s current performance.
+          I mean, it&apos;s not a MoE with 1T parameters after all. 
+        </p>
+        <p className={text}>
+          Next, I noticed that when you first start the server, then you start the CLI, 
+          even after the model has loaded, the first time you ask it to do something, 
+          it takes a long time. 
         </p>
         <p className={text}>
           I asked the tool why. This is what it told me:
