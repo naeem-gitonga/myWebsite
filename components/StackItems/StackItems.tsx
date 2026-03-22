@@ -40,7 +40,8 @@ const {
   route53,
   s3,
   lancedb,
-  llamacpp
+  llamacpp,
+  qwen
 } = styles;
 
 type StackItemProps = {
@@ -212,9 +213,9 @@ export const projectStackMap: ProjectMapType = {
   ],
   pairprogrammer: [
     <StackItem text="TypeScript" className={typescript} key="typescript" />,
-    <StackItem text="Node" className={node} key="node" />,
+    <StackItem text="Bash" className={bash} key="bash" />,
     <StackItem text="llama.cpp" className={llamacpp} key="llamacpp" />,
-    <StackItem text="Bedrock" className={bedrock} key="bedrock" />,
+    <StackItem text="Qwen" className={qwen} key="qwen" />,
     <StackItem text="Docker" className={docker} key="docker" />,
   ],
   toliveai: [
