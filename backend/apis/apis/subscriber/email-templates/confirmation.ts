@@ -56,7 +56,8 @@ export function confirmationTemplate(name: string, confirmUrl: string, origin: s
             <td style="background-color:#f9fafb;border-top:1px solid #e5e7eb;padding:24px 40px;text-align:center;">
               <p style="margin:0;font-size:12px;line-height:1.6;color:#9ca3af;">
                 You're receiving this because you signed up at naeemgitonga.com.<br />
-                If you didn't sign up, you can safely ignore this email.
+                If you didn't sign up, you can safely ignore this email.<br /><br />
+                This email was sent from an unmonitored address. Please do not reply to this email.
               </p>
             </td>
           </tr>

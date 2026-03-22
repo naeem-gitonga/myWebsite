@@ -21,7 +21,8 @@ export type ProjectName =
   | 'speechavatar'
   | 'examplemcp'
   | 'examplerag'
-  | 'toliveai';
+  | 'toliveai'
+  | 'pairprogrammer';
 
 export type Project = {
   projectImg: string;
@@ -38,6 +39,18 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: 'Pair Programmer*',
+    projectImg: '/images/demo-pair-programmer.gif',
+    projectDes:
+      'Local AI coding agent powered by Qwen3-Coder-Next (llama-server) or AWS Bedrock. Includes a VS Code extension that automatically sends your active file as context.',
+    projectStack: 'pairprogrammer',
+    projectLink: '/articles/claude-code-died-rip',
+    target: '_self',
+    linkText: 'Learn more',
+    gitHubLink:
+      '/interstitial?url=https://github.com/naeem-gitonga/pair-programmer&where=GitHub',
+  },
   {
     title: 'ToLive AI*',
     projectImg: '/images/tolive-architectural-diagram.webp',
