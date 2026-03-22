@@ -197,6 +197,7 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="TypeScript" className={typescript} key="typescript" />,
     <StackItem text="CUDA" className={cuda} key="cuda" />,
     <StackItem text="gRPC" className={grpc} key="grpc" />,
+    <StackItem text="Qwen" className={qwen} key="qwen" />,
     <StackItem text="NextJs" className={nextjs} key="nextjs" />,
   ],
   examplemcp: [
