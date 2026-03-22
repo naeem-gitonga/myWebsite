@@ -1,10 +1,10 @@
 export const articles: Article[] = [
   {
-    title: 'Claude Died, RIP',
+    title: 'Claude Code Died, RIP',
     imageUrl: 'claudediedrip',
     lengthInMinutes: 5,
     publishedDate: 'Mar 20, 2026',
-    articleUrl: '/articles/claude-died-rip',
+    articleUrl: '/articles/claude-code-died-rip',
     noTarget: true,
   },
   {

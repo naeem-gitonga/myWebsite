@@ -17,10 +17,10 @@ export default function ClaudeDiedRip(): React.JSX.Element {
   const { tenPadding, width75 } = sharedStyles;
 
   return (
-    <div id="claude-died-rip" className={`${tenPadding}`}>
+    <div id="claude-code-died-rip" className={`${tenPadding}`}>
       <PageHeader headerName="article" hideLinks={false} />
       <div className={`${width75} ${innerWrapper}`}>
-        <h1>Claude Died, RIP</h1>
+        <h1>Claude Code Died, RIP</h1>
         <p className={subtext}>I built a coding CLI. Then it beat the original.</p>
         <ArticleDateTime imageUrl={'claudediedrip'} />
         <div className={imageWrapper}>

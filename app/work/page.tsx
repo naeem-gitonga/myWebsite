@@ -3,6 +3,7 @@ import '../globals.css';
 import MyWork from 'components/MyWork/MyWork';
 import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import { Metadata } from 'next';
+import styles from './page.module.scss';
 
 // * example of static metadata
 export const metadata: Metadata = {
@@ -15,10 +16,10 @@ export default async function Work(params: Params): Promise<React.JSX.Element> {
   const searchParams = await params.searchParams;
   const from = searchParams?.fromWebsite ?? "direct";
   return (
-    <>
+    <div className={styles.pageLayout}>
       <AnalyticsTracker fromWebsite={from} />
       <MyWork />
       <Footer />
-    </>
+    </div>
   );
 }

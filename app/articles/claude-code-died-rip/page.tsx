@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 
 import Footer from 'components/Footer/Footer';
-import ClaudeDiedRip from '@/components/Articles/ClaudeDiedRip/ClaudeDiedRip';
+import ClaudeCodeDiedRip from '@/components/Articles/ClaudeCodeDiedRip/ClaudeCodeDiedRip';
 import AnalyticsTracker from '@/components/Analytics/AnalyticsTracker';
 import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 
 export function generateMetadata(): Metadata {
-  const title = 'Claude Died, RIP';
+  const title = 'Claude Code Died, RIP';
   const description =
     'I built a coding CLI tool with a local model. Then it beat the original.';
   const imageUrl = getAbsoluteUrl('/images/claude-died-rip-og.webp');
-  const pageUrl = getAbsoluteUrl('/articles/claude-died-rip');
+  const pageUrl = getAbsoluteUrl('/articles/claude-code-died-rip');
 
   return {
     title,
@@ -48,7 +48,7 @@ export default async function Article(params: Params): Promise<React.JSX.Element
   return (
     <>
       <AnalyticsTracker fromWebsite={from} />
-      <ClaudeDiedRip />
+      <ClaudeCodeDiedRip />
       <Footer />
     </>
   );
