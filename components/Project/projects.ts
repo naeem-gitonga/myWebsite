@@ -40,18 +40,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'ToLive AI*',
-    projectImg: '/images/tolive-architectural-diagram.webp',
-    projectDes:
-      'Your personal AI that knows you.',
-    projectStack: 'toliveai',
-    projectLink: '/articles/tolive-ai',
-    target: '_self',
-    linkText: 'Learn more',
-    secondaryLink: 'https://tolive.ai',
-    secondaryTarget: '_blank',
-  },
-  {
     title: 'Pair Programmer*',
     projectImg: '/images/demo-pair-programmer.gif',
     projectDes:
@@ -62,6 +50,18 @@ export const projects: Project[] = [
     linkText: 'Learn more',
     gitHubLink:
       '/interstitial?url=https://github.com/naeem-gitonga/pair-programmer&where=GitHub',
+  },
+  {
+    title: 'ToLive AI*',
+    projectImg: '/images/tolive-architectural-diagram.webp',
+    projectDes:
+      'Your personal AI that knows you.',
+    projectStack: 'toliveai',
+    projectLink: '/articles/tolive-ai',
+    target: '_self',
+    linkText: 'Learn more',
+    secondaryLink: 'https://tolive.ai',
+    secondaryTarget: '_blank',
   },
   {
     title: 'Example RAG*',
