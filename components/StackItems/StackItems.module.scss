@@ -166,3 +166,7 @@ $pictures-url: '/images/';
 .llamacpp {
   @include background('llamacpp-logo');
 }
+
+.qwen {
+  @include background('qwen-logo');
+}
