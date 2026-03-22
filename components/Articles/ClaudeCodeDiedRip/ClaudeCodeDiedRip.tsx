@@ -28,8 +28,9 @@ export default function ClaudeDiedRip(): React.JSX.Element {
             alt="WWF Undertaker with his signature hat and coat, staring menacingly into the camera"
             loader={imageLoader}
             src="/images/undertaker.webp"
-            style={{ objectFit: 'contain', maxWidth: '75%' }}
-            fill
+            width={900}
+            height={798}
+            style={{ width: '100%', height: 'auto' }}
           />
           <p className={altText}>Undertaker</p>
         </div>
@@ -168,7 +169,7 @@ export default function ClaudeDiedRip(): React.JSX.Element {
           A friend of mine sent me a video about how fast vLLM is, so I gotta try it. 
         </p>
         <div className={sharedStyles.minus10LeftMargin}>
-          <Tags tags={['AI', 'AI ownership', 'quantization', 'local model hosting', 'local inference', 'llama.cpp', 'MoE', 'DGX Spark', 'CLI tools']} />
+          <Tags tags={['Agentic AI', 'AI ownership', 'quantization', 'local model hosting', 'local inference', 'llama.cpp', 'MoE', 'DGX Spark', 'CLI tools']} />
         </div>
       </div>
       <ReturnArrow />

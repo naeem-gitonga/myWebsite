@@ -162,3 +162,7 @@ $pictures-url: '/images/';
 .mcp {
   @include background('mcp-logo');
 }
+
+.llamacpp {
+  @include background('llamacpp-logo');
+}

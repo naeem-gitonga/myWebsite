@@ -39,7 +39,8 @@ const {
   eventbridge,
   route53,
   s3,
-  lancedb
+  lancedb,
+  llamacpp
 } = styles;
 
 type StackItemProps = {
@@ -208,6 +209,13 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="Docker" className={docker} key="docker" />,
     <StackItem text="WebSockets" className={websockets} key="websockets" />,
     <StackItem text="Lambda" className={lambda} key="lambda" />,
+  ],
+  pairprogrammer: [
+    <StackItem text="TypeScript" className={typescript} key="typescript" />,
+    <StackItem text="Node" className={node} key="node" />,
+    <StackItem text="llama.cpp" className={llamacpp} key="llamacpp" />,
+    <StackItem text="Bedrock" className={bedrock} key="bedrock" />,
+    <StackItem text="Docker" className={docker} key="docker" />,
   ],
   toliveai: [
     <StackItem text="Bedrock" className={bedrock} key="bedrock" />,
