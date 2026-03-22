@@ -22,6 +22,8 @@ function generateSiteMap(prefix) {
     'example-mcp',
     'example-rag',
     'tolive-ai',
+    'ai-ruined-my-app',
+    'claude-code-died-rip'
   ].map((file) => {
     return `
       <url>
