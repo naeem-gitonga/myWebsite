@@ -13,7 +13,7 @@ import Link from 'next/link';
     imageWrapper,
     altText,
   } = articleStyles;
-export default function ClaudeDiedRip(): React.JSX.Element {
+export default function ClaudeCodeDiedRip(): React.JSX.Element {
   const { innerWrapper, text, code, subtext, blockquote, pre } = styles;
   const { tenPadding, width75 } = sharedStyles;
 
