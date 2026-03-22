@@ -73,7 +73,9 @@ export function showMessage(state: BannerState): React.JSX.Element | null {
     return (
       <div className={banner}>
         <p className={message}>
-          You&apos;ve subscribed! Check your email to confirm your subscription.
+          You&apos;ve subscribed! Check your email to confirm your subscription. 
+          Message may take a few minutes to arrive. If you don&apos;t see it, 
+          check your spam folder.
         </p>
       </div>
     );
