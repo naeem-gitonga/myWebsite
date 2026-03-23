@@ -167,8 +167,9 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
             alt="Undertaker performing his signature leg drop move on an opponent in the ring"
             loader={imageLoader}
             src="/images/undertaker-legdrop.webp"
+            width={'1056'}
+            height={'594'}
             style={{ objectFit: 'contain', maxWidth: '100%' }}
-            fill
           />
           <p className={altText}>Undertaker leg drop! John Cena is through!</p>
         </div>
