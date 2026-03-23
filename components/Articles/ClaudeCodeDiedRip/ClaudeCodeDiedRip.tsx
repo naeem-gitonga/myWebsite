@@ -290,7 +290,7 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
           So while I&apos;m not ready to cancel my Claude subscription just yet,
           I&apos;m definitely looking to cut out the middle man. And this is the 
           path to doing it. There is promise here, but I have a ways to go before 
-          throw Anthropic the peace sign. 
+          throwing Anthropic the peace sign. 
         </p>
 
         <p className={text}>
