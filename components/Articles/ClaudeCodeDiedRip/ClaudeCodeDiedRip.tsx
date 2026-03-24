@@ -116,7 +116,7 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
         <h2>The Fix</h2>
         <p className={text}>
           The DGX Spark has too small a memory footprint for the 149GB model. That stings, because Nvidia
-          says this machine can run a 200B parameter model. This is why we have to read thee fine print.
+          says this machine can run a 200B parameter model. This is why we have to read the fine print.
           It can likely run a{' '}
           <strong>4-bit-quantized</strong> 200B model at around 100GB, but not a full-precision 200B, which would be ~400GB
           in FP16. My quantized Qwen3-Coder-Next model at ~45GB runs fine on my DGX Spark. 
