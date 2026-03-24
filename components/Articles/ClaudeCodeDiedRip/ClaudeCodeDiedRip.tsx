@@ -116,7 +116,7 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
         <h2>The Fix</h2>
         <p className={text}>
           The DGX Spark has too small a memory footprint for the 149GB model. That stings, because Nvidia
-          says this machine can run a 200B parameter model. This is why we have to read thee fine print.
+          says this machine can run a 200B parameter model. This is why we have to read the fine print.
           It can likely run a{' '}
           <strong>4-bit-quantized</strong> 200B model at around 100GB, but not a full-precision 200B, which would be ~400GB
           in FP16. My quantized Qwen3-Coder-Next model at ~45GB runs fine on my DGX Spark. 
@@ -167,8 +167,9 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
             alt="Undertaker performing his signature leg drop move on an opponent in the ring"
             loader={imageLoader}
             src="/images/undertaker-legdrop.webp"
+            width={'1056'}
+            height={'594'}
             style={{ objectFit: 'contain', maxWidth: '100%' }}
-            fill
           />
           <p className={altText}>Undertaker leg drop! John Cena is through!</p>
         </div>
@@ -289,7 +290,7 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
           So while I&apos;m not ready to cancel my Claude subscription just yet,
           I&apos;m definitely looking to cut out the middle man. And this is the 
           path to doing it. There is promise here, but I have a ways to go before 
-          throw Anthropic the peace sign. 
+          throwing Anthropic the peace sign. 
         </p>
 
         <p className={text}>
