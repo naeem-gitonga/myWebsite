@@ -297,7 +297,7 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
         <p>
           I downgraded my Claude plan back to Pro from Max for the time being. I figure that 
           will make me build out this tool more. Plus, if I run into Claude Code  
-          outages  (like I have before) or if I reach my limit, I can always use Sonnet 4.6 from Bedrock. 
+          outages (like I have before) or if I reach my limit, I can always use Sonnet 4.6 from Bedrock. 
           If my local model isn&apos;t performing well on a given task, flip to something more powerful 
           on Bedrock. And that&apos;s is the beauty of a Pair Programmer. You can swap the models 
           out as you need.
