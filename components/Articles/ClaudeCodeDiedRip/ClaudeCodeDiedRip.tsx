@@ -289,8 +289,18 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
         <p className={text}>
           So while I&apos;m not ready to cancel my Claude subscription just yet,
           I&apos;m definitely looking to cut out the middle man. And this is the 
-          path to doing it. There is promise here, but I have a ways to go before 
-          throwing Anthropic the peace sign. 
+          path to doing it. There is promise here, but I have a ways to go 
+          (more features) before throwing Anthropic the peace sign.
+        </p>
+
+        <h2>Edit:</h2>
+        <p>
+          I downgraded my Claude plan back to Pro from Max for the time being. I figure that 
+          will make me build out this tool more. Plus, if I run into Claude Code  
+          outages  (like I have before) or if I reach my limit, I can always use Sonnet 4.6 from Bedrock. 
+          If my local model isn&apos;t performing well on a given task, flip to something more powerful 
+          on Bedrock. And that&apos;s is the beauty of a Pair Programmer. You can swap the models 
+          out as you need.
         </p>
 
         <p className={text}>
