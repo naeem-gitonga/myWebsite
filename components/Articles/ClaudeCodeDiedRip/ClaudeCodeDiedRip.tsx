@@ -294,7 +294,7 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
         </p>
 
         <h2>Edit:</h2>
-        <p>
+        <p className={text}>
           I downgraded my Claude plan back to Pro from Max for the time being. I figure that 
           will make me build out this tool more. Plus, if I run into Claude Code  
           outages (like I have before) or if I reach my limit, I can always use Sonnet 4.6 from Bedrock. 
