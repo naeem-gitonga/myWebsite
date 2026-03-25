@@ -2,7 +2,7 @@ export const articles: Article[] = [
   {
     title: 'Claude Code Died, RIP',
     imageUrl: 'claudediedrip',
-    lengthInMinutes: 5,
+    lengthInMinutes: 8,
     publishedDate: 'Mar 20, 2026',
     articleUrl: '/articles/claude-code-died-rip',
     noTarget: true,
