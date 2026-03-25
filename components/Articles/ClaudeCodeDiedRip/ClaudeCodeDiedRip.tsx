@@ -246,6 +246,21 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
           <strong>NOTE:</strong> If you are going to use AWS Bedrock with it, 
           you&apos;ll need a valid AWS profile with access to it.
         </p>
+
+        <p className={text}>
+          If we do want to use Bedrock, it&apos;s plug and play&mdash;here&apos;s why.     
+          The code uses Bedrock's unified Converse API which handles the model-specific translation 
+          on the AWS side. We don't pass <code className={code}>anthropic_version</code>, inference 
+          profiles, or Claude-specific body parameters because the Converse API abstracts all of that.
+        </p>
+        
+        <p className={text}>                  
+          In my other applications, I previously called Bedrock's <code className={code}>InvokeModelCommand</code>{' '} 
+          directly for Claude, and I needed <code className={code}>anthropic_version: "bedrock-2023-05-31"</code>{' '}  
+          and the full Claude-native request body. But <code className={code}>ConverseStreamCommand</code> works 
+          identically for Claude, Llama, Qwen, etc.&mdash;same call, same response structure. Brilliant!
+        </p>
+
         <h2>Other Issues</h2>
         <p className={text}>
           Being that this model is trained on who knows what data, and has it's own set of pre-baked
@@ -297,9 +312,9 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
         <p className={text}>
           I downgraded my Claude plan back to Pro from Max for the time being. I figure that 
           will make me build out this tool more. Plus, if I run into Claude Code  
-          outages (like I have before) or if I reach my limit, I can always use Sonnet 4.6 from Bedrock. 
+          outages (like I have before) or if I reach my limit, I can always use my local models or any one from Bedrock. 
           If my local model isn&apos;t performing well on a given task, flip to something more powerful 
-          on Bedrock. And that&apos;s is the beauty of a Pair Programmer. You can swap the models 
+          (on Bedrock). And that&apos;s the beauty of a Pair Programmer. You can swap the models 
           out as you need.
         </p>
 
