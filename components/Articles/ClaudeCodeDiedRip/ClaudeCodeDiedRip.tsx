@@ -308,7 +308,7 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
           (more features) before throwing Anthropic the peace sign.
         </p>
 
-        <h2>Edit:</h2>
+        <h2>{'<edit>'}</h2>
         <p className={text}>
           I downgraded my Claude plan back to Pro from Max for the time being. I figure that 
           will make me build out this tool more. Plus, if I run into Claude Code  
@@ -317,6 +317,12 @@ export default function ClaudeCodeDiedRip(): React.JSX.Element {
           (on Bedrock). And that&apos;s the beauty of a Pair Programmer. You can swap the models 
           out as you need.
         </p>
+
+        <p className={text}>
+          What&apos;s really crazy is when I plug into Bedrock and use a more powerful model,
+          I can use Pair Programmer to build out features in Pair Programmer. Talk about recrusion!
+        </p>
+        <h2>{'</edit>'}</h2>
 
         <p className={text}>
           If you want to take a look under the hood, try it for yourself check out 
