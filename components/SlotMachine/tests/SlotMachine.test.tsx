@@ -44,7 +44,7 @@ describe('SlotMachine', () => {
     const setter = jest.fn();
 
     Object.defineProperty(scrollEl, 'scrollHeight', { value: 900, configurable: true });
-    let _scrollTop = 200; // below third (300)
+    let _scrollTop = 50; // below adjustedThird (100)
     Object.defineProperty(scrollEl, 'scrollTop', {
       get: () => _scrollTop,
       set: (val) => { _scrollTop = val; setter(val); },
@@ -52,7 +52,7 @@ describe('SlotMachine', () => {
     });
 
     fireEvent.scroll(scrollEl);
-    expect(setter).toHaveBeenCalledWith(200 + 300); // 500
+    expect(setter).toHaveBeenCalledWith(50 + 300); // 350
   });
 
   it('resets scrollTop down by one third when scrolled past upper boundary', () => {
@@ -78,7 +78,7 @@ describe('SlotMachine', () => {
     const setter = jest.fn();
 
     Object.defineProperty(scrollEl, 'scrollHeight', { value: 900, configurable: true });
-    let _scrollTop = 450; // within middle third
+    let _scrollTop = 250; // within middle third (100–400)
     Object.defineProperty(scrollEl, 'scrollTop', {
       get: () => _scrollTop,
       set: (val) => { _scrollTop = val; setter(val); },
