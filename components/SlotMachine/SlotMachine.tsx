@@ -23,20 +23,21 @@ export default function SlotMachine<T>({
     if (!el) return;
 
     requestAnimationFrame(() => {
-      const mobileOffset = window.innerWidth <= 500 ? 125 : 0;
+      const offset = window.innerWidth <= 500 ? 125 : 150;
       const third = el.scrollHeight / 3;
-      el.scrollTop = third - mobileOffset;
+      el.scrollTop = third - offset;
     });
 
     const handleScroll = () => {
-      const mobileOffset = window.innerWidth <= 500 ? 125 : 0;
+      const offset = window.innerWidth <= 500 ? 125 : 150;
       const third = el.scrollHeight / 3;
-      const adjustedThird = third - mobileOffset;
+      const adjustedThird = third - offset;
       if (el.scrollTop < adjustedThird) {
         el.scrollTop += third;
       } else if (el.scrollTop > adjustedThird + third) {
         el.scrollTop -= third;
       }
+
     };
 
     el.addEventListener('scroll', handleScroll, { passive: true });

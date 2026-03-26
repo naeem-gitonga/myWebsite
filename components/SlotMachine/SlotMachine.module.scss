@@ -41,8 +41,7 @@
 
 .viewWrapper {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
   padding: 10px;
 }

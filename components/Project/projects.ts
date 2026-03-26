@@ -188,7 +188,7 @@ export const projects: Project[] = [
       '/interstitial?url=https://www.honeywell.com/us/en/industries/aerospace&where=Honeywell HCE',
   },
   {
-    title: 'Cricket Wireless**',
+    title: 'Cricket Wireless** (2020)',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/cricket.png',
     projectDes:
       'Telecommunications e-commerce web application. I worked on the shopping cart team, mostly writing vanilla JavaScript.',
@@ -197,16 +197,7 @@ export const projects: Project[] = [
       '/interstitial?url=https://www.cricketwireless.com&where=Cricket Wireless',
   },
   {
-    title: 'American Airlines Horror*',
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png',
-    projectDes: 'Custom web app. Go and vent your frustrations today.',
-    projectStack: 'aah',
-    gitHubLink:
-      '/interstitial?url=https://github.com/naeem-gitonga/first-golang-app&where=GitHub',
-  },
-
-  {
-    title: 'Gabrielle Zalina*',
+    title: 'Gabrielle Zalina* (2021)',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/gzalina.png',
     projectDes: 'Custom single-page website.',
     projectStack: 'gab',
@@ -214,7 +205,24 @@ export const projects: Project[] = [
       '/interstitial?url=https://github.com/naeem-gitonga/zalina-test&where=GitHub',
   },
   {
-    title: 'Connex*',
+    title: 'GTNG* (2021)',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/gtng.png',
+    projectDes: 'Custom website.',
+    projectStack: 'gtng',
+    projectLink: '/interstitial?url=https://www.gtng.tech/&where=GTNG, Inc.',
+    gitHubLink:
+      '/interstitial?url=https://github.com/naeem-gitonga/gtng&where=GitHub',
+  },
+  {
+    title: 'American Airlines Horror* (2019)',
+    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/aahs.png',
+    projectDes: 'Custom web app. Go and vent your frustrations today.',
+    projectStack: 'aah',
+    gitHubLink:
+      '/interstitial?url=https://github.com/naeem-gitonga/first-golang-app&where=GitHub',
+  },
+  {
+    title: 'Connex* (2017)',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/connex.png',
     projectDes:
       'Software product in Beta mode for Transportation Industry (BOLs).',
@@ -224,7 +232,7 @@ export const projects: Project[] = [
       '/interstitial?url=https://bitbucket.org/naeemgitonga/connex-back/src/master/&where=Bitbucket',
   },
   {
-    title: 'Ninety.io**',
+    title: 'Ninety.io** (2018)',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/traxion.png',
     projectDes:
       'My code helped this app acheive over 1000% growth, in paying customers, in less than two years.',
@@ -232,16 +240,7 @@ export const projects: Project[] = [
     projectLink: '/interstitial?url=https://ninety.io&where=Ninety.io',
   },
   {
-    title: 'GTNG*',
-    projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/gtng.png',
-    projectDes: 'Custom website.',
-    projectStack: 'gtng',
-    projectLink: '/interstitial?url=https://www.gtng.tech/&where=GTNG, Inc.',
-    gitHubLink:
-      '/interstitial?url=https://github.com/naeem-gitonga/gtng&where=GitHub',
-  },
-  {
-    title: 'Arithmetik*',
+    title: 'Arithmetik* (2017)',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/arithmetik.png',
     projectDes: 'Enterprise Learning application',
     projectStack: 'arithmetik',
@@ -251,7 +250,7 @@ export const projects: Project[] = [
       '/interstitial?url=https://github.com/naeem-gitonga/arithmetik&where=GitHub',
   },
   {
-    title: 'Learningo!*',
+    title: 'Learningo!* (2017)',
     projectImg: 'https://d2j3yisnywcb30.cloudfront.net/pix/loginPage.png',
     projectDes:
       'MVP for app that allows users to learn the topic of their choosing.',
