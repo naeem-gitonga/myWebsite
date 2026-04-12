@@ -230,4 +230,11 @@ export const projectStackMap: ProjectMapType = {
     <StackItem text="S3" className={s3} key="s3" />,
     <StackItem text="Next.js" className={nextjs} key="nextjs" />,
   ],
+  echoinventory: [
+    <StackItem text="Next.js" className={nextjs} key="nextjs" />,
+    <StackItem text="Node.js" className={node} key="node" />,
+    <StackItem text="AWS Lambda" className={lambda} key="lambda" />,
+    <StackItem text="DynamoDB" className={dynamodb} key="dynamodb" />,
+    <StackItem text="Bedrock" className={bedrock} key="bedrock" />,
+  ],
 };
