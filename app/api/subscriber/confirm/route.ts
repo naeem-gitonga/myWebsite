@@ -6,7 +6,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
   const email = searchParams.get('email');
   const fromWebsite = searchParams.get('fromWebsite');
   const subscriberApiUrl = process.env.NEXT_PUBLIC_SUBSCRIBER_API_URL;
-  const origin = process.env.NEXT_PUBLIC_SITE_URL || '';
+  const origin = new URL(request.url).origin;
 
   if (!token || !email || !subscriberApiUrl) {
     return NextResponse.redirect(new URL('/articles', origin));

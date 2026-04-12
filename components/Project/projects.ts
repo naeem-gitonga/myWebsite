@@ -22,7 +22,8 @@ export type ProjectName =
   | 'examplemcp'
   | 'examplerag'
   | 'toliveai'
-  | 'pairprogrammer';
+  | 'pairprogrammer'
+  | 'echoinventory';
 
 export type Project = {
   projectImg: string;
@@ -39,6 +40,18 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: 'Echo Inventory**',
+    projectImg: '/images/echo-inventory.webp',
+    projectDes:
+      'Georgia Tech Capstone project: An inventory management system with a Next.js front-end and a Lambdas with Node.js runtime, utilizing a DynamoDB database for data storage. Take pictures, update your inventory.',
+    projectStack: 'echoinventory',
+    // projectLink: '/articles/echo-inventory',
+    target: '_self',
+    linkText: 'Learn more',
+    gitHubLink:
+      '/interstitial?url=https://github.com/naeem-gitonga/echo-inventory&where=GitHub',
+  },
   {
     title: 'Pair Programmer*',
     projectImg: '/images/demo-pair-programmer.gif',
