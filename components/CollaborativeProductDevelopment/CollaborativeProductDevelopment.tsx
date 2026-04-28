@@ -443,6 +443,16 @@ const { updatedItems, createdItems } = await applyInventoryUpdates(orgId, toolIn
           knowledge, all of this would have been far more challenging, especially for the
           first-timer.
         </p>
+
+        <p className={text}>
+          I may use this application to keep my inventory for my home pantry and refrigerator. I doesn&apos;t cost
+          me anything to host it. Worst I can remove the signup so that no one else can use it. We&apos;tll see.
+          For now, you can find it at <Link href="/interstitial?url=https://echo-inventory.vercel.app&where=Echo Inventory" target="_blank" rel="noopener noreferrer">https://echo-inventory.vercel.app</Link>.
+        </p>
+
+        <p className={text}>
+          Thank you for reading! Until next time.
+        </p>
         <Tags
           tags={[
             'Product Development',
