@@ -46,9 +46,9 @@ export const projects: Project[] = [
     projectDes:
       'Georgia Tech Capstone project: I was responsible for complete architecture and implementation`. Take pictures, update your inventory.',
     projectStack: 'echoinventory',
-    // projectLink: '/articles/echo-inventory',
+    projectLink: '/articles/collaborative-product-development',
     target: '_self',
-    // linkText: 'Learn more',
+    linkText: 'Learn more',
     gitHubLink:
       '/interstitial?url=https://github.com/naeem-gitonga/echo-inventory&where=GitHub',
   },
