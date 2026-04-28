@@ -8,7 +8,7 @@ import { getAbsoluteUrl, siteConfig } from '@/utils/siteConfig';
 export function generateMetadata(): Metadata {
   const title = 'Collaborative Product Development';
   const description =
-    'Building Echo Inventory: what I learned taking a Collaborative Product Development course and shipping a real AI-powered app in weeks.';
+    'Building Echo Inventory: what I learned taking a Collaborative Product Development course and shipping a real AI-powered app in days.';
   const imageUrl = getAbsoluteUrl('/images/collaborative-product-development-og.webp');
   const pageUrl = getAbsoluteUrl('/articles/collaborative-product-development');
 
