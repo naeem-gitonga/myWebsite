@@ -67,13 +67,13 @@ export default function CollaborativeProductDevelopment(): React.JSX.Element {
           member&apos;s neighborhood. In my mind I did not think that this would be a lucrative
           business or problem to find a solution for. Why? Non-profits usually don&apos;t have a
           lot of money to spend on SaaS products. In a real-world business environment I&apos;m
-          going with something else&mdash;but it&apos;s the exercise that we want to think and work
+          going with something else, but it&apos;s the exercise that we want to think and work
           through, so I go with it.
         </p>
         <blockquote className={blockquote}>
           Note: at no point in this process did we discuss pricing. That&apos;s a key tell for
           product development. It doesn&apos;t mean product developers don&apos;t care about
-          pricing&mdash;pricing is a commercialization question, not a product development question.
+          pricing. Pricing is a commercialization question, not a product development question.
         </blockquote>
 
         <h2>Echo Inventory</h2>
@@ -98,23 +98,23 @@ export default function CollaborativeProductDevelopment(): React.JSX.Element {
           immediately after the class, I went with the web frontend.
         </p>
         <p className={text}>
-          Latency and caching were not a concern for me. If we expected heavy traffic&mdash;thousands
-          of users per day&mdash;I would have thought about this differently. I used Lambdas for
+          Latency and caching were not a concern for me. If we expected heavy traffic (i.e., thousands
+          of users per day), I would have thought about this differently. I used Lambdas for
           our backend services so we could rapidly prototype and host the application for nearly
           nothing. DynamoDB was one of the chosen data stores. S3 was another because I was thinking
-          we might want to do some re-training with the images in the future&mdash;but then I
+          we might want to do some re-training with the images in the future; but then I
           thought, no need. We&apos;re shutting this down&mdash;YAGNI. DynamoDB won as the only
           data store, with no image persistence.
         </p>
         <p className={text}>
           We needed authentication. I used Cognito. It&apos;s fast, AWS-native, secure, and comes
           with out-of-the-box features that make sign-up and sign-in easy. Authorization is minimal
-          except for the pantry owner&mdash;only they can create and update pantry members. All
+          except for the pantry owner. Only they can create and update pantry members. All
           members can update inventory and access the pantry directly. Anyone can view pantry items
           and update the inventory by submitting pictures. That last part sounds edgy just writing
           it. What if someone decided to play a prank and wipe the inventory? They would need
           pictures to do it, but in theory they could. This is a real security risk that would have
-          to be addressed in production&mdash;an auditable trail tied to user accounts would be
+          to be addressed in production. And for that, an auditable trail tied to user accounts would be
           the obvious fix.
         </p>
         <p className={text}>
@@ -125,8 +125,9 @@ export default function CollaborativeProductDevelopment(): React.JSX.Element {
           everything, but I chose to separate concerns for a more realistic implementation.
         </p>
         <p className={text}>
-          An API Gateway sits in front of our Lambdas. Our LLM choice is Amazon Nova Lite&mdash;my
-          first time using it. It&apos;s great for this prototype. We just want to examine images,
+          An API Gateway sits in front of our Lambdas. Our choice for LLM was Amazon Nova Lite.
+          This was my first time using it. It&apos;s great for this prototype. 
+          No need for a big expensive model. We just want to examine images,
           identify food items, and have the model update the database based on what it finds. Nova
           Lite does that perfectly, and cheaply. Deployment was done with AWS CDK and GitLab with
           Vercel.
@@ -187,7 +188,7 @@ GET /orgs                            — list orgs the authenticated user belong
 
         <h3>Inventory</h3>
         <p className={text}>
-          The app is multi-tenant&mdash;each org has its own isolated inventory. The{' '}
+          The app is multi-tenant, meaning each org has its own isolated inventory. The{' '}
           <code className={code}>orgId</code> in the path scopes every operation to a specific
           org, which is how the membership check works. All four routes are authenticated and
           org-membership gated.
@@ -199,7 +200,7 @@ DELETE /orgs/{orgId}/inventory/{itemId}  — delete an item`}</code></pre>
 
         <h3>Image</h3>
         <p className={text}>
-          The image Lambda handles two routes&mdash;one authenticated, one public. In both cases
+          The image Lambda handles two routes: one authenticated, one public. In both cases
           the flow is:
         </p>
         <pre className={pre}><code className={code}>{`1. Accept a base64-encoded image
@@ -225,10 +226,9 @@ POST /public/orgs/{orgId}/capture — public visitor submits a photo of items th
         <p className={text}>
           We needed a way to intelligently process images. Tool calling is what we needed. The
           LLM also needed image processing capability. Being a product developer, having this type
-          of information helps you design the product. Knowing the model matters too&mdash;not the
-          latest and greatest; even in production a cheap off-the-shelf model is probably all you
-          need. The decision to go with Amazon Nova Lite was the best deal for our use case, and
-          it works perfectly.
+          of information helps you design the product. Knowing the model matters too; even in production, 
+          a cheap off-the-shelf model is probably all you need. The decision to go with Amazon Nova Lite 
+          was the best deal for our use case, and it works perfectly.
         </p>
         <p className={text}>
           From a developer standpoint, we didn&apos;t want to manually map data to inventory. We
@@ -305,7 +305,7 @@ const { updatedItems, createdItems } = await applyInventoryUpdates(orgId, toolIn
         <p className={text}>
           <strong>1. Define the tool.</strong> You declare{' '}
           <code className={code}>UPDATE_INVENTORY_TOOL</code> as a JSON schema describing what
-          the LLM is allowed to call and what shape its output must take&mdash;an array of items,
+          the LLM is allowed to call and what shape its output must take which is an array of items,
           each with <code className={code}>item_id</code>,{' '}
           <code className={code}>name</code>, <code className={code}>quantity_delta</code>,{' '}
           <code className={code}>unit</code>, and <code className={code}>category</code>.
@@ -328,7 +328,7 @@ const { updatedItems, createdItems } = await applyInventoryUpdates(orgId, toolIn
 }`}</code></pre>
         <p className={text}>
           <strong>4. You execute the tool yourself.</strong> The LLM doesn&apos;t actually
-          update DynamoDB&mdash;it just tells you what should happen. You take its{' '}
+          update DynamoDB; it just tells you what should happen. You take its{' '}
           <code className={code}>toolInput</code> and run{' '}
           <code className={code}>applyInventoryUpdates</code>, which does the real DynamoDB
           writes. The tool call is a structured contract; the LLM fills it out, you execute it.
@@ -346,7 +346,7 @@ const { updatedItems, createdItems } = await applyInventoryUpdates(orgId, toolIn
           this, the instruction to call the tool would be meaningless.
         </p>
         <p className={text}>
-          The model isn&apos;t forced to use it&mdash;it can still return plain text if it finds
+          The model isn&apos;t forced to use it. It can still return plain text if it finds
           nothing to identify, which is why the early return check exists. You could make it
           mandatory by adding{' '}
           <code className={code}>toolChoice: {'{ tool: { name: \'update_inventory\' } }'}</code>{' '}
@@ -405,7 +405,7 @@ const { updatedItems, createdItems } = await applyInventoryUpdates(orgId, toolIn
           (resources). We had zero money and finite time. However, since there was no physical
           product, we didn&apos;t have to worry too much about constraint imbalances. There is a
           ton of free tooling out there to get this done at nearly zero cost. And because I have
-          a decade in software engineering&mdash;I know many of the best ones. The more
+          a decade in software engineering. I know many of the best ones. The more
           constraints you have, the more complex your product is.
         </p>
 
@@ -437,11 +437,11 @@ const { updatedItems, createdItems } = await applyInventoryUpdates(orgId, toolIn
           for the best idea to produce what&apos;s needed.
         </p>
         <p className={text}>
-          Finally: the customer dictates the product&mdash;listen to them. New products are
+          Finally: the customer dictates the product, so listen to them. New products are
           always the most unpredictable and iterative. The same idea can take a service form.
           Keep a tight leash on what you create. You may only have a few resources to draw from,
           so use them wisely. And without a decade of hands-on experience and technological
-          knowledge&mdash;all of this would have been far more challenging, especially for the
+          knowledge, all of this would have been far more challenging, especially for the
           first-timer.
         </p>
         <Tags
@@ -449,15 +449,10 @@ const { updatedItems, createdItems } = await applyInventoryUpdates(orgId, toolIn
             'Product Development',
             'Customer Discovery',
             'AWS',
-            'AWS CDK',
-            'DynamoDB',
-            'Lambda',
             'Amazon Bedrock',
             'Amazon Nova Lite',
             'Tool Calling',
-            'Next.js',
             'Progressive Web App',
-            'Scheller College of Business',
             'Georgia Institute of Technology',
             'Echo Inventory',
           ]}
