@@ -1,5 +1,13 @@
 export const articles: Article[] = [
   {
+    title: 'Collaborative Product Development',
+    imageUrl: 'collaborativeproduct',
+    lengthInMinutes: 12,
+    publishedDate: 'Apr 27, 2026',
+    articleUrl: '/articles/collaborative-product-development',
+    noTarget: true,
+  },
+  {
     title: 'Claude Code Died, RIP',
     imageUrl: 'claudediedrip',
     lengthInMinutes: 8,
