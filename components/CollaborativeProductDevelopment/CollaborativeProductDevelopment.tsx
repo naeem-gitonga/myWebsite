@@ -390,8 +390,7 @@ const { updatedItems, createdItems } = await applyInventoryUpdates(orgId, toolIn
         <p className={text}>
           Many folks struggle to know if an idea is good or not. The main thing is customer
           discovery. I&apos;ve talked about it in{' '}
-          <Link href="/articles/tiger-experience">My TI:GER Experience</Link>. Build on fact,
-          not your own opinion.
+          <Link href="/articles/tiger-experience">My TI:GER Experience</Link>. Build on fact&mdash;not your own opinion.
         </p>
 
         <h2>What a Prototype Is</h2>
