@@ -61,6 +61,9 @@ export default class SubscriberService extends BaseService<Subscriber> {
       status: process.env.WHICH_ROUTE === 'staging'
         ? SubscriberRoutes.statusstaging
         : SubscriberRoutes.status,
+      list: process.env.WHICH_ROUTE === 'staging'
+        ? SubscriberRoutes.liststaging
+        : SubscriberRoutes.list,
     },
   };
 
@@ -176,6 +179,16 @@ export default class SubscriberService extends BaseService<Subscriber> {
     } as sgMail.MailDataRequired);
 
     return { sent: subscribers.length };
+  }
+
+  async list(): Promise<{ subscribers: Pick<Subscriber, 'name' | 'email' | 'subscribed_at' | 'confirmed'>[]; count: number }> {
+    const { db } = await connect();
+    const collection = db.collection<Subscriber>('subscribers');
+    const subscribers = await collection
+      .find({}, { projection: { name: 1, email: 1, subscribed_at: 1, confirmed: 1, _id: 0 } })
+      .sort({ subscribed_at: -1 })
+      .toArray();
+    return { subscribers, count: subscribers.length };
   }
 
   async status(): Promise<{ state: 'confirmed' | 'pending' | 'not_found' }> {

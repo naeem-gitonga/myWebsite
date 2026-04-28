@@ -229,3 +229,45 @@ describe('SubscriberService.notify', () => {
     );
   });
 });
+
+describe('SubscriberService.list', () => {
+  beforeEach(() => jest.clearAllMocks());
+
+  it('returns empty list when no subscribers exist', async () => {
+    const collection = makeMockCollection({
+      find: jest.fn().mockReturnValue({
+        sort: jest.fn().mockReturnThis(),
+        toArray: jest.fn().mockResolvedValue([]),
+      }),
+    });
+    connect.mockResolvedValue(makeMockDb(collection));
+
+    const service = new SubscriberService(makeApiEvent({}));
+    const result = await service.list();
+
+    expect(result.count).toBe(0);
+    expect(result.subscribers).toEqual([]);
+  });
+
+  it('returns subscribers sorted by subscribed_at descending', async () => {
+    const rows = [
+      { name: 'Ada', email: 'ada@example.com', subscribed_at: '2024-02-01T00:00:00Z', confirmed: true },
+      { name: 'Bob', email: 'bob@example.com', subscribed_at: '2024-01-01T00:00:00Z', confirmed: false },
+    ];
+    const sortMock = jest.fn().mockReturnThis();
+    const collection = makeMockCollection({
+      find: jest.fn().mockReturnValue({
+        sort: sortMock,
+        toArray: jest.fn().mockResolvedValue(rows),
+      }),
+    });
+    connect.mockResolvedValue(makeMockDb(collection));
+
+    const service = new SubscriberService(makeApiEvent({}));
+    const result = await service.list();
+
+    expect(result.count).toBe(2);
+    expect(result.subscribers).toHaveLength(2);
+    expect(sortMock).toHaveBeenCalledWith({ subscribed_at: -1 });
+  });
+});

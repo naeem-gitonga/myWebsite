@@ -68,6 +68,10 @@ describe('AdminDashboard component', () => {
     });
     (analyticsApi.fetchAnalyticsData as jest.Mock).mockResolvedValue(mockAnalyticsData);
     (analyticsApi.fetchTimelineData as jest.Mock).mockResolvedValue([]);
+    (global.fetch as jest.Mock).mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ subscribers: [], count: 0 }),
+    });
   });
 
   it('renders dashboard header and tab nav', async () => {

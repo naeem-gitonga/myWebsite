@@ -240,6 +240,14 @@ export default class BackendService extends Construct {
           resources: [`arn:aws:execute-api:*:*:*/prod/*/api/${subscriberFunctionNameLowercased}/notify`],
           conditions,
         }),
+        // /list restricted to site origin — called server-side from admin route
+        new PolicyStatement({
+          effect: Effect.ALLOW,
+          principals: [new StarPrincipal()],
+          actions: ['execute-api:Invoke'],
+          resources: [`arn:aws:execute-api:*:*:*/prod/*/api/${subscriberFunctionNameLowercased}/list`],
+          conditions,
+        }),
       ],
     });
 
@@ -309,5 +317,6 @@ export default class BackendService extends Construct {
     subscriberRoutes.addResource('confirm').addMethod('GET', new LambdaIntegration(subscriberLambda));
     subscriberRoutes.addResource('notify').addMethod('POST', new LambdaIntegration(subscriberLambda));
     subscriberRoutes.addResource('status').addMethod('GET', new LambdaIntegration(subscriberLambda));
+    subscriberRoutes.addResource('list').addMethod('GET', new LambdaIntegration(subscriberLambda));
   }
 }

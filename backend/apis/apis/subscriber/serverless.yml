@@ -40,3 +40,7 @@ functions:
           path: ngsubscriber/status
           method: get
           cors: true
+      - http:
+          path: ngsubscriber/list
+          method: get
+          cors: true
