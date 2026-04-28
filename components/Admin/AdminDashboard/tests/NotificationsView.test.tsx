@@ -13,6 +13,10 @@ global.fetch = jest.fn();
 describe('NotificationsView', () => {
   beforeEach(() => {
     (global.fetch as jest.Mock).mockReset();
+    (global.fetch as jest.Mock).mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ subscribers: [], count: 0 }),
+    });
   });
 
   it('renders the article list and compose panel', () => {
@@ -65,7 +69,9 @@ describe('NotificationsView', () => {
     fireEvent.click(screen.getByRole('button', { name: /Send Notification/i }));
 
     await waitFor(() => {
-      const [url, opts] = (global.fetch as jest.Mock).mock.calls[0];
+      const notifyCall = (global.fetch as jest.Mock).mock.calls.find(([url]) => url === '/api/admin/notify');
+      expect(notifyCall).toBeDefined();
+      const [url, opts] = notifyCall!;
       expect(url).toBe('/api/admin/notify');
       expect(opts.method).toBe('POST');
       const body = JSON.parse(opts.body);
