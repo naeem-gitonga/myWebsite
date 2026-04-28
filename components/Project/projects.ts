@@ -44,7 +44,7 @@ export const projects: Project[] = [
     title: 'Echo Inventory**',
     projectImg: '/images/echo-inventory.webp',
     projectDes:
-      'Georgia Tech Capstone project: I was responsible for complete architecture and implementation. Take pictures, update your inventory.',
+      'Georgia Tech Capstone project: I was responsible for complete architecture and implementation`. Take pictures, update your inventory.',
     projectStack: 'echoinventory',
     // projectLink: '/articles/echo-inventory',
     target: '_self',
