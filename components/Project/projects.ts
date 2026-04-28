@@ -51,6 +51,8 @@ export const projects: Project[] = [
     linkText: 'Learn more',
     gitHubLink:
       '/interstitial?url=https://github.com/naeem-gitonga/echo-inventory&where=GitHub',
+    secondaryLink: 'https://echo-inventory.vercel.app',
+    secondaryTarget: '_blank',
   },
   {
     title: 'Pair Programmer*',
