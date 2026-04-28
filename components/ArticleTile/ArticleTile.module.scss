@@ -1,5 +1,6 @@
 .tileWrapper {
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   height: 250px;
   border-radius: 20px;
   display: flex;
@@ -89,6 +90,7 @@
 .placeholderOverlay {
   position: absolute;
   inset: 0;
+  border-radius: 20px;
   background: linear-gradient(120deg, #e8e8e8 25%, #f3f3f3 50%, #e8e8e8 75%);
   background-size: 200% 100%;
   z-index: 2;
