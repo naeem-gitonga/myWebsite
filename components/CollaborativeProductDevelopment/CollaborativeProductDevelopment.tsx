@@ -449,6 +449,12 @@ const { updatedItems, createdItems } = await applyInventoryUpdates(orgId, toolIn
           me anything to host it. Worst I can remove the signup so that no one else can use it. We&apos;tll see.
           For now, you can find it at <Link href="/interstitial?url=https://echo-inventory.vercel.app&where=Echo Inventory" target="_blank" rel="noopener noreferrer">https://echo-inventory.vercel.app</Link>.
         </p>
+        
+        <p className={text}>
+          And before I forget. Echo Inventory was best 2 out of 3 in the class. We were
+          voted the most likely to have impact and the most creative. We didn&apos;t get most likely 
+          to be funded but we still won. And I can live with that.
+        </p>
 
         <p className={text}>
           Thank you for reading! Until next time.
