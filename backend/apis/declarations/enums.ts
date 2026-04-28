@@ -48,4 +48,6 @@ export enum SubscriberRoutes {
   notifystaging = '/api/ngsubscriber-staging/notify',
   status = '/api/ngsubscriber/status',
   statusstaging = '/api/ngsubscriber-staging/status',
+  list = '/api/ngsubscriber/list',
+  liststaging = '/api/ngsubscriber-staging/list',
 }

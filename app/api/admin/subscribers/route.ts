@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(request: NextRequest) {
+export async function GET(request: NextRequest) {
   const session = request.cookies.get('admin_session')?.value;
   if (!session || session !== process.env.ADMIN_PASS) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -11,15 +11,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Subscriber API not configured' }, { status: 500 });
   }
 
-  const body = await request.json();
-
-  const upstream = await fetch(`${apiUrl}/notify`, {
-    method: 'POST',
+  const upstream = await fetch(`${apiUrl}/list`, {
+    method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       'Referer': 'https://www.naeemgitonga.com/',
     },
-    body: JSON.stringify(body),
   });
 
   const data = await upstream.json();
