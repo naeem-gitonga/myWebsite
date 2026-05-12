@@ -137,6 +137,10 @@ export default function AboutMe(): React.JSX.Element {
           />
           <p className={altText}>Me flying a Cessna around Stone Mountain, GA</p>
         </div>
+        <p className={about}>
+          You can watch me fly <Link href="https://www.youtube.com/channel/UCrAFDa7roE_HcH25B6JA6QQ">here</Link> on YouTube. 
+          I have a channel where I post videos of my flights. If you are interested in any of those topics, make sure to subscribe!
+        </p>
       </div>
     </div>
   );

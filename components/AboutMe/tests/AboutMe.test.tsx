@@ -53,8 +53,9 @@ describe('AboutMe', () => {
     expect(screen.getByRole('link', { name: /Program Your Life/i })).toHaveAttribute('href', '/item?item_id=1');
     expect(screen.getByRole('link', { name: /Rapid Back-End/i })).toHaveAttribute('href', '/item?item_id=2');
     const hereLinks = screen.getAllByRole('link', { name: /here/i });
-    expect(hereLinks).toHaveLength(2);
+    expect(hereLinks).toHaveLength(3);
     expect(hereLinks[0]).toHaveAttribute('href', '/articles');
     expect(hereLinks[1]).toHaveAttribute('href', '/contact');
+    expect(hereLinks[2]).toHaveAttribute('href', 'https://www.youtube.com/channel/UCrAFDa7roE_HcH25B6JA6QQ');
   });
 });
