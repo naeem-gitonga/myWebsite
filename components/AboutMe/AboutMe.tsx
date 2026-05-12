@@ -64,14 +64,15 @@ export default function AboutMe(): React.JSX.Element {
           Foundation, where the focus was the JavaScript MERN stack, AWS and a
           few other technologies. Outside of coding, I do more art. Yeah
           that&apos;s right—programming a computer, building apps and websites
-          is an art! I am also into General Aviation—real fly boy!
+          is an art! I am also into General Aviation—a real fly bwoi!
         </p>
         <p className={about}>
           Currently, I am a Principal AI Engineer working for a startup called {' '}
           <Link href="interstitial?url=https://tolive.ai&where=ToLive.ai">ToLive.ai</Link>.
           Previously, I worked for four years at a company called Pluralsight. There, my last
-          role was as a Senior MLOps Engineer. And, I am an evening
-          MBA student at Georgia Tech. I finish in May 2026.
+          role was as a Senior MLOps Engineer. And, I am also a Scheller College of Business 
+          MBA graduate. My concentration was in Technology Innovation: Generating Economic Results.
+          Ask me about it!  I am also a University Honors graduate from UNCW, where I studied Spanish.
         </p>
         <p className={about}>
           I enjoy designing and building applications &#40;not to be confused with UI design&#41;, employing
@@ -84,12 +85,11 @@ export default function AboutMe(): React.JSX.Element {
           <Link className="link" href="/item?item_id=2">
             Rapid Back-End
           </Link>
-          . I write tech articles{' '}
+          . I ccasionally write tech articles{' '}
           <Link className="link" href="/articles">
             here
           </Link>{' '}
-          exploring various technologies that I know or am learning. I
-          occasionally write articles, so stay make sure you subscribe, 
+          exploring various technologies that I know or am learning; so stay make sure you subscribe, 
           visit <Link href="/articles">articles</Link>!
         </p>
         <p className={about}>
