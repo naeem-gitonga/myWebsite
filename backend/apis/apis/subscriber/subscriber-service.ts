@@ -112,7 +112,7 @@ export default class SubscriberService extends BaseService<Subscriber> {
 
     const origin = process.env.ORIGIN;
     const confirmUrl = `${origin}/api/subscriber/confirm?email=${encodeURIComponent(email)}&token=${confirmToken}&fromWebsite=email-subscription-${encodeURIComponent(name)}`;
-    const html = confirmationTemplate(name, confirmUrl, origin);
+    const html = confirmationTemplate(name, confirmUrl, origin as string);
 
     await services.sendMail({
       to: email,
