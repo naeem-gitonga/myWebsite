@@ -59,7 +59,7 @@ export default function AboutMe(): React.JSX.Element {
         <h2 className={subhead}>More about me</h2>
         <p className={about}>
           I build enterprise applications. I practice software engineering,
-          DevOps, MLOps, AI/ML, Business Development & Strategy, and mentor collegues students.
+          DevOps, MLOps, AI/ML, Business Development & Strategy, and mentor colleagues and students.
           I used to teach coding in a boot camp that I started with GTNG
           Foundation, where the focus was the JavaScript MERN stack, AWS and a
           few other technologies. Outside of coding, I do more art. Yeah
