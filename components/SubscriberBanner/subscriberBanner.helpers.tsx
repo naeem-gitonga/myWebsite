@@ -80,6 +80,7 @@ export function showMessage(state: BannerState): React.JSX.Element | null {
       </div>
     );
   }
+
   if (state === 'confirmed') {
     return (
       <div className={banner}>
