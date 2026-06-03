@@ -137,6 +137,16 @@ export default function AboutMe(): React.JSX.Element {
           />
           <p className={altText}>Me flying a Cessna around Stone Mountain, GA</p>
         </div>
+        <div className={`${imageWrapper} ${styles.fullWidthImage}`}>
+          <LazyImage
+            alt="After completing my first solo flight"
+            loader={imageLoader}
+            src="/images/after-soloing.webp"
+            width={1536}
+            height={2048}
+          />
+          <p className={altText}>After completing my first solo flight</p>
+        </div>
         <p className={about}>
           You can watch me fly <Link href="https://www.youtube.com/channel/UCrAFDa7roE_HcH25B6JA6QQ">here</Link> on YouTube. 
           I have a channel where I post videos of my flights. If you are interested in any of those topics, make sure to subscribe!
