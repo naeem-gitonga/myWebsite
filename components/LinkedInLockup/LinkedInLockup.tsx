@@ -120,8 +120,7 @@ export default function LinkedInLockup(): React.JSX.Element {
           these systems such as those seen in the table below.
         </p>
 
-        <div className={table}>
-          <table>
+        <table className={table}>
             <thead>
               <tr>
                 <th>Technique</th>
@@ -175,7 +174,6 @@ export default function LinkedInLockup(): React.JSX.Element {
               </tr>
             </tbody>
           </table>
-        </div>
 
         <p className={text}>
           So, Can it be beat? Probably, but I&apos;ll let someone else solve that puzzle. I 
@@ -206,10 +204,10 @@ export default function LinkedInLockup(): React.JSX.Element {
           benefit of having AI. Thank God for my AI powers!
         </p>
         <p className={text}>
-          If you want to check out the code for the Lead Vetter software, see it 
+          If you want to check out the code for the Lead Vetter software, see it{' '} 
           <Link href="/interstitial?url=https://github.com/naeem-gitonga/lead-vetter&where=GitHub">here</Link>. 
           Now, do not judge me on the code quality. Since this software is not something that I can actively 
-          use I didn&apos;t bother to architect it and up as I would something that I am interested in scaling 
+          use, I didn&apos;t bother to architect it and build it as I would something that I am interested in scaling 
           or maintaining. This is for demonstrative purposes ONLY.
         </p>
         <p className={text}>
