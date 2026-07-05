@@ -26,6 +26,12 @@ module.exports = {
   mode,
   entry,
   devtool: 'source-map',
+  optimization: {
+    // whatwg-url has circular imports (URL.js <-> URL-impl.js <-> url-state-machine.js);
+    // webpack's production scope hoisting can leave a binding unresolved across the
+    // cycle, causing "c.implementation is not a constructor" at runtime in the Lambda.
+    concatenateModules: false,
+  },
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts'],
   },
