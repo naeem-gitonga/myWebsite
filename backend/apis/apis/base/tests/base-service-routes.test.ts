@@ -1,5 +1,11 @@
 /** @jest-environment node */
-import { Collection } from 'mongodb';
+import {
+  describe,
+  it,
+  expect,
+  beforeEach,
+  afterEach,
+} from '@jest/globals';
 import { APIGatewayProxyEvent } from 'aws-lambda';
 
 import BaseService from '../base-service';
@@ -7,10 +13,10 @@ import response from '../response';
 import { RouteMap } from '../../../declarations/routing';
 
 describe('Base service tests', () => {
-  let baseService;
+  let baseService: BaseService<unknown>;
   const event = {
     queryStringParameters: {
-      id: 123,
+      id: '5ffe4e2ed105ebcca53857a6',
       role: '4',
       page: '3',
       companyType: '1',
@@ -51,8 +57,9 @@ describe('Base service tests', () => {
     };
     const filter = baseService.handleFilter(event.queryStringParameters);
     expect('objectIds' in filter).toBeTruthy();
-    expect(typeof filter.objectIds[0]).toBe('object');
-    expect(typeof filter.objectIds[1]).toBe('object');
+    const objectIds = filter.objectIds as unknown[];
+    expect(typeof objectIds[0]).toBe('object');
+    expect(typeof objectIds[1]).toBe('object');
   });
 
   it('Event param deleted should be of type boolean: ', async () => {

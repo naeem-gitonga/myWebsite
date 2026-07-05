@@ -10,13 +10,22 @@ import { ParamMap, RouteMap } from '@declarations/routing';
 import { ServerErrors } from '../../declarations/enums';
 
 const s3Client = new S3Client({});
+
+export class ValidationError extends Error {
+  public statusCode = 400;
+  constructor(message: string) {
+    super(message);
+    this.name = 'ValidationError';
+  }
+}
+
 /**
  * Base service is the service from which all microservices that are exposed to the internet extend.
  */
 export default class BaseService<T> {
   public path: string;
   public method: string;
-  public routeMap: RouteMap;
+  public routeMap?: RouteMap;
   /**
    * regex is  a sort of list of various dynamic route parameters that your routes could have. These would be ObjectIds
    */
@@ -37,7 +46,7 @@ export default class BaseService<T> {
    * @returns string
    */
   public mapRequestRouteToMethod(): string {
-    const group = this.routeMap[this.method];
+    const group = this.routeMap![this.method as keyof RouteMap];
     for (const [routeName, routePath] of Object.entries(group)) {
       if (routePath === this.path) {
         return routeName;
@@ -114,7 +123,7 @@ export default class BaseService<T> {
   ): Promise<T[]> {
     const command = new GetObjectCommand(filter);
     const response = await s3Client.send(command);
-    const string = await response.Body.transformToString();
+    const string = await response.Body!.transformToString();
     return JSON.parse(string) as T[];
   }
 
@@ -163,20 +172,30 @@ export default class BaseService<T> {
     }
 
     function toObjectId(key: string) {
-      filter[key] = new ObjectId(filter[key] as string);
+      const value = filter[key];
+      if (!ObjectId.isValid(value as string)) {
+        throw new ValidationError(`Invalid id provided for "${key}"`);
+      }
+      filter[key] = new ObjectId(value as string);
     }
 
     const filterKeys = Object.keys(filter);
     filterKeys.forEach((k: string) => {
-      if (paramsToFunctionMap[k]) {
-        paramsToFunctionMap[k](k);
+      const key = k as keyof typeof paramsToFunctionMap;
+      if (paramsToFunctionMap[key]) {
+        paramsToFunctionMap[key](key);
       }
     });
 
     if (filter.objectIds) {
       filter.objectIds = (filter.objectIds as string)
         .split(',')
-        .map((id) => new ObjectId(id));
+        .map((id) => {
+          if (!ObjectId.isValid(id)) {
+            throw new ValidationError(`Invalid id provided in "objectIds": ${id}`);
+          }
+          return new ObjectId(id);
+        });
     }
 
     return filter;

@@ -10,6 +10,7 @@ import PaypalService from './paypal-service';
 import response from '../base/response';
 import UserService from '../user/user-service';
 import { SendEmailResult } from '@declarations/order';
+import { ValidationError } from '../base/base-service';
 
 export const paypal: APIGatewayProxyHandler = async (
   event: APIGatewayProxyEvent,
@@ -19,11 +20,13 @@ export const paypal: APIGatewayProxyHandler = async (
   const paypalService = new PaypalService(event);
   let paypalResponse: SendEmailResult;
   try {
-    const whichMethod = paypalService.mapRequestRouteToMethod();
-    paypalResponse = await paypalService[whichMethod]();
+    const whichMethod = paypalService.mapRequestRouteToMethod() as keyof PaypalService;
+    paypalResponse = await (paypalService[whichMethod] as () => Promise<SendEmailResult>)();
   } catch (e) {
     console.log(e);
-    return response(ServerErrors.ItBroke, 500, e);
+    const err = e instanceof Error ? e : new Error(String(e));
+    const statusCode = e instanceof ValidationError ? e.statusCode : 500;
+    return response(ServerErrors.ItBroke, statusCode, err);
   }
 
   try {
