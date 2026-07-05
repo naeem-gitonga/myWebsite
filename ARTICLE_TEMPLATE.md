@@ -38,6 +38,16 @@ Use an existing article (e.g. `regulated-compute`) as the style and folder struc
 - Create OG images in `public/images/` with `*-og` naming.
 - If an image is too wide or unreadable, crop or resize and update dimensions in `LazyImage`.
 
+## Tables
+- Apply the `table` class from `Articles.module.scss` directly to the `<table>` element, not to a wrapping `<div>`. The class's `width: 100%`, `border-collapse`, and padding rules are table/cell rules — they do nothing on a div.
+  ```tsx
+  <table className={table}>
+    <thead>...</thead>
+    <tbody>...</tbody>
+  </table>
+  ```
+- `.table` uses `table-layout: fixed` with `overflow-wrap: break-word` on cells so long, unbreakable cell content (e.g. `"Chrome DevTools Protocol (CDP) detection"`) wraps within its column instead of forcing the table wider than `innerWrapper` (which breaks the right margin and lets mobile pinch-zoom out further than other articles).
+
 ## Links
 - Add internal links where relevant (e.g., `/articles/regulated-compute`).
 - For external links, use the interstitial page format:
