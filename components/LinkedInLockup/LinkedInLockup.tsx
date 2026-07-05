@@ -52,9 +52,11 @@ export default function LinkedInLockup(): React.JSX.Element {
           if this is true, please shout it out.
         </p>
         <p className={text}>
-          My search term was &ldquo;paralegal.&rdquo; But that is too broad. So, I tried to narrow 
-          it down using LinkedIn&apos;s filters. The problem there is the filtering is not 
-          specific enough. So, here&apos;s the new problem. I now have to manually click on 
+          My search term was &ldquo;paralegal.&rdquo; But that is too broad. Using it alone
+          would give me any profile that had the word paralegal anywhere in their profile. 
+          I would end up with computer technicians and other irrelevant profiles in my results. So, I tried to narrow 
+          it down using LinkedIn&apos;s filters. The problem there is the filtering is still inadequate. 
+          So, here&apos;s the new problem. I now have to manually click on 
           every profile or scroll until I find one worthy of clicking. What do I mean by worthy?
         </p>
         <p className={text}>
@@ -203,7 +205,7 @@ export default function LinkedInLockup(): React.JSX.Element {
         </div>
 
         <p className={text}>
-          All&apos;in&apos;all, I had fun building the bot and this just shows the type of automation 
+          All in all, I had fun building the bot and this just shows the type of automation 
           that is capable with AI. I mean, how many salespeople or otherwise need to vet 
           a large number of cases or leads? This is a true 
           benefit of having AI. And I can create tooling like that for near free! 
