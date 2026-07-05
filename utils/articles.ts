@@ -2,7 +2,7 @@ export const articles: Article[] = [
   {
     title: 'LinkedIn Lockup: The Lead Vetter Story',
     imageUrl: 'linkedinlockup',
-    lengthInMinutes: 8,
+    lengthInMinutes: 6,
     publishedDate: 'Jul 5, 2026',
     articleUrl: '/articles/linkedin-lockup',
     noTarget: true,
