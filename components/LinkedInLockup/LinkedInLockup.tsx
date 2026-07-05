@@ -35,7 +35,7 @@ export default function LinkedInLockup(): React.JSX.Element {
             src="/images/linkedin-lockup.webp"
             width={800}
             height={800}
-            style={{ maxWidth: '100%', height: 'auto' }}
+            style={{ width: '100%', height: 'auto' }}
           />
         </div>
 
@@ -85,7 +85,7 @@ export default function LinkedInLockup(): React.JSX.Element {
           <li className={text}>Send all of that information to my locally hosted LLM</li>
           <li className={text}>The LLM was tasked to check each lead against those three criteria.</li>
           <li className={text}>If all three criteria were met, it would add that profile URL to a Hot Leads list, if they had not had any recent activity but had the correct job title and the correct company size it would add that profile to a Worth Checking Out list.</li>
-          <li className={text}>Finally, it would send me the two lists back once it finished two perfect .csv files</li>
+          <li className={text}>Finally, it would send me the two lists back once it finished in two .csv files</li>
         </ol>
 
         <p className={text}>
