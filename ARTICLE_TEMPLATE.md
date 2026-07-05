@@ -3,7 +3,7 @@
 Use this template when creating a new article in this repo.
 
 ## Source Content
-- Read the source document for the article (usually a `.docx` in `app/articles/<slug>/`).
+- Read the source document for the article (usually a `.docx` or a `.txt` in `app/articles/<slug>/`).
 - Extract the key points and outline the sections before writing the React component.
 
 ## Structure to Follow

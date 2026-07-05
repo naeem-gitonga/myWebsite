@@ -22,7 +22,8 @@ export const articleTileImages: Record<string, string> = {
   toliveai: '/images/tolive-ai-hero.webp',
   airuinedmyapp: '/images/ai-ruined-my-app.webp',
   claudediedrip: '/images/undertaker-chokeslam.webp',
-  collaborativeproduct: '/images/echo-inventory.webp'
+  collaborativeproduct: '/images/echo-inventory.webp',
+  linkedinlockup: '/images/linkedin-lockup.webp'
 };
 
 export const articleTileImageFallback = articleTileImages.reactcontext;
