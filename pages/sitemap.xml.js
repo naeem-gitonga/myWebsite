@@ -23,7 +23,8 @@ function generateSiteMap(prefix) {
     'example-rag',
     'tolive-ai',
     'ai-ruined-my-app',
-    'claude-code-died-rip'
+    'claude-code-died-rip',
+    'linkedin-lockup'
   ].map((file) => {
     return `
       <url>

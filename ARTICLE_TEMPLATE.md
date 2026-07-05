@@ -3,7 +3,7 @@
 Use this template when creating a new article in this repo.
 
 ## Source Content
-- Read the source document for the article (usually a `.docx` in `app/articles/<slug>/`).
+- Read the source document for the article (usually a `.docx` or a `.txt` in `app/articles/<slug>/`).
 - Extract the key points and outline the sections before writing the React component.
 
 ## Structure to Follow
@@ -38,8 +38,37 @@ Use an existing article (e.g. `regulated-compute`) as the style and folder struc
 - Create OG images in `public/images/` with `*-og` naming.
 - If an image is too wide or unreadable, crop or resize and update dimensions in `LazyImage`.
 
+## Tables
+- Apply the `table` class from `Articles.module.scss` directly to the `<table>` element, not to a wrapping `<div>`. The class's `width: 100%`, `border-collapse`, and padding rules are table/cell rules — they do nothing on a div.
+  ```tsx
+  <table className={table}>
+    <thead>...</thead>
+    <tbody>...</tbody>
+  </table>
+  ```
+- `.table` uses `table-layout: fixed` with `overflow-wrap: break-word` on cells so long, unbreakable cell content (e.g. `"Chrome DevTools Protocol (CDP) detection"`) wraps within its column instead of forcing the table wider than `innerWrapper` (which breaks the right margin and lets mobile pinch-zoom out further than other articles).
+
 ## Links
 - Add internal links where relevant (e.g., `/articles/regulated-compute`).
+- For external links, use the interstitial page format:
+  ```tsx
+  <Link href="/interstitial?url=https://github.com/naeem-gitonga/lead-vetter&where=GitHub">here</Link>
+  ```
+
+## HTML Entities
+- Use proper HTML entities for quotes and apostrophes:
+  - Apostrophe `'` → `&apos;`
+  - Opening double quote `"` → `&ldquo;`
+  - Closing double quote `"` → `&rdquo;`
+  - En dash `–` (for ranges like "1–10") → `&ndash;`
+  - Em dash `—` (for breaks in sentences) → `&mdash;`
+- Examples:
+  - `LinkedIn's` → `LinkedIn&apos;s`
+  - `here's` → `here&apos;s`
+  - `I'm` → `I&apos;m`
+  - `you're` → `you&apos;re`
+  - `1 - 10` → `1 &ndash; 10`
+  - `&ldquo;paralegal.&rdquo;`
 
 ## Tests
 - Keep the metadata test resilient:

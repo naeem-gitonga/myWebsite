@@ -197,14 +197,35 @@ p.text {
 
 .table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   margin: 20px 0;
   font-size: 18px;
+
+  // Mobile responsive styles
+  @media only screen and (max-width: 720px) {
+    font-size: 14px;
+
+    th, td {
+      padding: 6px 8px;
+    }
+  }
+
+  // Desktop styles
+  @media only screen and (min-width: 720px) {
+    font-size: 18px;
+
+    th, td {
+      padding: 8px 12px;
+    }
+  }
+
   th,
   td {
     border: 1px solid #e0e0e0;
-    padding: 8px 12px;
     text-align: left;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
   th {
     background: #f7f7f7;
