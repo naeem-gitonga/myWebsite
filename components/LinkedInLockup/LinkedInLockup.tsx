@@ -108,13 +108,13 @@ export default function LinkedInLockup(): React.JSX.Element {
         </p>
         <p className={text}>
           LinkedIn had built a profile of my usage and I&apos;m surprised it took them as long as it did. 
-          But once that profile was built there was nearly nothing that I could do to evade detection. 
+          But once that profile was built there is nearly nothing that one can do to evade detection. 
           What I imagine would really help beat the bot is to have a piece of hardware that could randomly 
-          click and scroll the page using an actual mouse. Since I&apos;m not a mechanical engineer, I&apos;m not 
-          going to try to fight that battle.
+          click and scroll the page using an actual mouse, maybe even click random links between runs. 
+          But hey, let someone else figure that out.
         </p>
         <p className={text}>
-          LinkedIn and platforms like it&mdash;that want to deter and stop bot activity&mdash;will use other 
+          LinkedIn and platforms like it&mdash;that want to deter and stop bot activity&mdash;will use  
           software like: Cloudflare Bot Management, Imperva Bot Defense, Akamai Bot Manager, 
           HUMAN Security, DataDome and the list goes on. Detection techniques are built into 
           these systems such as those seen in the table below.
