@@ -178,12 +178,12 @@ export default function LinkedInLockup(): React.JSX.Element {
           </table>
 
         <p className={text}>
-          So, Can it be beat? Probably, but I&apos;ll let someone else solve that puzzle. I 
+          So, can it be beat? Probably, but I&apos;ll let someone else solve that puzzle. I 
           actually want to use my LinkedIn account in the future and If I continue to violate 
           their terms, a permanent ban will likely follow.
         </p>
         <p className={text}>
-          I mean I pled my case to LinkedIn though. See the screenshot below. They didn&apos;t 
+          I mean, I pled my case to LinkedIn though. See the screenshot below. They didn&apos;t 
           respond. But hey! It was worth a shot.
         </p>
 
@@ -200,10 +200,11 @@ export default function LinkedInLockup(): React.JSX.Element {
         </div>
 
         <p className={text}>
-          But hey, I had fun building the bot and this just shows the type of automation 
+          All&apos;in&apos;all, I had fun building the bot and this just shows the type of automation 
           that is capable with AI. I mean, how many salespeople or otherwise need to vet 
-          something or someone and have hundreds of whatever it is to parse. This is a true 
-          benefit of having AI. Thank God for my AI powers!
+          a large number of cases or leads? This is a true 
+          benefit of having AI. And I can create tooling like that for near free! 
+          Thank God for my AI powers!
         </p>
         <p className={text}>
           If you want to check out the code for the Lead Vetter software, see it{' '} 
