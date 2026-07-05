@@ -7,6 +7,7 @@ backend/cdk/node_modules
 backend/apis/.serverless
 backend/apis/.webpack
 /backend/apis/.env*
+/backend/apis/lib
 
 .env*
 
