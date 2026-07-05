@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { siteConfig } from '@/utils/siteConfig';
 
 export async function POST(request: NextRequest) {
   const session = request.cookies.get('admin_session')?.value;
@@ -17,7 +18,7 @@ export async function POST(request: NextRequest) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Referer': 'https://www.naeemgitonga.com/',
+      'Referer': `${siteConfig.baseUrl}/`,
     },
     body: JSON.stringify(body),
   });
