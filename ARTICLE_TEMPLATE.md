@@ -40,6 +40,25 @@ Use an existing article (e.g. `regulated-compute`) as the style and folder struc
 
 ## Links
 - Add internal links where relevant (e.g., `/articles/regulated-compute`).
+- For external links, use the interstitial page format:
+  ```tsx
+  <Link href="/interstitial?url=https://github.com/naeem-gitonga/lead-vetter&where=GitHub">here</Link>
+  ```
+
+## HTML Entities
+- Use proper HTML entities for quotes and apostrophes:
+  - Apostrophe `'` → `&apos;`
+  - Opening double quote `"` → `&ldquo;`
+  - Closing double quote `"` → `&rdquo;`
+  - En dash `–` (for ranges like "1–10") → `&ndash;`
+  - Em dash `—` (for breaks in sentences) → `&mdash;`
+- Examples:
+  - `LinkedIn's` → `LinkedIn&apos;s`
+  - `here's` → `here&apos;s`
+  - `I'm` → `I&apos;m`
+  - `you're` → `you&apos;re`
+  - `1 - 10` → `1 &ndash; 10`
+  - `&ldquo;paralegal.&rdquo;`
 
 ## Tests
 - Keep the metadata test resilient:

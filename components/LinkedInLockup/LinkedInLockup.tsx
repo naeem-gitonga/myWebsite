@@ -43,15 +43,15 @@ export default function LinkedInLockup(): React.JSX.Element {
           As I attempt to do customer discovery, I find that I need hot, high priority leads. 
           I have to talk to the right people. So how do I get the right people? Well, it 
           started out using the LinkedIn search tool. I would then use some software to 
-          import everyone captured in that search. The search was not narrow enough though — 
+          import everyone captured in that search. The search was not narrow enough though&mdash;
           real issue for me. That is of no fault of my own. Perhaps if I had the LinkedIn 
           recruiter package, it would be better. Any recruiters out there that can tell me 
           if this is true, please shout it out.
         </p>
         <p className={text}>
-          My search term was "paralegal." But that is too broad. So, I tried to narrow 
-          it down using LinkedIn's filters. The problem there is the filtering is not 
-          specific enough. So, here's the new problem. I now have to manually click on 
+          My search term was &ldquo;paralegal.&rdquo; But that is too broad. So, I tried to narrow 
+          it down using LinkedIn&apos;s filters. The problem there is the filtering is not 
+          specific enough. So, here&apos;s the new problem. I now have to manually click on 
           every profile or scroll until I find one worthy of clicking. What do I mean by worthy?
         </p>
         <p className={text}>
@@ -60,30 +60,34 @@ export default function LinkedInLockup(): React.JSX.Element {
         <ul>
           <li className={text}>Job title, current job title is either paralegal, legal assistant, or attorney. And they are currently employed as such</li>
           <li className={text}>They must have been active in some way (post, repost, reacted or commented within the past month).</li>
-          <li className={text}>Have a company size of 1 &#45; 10 employees.</li>
+          <li className={text}>Have a company size of 1 &ndash; 10 employees.</li>
         </ul>
         <p className={text}>
-          So, I'm left guessing that by LinkedIn's standards, if you're not dishing out major cash, you have to do it all manually. I refuse. I know too much and as an engineer I design and build things to make my life easier. In all areas of my life.
+          So, I&apos;m left guessing that by LinkedIn&apos;s standards, if you&apos;re not dishing 
+          out major cash, you have to do it all manually. I refuse. I know too much and as an engineer 
+          I design and build things to make my life easier. In all areas of my life.
         </p>
         <p className={text}>
-          So, I got the bright idea to build the <strong>Lead Vetter</strong> Chrome extension. Now don't judge me. I did not read the terms of use policy no more than you did when I created my LinkedIn profile 10 years ago. So I vibe code this thing. I get it working and I'm testing it with my main LinkedIn account. For about 36 hours, I ran through hundreds of profiles. And then I got the dreaded account restricted message. It was only restricted for a few hours. So how did LinkedIn detect that I was using a "bot"?
+          So, I got the bright idea to build the <strong>Lead Vetter</strong> Chrome extension. 
+          Now don&apos;t judge me. I did not read the terms of use policy no more than you did when 
+          I created my LinkedIn profile 10 years ago. So I vibe code this thing. I get it working and 
+          I&apos;m testing it with my main LinkedIn account. For about 36 hours, I ran through hundreds of profiles. And then I got the dreaded account restricted message. It was only restricted for a few hours. So how did LinkedIn detect that I was using a &ldquo;bot&rdquo;?
         </p>
 
         <h2>What the Lead Vetter Does</h2>
-        <p className={text}>
-          Let's talk about what it does. First, it will:
-        </p>
+       
         <ol>
           <li className={text}>Pull a list of LinkedIn users from some other software (profile URL, name, job title, etc.).</li>
           <li className={text}>Pull their activity info</li>
           <li className={text}>Pull their experience info</li>
           <li className={text}>Try to click into their company.</li>
-          <li className={text}>If it can open their company's LinkedIn page, it will copy some basic company information (specifically the company size which I wanted to be between 1 -10 employees if you recall).</li>
+          <li className={text}>If it can open their company&apos;s LinkedIn page, it will copy some basic company information (specifically the company size which I wanted to be between 1 &ndash;10 employees if you recall).</li>
           <li className={text}>Send all of that information to my locally hosted LLM</li>
           <li className={text}>The LLM was tasked to check each lead against those three criteria.</li>
           <li className={text}>If all three criteria were met, it would add that profile URL to a Hot Leads list, if they had not had any recent activity but had the correct job title and the correct company size it would add that profile to a Worth Checking Out list.</li>
           <li className={text}>Finally, it would send me the two lists back once it finished two perfect .csv files</li>
         </ol>
+
         <p className={text}>
           I could get through 247 leads in less than 15 minutes. I mean it was a complete 
           game changer for me. I had my high priority and medium priority leads without 
@@ -92,7 +96,7 @@ export default function LinkedInLockup(): React.JSX.Element {
 
         <h2>How LinkedIn Detected the Bot</h2>
         <p className={text}>
-          So, can you beat the bot detection? Well let's get back to the part where I asked 
+          So, can you beat the bot detection? Well let&apos;s get back to the part where I asked 
           how did LinkedIn know to begin with. Any time we use apps like LinkedIn we are 
           subject to analytics, behavioral analytics. Meaning there are signals that the 
           app or website uses to tell if you are in fact a human or another computer. Behavior 
@@ -103,14 +107,14 @@ export default function LinkedInLockup(): React.JSX.Element {
           Those together were dead giveaways that a bot was in full operation.
         </p>
         <p className={text}>
-          LinkedIn had built a profile of my usage and I'm surprised it took them as long as it did. 
+          LinkedIn had built a profile of my usage and I&apos;m surprised it took them as long as it did. 
           But once that profile was built there was nearly nothing that I could do to evade detection. 
           What I imagine would really help beat the bot is to have a piece of hardware that could randomly 
-          click and scroll the page using an actual mouse. Since I'm not a mechanical engineer, I'm not 
+          click and scroll the page using an actual mouse. Since I&apos;m not a mechanical engineer, I&apos;m not 
           going to try to fight that battle.
         </p>
         <p className={text}>
-          LinkedIn and platforms like it — that want to deter and stop bot activity — will use other 
+          LinkedIn and platforms like it&mdash;that want to deter and stop bot activity&mdash;will use other 
           software like: Cloudflare Bot Management, Imperva Bot Defense, Akamai Bot Manager, 
           HUMAN Security, DataDome and the list goes on. Detection techniques are built into 
           these systems such as those seen in the table below.
@@ -174,12 +178,12 @@ export default function LinkedInLockup(): React.JSX.Element {
         </div>
 
         <p className={text}>
-          So, Can it be beat? Probably, but I'll let someone else solve that puzzle. I 
+          So, Can it be beat? Probably, but I&apos;ll let someone else solve that puzzle. I 
           actually want to use my LinkedIn account in the future and If I continue to violate 
           their terms, a permanent ban will likely follow.
         </p>
         <p className={text}>
-          I mean I pled my case to LinkedIn though. See the screenshot below. They didn't 
+          I mean I pled my case to LinkedIn though. See the screenshot below. They didn&apos;t 
           respond. But hey! It was worth a shot.
         </p>
 
@@ -205,14 +209,14 @@ export default function LinkedInLockup(): React.JSX.Element {
           If you want to check out the code for the Lead Vetter software, see it 
           <Link href="/interstitial?url=https://github.com/naeem-gitonga/lead-vetter&where=GitHub">here</Link>. 
           Now, do not judge me on the code quality. Since this software is not something that I can actively 
-          use I didn't bother to architect it and up as I would something that I am interested in scaling 
+          use I didn&apos;t bother to architect it and up as I would something that I am interested in scaling 
           or maintaining. This is for demonstrative purposes ONLY.
         </p>
         <p className={text}>
           Consider the ethical and legal implications before deploying automation.
         </p>
         <p className={text}>
-          As always, thanks for stopping by and I'll see you next time!
+          As always, thanks for stopping by and I&apos;ll see you next time!
         </p>
 
         <Tags
