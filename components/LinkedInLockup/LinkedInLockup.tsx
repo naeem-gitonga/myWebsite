@@ -38,6 +38,9 @@ export default function LinkedInLockup(): React.JSX.Element {
             style={{ width: '100%', height: 'auto' }}
           />
         </div>
+        <p className={text}>
+          <strong>Consider the ethical and legal implications before deploying automation.</strong>
+        </p>
 
         <p className={text}>
           As I attempt to do customer discovery, I find that I need hot, high priority leads. 
@@ -213,9 +216,7 @@ export default function LinkedInLockup(): React.JSX.Element {
           use, I didn&apos;t bother to architect it and build it as I would something that I am interested in scaling 
           or maintaining. This is for demonstrative purposes ONLY.
         </p>
-        <p className={text}>
-          Consider the ethical and legal implications before deploying automation.
-        </p>
+
         <p className={text}>
           As always, thanks for stopping by and I&apos;ll see you next time!
         </p>
