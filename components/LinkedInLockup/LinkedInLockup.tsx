@@ -43,7 +43,7 @@ export default function LinkedInLockup(): React.JSX.Element {
           As I attempt to do customer discovery, I find that I need hot, high priority leads. 
           I have to talk to the right people. So how do I get the right people? Well, it 
           started out using the LinkedIn search tool. I would then use some software to 
-          import everyone captured in that search. The search was not narrow enough though&mdash;
+          extract everyone captured in that search. The search was not narrow enough though&mdash;
           real issue for me. That is of no fault of my own. Perhaps if I had the LinkedIn 
           recruiter package, it would be better. Any recruiters out there that can tell me 
           if this is true, please shout it out.
@@ -58,39 +58,41 @@ export default function LinkedInLockup(): React.JSX.Element {
           Here are my criteria:
         </p>
         <ul>
-          <li className={text}>Job title, current job title is either paralegal, legal assistant, or attorney. And they are currently employed as such</li>
+          <li className={text}>Job title, current job title is either paralegal, legal assistant, or attorney. And they are currently employed as such.</li>
           <li className={text}>They must have been active in some way (post, repost, reacted or commented within the past month).</li>
           <li className={text}>Have a company size of 1 &ndash; 10 employees.</li>
         </ul>
         <p className={text}>
           So, I&apos;m left guessing that by LinkedIn&apos;s standards, if you&apos;re not dishing 
-          out major cash, you have to do it all manually. I refuse. I know too much and as an engineer 
+          out major cash, you have to do it all manually. I refused. I know too much and as an engineer 
           I design and build things to make my life easier. In all areas of my life.
         </p>
         <p className={text}>
           So, I got the bright idea to build the <strong>Lead Vetter</strong> Chrome extension. 
-          Now don&apos;t judge me. I did not read the terms of use policy no more than you did when 
-          I created my LinkedIn profile 10 years ago. So I vibe code this thing. I get it working and 
-          I&apos;m testing it with my main LinkedIn account. For about 36 hours, I ran through hundreds of profiles. And then I got the dreaded account restricted message. It was only restricted for a few hours. So how did LinkedIn detect that I was using a &ldquo;bot&rdquo;?
+          Now don&apos;t judge me. I did not read LinkedIn&apos;s terms of use policy no more than you did when 
+          I created my LinkedIn profile 10 years ago. And then I vibe code this thing. I get it working and 
+          I&apos;m testing it with my main LinkedIn account. For about 36 hours, I ran through hundreds of profiles. 
+          And then I got the dreaded account restricted message. It was only restricted for a few hours though. 
+          So, how did LinkedIn detect that I was using a &ldquo;bot&rdquo;?
         </p>
 
         <h2>What the Lead Vetter Does</h2>
        
         <ol>
           <li className={text}>Pull a list of LinkedIn users from some other software (profile URL, name, job title, etc.).</li>
-          <li className={text}>Pull their activity info</li>
-          <li className={text}>Pull their experience info</li>
+          <li className={text}>Pull their activity info.</li>
+          <li className={text}>Pull their experience info.</li>
           <li className={text}>Try to click into their company.</li>
-          <li className={text}>If it can open their company&apos;s LinkedIn page, it will copy some basic company information (specifically the company size which I wanted to be between 1 &ndash;10 employees if you recall).</li>
-          <li className={text}>Send all of that information to my locally hosted LLM</li>
+          <li className={text}>If it can open their company&apos;s LinkedIn page, it will copy some basic company information &#40;specifically the company size which I wanted to be between 1 &ndash;10 employees if you recall&#41;.</li>
+          <li className={text}>Send all of that information to my locally hosted LLM.</li>
           <li className={text}>The LLM was tasked to check each lead against those three criteria.</li>
           <li className={text}>If all three criteria were met, it would add that profile URL to a Hot Leads list, if they had not had any recent activity but had the correct job title and the correct company size it would add that profile to a Worth Checking Out list.</li>
-          <li className={text}>Finally, it would send me the two lists back once it finished in two .csv files</li>
+          <li className={text}>Finally, it would send me the two lists back once it finished in two .csv files.</li>
         </ol>
 
         <p className={text}>
           I could get through 247 leads in less than 15 minutes. I mean it was a complete 
-          game changer for me. I had my high priority and medium priority leads without 
+          game changer for me! I had my high priority and medium priority leads without 
           having to sacrifice hours clicking between profiles.
         </p>
 
