@@ -156,8 +156,6 @@ build_production:
   #   - test_lambda
   script:
     - *common_install
-    - yarn add global dotenv yaml ts-loader fast-glob serverless-webpack serverless-offline @aws-sdk/client-sqs @aws-sdk/s3-request-presigner @aws-sdk/util-format-url @aws-sdk/hash-node @aws-sdk/client-s3 @aws-sdk/client-ses
-    - yarn
     - touch .env
     - |
       variables=(
@@ -173,7 +171,7 @@ build_production:
       for var in "${variables[@]}"; do
         echo "$var" >> "$env_file"
       done
-    - yarn run package
+    - npm run package
 
 deploy_production_backend:
   id_tokens:
