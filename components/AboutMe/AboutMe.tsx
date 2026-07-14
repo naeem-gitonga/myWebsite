@@ -109,7 +109,7 @@ export default function AboutMe(): React.JSX.Element {
             style={{ objectFit: 'contain', maxWidth: '75%' }}
           />
           <p className={altText}>
-            Scheller MBA, TI&#x3a;GER &apos;26
+            Scheller MBA, TI&#x3a;GER
           </p>
           <Image
             alt="UNCW logo"
@@ -119,7 +119,7 @@ export default function AboutMe(): React.JSX.Element {
             height={137}
             style={{ objectFit: 'contain'}}
           />
-          <p className={altText}>UNCW Spanish, University Honors &apos;11</p>
+          <p className={altText}>UNCW Spanish, University Honors</p>
         </div>
         <p className={about}>
           Please, if you would like to work with me or just stopped by to look
